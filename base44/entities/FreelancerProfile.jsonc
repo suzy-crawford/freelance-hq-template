@@ -1,0 +1,63 @@
+{
+  "name": "FreelancerProfile",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "default": ""
+    },
+    "business_name": {
+      "type": "string",
+      "default": ""
+    },
+    "experience_level": {
+      "type": "string",
+      "enum": [
+        "brand_new",
+        "no_clients",
+        "has_clients"
+      ]
+    },
+    "monthly_income_goal": {
+      "type": "number",
+      "default": 0
+    },
+    "current_income": {
+      "type": "number",
+      "default": 0
+    },
+    "country": {
+      "type": "string",
+      "default": "United States"
+    },
+    "active_offer_id": {
+      "type": "string",
+      "default": ""
+    },
+    "onboarding_complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "onboarding_step": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "required": [
+    "first_name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

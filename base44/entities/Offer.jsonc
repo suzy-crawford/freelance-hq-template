@@ -1,0 +1,125 @@
+{
+  "name": "Offer",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "complete"
+      ],
+      "default": "draft"
+    },
+    "current_screen": {
+      "type": "number",
+      "default": 1
+    },
+    "experience_level": {
+      "type": "string",
+      "enum": [
+        "brand_new",
+        "no_clients",
+        "has_clients"
+      ]
+    },
+    "primary_service": {
+      "type": "string",
+      "enum": [
+        "meta_ads",
+        "organic_social",
+        "combined",
+        "other"
+      ]
+    },
+    "interested_services": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "custom_service_name": {
+      "type": "string",
+      "default": ""
+    },
+    "custom_service_details": {
+      "type": "string",
+      "default": ""
+    },
+    "niche": {
+      "type": "string",
+      "default": ""
+    },
+    "niche_is_custom": {
+      "type": "boolean",
+      "default": false
+    },
+    "niche_is_broad": {
+      "type": "boolean",
+      "default": false
+    },
+    "about_me": {
+      "type": "string",
+      "default": ""
+    },
+    "price": {
+      "type": "number",
+      "default": 0
+    },
+    "price_low": {
+      "type": "number",
+      "default": 0
+    },
+    "price_high": {
+      "type": "number",
+      "default": 0
+    },
+    "price_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "record": {
+      "type": "object"
+    },
+    "package": {
+      "type": "object"
+    },
+    "selected_name": {
+      "type": "string",
+      "default": ""
+    },
+    "paper_style": {
+      "type": "string",
+      "default": "classic"
+    },
+    "paper_overrides": {
+      "type": "object"
+    },
+    "refine_history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
