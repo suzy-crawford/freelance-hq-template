@@ -54,7 +54,10 @@ const RECORD_SCHEMA = obj({
 // Second middle option is labeled so members can see the difference.
 export const BODY_TYPES = { what: "What they get", why: "Why choose them" };
 
-const KNOWLEDGE = `STRATEGY KNOWLEDGE (use as guidance, not rigid rules)
+// Prompt text blocks. Kept in one object so live content (liveContent.js) can update them.
+export const PROMPT_TEXT = {};
+
+PROMPT_TEXT.knowledge = `STRATEGY KNOWLEDGE (use as guidance, not rigid rules)
 - Local businesses: broad targeting around the business, mention the city, lead with a specific offer. Leads usually go to a Meta Instant Form with 2 or 3 qualifying questions. Speed to lead matters: follow up within 5 minutes.
 - Med spas and aesthetics: offer-first creative, real provider photos, confident language. Lead forms preferred.
 - Dental: routine and cosmetic offers should be separate campaigns. Routine: team and family imagery. Cosmetic: aspirational imagery, consultation offer.
@@ -103,7 +106,7 @@ function setupFacts(setup) {
 - Allowed call-to-action buttons: ${setup.cta_options.join(", ")}`;
 }
 
-const HONESTY = `HONESTY RULES (these win over everything)
+PROMPT_TEXT.honesty = `HONESTY RULES (these win over everything)
 - Never invent facts, offers, prices, discounts, reviews, ratings, review counts, results, credentials, years in business, customer counts, scarcity or deadlines. Use only what is in THE BUSINESS and THEIR WEBSITE above. If you suggest an offer, say it's a suggestion in assumptions.
 - When the strongest version of a line needs a fact you don't have, write a short blank in square brackets instead, like [price], [regular price], [Google rating], [number of reviews], [years in business], [provider name], [end date]. The freelancer fills these in with the client. Never put a made-up value in its place. Use at most 3 blanks per ad.
 - No guarantees. No numbers for expected leads, sales, cost per lead or return.
@@ -119,7 +122,7 @@ function emojiStyle(campaign) {
 - Only emojis that fit the business and feel natural. No flags, faces with strong emotions, money bags, fire or 100. Never replace words with emojis.`;
 }
 
-const AD_COPY_STYLE = `HOW TO WRITE THE ADS (direct, local, specific)
+PROMPT_TEXT.adCopyStyle = `HOW TO WRITE THE ADS (direct, local, specific)
 These ads are written by the business to its customers. Write like the best-performing local business ads on Facebook and Instagram:
 - The first line does the most work. Lead with the offer, the result, or the most interesting specific thing, following the angle. A scroller should know what this is and why it's worth a look from line one.
 - Short lines. One idea per line. Line breaks between lines are good.
@@ -143,18 +146,18 @@ Good first line: "Your first facial at [Business], [price] (usually [regular pri
 
 // The ad-writing rules, reused by the Claude prompts that write new ads.
 export function adWritingRules(campaign) {
-  return `${AD_COPY_STYLE}
+  return `${PROMPT_TEXT.adCopyStyle}
 
 ${emojiStyle(campaign)}
 
-${HONESTY}`;
+${PROMPT_TEXT.honesty}`;
 }
 
 function angleCount(setup) {
   return Math.min(4, Math.max(2, setup.budget.ads_per_ad_set || 3));
 }
 
-const ANGLE_GUIDE = `EACH ANGLE BECOMES ONE FINISHED AD. Fill these parts:
+PROMPT_TEXT.angleGuide = `EACH ANGLE BECOMES ONE FINISHED AD. Fill these parts:
 - category: the angle category id (like ANG-01).
 - name: the angle name.
 - why: one sentence to the freelancer on why this angle fits this business.
@@ -237,7 +240,7 @@ ${setupFacts(setup)}
 AD RULES THAT MUST BE FOLLOWED
 ${rules.map((r) => `- ${r}`).join("\n")}
 
-${KNOWLEDGE}
+${PROMPT_TEXT.knowledge}
 
 STEP 1. RESEARCH (fill research)
 reasons_to_buy: 5 real reasons someone would choose this. objections: 3 hesitations before buying. moments: 3 moments that make someone look for this. Base them on the business type and what was provided. No statistics.
@@ -246,9 +249,9 @@ ${anglesBlock(niche, n)}
 
 ${creativeForPrompt(niche?.id)}
 
-${ANGLE_GUIDE}
+${PROMPT_TEXT.angleGuide}
 
-${AD_COPY_STYLE}
+${PROMPT_TEXT.adCopyStyle}
 
 ${emojiStyle(campaign)}
 
@@ -259,7 +262,7 @@ journey: steps (4 to 5 from seeing the ad to becoming a customer, label and text
 launch: from_client (things to get from the client beyond access and payment, including the facts needed to fill any [blanks]), before_publish (2 to 4 checks specific to THIS business and offer), monitor (3 or 4 things to watch in the first two weeks), first_results (2 to 3 sentences on reading the first results calmly).
 assumptions: anything you had to assume or suggest. Empty list if nothing.
 
-${HONESTY}`,
+${PROMPT_TEXT.honesty}`,
     response_json_schema: RECORD_SCHEMA,
   };
 }
@@ -289,13 +292,13 @@ RULES
 AD RULES
 ${rules.map((r) => `- ${r}`).join("\n")}
 
-${ANGLE_GUIDE}
+${PROMPT_TEXT.angleGuide}
 
-${AD_COPY_STYLE}
+${PROMPT_TEXT.adCopyStyle}
 
 ${emojiStyle(campaign)}
 
-${HONESTY}`,
+${PROMPT_TEXT.honesty}`,
     response_json_schema: RECORD_SCHEMA,
   };
 }
@@ -341,13 +344,13 @@ ${creativeForPrompt(niche?.id)}
 AD RULES
 ${rules.map((r) => `- ${r}`).join("\n")}
 
-${ANGLE_GUIDE}
+${PROMPT_TEXT.angleGuide}
 
-${AD_COPY_STYLE}
+${PROMPT_TEXT.adCopyStyle}
 
 ${emojiStyle(campaign)}
 
-${HONESTY}`,
+${PROMPT_TEXT.honesty}`,
     response_json_schema: ANGLE_SCHEMA,
   };
 }

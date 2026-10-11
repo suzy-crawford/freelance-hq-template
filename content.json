@@ -1,0 +1,1806 @@
+{
+  "schema": 1,
+  "version": "1.1.0",
+  "rev": 2,
+  "published": "2026-10-11T23:17:40.729Z",
+  "angleCategories": [
+    {
+      "id": "ANG-01",
+      "name": "Offer & Incentive",
+      "psychology": "Give someone a compelling reason to act",
+      "concept": "Give the customer a tangible reason to take action: an attractive offer, introductory incentive, trial, complimentary service, or clearly defined package. Valuable, specific, easy to understand.",
+      "rules": [
+        "Lead with the actual offer.",
+        "Include the price or financial incentive when relevant.",
+        "Clearly explain what is included.",
+        "Highlight any legitimate limitations or eligibility requirements.",
+        "Don't invent discounts, free services, or promotional deadlines."
+      ],
+      "formats": "Offer-led static image, short promotional video, package comparison carousel, or service demonstration with an offer overlay.",
+      "examples": [
+        "Your first HydraFacial for just $49.",
+        "Your first class is on us.",
+        "Schedule your complimentary pest inspection."
+      ]
+    },
+    {
+      "id": "ANG-02",
+      "name": "Transformation & Results",
+      "psychology": "Demonstrate the potential outcome",
+      "concept": "Help the customer visualize the result of buying. Demonstrate the value rather than describing it.",
+      "rules": [
+        "Prioritize actual client, customer, or product results.",
+        "Use before-and-after creative when suitable and platform-compliant.",
+        "Include specific outcomes only when documented.",
+        "Avoid suggesting every customer will experience the same result.",
+        "When a physical transformation isn't appropriate, use a customer success story."
+      ],
+      "formats": "Before-and-after carousel, transformation Reel, case-study video, comparison imagery, or customer story.",
+      "examples": [
+        "Two hours completely transformed this driveway.",
+        "You won't believe this is the same car.",
+        "Wait until you see this pup after their appointment."
+      ]
+    },
+    {
+      "id": "ANG-03",
+      "name": "Social Proof",
+      "psychology": "Show that other people trust the business",
+      "concept": "Let satisfied customers communicate the value and credibility of the business.",
+      "rules": [
+        "Use authentic testimonials, reviews, or case studies.",
+        "Include verifiable ratings, review counts, and customer results.",
+        "Prioritize relatable customer experiences.",
+        "Don't manufacture testimonials, numbers, or endorsement claims.",
+        "Select proof relevant to the service being advertised."
+      ],
+      "formats": "UGC, testimonial video, review overlays, case-study carousel, customer reaction footage.",
+      "examples": [
+        "See why homeowners across [City] choose our team.",
+        "Don't take our word for it. Meet our members.",
+        "Here's why these pet parents keep coming back."
+      ]
+    },
+    {
+      "id": "ANG-04",
+      "name": "Education & Myth Busting",
+      "psychology": "Answer questions and remove uncertainty",
+      "concept": "Answer the questions customers have before purchasing and help them understand the product or service.",
+      "rules": [
+        "Identify common customer questions, concerns, or misconceptions.",
+        "Lead with one specific question.",
+        "Provide genuinely useful information.",
+        "Keep the language simple and conversational.",
+        "Present the business as a knowledgeable resource.",
+        "Don't exaggerate risks, invent facts, or make unsupported health or financial claims."
+      ],
+      "formats": "Expert talking-head video, FAQ carousel, myth-versus-fact graphic, whiteboard explanation, or demonstration.",
+      "examples": [
+        "What actually happens during your first Botox appointment?",
+        "Three signs your AC might need servicing.",
+        "How often should your dog actually be groomed?"
+      ]
+    },
+    {
+      "id": "ANG-05",
+      "name": "Process & Demonstration",
+      "psychology": "Show the product or service in action",
+      "concept": "Show the customer what happens when they buy, visit, book, or use the service. Let people watch it.",
+      "rules": [
+        "Focus on one visually interesting process.",
+        "Show real products, team members, tools, or service delivery.",
+        "Use close-up footage when applicable.",
+        "Explain what the viewer is watching.",
+        "Keep the content natural rather than overly polished.",
+        "Use hooks that create curiosity."
+      ],
+      "formats": "POV footage, behind-the-scenes video, ASMR-style footage, short demonstrations, process montages, and walkthroughs.",
+      "examples": [
+        "Come behind the scenes of a HydraFacial appointment.",
+        "Here's what 45 minutes at [Studio] actually looks like.",
+        "30 seconds of the most satisfying car detail you'll see today."
+      ]
+    },
+    {
+      "id": "ANG-06",
+      "name": "Authority & Trust",
+      "psychology": "Establish credibility and expertise",
+      "concept": "Why choose this business instead of another: credibility, expertise, transparency, professionalism, and the real people behind it.",
+      "rules": [
+        "Identify the business's strongest genuine differentiator.",
+        "Show the owner, specialist, team, or facilities.",
+        "Highlight relevant qualifications, experience, certifications, and achievements.",
+        "Use local credibility when applicable.",
+        "Avoid vague claims such as \"the best in town\" without substantiation.",
+        "Prioritize specific proof over generic statements."
+      ],
+      "formats": "Business owner talking-head video, team introductions, clinic or facility tour, local project montage, documentary-style footage.",
+      "examples": [
+        "I'm Dr. [Name], and here's what you can expect at our practice.",
+        "Meet the team taking care of homes across [City].",
+        "I'm [Name], and here's what makes our studio different."
+      ]
+    },
+    {
+      "id": "ANG-07",
+      "name": "Problem & Solution",
+      "psychology": "Connect an existing problem to a solution",
+      "concept": "Highlight a specific problem customers already recognize, then introduce the business as a relevant solution. Specific and practical, not exaggerated fear.",
+      "rules": [
+        "Identify a realistic customer problem.",
+        "Show how it affects their life or creates inconvenience.",
+        "Introduce the service as a possible solution.",
+        "Explain what the business actually does.",
+        "End with a logical next step.",
+        "Avoid fearmongering, personal-attribute assumptions, or guaranteed outcomes."
+      ],
+      "formats": "Problem/solution video, UGC-style talking head, simple comparison graphic, educational carousel.",
+      "examples": [
+        "That strange noise coming from your AC might be worth checking.",
+        "Not all roof damage is obvious from the ground.",
+        "When a quick car wash just isn't cutting it."
+      ]
+    },
+    {
+      "id": "ANG-08",
+      "name": "Seasonal & Urgency",
+      "psychology": "Create timely, legitimate reasons to act",
+      "concept": "Connect the offer to a relevant time, season, event, deadline, or real availability limit, so the customer has a reason to act now.",
+      "rules": [
+        "Identify real seasonal or event-based demand.",
+        "Make the context geographically relevant where needed.",
+        "Only include genuine deadlines, inventory constraints, or booking limitations.",
+        "Avoid fabricated scarcity.",
+        "Connect the event or season to a specific offer or service."
+      ],
+      "formats": "Promotional Reel, deadline-led static, seasonal service video, collection teaser, event announcement.",
+      "examples": [
+        "Get your AC serviced before the summer heat arrives.",
+        "Introducing our summer glow package.",
+        "Game day plans? We've got your food covered."
+      ]
+    },
+    {
+      "id": "ANG-09",
+      "name": "Convenience & Accessibility",
+      "psychology": "Make the decision feel easier",
+      "concept": "Show how the business removes time, effort, uncertainty, or friction from buying. This angle sells simplicity.",
+      "rules": [
+        "Identify what makes purchasing or booking easier.",
+        "Emphasize genuine conveniences such as location, scheduling, mobile service, delivery, payment options, or a simplified process.",
+        "Focus on one primary convenience per ad.",
+        "Make the next step immediately clear.",
+        "Never invent financing terms, service speeds, or availability."
+      ],
+      "formats": "POV videos, booking walkthroughs, convenience-focused talking heads, simple graphics, day-in-the-life footage.",
+      "examples": [
+        "Professional car detailing, right in your driveway.",
+        "Morning, midday, or evening. Find a class that fits your schedule.",
+        "Your dog's grooming appointment, right outside your front door."
+      ]
+    },
+    {
+      "id": "ANG-10",
+      "name": "Product & Service Showcase",
+      "psychology": "Make the offering itself desirable",
+      "concept": "Make the product, service, location, or experience the hero. Lead with what makes the offering desirable.",
+      "rules": [
+        "Highlight one hero product or service.",
+        "Show the offering in its best authentic setting.",
+        "Emphasize tangible features and differentiators.",
+        "Include product or service details that help the customer make a decision.",
+        "Prioritize real visuals over generic stock imagery."
+      ],
+      "formats": "Product videos, cinematic close-ups, lifestyle imagery, service showcases, carousels, walkthroughs, and collection videos.",
+      "examples": [
+        "This is our best-selling dish, and it's easy to see why.",
+        "Meet the piece we're known for.",
+        "Come take a closer look at our HydraFacial treatment."
+      ]
+    }
+  ],
+  "niches": [
+    {
+      "id": "med_spa",
+      "label": "Med spas and beauty",
+      "match": "(med ?spa|aesthetic|botox|filler|injectable|laser|facial|skin ?care|derma|lash|brow|body sculpt|hydrafacial)",
+      "budget": [
+        25,
+        50
+      ],
+      "radius": [
+        10,
+        15
+      ],
+      "cpl": [
+        15,
+        45
+      ],
+      "cpl_note": "depending on the offer",
+      "source": "suzy",
+      "cta": "Book now",
+      "formats": "Process videos, treatment carousels",
+      "form_fields": "Name, phone, service interest",
+      "recommends": "Treatment process videos for engagement, results-focused creative for conversion, introductory offers, and showing the clinic's clean, professional space.",
+      "compliance": "Some cosmetic procedure ads have extra platform restrictions. Use consented imagery, avoid personal-attribute assumptions, and never imply guaranteed medical results.",
+      "priority": [
+        "First-Time Offer",
+        "Transformation",
+        "The Process Video"
+      ],
+      "angles": [
+        {
+          "name": "Transformation",
+          "category": "ANG-02",
+          "concept": "Demonstrate visible treatment results.",
+          "creative": "Before-and-after photos with client permission.",
+          "example": "A look at our real client results.",
+          "why": "Communicates the value of the service visually.",
+          "idea": "Demonstrate visible treatment results."
+        },
+        {
+          "name": "First-Time Offer",
+          "category": "ANG-01",
+          "concept": "Encourage new customers to try a treatment at an introductory price.",
+          "creative": "Treatment footage with the introductory offer.",
+          "example": "Your first facial, $49 (regularly $120).",
+          "why": "Lowers the barrier to booking and opens the door to repeat visits.",
+          "idea": "Encourage new customers to try a treatment at an introductory price."
+        },
+        {
+          "name": "The Process Video",
+          "category": "ANG-05",
+          "concept": "Show the treatment being performed.",
+          "creative": "15 to 30 seconds of close-up treatment footage, ASMR-style audio works well.",
+          "example": "Come behind the scenes of a HydraFacial appointment.",
+          "why": "Makes the treatment easier to understand and is naturally engaging.",
+          "idea": "Show the treatment being performed."
+        },
+        {
+          "name": "The Myth Buster",
+          "category": "ANG-04",
+          "concept": "Address common misconceptions about a treatment.",
+          "creative": "Practitioner talking directly to camera.",
+          "example": "Botox doesn't freeze your face.",
+          "why": "Answers the worry that stops people booking.",
+          "caution": "Claims must be qualified, medically accurate and appropriate to the actual procedure.",
+          "idea": "Address common misconceptions about a treatment."
+        },
+        {
+          "name": "Social Proof",
+          "category": "ANG-03",
+          "concept": "Feature a real client describing their experience.",
+          "creative": "About 15 seconds of client testimonial.",
+          "example": "I've been coming here for 2 years and my skin has never looked better.",
+          "why": "Builds trust through firsthand experience.",
+          "idea": "Feature a real client describing their experience."
+        },
+        {
+          "name": "Event / Season",
+          "category": "ANG-08",
+          "concept": "Connect treatments to upcoming events or seasons.",
+          "creative": "Lifestyle and treatment footage for the moment.",
+          "example": "Get wedding-ready with our bridal glow package.",
+          "why": "Connects the service to a reason they already have to book.",
+          "idea": "Connect treatments to upcoming events or seasons."
+        }
+      ]
+    },
+    {
+      "id": "dental",
+      "label": "Dental practices",
+      "match": "(dent|orthodont|invisalign|implant|teeth|smile|veneer)",
+      "budget": [
+        40,
+        100
+      ],
+      "radius": [
+        10,
+        20
+      ],
+      "cpl": [
+        40,
+        77
+      ],
+      "cpl_note": "about $77 in the 2025 data",
+      "source": "localiq",
+      "cta": "Book now",
+      "formats": "Dentist videos, patient testimonials, treatment explainers",
+      "form_fields": "Name, phone, treatment interest",
+      "recommends": "Consultation offers for high-ticket treatments, real patient experiences, and the dentist answering common questions on camera.",
+      "compliance": "Avoid assumptions about someone's health or appearance. Testimonials, imagery, financing language and treatment claims must meet healthcare advertising and privacy rules.",
+      "priority": [
+        "The Consultation Offer",
+        "Patient Experience",
+        "Treatment Myth Buster"
+      ],
+      "angles": [
+        {
+          "name": "Smile Transformation",
+          "category": "ANG-02",
+          "concept": "Show genuine treatment outcomes and the value of cosmetic dentistry.",
+          "creative": "Consented patient imagery, smile reveals, patient interviews.",
+          "example": "See the smile transformations happening at [Practice Name].",
+          "why": "Makes the result easier to picture. Best for veneers, whitening, implants.",
+          "idea": "Show genuine treatment outcomes and the value of cosmetic dentistry."
+        },
+        {
+          "name": "The Consultation Offer",
+          "category": "ANG-01",
+          "concept": "Give people a low-commitment way to learn about treatment.",
+          "creative": "Friendly dentist explaining what happens at the appointment.",
+          "example": "Considering dental implants? Book a consultation to explore your options.",
+          "why": "Reduces uncertainty before a big treatment decision.",
+          "idea": "Give people a low-commitment way to learn about treatment."
+        },
+        {
+          "name": "Treatment Myth Buster",
+          "category": "ANG-04",
+          "concept": "Address common concerns about dental procedures.",
+          "creative": "Dentist talking to camera in a short educational video.",
+          "example": "How long does Invisalign actually take?",
+          "why": "Answers the questions that stop people booking.",
+          "idea": "Address common concerns about dental procedures."
+        },
+        {
+          "name": "Patient Experience",
+          "category": "ANG-03",
+          "concept": "A real patient describing their experience.",
+          "creative": "20 to 45 second patient interview filmed in the clinic.",
+          "example": "Here's what patients say about their experience at [Practice Name].",
+          "why": "Reduces anxiety and builds trust before the first visit.",
+          "idea": "A real patient describing their experience."
+        },
+        {
+          "name": "Meet Your Dentist",
+          "category": "ANG-06",
+          "concept": "Introduce the dentist and the practice's approach.",
+          "creative": "Dentist explaining their approach, the team, a short clinic tour.",
+          "example": "Meet Dr. [Name] and the team behind [Practice Name].",
+          "why": "Makes an intimidating appointment feel familiar.",
+          "idea": "Introduce the dentist and the practice's approach."
+        },
+        {
+          "name": "The Financing Explainer",
+          "category": "ANG-09",
+          "concept": "Address the cost barrier for major treatments.",
+          "creative": "Dentist or coordinator explaining payment options.",
+          "example": "Exploring dental implants? Learn about our payment options.",
+          "why": "Gets people to ask instead of assuming they can't afford it.",
+          "caution": "Never invent financing terms.",
+          "idea": "Address the cost barrier for major treatments."
+        }
+      ]
+    },
+    {
+      "id": "chiro",
+      "label": "Chiropractic clinics",
+      "match": "(chiro|spinal|posture|physio|physical therapy)",
+      "budget": [
+        25,
+        60
+      ],
+      "radius": [
+        8,
+        15
+      ],
+      "cpl": [
+        42,
+        48
+      ],
+      "cpl_note": "physicians and clinics in the 2025 data",
+      "source": "localiq",
+      "cta": "Book now",
+      "formats": "Practitioner videos, clinic tours, patient stories",
+      "form_fields": "Name, phone, what they'd like help with",
+      "recommends": "An easy introductory visit, showing what an appointment looks like, and the chiropractor explaining things on camera.",
+      "compliance": "No cure claims or unsupported medical promises, and never assume the viewer has a medical condition.",
+      "priority": [
+        "New Patient Special",
+        "The Adjustment Process",
+        "The Educational Explainer"
+      ],
+      "angles": [
+        {
+          "name": "New Patient Special",
+          "category": "ANG-01",
+          "concept": "Offer an easy introductory visit.",
+          "creative": "Chiropractor walking through what a first visit includes.",
+          "example": "New to [Clinic Name]? Ask about our introductory consultation.",
+          "why": "A low-commitment starting point for someone new to the practice.",
+          "idea": "Offer an easy introductory visit."
+        },
+        {
+          "name": "The Educational Explainer",
+          "category": "ANG-04",
+          "concept": "Answer common questions.",
+          "creative": "Chiropractor speaking to camera with simple demonstrations.",
+          "example": "What actually happens during your first chiropractic appointment?",
+          "why": "Builds trust through education.",
+          "idea": "Answer common questions."
+        },
+        {
+          "name": "The Adjustment Process",
+          "category": "ANG-05",
+          "concept": "Show what an appointment looks like.",
+          "creative": "Short footage of a real appointment, with permission.",
+          "example": "Ever wondered what happens during a chiropractic visit?",
+          "why": "Takes the mystery out of it and is visually engaging.",
+          "idea": "Show what an appointment looks like."
+        },
+        {
+          "name": "Patient Testimonial",
+          "category": "ANG-03",
+          "concept": "A real patient's experience with the clinic.",
+          "creative": "Short interview about the visit and how they were looked after.",
+          "example": "A closer look at the patient experience at [Clinic Name].",
+          "why": "Relatable proof for new patients.",
+          "idea": "A real patient's experience with the clinic."
+        },
+        {
+          "name": "The Desk Worker Angle",
+          "category": "ANG-07",
+          "concept": "Useful content for people who sit all day.",
+          "creative": "Practitioner demonstrating posture and desk setup tips.",
+          "example": "Three simple ways to make your desk setup more comfortable.",
+          "why": "Gives value first while introducing the clinic.",
+          "idea": "Useful content for people who sit all day."
+        },
+        {
+          "name": "Meet Your Chiropractor",
+          "category": "ANG-06",
+          "concept": "Introduce the practitioner and the clinic.",
+          "creative": "30-second talking head plus treatment-room footage.",
+          "example": "I'm Dr. [Name]. Here's what to expect when you visit our clinic.",
+          "why": "Builds familiarity before booking.",
+          "idea": "Introduce the practitioner and the clinic."
+        }
+      ]
+    },
+    {
+      "id": "fitness",
+      "label": "Gyms and fitness studios",
+      "match": "(gym|fitness|yoga|pilates|crossfit|boxing|personal train|barre|spin class|cycle studio|bootcamp)",
+      "budget": [
+        15,
+        35
+      ],
+      "radius": [
+        5,
+        8
+      ],
+      "cpl": [
+        8,
+        20
+      ],
+      "source": "playbook",
+      "cta": "Sign up",
+      "formats": "Video showing the class atmosphere",
+      "form_fields": "Name, phone, preferred class time",
+      "recommends": "Class footage over equipment photos, free trials, a tight local radius, real member stories, and community-focused messages.",
+      "compliance": "Member results must be genuine, in context, and never presented as typical or guaranteed.",
+      "priority": [
+        "Free Trial Class",
+        "Community Vibe",
+        "Coach / Trainer Intro"
+      ],
+      "angles": [
+        {
+          "name": "Free Trial Class",
+          "category": "ANG-01",
+          "concept": "Let people try a session before committing.",
+          "creative": "Real footage of a class in action.",
+          "example": "First class free. No commitment. Just show up.",
+          "why": "Lowers the barrier to getting through the door.",
+          "idea": "Let people try a session before committing."
+        },
+        {
+          "name": "Transformation Story",
+          "category": "ANG-02",
+          "concept": "Showcase a member's progress.",
+          "creative": "Member testimonial with permission-based progress imagery.",
+          "example": "Meet the members making progress at [Gym].",
+          "why": "A real member, not a stock photo.",
+          "idea": "Showcase a member's progress."
+        },
+        {
+          "name": "Community Vibe",
+          "category": "ANG-10",
+          "concept": "Sell the atmosphere and the people.",
+          "creative": "Classes in action, high fives, music, group energy.",
+          "example": "This is what a morning at [Studio] looks like.",
+          "why": "Sells the experience, not the equipment.",
+          "idea": "Sell the atmosphere and the people."
+        },
+        {
+          "name": "The No-Gym Person",
+          "category": "ANG-07",
+          "concept": "Appeal to people who dislike regular gyms.",
+          "creative": "Welcoming members, different workouts, supportive coaching.",
+          "example": "Hate the gym? Us too. That's why we built something different.",
+          "why": "Sets the studio apart from a regular gym.",
+          "idea": "Appeal to people who dislike regular gyms."
+        },
+        {
+          "name": "New Year / Season",
+          "category": "ANG-08",
+          "concept": "Tie a promotion to seasonal motivation.",
+          "creative": "Class montage with the offer.",
+          "example": "January special: $0 enrollment and your first month 50% off.",
+          "why": "Pairs motivation they already have with a timely offer.",
+          "idea": "Tie a promotion to seasonal motivation."
+        },
+        {
+          "name": "Coach / Trainer Intro",
+          "category": "ANG-06",
+          "concept": "Introduce the person members will work with.",
+          "creative": "About 30 seconds of the coach talking to camera.",
+          "example": "I'm [Name], and here's what we do differently at our studio.",
+          "why": "They know the coach before they walk in.",
+          "idea": "Introduce the person members will work with."
+        }
+      ]
+    },
+    {
+      "id": "restaurant",
+      "label": "Restaurants, cafes and bars",
+      "match": "(restaurant|cafe|coffee|pizza|\\bbar\\b|grill|bakery|kitchen|taco|sushi|brunch|food|diner|bistro)",
+      "budget": [
+        15,
+        30
+      ],
+      "radius": [
+        5,
+        10
+      ],
+      "cpl": [
+        3,
+        8
+      ],
+      "source": "playbook",
+      "cta": "Get directions",
+      "formats": "Food preparation video, close-up food photos",
+      "form_fields": "",
+      "recommends": "Food preparation videos over static photos, close-ups over wide shots, deals with real deadlines over generic menus, and a tight radius.",
+      "compliance": "",
+      "priority": [
+        "The Deal",
+        "The Hero Shot",
+        "Behind the Kitchen"
+      ],
+      "angles": [
+        {
+          "name": "The Hero Shot",
+          "category": "ANG-10",
+          "concept": "Close-up of the best-selling dish.",
+          "creative": "Steam, cheese pulls, sauce dripping, freshly made food.",
+          "example": "This is what everyone's ordering at [Restaurant Name].",
+          "why": "Great-looking food stops the scroll.",
+          "idea": "Close-up of the best-selling dish."
+        },
+        {
+          "name": "The Deal",
+          "category": "ANG-01",
+          "concept": "A specific promotion with urgency and value.",
+          "creative": "Close-up of the dishes with the offer shown clearly.",
+          "example": "2 large pizzas for $24.99 this week only.",
+          "why": "A clear incentive plus a reason to act now.",
+          "idea": "A specific promotion with urgency and value."
+        },
+        {
+          "name": "The Review",
+          "category": "ANG-03",
+          "concept": "Customer feedback as social proof.",
+          "creative": "A genuine 5-star Google review over a photo of the food.",
+          "example": "Don't take our word for it. Here's what our customers are saying.",
+          "why": "Trust plus appetite.",
+          "idea": "Customer feedback as social proof."
+        },
+        {
+          "name": "Behind the Kitchen",
+          "category": "ANG-05",
+          "concept": "Show how the food is made.",
+          "creative": "About 30 seconds of raw footage of the chef making a dish.",
+          "example": "Come behind the scenes while we make our best-selling pizza.",
+          "why": "Food being made is satisfying to watch.",
+          "idea": "Show how the food is made."
+        },
+        {
+          "name": "The Did You Know",
+          "category": "ANG-04",
+          "concept": "Introduce the restaurant to locals who don't know it.",
+          "creative": "Exterior, location cues and signature dishes.",
+          "example": "Did you know there's a pizza shop 5 minutes from you that hand-makes every pie?",
+          "why": "Builds local awareness.",
+          "idea": "Introduce the restaurant to locals who don't know it."
+        },
+        {
+          "name": "The Event / Season",
+          "category": "ANG-08",
+          "concept": "Use events, occasions and seasons.",
+          "creative": "Event-specific food and promo content.",
+          "example": "Game day plans? We've got your food covered.",
+          "why": "A timely reason to visit.",
+          "idea": "Use events, occasions and seasons."
+        }
+      ]
+    },
+    {
+      "id": "real_estate",
+      "label": "Real estate",
+      "match": "(real ?estate|realtor|brokerage|homes? for sale|listing|property management)",
+      "budget": [
+        20,
+        50
+      ],
+      "radius": [
+        15,
+        25
+      ],
+      "cpl": [
+        10,
+        25
+      ],
+      "source": "playbook",
+      "cta": "Sign up",
+      "formats": "Lead forms, property carousels, walkthrough videos",
+      "form_fields": "Name, email, address, timeframe",
+      "recommends": "Home valuations as a lead magnet, property carousels, low-friction lead forms, video walkthroughs, and always showing the price.",
+      "compliance": "Housing ads must use Meta's Housing Special Ad Category, which limits location, age and targeting options. Use verified local market numbers only.",
+      "special_category": "HOUSING",
+      "priority": [
+        "Home Valuation",
+        "Just Listed",
+        "Video Walkthrough"
+      ],
+      "angles": [
+        {
+          "name": "Just Listed",
+          "category": "ANG-10",
+          "concept": "Advertise a new listing.",
+          "creative": "Great property photos with price, beds and baths shown.",
+          "example": "Just listed in [City]. See it before it's gone.",
+          "why": "Aspiration plus availability.",
+          "idea": "Advertise a new listing."
+        },
+        {
+          "name": "Home Valuation",
+          "category": "ANG-01",
+          "concept": "Offer homeowners a free estimate of their home's value.",
+          "creative": "Aerial neighborhood photo or an attractive home.",
+          "example": "What's your home worth right now? Get a free valuation.",
+          "why": "A strong lead magnet for future sellers.",
+          "idea": "Offer homeowners a free estimate of their home's value."
+        },
+        {
+          "name": "Market Update",
+          "category": "ANG-04",
+          "concept": "Position the agent as the local expert.",
+          "creative": "Agent presenting local market numbers.",
+          "example": "What's actually happening with home prices in [City]?",
+          "why": "Gives buyers and sellers a reason to ask for advice.",
+          "caution": "Use verified local market statistics only.",
+          "idea": "Position the agent as the local expert."
+        },
+        {
+          "name": "Video Walkthrough",
+          "category": "ANG-05",
+          "concept": "Take people on a property tour.",
+          "creative": "About 60 seconds of phone footage of the best features.",
+          "example": "Come take a quick tour of this home in [City].",
+          "why": "Makes the property real before a viewing.",
+          "idea": "Take people on a property tour."
+        },
+        {
+          "name": "First-Time Buyer",
+          "category": "ANG-07",
+          "concept": "Address the belief that buying is out of reach.",
+          "creative": "Entry-level homes with real prices.",
+          "example": "Think you can't afford a home? Homes in [City] start at $X.",
+          "why": "Encourages buyers who assume they can't.",
+          "idea": "Address the belief that buying is out of reach."
+        },
+        {
+          "name": "Sold Testimonial",
+          "category": "ANG-03",
+          "concept": "Show results with a real sale.",
+          "creative": "Client photo, quote and the property.",
+          "example": "Sold in 5 days, $15K over asking.",
+          "why": "Concrete proof the agent delivers.",
+          "idea": "Show results with a real sale."
+        }
+      ]
+    },
+    {
+      "id": "roofing",
+      "label": "Roofing",
+      "match": "(roof|storm damage|shingle|gutter|siding)",
+      "budget": [
+        30,
+        75
+      ],
+      "radius": [
+        15,
+        30
+      ],
+      "cpl": [
+        25,
+        75
+      ],
+      "source": "playbook",
+      "cta": "Get quote",
+      "formats": "Drone footage and damage close-ups",
+      "form_fields": "Name, phone (required), address, age of roof",
+      "recommends": "Insurance-related messages, drone inspection footage, fast lead follow-up, city-specific messages, and verified trust signals.",
+      "compliance": "Only mention storms that really hit the area. Insurance messages must be conditional: never promise free replacements or waived deductibles. Only advertise warranty terms the contractor can back up.",
+      "priority": [
+        "Insurance Replacement",
+        "Free Drone Inspection",
+        "Storm Damage"
+      ],
+      "angles": [
+        {
+          "name": "Storm Damage",
+          "category": "ANG-08",
+          "concept": "Connect recent local weather to the need for an inspection.",
+          "creative": "Real storm footage, damaged shingles, inspection footage.",
+          "example": "Recent storms hit [City]. Hidden roof damage is common.",
+          "why": "Timely and local.",
+          "idea": "Connect recent local weather to the need for an inspection."
+        },
+        {
+          "name": "Insurance Replacement",
+          "category": "ANG-07",
+          "concept": "Qualifying storm damage may be covered by insurance.",
+          "creative": "Storm damage imagery with a specialist explaining the claim process.",
+          "example": "Your insurance may cover a new roof. We handle the claim paperwork.",
+          "why": "Removes the cost barrier.",
+          "idea": "Qualifying storm damage may be covered by insurance."
+        },
+        {
+          "name": "Free Drone Inspection",
+          "category": "ANG-01",
+          "concept": "A technology-assisted roof check.",
+          "creative": "Drone footage from above, then close-ups of damage.",
+          "example": "We spot what you can't see from the ground.",
+          "why": "Professional and visually interesting.",
+          "idea": "A technology-assisted roof check."
+        },
+        {
+          "name": "Before / After",
+          "category": "ANG-02",
+          "concept": "Show the difference a new roof makes.",
+          "creative": "Old roof next to the finished install.",
+          "example": "One roof replacement. A completely different-looking home.",
+          "why": "Appeals to curb appeal, not just emergencies.",
+          "idea": "Show the difference a new roof makes."
+        },
+        {
+          "name": "Lifetime Warranty",
+          "category": "ANG-10",
+          "concept": "The long-term value of the roof system.",
+          "creative": "Finished installs, product quality, written warranty.",
+          "example": "Roofs built to last, with a lifetime warranty included.",
+          "why": "Answers worries about a big investment.",
+          "idea": "The long-term value of the roof system."
+        },
+        {
+          "name": "Local Crew",
+          "category": "ANG-06",
+          "concept": "A local contractor, not an out-of-town storm chaser.",
+          "creative": "Crew footage, local projects, team intro.",
+          "example": "Licensed, bonded and insured. A local crew in [City].",
+          "why": "Local trust.",
+          "idea": "A local contractor, not an out-of-town storm chaser."
+        }
+      ]
+    },
+    {
+      "id": "home_services",
+      "label": "Home services",
+      "match": "(plumb|hvac|heating|cooling|\\bac\\b|clean|landscap|lawn|paint|pressure wash|electric|remodel|contractor|handyman|garage door|pool|insulation|spray foam|solar|window)",
+      "budget": [
+        20,
+        40
+      ],
+      "radius": [
+        10,
+        20
+      ],
+      "cpl": [
+        15,
+        35
+      ],
+      "source": "playbook",
+      "cta": "Get quote",
+      "formats": "Before-and-after carousel",
+      "form_fields": "Name, phone, service needed, address",
+      "recommends": "Before-and-after carousels, seasonal campaigns, a phone field on lead forms, and showing licensed and insured where true.",
+      "compliance": "",
+      "priority": [
+        "Before / After",
+        "Free Estimate",
+        "Seasonal Urgency"
+      ],
+      "angles": [
+        {
+          "name": "Before / After",
+          "category": "ANG-02",
+          "concept": "Show the visible difference the service makes.",
+          "creative": "Side-by-side: dirty to clean, broken to fixed.",
+          "example": "This driveway hadn't been pressure washed in 8 years. Two hours later, it looks brand new.",
+          "why": "The value is obvious in a second.",
+          "idea": "Show the visible difference the service makes."
+        },
+        {
+          "name": "Seasonal Urgency",
+          "category": "ANG-08",
+          "concept": "Tie the service to an upcoming seasonal need.",
+          "creative": "Seasonal visuals or a tech doing the job.",
+          "example": "Get your AC tuned up before the summer heat arrives.",
+          "why": "A timely reason to book.",
+          "idea": "Tie the service to an upcoming seasonal need."
+        },
+        {
+          "name": "The Review Stack",
+          "category": "ANG-03",
+          "concept": "Highlight the company's reputation.",
+          "creative": "Screenshots of real Google reviews.",
+          "example": "See why homeowners across [City] choose our team.",
+          "why": "Trust matters when someone comes into your home.",
+          "idea": "Highlight the company's reputation."
+        },
+        {
+          "name": "The Problem",
+          "category": "ANG-07",
+          "concept": "A common problem with the service as the fix.",
+          "creative": "Tech checking the issue or explaining the warning signs.",
+          "example": "Weird noise coming from your AC? It could be a small fix or a big one.",
+          "why": "Turns uncertainty into a reason to call.",
+          "idea": "A common problem with the service as the fix."
+        },
+        {
+          "name": "The Crew",
+          "category": "ANG-06",
+          "concept": "The people behind the business.",
+          "creative": "Real team in uniform on a job site.",
+          "example": "Meet the team taking care of homes across [City].",
+          "why": "Human and professional.",
+          "idea": "The people behind the business."
+        },
+        {
+          "name": "Free Estimate",
+          "category": "ANG-01",
+          "concept": "Remove the barriers to reaching out.",
+          "creative": "Clear offer graphic with real job-site photos.",
+          "example": "Free estimate in 24 hours. No hidden fees. Licensed and insured.",
+          "why": "Less risk, less commitment.",
+          "idea": "Remove the barriers to reaching out."
+        }
+      ]
+    },
+    {
+      "id": "pest",
+      "label": "Pest control",
+      "match": "(pest|termite|mosquito|rodent|exterminat|bug)",
+      "budget": [
+        25,
+        60
+      ],
+      "radius": [
+        10,
+        25
+      ],
+      "cpl": null,
+      "source": null,
+      "cta": "Get quote",
+      "formats": "Technician videos, educational explainers, seasonal promotions",
+      "form_fields": "Name, phone, address, what they're seeing",
+      "recommends": "Recurring seasonal campaigns, with creative updated around real local pest activity.",
+      "compliance": "",
+      "priority": [
+        "Seasonal Pest Alert",
+        "Free Inspection",
+        "The Hidden Problem"
+      ],
+      "angles": [
+        {
+          "name": "Seasonal Pest Alert",
+          "category": "ANG-08",
+          "concept": "Tie campaigns to real seasonal pest activity.",
+          "creative": "Tech showing preventative treatment around a home.",
+          "example": "Mosquito season is coming to [City]. Explore our yard treatments.",
+          "why": "Timely and local.",
+          "idea": "Tie campaigns to real seasonal pest activity."
+        },
+        {
+          "name": "Free Inspection",
+          "category": "ANG-01",
+          "concept": "An inspection with little commitment.",
+          "creative": "Uniformed tech doing an inspection.",
+          "example": "Not sure what's happening around your home? Schedule a pest inspection.",
+          "why": "Makes it easy to reach out.",
+          "idea": "An inspection with little commitment."
+        },
+        {
+          "name": "The Hidden Problem",
+          "category": "ANG-04",
+          "concept": "Pest issues that aren't obvious.",
+          "creative": "Tech showing common inspection spots.",
+          "example": "Three places termites can go unnoticed around a home.",
+          "why": "Shows the value of a professional check.",
+          "idea": "Pest issues that aren't obvious."
+        },
+        {
+          "name": "Customer Review Stack",
+          "category": "ANG-03",
+          "concept": "Reputation through real reviews.",
+          "creative": "Real Google reviews with tech footage.",
+          "example": "See why homeowners across [City] choose [Business Name].",
+          "why": "Confidence in an unfamiliar provider.",
+          "idea": "Reputation through real reviews."
+        },
+        {
+          "name": "The Prevention Plan",
+          "category": "ANG-10",
+          "concept": "Routine treatment instead of only reacting.",
+          "creative": "Tech explaining the plan and what it covers.",
+          "example": "Here's what's included in our preventative pest plan.",
+          "why": "A reason to consider ongoing service.",
+          "idea": "Routine treatment instead of only reacting."
+        },
+        {
+          "name": "Meet the Technician",
+          "category": "ANG-06",
+          "concept": "An established local team.",
+          "creative": "Real techs, branded vehicles, local jobs.",
+          "example": "Meet the local team helping [City] homeowners with unwanted pests.",
+          "why": "Professional and familiar.",
+          "idea": "An established local team."
+        }
+      ]
+    },
+    {
+      "id": "auto_detailing",
+      "label": "Auto detailing",
+      "match": "(detail|ceramic coat|paint correction|car wash|auto spa|ppf)",
+      "budget": [
+        20,
+        50
+      ],
+      "radius": [
+        10,
+        20
+      ],
+      "cpl": null,
+      "source": null,
+      "cta": "Book now",
+      "formats": "Transformation videos, close-ups, satisfying process footage",
+      "form_fields": "Name, phone, vehicle, service wanted",
+      "recommends": "Creative-led campaigns. The service naturally produces lots of satisfying footage.",
+      "compliance": "",
+      "priority": [
+        "The Satisfying Transformation",
+        "The Package Offer",
+        "Mobile Convenience"
+      ],
+      "angles": [
+        {
+          "name": "The Satisfying Transformation",
+          "category": "ANG-02",
+          "concept": "Show a dramatic clean or restoration.",
+          "creative": "Split-screen before and after, dirty to clean, paint correction.",
+          "example": "Watch us bring this car back to life.",
+          "why": "The value lands almost instantly.",
+          "idea": "Show a dramatic clean or restoration."
+        },
+        {
+          "name": "The Protection Angle",
+          "category": "ANG-04",
+          "concept": "Explain protective services like ceramic coating.",
+          "creative": "Close-up of water beading on a treated surface.",
+          "example": "What does ceramic coating actually do for your paint?",
+          "why": "Makes a premium service easy to understand.",
+          "idea": "Explain protective services like ceramic coating."
+        },
+        {
+          "name": "The Package Offer",
+          "category": "ANG-01",
+          "concept": "A clear, simple detailing package.",
+          "creative": "Service checklist with real detailing footage.",
+          "example": "Interior and exterior detail packages starting at $X.",
+          "why": "No confusion about price or what's included.",
+          "idea": "A clear, simple detailing package."
+        },
+        {
+          "name": "The Satisfying Process",
+          "category": "ANG-05",
+          "concept": "Focus on the visual experience of detailing.",
+          "creative": "Foam cannon, extraction, polishing, microfiber wipe-downs.",
+          "example": "30 seconds of the most satisfying detail you'll see today.",
+          "why": "Naturally engaging.",
+          "idea": "Focus on the visual experience of detailing."
+        },
+        {
+          "name": "Premium Care",
+          "category": "ANG-10",
+          "concept": "A specialist for enthusiasts and premium cars.",
+          "creative": "Close-ups of premium cars and careful technique.",
+          "example": "A premium car deserves more than a basic car wash.",
+          "why": "Sets a higher-value service apart.",
+          "idea": "A specialist for enthusiasts and premium cars."
+        },
+        {
+          "name": "Mobile Convenience",
+          "category": "ANG-09",
+          "concept": "They don't need to go anywhere.",
+          "creative": "Van arriving at a home, then the service.",
+          "example": "Professional car detailing, right in your driveway.",
+          "why": "Removes the hassle of dropping the car off.",
+          "idea": "They don't need to go anywhere."
+        }
+      ]
+    },
+    {
+      "id": "pet",
+      "label": "Pet grooming and pet care",
+      "match": "(pet|dog|cat|groom|daycare|boarding|kennel|vet)",
+      "budget": [
+        15,
+        40
+      ],
+      "radius": [
+        5,
+        10
+      ],
+      "cpl": null,
+      "source": null,
+      "cta": "Book now",
+      "formats": "Pet transformation videos, grooming process videos, testimonials",
+      "form_fields": "Name, phone, pet's breed, service wanted",
+      "recommends": "Organic-style video that works in ads and on social.",
+      "compliance": "",
+      "priority": [
+        "The Grooming Transformation",
+        "The Happy Pet Experience",
+        "First-Time Grooming Offer"
+      ],
+      "angles": [
+        {
+          "name": "The Grooming Transformation",
+          "category": "ANG-02",
+          "concept": "Show the results of a grooming appointment.",
+          "creative": "Before and after of a fresh cut and clean coat.",
+          "example": "Wait until you see this pup's transformation.",
+          "why": "Visual and emotional.",
+          "idea": "Show the results of a grooming appointment."
+        },
+        {
+          "name": "First-Time Grooming Offer",
+          "category": "ANG-01",
+          "concept": "Get first-time customers to try it.",
+          "creative": "Happy pets leaving, with the intro offer.",
+          "example": "New to [Business Name]? Ask about our first-visit grooming package.",
+          "why": "Lowers the barrier to a first visit.",
+          "idea": "Get first-time customers to try it."
+        },
+        {
+          "name": "The Happy Pet Experience",
+          "category": "ANG-05",
+          "concept": "Show a calm, positive environment.",
+          "creative": "Gentle handling, comfortable pets, playtime, attentive staff.",
+          "example": "A behind-the-scenes look at a day at [Business Name].",
+          "why": "Owners feel good leaving their pet.",
+          "idea": "Show a calm, positive environment."
+        },
+        {
+          "name": "Meet the Groomer",
+          "category": "ANG-06",
+          "concept": "The people caring for the pets.",
+          "creative": "Staff intros with handling and grooming clips.",
+          "example": "Meet [Name], the groomer behind some of our cutest transformations.",
+          "why": "Personal trust.",
+          "idea": "The people caring for the pets."
+        },
+        {
+          "name": "Mobile Grooming",
+          "category": "ANG-09",
+          "concept": "Convenience for busy owners.",
+          "creative": "Van arriving, then the grooming.",
+          "example": "Your dog's grooming appointment, right outside your front door.",
+          "why": "Saves the trip.",
+          "idea": "Convenience for busy owners."
+        },
+        {
+          "name": "Seasonal Grooming",
+          "category": "ANG-08",
+          "concept": "Tie grooming to weather, holidays and seasons.",
+          "creative": "Seasonal pet content with availability.",
+          "example": "Holiday grooming appointments are now open.",
+          "why": "Timely demand and early bookings.",
+          "idea": "Tie grooming to weather, holidays and seasons."
+        }
+      ]
+    },
+    {
+      "id": "clothing",
+      "label": "Clothing and online stores",
+      "match": "(clothing|apparel|boutique|fashion|streetwear|athleisure|jewelry|accessor|online store|ecommerce|shop)",
+      "budget": [
+        30,
+        100
+      ],
+      "radius": null,
+      "cpl": [
+        25,
+        50
+      ],
+      "cpl_kind": "sale",
+      "source": "playbook",
+      "cta": "Shop now",
+      "formats": "UGC try-on video",
+      "form_fields": "",
+      "recommends": "UGC try-ons, native-feeling video, first-order incentives, separate retargeting for cart abandoners and product viewers, mobile-first creative, a free-shipping threshold, and purchase tracking. Local boutiques can tighten to 5 to 15 miles.",
+      "compliance": "Only real scarcity: never say something sold out unless it did.",
+      "priority": [
+        "First-Order Discount",
+        "UGC Try-On",
+        "Hero Product"
+      ],
+      "angles": [
+        {
+          "name": "Hero Product",
+          "category": "ANG-10",
+          "concept": "Showcase the best-selling product.",
+          "creative": "Styled on a real person in a lifestyle setting, not a flat lay.",
+          "example": "This is the piece we're known for.",
+          "why": "A recognizable hero product.",
+          "idea": "Showcase the best-selling product."
+        },
+        {
+          "name": "First-Order Discount",
+          "category": "ANG-01",
+          "concept": "An incentive for new customers.",
+          "creative": "Best-sellers with the discount.",
+          "example": "20% off your first order. Code WELCOME20.",
+          "why": "An immediate reason to buy.",
+          "idea": "An incentive for new customers."
+        },
+        {
+          "name": "UGC Try-On",
+          "category": "ANG-05",
+          "concept": "A customer or creator demonstrating the product.",
+          "creative": "Raw footage of someone wearing it and talking to camera.",
+          "example": "Let's try on three pieces from the new collection.",
+          "why": "Feels more real than a studio shoot.",
+          "idea": "A customer or creator demonstrating the product."
+        },
+        {
+          "name": "Founder Story",
+          "category": "ANG-06",
+          "concept": "The story behind the brand.",
+          "creative": "30 to 60 seconds of the owner explaining why they started.",
+          "example": "I started this brand because I couldn't find...",
+          "why": "An emotional reason to connect.",
+          "idea": "The story behind the brand."
+        },
+        {
+          "name": "Restock / Sold Out",
+          "category": "ANG-08",
+          "concept": "Real scarcity around popular items.",
+          "creative": "Product footage and the restock announcement.",
+          "example": "Back in stock. Our last drop sold out in 48 hours.",
+          "why": "Gets interested people to act.",
+          "idea": "Real scarcity around popular items."
+        },
+        {
+          "name": "Drop / Collection",
+          "category": "ANG-08",
+          "concept": "Anticipation for a new release.",
+          "creative": "Collection teaser, behind the scenes, previews.",
+          "example": "New summer drop. Friday at 9 AM. Get notified.",
+          "why": "Turns a release into an event and builds the email list.",
+          "idea": "Anticipation for a new release."
+        }
+      ]
+    }
+  ],
+  "generalNiche": {
+    "id": "general",
+    "label": "this kind of business",
+    "budget": null,
+    "radius": [
+      10,
+      15
+    ],
+    "cpl": null,
+    "source": null,
+    "cta": null,
+    "formats": "",
+    "form_fields": "Name, phone, what they're interested in",
+    "recommends": "",
+    "compliance": "",
+    "priority": [],
+    "angles": []
+  },
+  "headlineStructures": [
+    {
+      "id": "HL-01",
+      "name": "Direct offer",
+      "structure": "[Product/Service] + [Price/Incentive]",
+      "use": "Straight to the point. Excellent for lead generation when the business has a strong offer.",
+      "rule": "Lead with the offer. Don't bury the price or incentive behind clever wording.",
+      "examples": [
+        "Your First Facial for $49",
+        "2 Large Pizzas for $24.99",
+        "Get 20% Off Your First Order",
+        "First Fitness Class FREE",
+        "Complete Car Detailing From $149",
+        "$79 AC Tune-Up Special"
+      ]
+    },
+    {
+      "id": "HL-02",
+      "name": "Freebie",
+      "structure": "Free + [Specific Valuable Thing]",
+      "use": "When the business offers something complimentary that lowers the barrier to becoming a lead.",
+      "rule": "Be specific about what is free. Only use this structure when the offer is genuinely complimentary.",
+      "examples": [
+        "Get Your Free Roof Inspection",
+        "Book a Free Trial Class",
+        "Get a Free Home Valuation",
+        "Claim Your Free Estimate",
+        "Free Pest Inspection",
+        "Get Your Complimentary Consultation"
+      ]
+    },
+    {
+      "id": "HL-03",
+      "name": "Desired outcome",
+      "structure": "[Desirable Result] + [Service or Mechanism]",
+      "use": "Focuses on what the customer wants rather than the technical details of the service.",
+      "rule": "Focus on a tangible outcome. Don't promise results that the business cannot guarantee.",
+      "examples": [
+        "A Fresh Look for Your Driveway",
+        "A Cleaner Car, Inside & Out",
+        "Find Your Next Home",
+        "Discover Your New Favorite Outfit",
+        "A Fresh Look for Your Home",
+        "Get Your Car Showroom-Ready"
+      ]
+    },
+    {
+      "id": "HL-04",
+      "name": "Curiosity",
+      "structure": "[Question or intriguing statement related to the service]",
+      "use": "Gives someone a reason to click and learn more.",
+      "rule": "Create curiosity without withholding essential information or resorting to clickbait.",
+      "examples": [
+        "What's Your Home Worth Today?",
+        "Is Your Roof Storm-Ready?",
+        "What Does Ceramic Coating Do?",
+        "Looking for Your Next Favorite Gym?",
+        "Ever Tried a HydraFacial?",
+        "What's Inside Our Best-Seller?"
+      ]
+    },
+    {
+      "id": "HL-05",
+      "name": "Problem / solution",
+      "structure": "[Recognizable Problem]? + [Clear Solution]",
+      "use": "Connects a common frustration directly to the service.",
+      "rule": "Focus on everyday problems. Don't use aggressive fear-based messaging or imply knowledge of someone's sensitive personal circumstances.",
+      "examples": [
+        "Dirty Driveway? We Can Help.",
+        "AC Not Working? Book a Visit.",
+        "No Time to Cook? Order Online.",
+        "Need a New Roof? Get a Quote.",
+        "Car Needs Some TLC?",
+        "Need a Reliable Local Plumber?"
+      ]
+    },
+    {
+      "id": "HL-06",
+      "name": "Social proof",
+      "structure": "[Verified Proof] + [Product/Service or Business]",
+      "use": "Uses genuine credibility to reinforce the decision.",
+      "rule": "Numerical claims must come from verified business information. Never invent ratings, reviews, testimonials, or results.",
+      "examples": [
+        "See Our 300+ 5-Star Reviews",
+        "Trusted by 500+ Local Homeowners",
+        "Rated 4.9 Stars by Our Customers",
+        "See Why Our Members Love Us",
+        "Our Customers Say It Best",
+        "See Our Latest Client Results"
+      ]
+    },
+    {
+      "id": "HL-07",
+      "name": "Location",
+      "structure": "[City/Area] + [Service/Offer]",
+      "use": "Makes an ad feel immediately relevant to someone in the service area.",
+      "rule": "Use the business's actual service area. Location-specific headlines should sound natural rather than like keyword-stuffed search ads.",
+      "examples": [
+        "Irvine's Newest Fitness Studio",
+        "Dental Implants in Orange County",
+        "Austin Roof Inspections",
+        "San Diego Mobile Car Detailing",
+        "Your New Favorite Miami Brunch Spot",
+        "Professional Cleaning in Dallas"
+      ]
+    },
+    {
+      "id": "HL-08",
+      "name": "Urgency",
+      "structure": "[Offer/Product] + [Real Deadline or Availability]",
+      "use": "Gives prospective customers a timely reason to act.",
+      "rule": "Urgency must be genuine. Never invent a deadline, claim limited availability without confirmation, or manufacture scarcity.",
+      "examples": [
+        "Summer Special Ends Sunday",
+        "Book Your Holiday Grooming Today",
+        "New Collection Drops Friday",
+        "Last Week of Our Spring Special",
+        "New Appointments Available This Week",
+        "Early Bird Pricing Ends Tomorrow"
+      ]
+    },
+    {
+      "id": "HL-09",
+      "name": "Convenience",
+      "structure": "[Product/Service] + [Convenience Benefit]",
+      "use": "Sells the ease of working with the business.",
+      "rule": "Highlight genuine conveniences, such as mobile service, flexible appointments, easy booking, or delivery.",
+      "examples": [
+        "Car Detailing at Your Doorstep",
+        "Book Your Facial Online",
+        "Dinner Delivered to Your Door",
+        "Get a Roof Quote Online",
+        "Grooming Without Leaving Home",
+        "Shop Online. Delivered to You."
+      ]
+    },
+    {
+      "id": "HL-10",
+      "name": "Showcase",
+      "structure": "Discover/Explore/Meet + [Product, Service or Collection]",
+      "use": "Works when the product or creative itself is the main selling point.",
+      "rule": "Highlight the most interesting or desirable aspect of the offering. Avoid generic headlines such as \"Discover Our Services\" when a more specific alternative exists.",
+      "examples": [
+        "Meet Our Best-Selling Collection",
+        "Explore Our Latest Listings",
+        "Discover Our Signature Facial",
+        "Take a Look Inside Our Studio",
+        "Meet Your New Favorite Outfit",
+        "Explore Our Detailing Packages"
+      ]
+    },
+    {
+      "id": "HL-11",
+      "name": "Benefit stack",
+      "structure": "[Benefit 1] + [Benefit 2] + [Benefit 3]",
+      "use": "Communicates multiple selling points in a compact, scannable format.",
+      "rule": "Use two or three complementary benefits. Prioritize clarity over cleverness.",
+      "examples": [
+        "Clean Car. Zero Hassle.",
+        "Fresh Pizza. Made Daily.",
+        "Expert Care. Easy Booking.",
+        "Local Team. Free Estimates.",
+        "Great Fit. Everyday Comfort.",
+        "Real Coaches. Great Community."
+      ]
+    },
+    {
+      "id": "HL-12",
+      "name": "Direct action",
+      "structure": "[Action Verb] + [Specific Next Step]",
+      "use": "A straightforward conversion-focused headline that tells the customer exactly what to do.",
+      "rule": "Align the action with the actual conversion destination. Don't instruct someone to book if the next step is only a consultation request or information form.",
+      "examples": [
+        "Book Your First Class Today",
+        "Schedule Your Roof Inspection",
+        "Get Your Free Home Valuation",
+        "Shop the New Collection",
+        "Request Your Free Quote",
+        "Reserve Your Table Today"
+      ]
+    }
+  ],
+  "headlinesForCategory": {
+    "ANG-01": [
+      "HL-01",
+      "HL-02",
+      "HL-08"
+    ],
+    "ANG-02": [
+      "HL-03",
+      "HL-06",
+      "HL-10"
+    ],
+    "ANG-03": [
+      "HL-06",
+      "HL-03"
+    ],
+    "ANG-04": [
+      "HL-04",
+      "HL-05"
+    ],
+    "ANG-05": [
+      "HL-10",
+      "HL-04",
+      "HL-03"
+    ],
+    "ANG-06": [
+      "HL-06",
+      "HL-07",
+      "HL-11"
+    ],
+    "ANG-07": [
+      "HL-05",
+      "HL-03",
+      "HL-12"
+    ],
+    "ANG-08": [
+      "HL-08",
+      "HL-01",
+      "HL-12"
+    ],
+    "ANG-09": [
+      "HL-09",
+      "HL-11",
+      "HL-12"
+    ],
+    "ANG-10": [
+      "HL-10",
+      "HL-03",
+      "HL-01"
+    ]
+  },
+  "headlineBank": {
+    "restaurant": [
+      "2 Large Pizzas for $24.99",
+      "Your New Favorite Brunch Spot",
+      "Order Fresh Pizza Tonight"
+    ],
+    "real_estate": [
+      "What's Your Home Worth?",
+      "Explore Homes in [City]",
+      "Get Your Free Home Valuation"
+    ],
+    "home_services": [
+      "Get Your Free Estimate",
+      "Transform Your Driveway",
+      "Book Your $79 AC Tune-Up"
+    ],
+    "med_spa": [
+      "Your First Facial for $49",
+      "Discover Our HydraFacial",
+      "Book Your First Appointment"
+    ],
+    "fitness": [
+      "Your First Class Is Free",
+      "Find Your Fitness Community",
+      "Book Your Free Trial Class"
+    ],
+    "roofing": [
+      "Get a Free Roof Inspection",
+      "Is Your Roof Storm-Ready?",
+      "Meet Your Local Roofing Team"
+    ],
+    "clothing": [
+      "Get 20% Off Your First Order",
+      "Meet Your New Favorite Outfit",
+      "Shop Our Latest Collection"
+    ],
+    "dental": [
+      "Explore Your Smile Options",
+      "Book a Dental Consultation",
+      "Meet Your New Dentist"
+    ],
+    "chiro": [
+      "Book Your First Visit",
+      "Meet Your Local Chiropractor",
+      "Explore Our New Patient Offer"
+    ],
+    "auto_detailing": [
+      "Bring Back That Showroom Shine",
+      "Mobile Detailing at Your Door",
+      "Book Your Complete Detail"
+    ],
+    "pest": [
+      "Get Your Free Inspection",
+      "Explore Our Prevention Plans",
+      "Schedule a Pest Inspection"
+    ],
+    "pet": [
+      "Book Your Pup's Next Groom",
+      "Mobile Grooming at Your Door",
+      "Fresh Cuts for Happy Pups"
+    ]
+  },
+  "creativeTypes": [
+    {
+      "id": "CR-01",
+      "name": "Product or service in action",
+      "communicates": "What the business actually delivers",
+      "format": "Short video"
+    },
+    {
+      "id": "CR-02",
+      "name": "Visual transformation",
+      "communicates": "The potential outcome",
+      "format": "Before/after or carousel"
+    },
+    {
+      "id": "CR-03",
+      "name": "Offer-led creative",
+      "communicates": "A compelling reason to act",
+      "format": "Static, video, or carousel"
+    },
+    {
+      "id": "CR-04",
+      "name": "Customer proof",
+      "communicates": "Experiences of real customers",
+      "format": "UGC or testimonial"
+    },
+    {
+      "id": "CR-05",
+      "name": "People and trust",
+      "communicates": "Who is behind the business",
+      "format": "Talking head or team video"
+    },
+    {
+      "id": "CR-06",
+      "name": "Educational creative",
+      "communicates": "Answers to customer questions",
+      "format": "Talking head or carousel"
+    },
+    {
+      "id": "CR-07",
+      "name": "Experience and lifestyle",
+      "communicates": "What buying or booking feels like",
+      "format": "POV or montage"
+    }
+  ],
+  "creativeForCategory": {
+    "ANG-01": "CR-03",
+    "ANG-02": "CR-02",
+    "ANG-03": "CR-04",
+    "ANG-04": "CR-06",
+    "ANG-05": "CR-01",
+    "ANG-06": "CR-05",
+    "ANG-07": "CR-06",
+    "ANG-08": "CR-03",
+    "ANG-09": "CR-07",
+    "ANG-10": "CR-01"
+  },
+  "nicheCreative": {
+    "restaurant": {
+      "direction": "Make the food the hero. Prioritize mouthwatering close-ups, movement, texture, and authentic kitchen footage over polished graphics.",
+      "prioritize": [
+        "Food preparation videos: stretching dough, pouring coffee, plating dishes, sizzling food.",
+        "Close-up hero shots: cheese pulls, steam, drizzling sauces, fresh ingredients.",
+        "Deal-led creative: an appetizing photo with a large, easy-to-read offer.",
+        "Customer review overlays on real restaurant or food footage.",
+        "Location awareness: the exterior, recognizable surroundings, and food.",
+        "Occasion-based creative: date nights, game days, brunch, late-night dining."
+      ],
+      "example": "A 15-second Reel opening with a pizza coming out of the oven, then a cheese pull, with the offer as the overlay.",
+      "avoid": "Generic stock food photos, text-heavy menus, wide food shots, and creative where you can't immediately tell what's being sold."
+    },
+    "real_estate": {
+      "direction": "Sell the property, lifestyle, or local expertise. Show real listings and use video to bring properties to life.",
+      "prioritize": [
+        "Property carousels featuring the best rooms and outdoor spaces.",
+        "Walkthrough videos using natural phone footage.",
+        "A strong hero image with clear property information, including price where appropriate.",
+        "Home valuation creative featuring recognizable local neighborhoods.",
+        "Agent talking-head videos explaining the market.",
+        "Sold-property case studies with actual transaction results."
+      ],
+      "example": "A 30-second walkthrough of the kitchen, living area, backyard and exterior with a simple \"Just Listed in [City]\" opening.",
+      "avoid": "Luxury photos unrelated to the listing, cluttered property graphics, unsupported statistics, and hiding important property details.",
+      "compliance": "Real estate campaigns must follow housing advertising and targeting requirements."
+    },
+    "home_services": {
+      "direction": "Make the transformation instantly obvious. Customers should understand what the business does and why it's valuable within seconds.",
+      "prioritize": [
+        "Before-and-after carousels: a strong starting format for visible services.",
+        "Satisfying service videos: pressure washing, painting, deep cleaning, landscaping.",
+        "Seasonal offers tied to real demand, like AC maintenance before summer.",
+        "Real team members working at real job sites.",
+        "Genuine Google review overlays.",
+        "Trust signals like licensed and insured, where true."
+      ],
+      "example": "A 4-card carousel: dirty driveway, cleaned driveway, close-up of the result, team photo with \"Get a Free Quote.\"",
+      "avoid": "Stock photos of technicians, unclear before and afters, generic graphics that don't show the work, and burying the offer under text."
+    },
+    "med_spa": {
+      "direction": "Combine visual appeal with trust. Show the treatment experience, the clinic's professionalism, and the value of booking.",
+      "prioritize": [
+        "Process videos: close-up treatment footage is naturally engaging and a strong first test.",
+        "Before-and-after imagery, only where consented, substantiated and allowed by Meta.",
+        "First-time offer creative with clear introductory pricing.",
+        "Clinic footage: clean treatment rooms, modern equipment, professional surroundings.",
+        "Real client testimonial videos.",
+        "Practitioner introductions explaining what happens during a treatment."
+      ],
+      "example": "A 15-second treatment video, then a shot of the treatment room, ending on the offer as the overlay.",
+      "avoid": "Overly retouched results, generic beauty stock photos, too much text, invasive procedure imagery, or anything implying the viewer has an appearance insecurity."
+    },
+    "fitness": {
+      "direction": "Sell the experience, not the equipment. People should be able to picture themselves in a class, enjoying it.",
+      "prioritize": [
+        "Real class footage: energy, movement, instructors and members.",
+        "Community videos with genuine interactions.",
+        "Free trial offer creative.",
+        "Trainer talking-head videos introducing the studio.",
+        "Real member testimonials and progress stories.",
+        "Facility walkthroughs for first-time visitors."
+      ],
+      "example": "A fast montage of a group class, the instructor coaching and members interacting, ending on the offer.",
+      "avoid": "Empty equipment photos, intimidating stock fitness models, unrealistic transformation promises, and aggressive motivational messages."
+    },
+    "roofing": {
+      "direction": "Combine visible roof condition, inspection footage and strong local credibility.",
+      "prioritize": [
+        "Drone footage of real roofs and inspection areas.",
+        "Close-ups of documented storm damage.",
+        "Before-and-after roof replacement carousels.",
+        "Local crews completing installations.",
+        "Free inspection offers.",
+        "Trust signals: verified licensing, insurance, warranty, completed local projects."
+      ],
+      "example": "A drone video of a roof inspection with the overlay \"Recent Storms in [City]? Book a Roof Inspection.\"",
+      "avoid": "Generic disaster imagery, exaggerated damage, made-up storms, and unconditional \"$0 out of pocket\" insurance promises."
+    },
+    "clothing": {
+      "direction": "Make the product desirable in a real-world context. Show real people wearing it, not only studio photos.",
+      "prioritize": [
+        "UGC try-on videos with real customers or creators.",
+        "Styling videos showing several ways to wear one piece.",
+        "Best-selling product close-ups.",
+        "Collection carousels worn by real people.",
+        "Unboxing and first-impression videos.",
+        "Real restock announcements and new collection previews."
+      ],
+      "example": "A creator's casual mirror try-on with the overlay \"3 Ways I'd Style Our Best-Selling Set.\"",
+      "avoid": "Only flat lays, too much studio polish, complicated collages, and visuals that hide the fit."
+    },
+    "dental": {
+      "direction": "Build trust while making treatment feel understandable and approachable. Prioritize real, dentist-led content.",
+      "prioritize": [
+        "Dentist talking-head videos explaining procedures simply.",
+        "Genuine patient testimonials with authorization.",
+        "Consented patient results, where Meta allows.",
+        "Clinic walkthroughs: modern equipment, a welcoming space.",
+        "Consultation offer creative.",
+        "Educational videos answering treatment questions and payment options."
+      ],
+      "example": "The dentist to camera: \"Thinking about dental implants? Here's what actually happens at your first consultation.\"",
+      "avoid": "Disturbing procedure footage, unsupported medical claims, exaggerated outcomes, and unverified financing promises."
+    },
+    "chiro": {
+      "direction": "Make the practitioner familiar and the treatment easy to understand. Use real clinic footage and education.",
+      "prioritize": [
+        "The chiropractor talking directly to camera.",
+        "Short appointment process videos.",
+        "First-visit walkthroughs.",
+        "Clinic introductions with the practitioner and the space.",
+        "Educational clips: exercises or common questions.",
+        "Real patient testimonials, with authorization and appropriate claims."
+      ],
+      "example": "A 20-second video, \"What Happens at Your First Chiropractic Appointment?\", showing the consultation and each step.",
+      "avoid": "Sensational cracking videos as the whole strategy, medical promises, fear-based messages, and diagnosing the viewer."
+    },
+    "auto_detailing": {
+      "direction": "Lean into satisfying, visual footage. This service naturally produces strong creative.",
+      "prioritize": [
+        "Dramatic vehicle before-and-after shots.",
+        "ASMR-style detailing: pressure washing, foam cannons, polishing.",
+        "Ceramic coating demos showing water beading.",
+        "Interior deep-clean transformations.",
+        "Package showcase videos.",
+        "Mobile detailing footage arriving at the customer's place."
+      ],
+      "example": "A 15-second montage: dirty interior, extraction, steam cleaning, finished result, with the package as the overlay.",
+      "avoid": "Luxury car photos without real service footage, heavy effects that hide the results, and cars that aren't their work."
+    },
+    "pest": {
+      "direction": "Make professional pest control look reliable, approachable and easy to arrange.",
+      "prioritize": [
+        "Technicians inspecting real properties.",
+        "Seasonal educational videos about common local pests.",
+        "Simple service-process explainers.",
+        "Free inspection offer graphics.",
+        "Real customer reviews.",
+        "Trust content: uniforms, vehicles, equipment, team members."
+      ],
+      "example": "A technician walking around a home explaining three places they check during a routine inspection.",
+      "avoid": "Graphic pest imagery, exaggerated infestations, unsupported safety claims, and spraying footage with no context."
+    },
+    "pet": {
+      "direction": "Make the animals the stars, with reassurance about the quality of care.",
+      "prioritize": [
+        "Before-and-after grooming transformations.",
+        "Satisfying grooming process videos.",
+        "Happy pets comfortable with the groomers.",
+        "Groomer introductions.",
+        "First-time customer offers.",
+        "Mobile grooming demos or salon walkthroughs."
+      ],
+      "example": "A short Reel: a fluffy dog walks in, ends on the finished groom, overlay \"Fresh Cut. Happy Pup.\"",
+      "avoid": "Stock pet photos, distressed animals, forced reactions, and heavy graphics that distract from the animals."
+    }
+  },
+  "rulebook": [
+    {
+      "label": "Watch",
+      "rule": "Don't judge an ad until it has run 3 days and spent about 2 times the target cost per lead. If it's between the target and 2 times the target, give it 2 to 3 more days."
+    },
+    {
+      "label": "Kill",
+      "rule": "Turn off an ad that has spent 2 times the target with no leads, or costs more than 2 times the target after spending 3 times the target."
+    },
+    {
+      "label": "Scale",
+      "rule": "At or under the target: leave it alone. After 5 or more days under the target, raise the budget 20%, then wait 3 days before raising it again. If the cost jumps after a raise, go back to the last budget."
+    },
+    {
+      "label": "Refresh",
+      "rule": "When people have seen it more than 3 times on average, or clicks have dropped by about a third, add 2 or 3 new ads. Leave the old ones running."
+    },
+    {
+      "label": "Never",
+      "rule": "Judge an ad in its first 24 hours, double the budget, or edit an ad that's working (make a new one instead)."
+    },
+    {
+      "label": "No target yet",
+      "rule": "If the client has no target cost per lead, the first 2 weeks set the baseline."
+    }
+  ],
+  "diagnosis": [
+    {
+      "sign": "Expensive to show and few clicks",
+      "meaning": "The creative isn't stopping the scroll. Add new ads with different angles and visuals."
+    },
+    {
+      "sign": "Clicks but no leads",
+      "meaning": "The form, page or offer is the problem. Check it on a phone, shorten the form, make the offer clearer."
+    },
+    {
+      "sign": "Leads but few bookings",
+      "meaning": "Follow-up. Leads need a call or text within 5 minutes. This is the client's side: show them the numbers."
+    },
+    {
+      "sign": "Bookings but few sales",
+      "meaning": "Sales. The ads are doing their job. Show the client the booked numbers and talk about the consultation."
+    }
+  ],
+  "generalAdRules": [
+    "No fake reviews, results, testimonials, credentials or scarcity.",
+    "No guarantees (\"guaranteed results\", \"lose 20 pounds\").",
+    "Don't call out personal traits in the ad (\"Are you overweight?\", \"Struggling with acne?\"). Meta rejects these.",
+    "The ad and the page or form after the click must say the same thing."
+  ],
+  "healthAdRules": [
+    "Before and after photos: never for weight loss. For cosmetic treatments, only the business's own real results with the client's written permission, and check Meta's current health and wellness ad policy first.",
+    "No promises about how someone will look (\"Look 10 years younger\", \"Fix your wrinkles\").",
+    "No drug brand names, body or scale imagery for weight loss offers.",
+    "Lead with the offer and the experience, with confident, warm language.",
+    "Use real photos of the providers and the space where possible.",
+    "Exclude existing clients if the business has a customer list."
+  ],
+  "promptText": {
+    "knowledge": "STRATEGY KNOWLEDGE (use as guidance, not rigid rules)\n- Local businesses: broad targeting around the business, mention the city, lead with a specific offer. Leads usually go to a Meta Instant Form with 2 or 3 qualifying questions. Speed to lead matters: follow up within 5 minutes.\n- Med spas and aesthetics: offer-first creative, real provider photos, confident language. Lead forms preferred.\n- Dental: routine and cosmetic offers should be separate campaigns. Routine: team and family imagery. Cosmetic: aspirational imagery, consultation offer.\n- Weight loss and GLP-1: program-focused, warm and non-judgmental, no body or scale imagery, no drug names, no guarantees.\n- Online stores: send people straight to the exact product page. UGC style (real people, phone-shot) usually beats polished creative. Start with bestsellers.\n- Coaching and courses: pain-led, transformation-led and credibility-led angles are worth testing. Video helps for higher-priced offers.\n- Professional services and B2B: outcome-led, peer-to-peer tone.\n- Universal: don't spread a small budget across many ads. Match the ad to the page or form after the click.",
+    "honesty": "HONESTY RULES (these win over everything)\n- Never invent facts, offers, prices, discounts, reviews, ratings, review counts, results, credentials, years in business, customer counts, scarcity or deadlines. Use only what is in THE BUSINESS and THEIR WEBSITE above. If you suggest an offer, say it's a suggestion in assumptions.\n- When the strongest version of a line needs a fact you don't have, write a short blank in square brackets instead, like [price], [regular price], [Google rating], [number of reviews], [years in business], [provider name], [end date]. The freelancer fills these in with the client. Never put a made-up value in its place. Use at most 3 blanks per ad.\n- No guarantees. No numbers for expected leads, sales, cost per lead or return.\n- No em dashes or en dashes. No hashtags.\n- The strategy, setup, journey, launch and \"why\" fields are written to the freelancer (a beginner), in plain words. Explain any ad term in a few words the first time.",
+    "adCopyStyle": "HOW TO WRITE THE ADS (direct, local, specific)\nThese ads are written by the business to its customers. Write like the best-performing local business ads on Facebook and Instagram:\n- The first line does the most work. Lead with the offer, the result, or the most interesting specific thing, following the angle. A scroller should know what this is and why it's worth a look from line one.\n- Short lines. One idea per line. Line breaks between lines are good.\n- Be specific: the actual treatment, dish, service, price, time, place. Name the city or area when it helps.\n- Say what they get and why this business, in plain words.\n- One trust line using real facts (or a [blank] for the client to fill), like \"[Google rating] from [number of reviews] reviews\" or \"Licensed and insured\" only if provided.\n- End with one clear next step that matches the button.\n- 30 to 80 words of primary text in total.\n- Headlines: under 40 characters, specific and concrete, written in the headline structures given for each angle. Title Case like the examples.\n\nDon't:\n- Open with a vague or soft question (\"Not sure which facial to choose?\", \"Feeling overwhelmed?\").\n- Use filler or spa-brochure language (\"we take the time to\", \"on your journey\", \"elevate\", \"pamper yourself\", \"navigate the options\").\n- Describe feelings in general terms when you could name the actual thing.\n- Assume something about the reader's body, health, age or appearance (\"Struggling with acne?\").\n\nBad headline: \"Not sure which facial to choose\"\nGood headline: \"Your first HydraFacial, [price]\"\nBad first line: \"You are looking for a facial but feel overwhelmed by all the different options available.\"\nGood first line: \"Your first facial at [Business], [price] (usually [regular price]).\"",
+    "angleGuide": "EACH ANGLE BECOMES ONE FINISHED AD. Fill these parts:\n- category: the angle category id (like ANG-01).\n- name: the angle name.\n- why: one sentence to the freelancer on why this angle fits this business.\n- format: the best ad format for it (like \"Single image\", \"Before and after carousel\", \"Short vertical video (Reels)\", \"Talking-head video\"), based on the angle and the creative they have.\n- hooks: exactly 3 different first lines for the ad. Each a genuinely different way in: one leading with the offer or result, one leading with something specific or local, one leading with a question that names the actual thing. Under 20 words each.\n- headlines: exactly 6, two different headlines in each of the three headline structures listed for that angle, in that order. structure = the structure id (like HL-01), text = the headline, under 40 characters. If a structure needs a fact you don't have (a price, a rating, a real deadline), use a [blank]. If the offer isn't genuinely free, write the Freebie headline about the free first step only if one exists; otherwise use HL-12 Direct action instead and set structure to HL-12.\n- bodies: exactly 2 short middles (1 to 3 short lines, under 45 words) that follow the hook. The first focuses on what they get. The second focuses on why choose this business. Don't repeat the hook.\n- trust_line: one short line of proof from real facts, or with a [blank] (like \"[Google rating] stars from [number of reviews] local reviews\"). Empty string only if no kind of proof makes sense.\n- next_step: one short line telling them what to do, matching the button.\n- description: under 30 characters, shown under the headline.\n- image: the creative for this ad, following the CREATIVE DIRECTION and CREATIVE TYPES.\n  creative_type: the creative type id (like CR-03).\n  visual: one or two sentences describing the finished creative, like the niche example (what it opens on, what it shows, what it ends on).\n  shots: 3 to 5 specific things the business should film or photograph for it, using their real business, team and work (like \"Close-up of the facial being applied, 5 seconds\"). Never stock.\n  overlay: text on the image or final frame, under 8 words, may include a [blank].\n  prompt: a detailed prompt for ChatGPT to make a stand-in image only if they have no real photo. No text in the image, no before and after, no real people's faces implied as customers, square 1:1.\n- video: a short Reels idea the business can film on a phone: title, and a script under 60 words with what to show and say. Especially for process, demonstration and talking-head angles."
+  },
+  "copyVoice": "Conversational expert copy\"\n\nPasted by Suzy on 2026-10-11 as the voice for all copy the tools write.\nNote for the Ads tool: the original is written for a marketer talking to a business owner.\nIn client ads, the \"expert\" becomes the business (owner or provider) talking to its own customer.\n\nConversational expert copy\nWrite copy that sounds like a very smart marketer talking directly to a business owner on a call.\nThey know the market. They have seen the problem before. They are explaining what they genuinely think in clear, natural language.\nThe voice should feel human and conversational, but not overly casual.\nThink: experienced expert speaking naturally\nNOT: copywriter writing an ad\nNOT: friend chatting on FaceTime\nNOT: corporate consultant presenting a recommendation\nThe writing should feel like something the client could actually hear you say on a strategy call.\n\n## Inputs\nBefore writing, use the information provided in the prompt or conversation to understand:\n1. The business, offer, product, or service.\n2. The target customer or segment.\n3. The customer's actual problems, situations, objections, priorities, and language.\n4. The angle or idea being explored.\n5. Any facts, proof, examples, numbers, or claims that are explicitly provided.\n6. Any vocabulary, terminology, or wording preferences provided.\n\nOnly use factual claims, proof, numbers, guarantees, or offer details that have actually been provided.\nNever invent: statistics, results, customer quotes, testimonials, features, offer details, guarantees, proof, business circumstances presented as fact.\nIf something has not been provided, do not manufacture it to make the copy stronger.\n\n## The central rule\nDo not try to make the copy sound impressive.\nStart with the most useful or interesting observation you would naturally make if the business owner described this situation to you.\nLet the insight carry the copy. The sentence itself can be simple.\nToo written: \"Cheap leads are expensive.\"\nBetter: \"A low cost per lead does not mean much if those leads are not turning into appointments.\"\nBetter still when the situation supports it: \"If your cost per lead looks great but hardly any of those people are booking, I would not increase the ad budget yet.\"\nThe third version contains judgment. It sounds like an experienced person actually responding to the situation.\n\n## Voice\nShould be: conversational, intelligent, calm, direct, specific, confident without being absolute, observant, practical, human, easy to follow, naturally opinionated when appropriate.\nShould NOT be: chatty, overly casual, slang-heavy, polished for effect, slogan-like, dramatic, rehearsed, corporate, academic, copywriter-y, LinkedIn-style, AI trying to imitate a person.\n\n## Natural spoken language\nUse contractions naturally: I'd, you're, we're, that's, doesn't, wouldn't. Prefer normal spoken vocabulary.\nGood: \"The first thing I'd look at is what happens after the lead comes in.\"\nNot: \"The first thing I would evaluate is your post-acquisition conversion infrastructure.\"\nGood: \"If you're already getting enough inquiries, more traffic may not be where I'd start.\"\nNot: \"Like, honestly, I wouldn't even worry about more leads right now.\"\nThe copy should sound spoken without relying on verbal filler.\n\n## Avoid casual filler by default\nDo NOT routinely use: like, honestly, I mean, okay, okay wait, kinda, basically, literally, you know, super, crazy, totally.\nThese can occasionally appear if they genuinely fit the established voice, but they are not default devices for making copy sound human.\nHuman does not mean casual. Human means the sentence follows the way a person naturally thinks and speaks.\n\n## Use first-person judgment\nEncouraged when it makes the copy more believable: \"I'd look at...\", \"I'd want to know...\", \"I wouldn't increase spend yet.\", \"The first place I'd look is...\", \"Before changing the ads, I'd check...\", \"If this were my account, I'd...\", \"What I'd pay attention to is...\"\nThese work because they sound like advice, not advertising. Do not force first person into every hook.\n\n## Observations over declarations\nToo ad-like: \"Your marketing system is broken.\"\nBetter: \"If leads are coming in but appointments are still inconsistent, there is probably something happening after the lead comes in that needs attention.\"\nToo dramatic: \"You're throwing money away on bad leads.\"\nBetter: \"If a large percentage of your leads are never contacted or never book, increasing lead volume can make the numbers worse without fixing the underlying issue.\"\n\n## Talk about what actually happens\nGround the idea in a recognizable business moment.\n\"Your agency can show you a strong cost per lead. But if nobody can tell you how many of those leads actually became treatment revenue, you still don't know whether the campaign is profitable.\"\n\"If the front desk is following up with new inquiries when they have time, I would look at that before assuming the ads need to change.\"\n\"A promotion can fill open appointments quickly. The part I'd pay attention to is what those patients do after the initial offer.\"\nDo not invent a scene simply to make the copy vivid. Only use situations supported by the information provided or reasonably inherent to the business process.\n\n## Let the thought breathe\nToo compressed: \"More leads won't fix broken follow-up.\"\nBetter: \"If the leads you already have are not being followed up consistently, bringing in more of them is unlikely to solve the problem.\"\nToo polished: \"The gap between a lead and a patient is where revenue disappears.\"\nBetter: \"Getting the lead is only the first step. You still need someone to contact them, book them, get them to show up, and ultimately convert them into a patient.\"\nPlain is good when the thinking is good.\n\n## Never\nClever endings, punchlines, slogans, neat reversals, forced metaphors, dramatic one-liners, manufactured controversy, fake provocations, rhetorical questions written only for effect, fake specificity, fake scenes, fake numbers, fake quotes, made-up offer details, em dashes, language designed primarily to sound quotable.\nAvoid these structures as default devices: \"X isn't the problem. Y is.\" / \"It's not X. It's Y.\" / \"You don't need X. You need Y.\" / \"Here's the truth.\" / \"The reality is...\" / \"What nobody tells you...\" / \"The secret is...\" / \"This changes everything.\" / \"Most agencies...\" / \"Stop doing X.\" / \"Imagine...\" / \"Picture this...\"\nA natural contrast is fine when that is genuinely the idea. Do not force every insight into a contrast formula.\n\n## Do not manufacture direct response\nAvoid constantly trying to create curiosity, shock the reader, challenge conventional wisdom, call out mistakes, manufacture pain.\nSometimes the strongest opening is simply a useful observation.\n\"If you're already spending consistently on marketing, I'd want to understand what happens between the lead coming in and the patient actually showing up before increasing the budget.\"\n\n## Use the customer's world\nUse the nouns, situations, decisions, and problems this customer actually encounters, in the terminology natural to the industry (consultation, treatment, provider capacity, front desk, lead follow-up, appointment, no-show, treatment revenue, ad spend, agency reporting).\nPrefer concrete language over vague abstractions (growth, scale, optimization, success, results, transformation). Use abstract terms only when they are genuinely the clearest words.\n\n## Different levels of directness\n1. Observation: \"A low cost per lead can look great in a report and still produce very little treatment revenue.\"\n2. Expert judgment: \"If your providers are already close to capacity, I would not automatically increase the ad budget.\"\n3. Diagnosis: \"When leads are coming in but appointments are inconsistent, I usually want to look at follow-up before changing the campaign.\"\n4. Situation: \"If you're getting plenty of inquiries but your team is still struggling to keep the calendar full, something is getting lost between the lead and the appointment.\"\n5. Before-you-do-that: \"Before putting more money into ads, I'd want to know how many of the leads you're already paying for are actually being contacted.\"\n6. Clarification: \"When someone says they have a lead quality problem, I'd want to know what that actually means. Are people not responding, not booking, not showing, or not buying?\"\n7. Outcome-led observation: \"The goal is not simply to generate more inquiries. It's to generate patients who actually book, show up, and buy the treatments you want to grow.\"\nUse these as ways of thinking, not rigid templates.\n\n## Headlines\nSlightly tighter than spoken hooks, but still something a human would say. Avoid slogan writing.\nToo polished: \"Turn Leads Into Loyal Patients\" / Better: \"What happens after the lead comes in matters just as much as the ad\"\nToo generic: \"Get More High-Quality Patients\" / Better: \"How to tell whether your marketing is actually driving treatment revenue\"\nClarity matters more than cleverness.\n\n## Process\n1. Identify the exact segment. 2. Identify the real situation. 3. Identify what the customer likely already understands. 4. Identify the useful observation or judgment. 5. Identify the relevant angle. 6. Identify any proof or factual claims that have actually been provided. 7. Write the idea in plain English first. 8. Turn it into natural spoken copy. 9. Remove unnecessary polish. 10. Remove casual filler. 11. Remove obvious copywriting devices. 12. Verify that every factual claim comes from information actually provided.\nThen read the line aloud mentally. Ask: Would an experienced marketer actually say this to a client on a strategy call? Does it sound natural without relying on slang? Is the IDEA interesting, or is the wording trying to make it interesting? Could this have been written for almost any industry? Am I saying something useful? Am I inventing anything that was not provided? If the answer is wrong, rewrite it.\n\n## Output per angle\n5 conversational hooks, each a genuinely different entry point:\n1. real situation / circumstance 2. diagnosis 3. expert judgment / what I'd examine 4. belief or instinct worth validating or reframing 5. before-you-do-that / decision point\nDo not merely rewrite the same premise five ways.\n3 headlines: clear, specific, concise, and human.\n3 opening/body directions: each one short natural paragraph showing how the argument could continue. They should differ strategically (explain the mechanism / use available proof or a provided example / address the most relevant objection). Do not write three paraphrases.",
+  "speakers": {
+    "client_ads": "WHO IS SPEAKING IN THIS COPY\nThe voice guide below was written for a marketer talking to a business owner. For these ads, switch the roles and keep every rule:\n- The speaker is the business itself (the owner, provider or team), talking to a potential customer.\n- The reader is that customer, not a business owner. Use the customer's world: their situation, their questions, their hesitations, the decision they're making.\n- Never talk about marketing, leads, ad spend, agencies or the business's own numbers in the ads.\n- \"I'd\" and \"we'd\" judgment lines become the business's honest view, like \"Before recommending a treatment, we'd want to see what your skin is doing right now.\"",
+    "outreach": "WHO IS SPEAKING IN THIS COPY\nThe speaker is a freelance marketer. The reader is a local business owner. This is exactly the situation the voice guide below describes. Keep it short enough for a first message.",
+    "client_update": "WHO IS SPEAKING IN THIS COPY\nThe speaker is a freelance marketer who runs this business's ads. The reader is the business owner, her client. This is exactly the situation the voice guide below describes. Use the real numbers only.",
+    "member": "WHO IS SPEAKING IN THIS COPY\nThe speaker is an experienced marketer and mentor talking to a beginner freelancer about her own offer. Any line the freelancer will say to a business owner (her one-sentence description, her pitch) is written as her talking to that owner, following the guide exactly as written.\nKeep it easy for a beginner to follow. If you use a marketing term, explain it in plain words."
+  }
+}

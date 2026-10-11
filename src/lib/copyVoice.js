@@ -1,9 +1,11 @@
 // SheFreelances OS - Suzy's copy voice (copyVoice.js)
 // Source of truth: shefreelances-os/COPY-VOICE.md ("Conversational expert copy").
-// Every AI prompt that writes copy includes COPY_VOICE plus a SPEAKER line that says who is
+// Every AI prompt that writes copy includes VOICE.text plus a SPEAKER line that says who is
 // talking to whom, because the original is written for Suzy's own marketer-to-owner copy.
 
-export const COPY_VOICE = `Conversational expert copy"
+// VOICE.text can be updated by live content (liveContent.js).
+export const VOICE = {};
+VOICE.text = `Conversational expert copy"
 
 Pasted by Suzy on 2026-10-11 as the voice for all copy the tools write.
 Note for the Ads tool: the original is written for a marketer talking to a business owner.
@@ -147,5 +149,5 @@ export function voiceFor(speaker) {
   return `${SPEAKERS[speaker]}
 
 VOICE GUIDE (follow it closely)
-${COPY_VOICE}`;
+${VOICE.text}`;
 }
