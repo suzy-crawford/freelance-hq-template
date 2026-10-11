@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { SkeletonLine } from "@/components/shared/Skeleton";
 
 const MESSAGES = [
   "Looking at who you want to help...",
@@ -18,10 +19,18 @@ export default function BuildLoading() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-app-bg px-6 text-center">
-      <div className="w-10 h-10 border-4 border-app-surface border-t-app-primary rounded-full animate-spin mb-6" />
-      <p className="text-lg font-medium text-app-text">{MESSAGES[index]}</p>
-      <p className="text-sm text-app-muted mt-2">This usually takes 20 to 40 seconds.</p>
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-app-bg px-6" aria-busy="true">
+      <div className="w-full max-w-md">
+        <div className="sf-eyebrow">Building your offer</div>
+        <p className="font-display text-2xl text-app-text mt-2" aria-live="polite">{MESSAGES[index]}</p>
+        <p className="text-sm text-app-muted mt-2">This usually takes 20 to 40 seconds.</p>
+        <div className="mt-8 space-y-3">
+          <SkeletonLine className="h-5 w-2/3" />
+          <SkeletonLine className="w-full" />
+          <SkeletonLine className="w-11/12" />
+          <SkeletonLine className="w-4/5" />
+        </div>
+      </div>
     </div>
   );
 }

@@ -9,6 +9,68 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { useProfile } from "@/lib/ProfileContext";
 import { EXPERIENCE_OPTIONS, COUNTRIES } from "@/lib/constants";
+import { getThemeChoice, setThemeChoice } from "@/lib/theme";
+import { APP_VERSION, isNewer, fetchLatest, updatePrompt } from "@/lib/version";
+import CopyButton from "@/components/shared/CopyButton";
+
+function VersionSetting() {
+  const [state, setState] = React.useState({ status: "idle" });
+  const check = async () => {
+    setState({ status: "checking" });
+    try {
+      const latest = await fetchLatest();
+      setState(isNewer(latest.version, APP_VERSION) ? { status: "update", latest } : { status: "current" });
+    } catch {
+      setState({ status: "error" });
+    }
+  };
+  return (
+    <div className="field my-8">
+      <span className="label">App version</span>
+      <p className="text-app-text m-0">You're on version {APP_VERSION}.</p>
+      <div>
+        <button type="button" className="btn btn-quiet" onClick={check} disabled={state.status === "checking"}>
+          {state.status === "checking" ? "Checking..." : "Check for updates"}
+        </button>
+      </div>
+      {state.status === "current" && <p className="hint">You have the newest version.</p>}
+      {state.status === "error" && <p className="hint">Couldn't check right now. Try again in a minute.</p>}
+      {state.status === "update" && (
+        <div className="flex flex-col gap-2">
+          <p className="text-app-text m-0">Version {state.latest.version} is ready. Copy the prompt, open your app in Base44, switch the chat to Discuss mode, paste it and send. Your data stays.</p>
+          <div>
+            <CopyButton text={updatePrompt(state.latest)} label="Copy update prompt" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AppearanceSetting() {
+  const [choice, setChoice] = React.useState(getThemeChoice());
+  const pick = (c) => {
+    setChoice(c);
+    setThemeChoice(c);
+  };
+  return (
+    <div className="field my-8">
+      <span className="label">Appearance</span>
+      <div className="choice">
+        {[
+          { id: "light", label: "Day" },
+          { id: "dark", label: "Night" },
+          { id: "auto", label: "Auto" },
+        ].map((o) => (
+          <button key={o.id} type="button" aria-pressed={choice === o.id} onClick={() => pick(o.id)}>
+            {o.label}
+          </button>
+        ))}
+      </div>
+      <p className="note">Auto follows your phone or computer setting.</p>
+    </div>
+  );
+}
 
 export default function Profile() {
   const { profile, updateProfile } = useProfile();
@@ -56,7 +118,9 @@ export default function Profile() {
 
   return (
     <div>
-      <PageHeader title="My Profile" subtitle="Update your details anytime. These power your recommendations." />
+      <PageHeader title="Settings" subtitle="Update your details anytime. These power your recommendations." />
+      <AppearanceSetting />
+      <VersionSetting />
       <div className="space-y-8">
         <div className="space-y-4">
           <h2 className="text-sm font-semibold text-app-muted uppercase tracking-wide">About you</h2>

@@ -36,7 +36,7 @@ export default function ScreenAbout({ aboutMe, setAboutMe, onBack, onBuild, erro
       helper="Optional. Previous experience, industries you know, or anything you'd like us to consider."
       onBack={onBack}
       onContinue={onBuild}
-      continueLabel="Build My Offer"
+      continueLabel="Build my offer"
     >
       <div className="flex flex-wrap gap-2 mb-3">
         {CHIPS.map((c) => (

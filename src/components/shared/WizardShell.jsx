@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@/components/brand/icons";
 
 export default function WizardShell({
   step,

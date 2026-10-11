@@ -1,0 +1,144 @@
+{
+  "name": "AdCampaign",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "complete"
+      ],
+      "default": "draft"
+    },
+    "step": {
+      "type": "number",
+      "default": 1
+    },
+    "business_source": {
+      "type": "string",
+      "enum": [
+        "lead",
+        "new",
+        "practice"
+      ],
+      "default": "new"
+    },
+    "prospect_id": {
+      "type": "string",
+      "default": ""
+    },
+    "business_name": {
+      "type": "string",
+      "default": ""
+    },
+    "business_type": {
+      "type": "string",
+      "default": ""
+    },
+    "website": {
+      "type": "string",
+      "default": ""
+    },
+    "business_description": {
+      "type": "string",
+      "default": ""
+    },
+    "location": {
+      "type": "string",
+      "default": ""
+    },
+    "product": {
+      "type": "string",
+      "default": ""
+    },
+    "offer_text": {
+      "type": "string",
+      "default": ""
+    },
+    "offer_help": {
+      "type": "boolean",
+      "default": false
+    },
+    "goal": {
+      "type": "string",
+      "default": ""
+    },
+    "monthly_budget": {
+      "type": "number"
+    },
+    "budget_unsure": {
+      "type": "boolean",
+      "default": false
+    },
+    "assets": {
+      "type": "string",
+      "default": ""
+    },
+    "notes": {
+      "type": "string",
+      "default": ""
+    },
+    "target_cpl": {
+      "type": "number"
+    },
+    "voice_samples": {
+      "type": "string",
+      "default": ""
+    },
+    "start_date": {
+      "type": "string",
+      "default": ""
+    },
+    "no_emojis": {
+      "type": "boolean",
+      "default": false
+    },
+    "blank_values": {
+      "type": "object",
+      "default": {}
+    },
+    "ad_choices": {
+      "type": "object",
+      "default": {}
+    },
+    "setup": {
+      "type": "object"
+    },
+    "record": {
+      "type": "object"
+    },
+    "site_read": {
+      "type": "boolean",
+      "default": false
+    },
+    "checklist_done": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "refine_history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

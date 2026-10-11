@@ -7,9 +7,28 @@ module.exports = {
   	extend: {
   		opacity: Object.fromEntries(Array.from({ length: 101 }, (_, i) => [i, `${i / 100}`])),
   		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			// Brand kit v3: buttons and inputs 8px, panels 14px, cards 16px, pills fully round.
+  			none: '0',
+  			xs: '4px',
+  			sm: '8px',
+  			DEFAULT: '8px',
+  			md: '8px',
+  			lg: '14px',
+  			xl: '16px',
+  			'2xl': '16px',
+  			'3xl': '16px',
+  			full: '9999px'
+  		},
+  		boxShadow: {
+  			none: 'none',
+  			sm: 'var(--a-panel-shadow)',
+  			DEFAULT: 'var(--a-panel-shadow)',
+  			md: 'var(--a-panel-shadow)',
+  			lg: 'var(--a-hover)',
+  			xl: 'var(--a-hover)',
+  			'2xl': 'var(--a-hover)',
+  			inner: 'none',
+  			menu: 'var(--a-float)'
   		},
   		colors: {
   			background: 'hsl(var(--background))',
@@ -53,6 +72,15 @@ module.exports = {
   				muted: 'var(--color-muted)',
   				primary: 'var(--color-primary)',
   				'on-primary': 'var(--color-on-primary)',
+  				'primary-pressed': 'var(--color-primary-pressed)',
+  				raised: 'var(--color-raised)',
+  				'border-strong': 'var(--color-border-strong)',
+  				navy: 'var(--navy)',
+  				butter: 'var(--butter)',
+  				'on-butter': 'var(--on-butter)',
+  				lavender: 'var(--lavender)',
+  				'lavender-soft': 'var(--lavender-soft)',
+  				'brand-text': 'var(--brand-text)',
   				success: 'var(--color-success)',
   				warning: 'var(--color-warning)',
   				danger: 'var(--color-danger)'
@@ -76,9 +104,10 @@ module.exports = {
   			}
   		},
   		fontFamily: {
-  			heading: ['var(--font-heading)'],
-  			body: ['var(--font-body)'],
+  			heading: ['var(--font-display)'],
+  			body: ['var(--font-sans)'],
   			display: ['var(--font-display)'],
+  			sans: ['var(--font-sans)'],
   			mono: ['var(--font-mono)']
   		},
   		keyframes: {

@@ -6,15 +6,6 @@ export const EXPERIENCE_OPTIONS = [
   { value: "has_clients", title: "I have paying clients", description: "At least one business has paid me for marketing work." },
 ];
 
-export const PATH_STEPS = [
-  { label: "Learn" },
-  { label: "Build Your Offer" },
-  { label: "Get Clients" },
-  { label: "Get Paid" },
-];
-
-export const CURRENT_STEP_INDEX = 1;
-
 export const COUNTRIES = [
   "United States",
   "Canada",
@@ -41,3 +32,9 @@ export const COUNTRIES = [
   "Sweden",
   "Other",
 ];
+// Where members go to keep learning. Placeholder: the SheFreelances AI Skool group doesn't exist yet,
+// so both point at the F2CEO group for now. Update when the SheFreelances AI links are ready.
+export const LEARNING_LINKS = {
+  course: "https://www.skool.com/freelancer-to-ceo-6523",
+  community: "https://www.skool.com/freelancer-to-ceo-6523",
+};

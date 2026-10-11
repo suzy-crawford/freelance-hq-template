@@ -8,12 +8,13 @@ import YourOfferTab from "@/components/offer/result/YourOfferTab";
 import OfferDocTab from "@/components/offer/result/OfferDocTab";
 import ScopeTab from "@/components/offer/result/ScopeTab";
 import { useProfile } from "@/lib/ProfileContext";
-import { cn } from "@/lib/utils";
+import { PageSkeleton } from "@/components/shared/Skeleton";
+import Tabs from "@/components/shared/Tabs";
 
 const TABS = [
-  { id: "offer", label: "Your Offer" },
-  { id: "doc", label: "Offer Doc" },
-  { id: "scope", label: "Scope of Work" },
+  { id: "offer", label: "Your offer" },
+  { id: "doc", label: "Offer doc" },
+  { id: "scope", label: "Scope of work" },
 ];
 
 export default function OfferResult() {
@@ -47,15 +48,15 @@ export default function OfferResult() {
   if (loading || !offer) {
     return (
       <div className="flex items-center justify-center py-24">
-        <div className="w-8 h-8 border-4 border-app-surface border-t-app-primary rounded-full animate-spin" />
+        <PageSkeleton />
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-[860px]">
       <p className="text-xs font-semibold uppercase tracking-widest text-app-muted">Your freelance offer</p>
-      <h1 className="text-3xl md:text-4xl font-semibold text-app-text mt-2">{offer.selected_name}</h1>
+      <h1 className="page-title mt-2">{offer.selected_name}</h1>
       <p className="text-app-muted mt-3 max-w-[620px]">
         This is a recommended starting offer. Review it, edit anything, and make it yours.
       </p>
@@ -71,28 +72,14 @@ export default function OfferResult() {
         </Button>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-1 rounded-full bg-app-surface p-1">
-        {TABS.map((t) => (
-          <button
-            key={t.id}
-            type="button"
-            onClick={() => setTab(t.id)}
-            className={cn(
-              "rounded-full py-2.5 text-sm font-medium transition-colors",
-              tab === t.id ? "bg-app-primary text-app-on-primary" : "text-app-muted hover:text-app-text"
-            )}
-          >
-            {t.label}
-          </button>
-        ))}
-      </div>
+      <Tabs tabs={TABS} active={tab} onChange={setTab} className="mt-8" />
 
       {tab === "offer" && (
         <div>
-          <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-xl border border-app-border bg-app-surface p-4">
-            <span className="text-app-text font-medium">Your offer doc is ready.</span>
-            <Button className="rounded-full bg-app-primary text-app-on-primary hover:bg-app-text" onClick={() => setTab("doc")}>
-              View Offer Doc
+          <div className="mt-6 mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-lg bg-app-lavender-soft p-5">
+            <span className="text-app-text font-semibold">Your offer doc is ready.</span>
+            <Button onClick={() => setTab("doc")}>
+              View offer doc
             </Button>
           </div>
           <YourOfferTab

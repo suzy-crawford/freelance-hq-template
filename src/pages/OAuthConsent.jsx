@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { appParams } from "@/lib/app-params";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Loader2 } from "lucide-react";
+import { ShieldCheck } from "@/components/brand/icons";
 import AuthLayout from "@/components/AuthLayout";
 
 const OPERATION_VERBS = { read: "view", create: "create", update: "edit", delete: "delete" };
@@ -208,7 +208,6 @@ export default function OAuthConsent() {
     return (
       <AuthLayout icon={ShieldCheck} title="Authorize access">
         <div className="flex items-center justify-center py-6 text-muted-foreground">
-          <Loader2 className="w-5 h-5 mr-2 animate-spin" aria-hidden="true" />
           Loading…
         </div>
       </AuthLayout>
@@ -329,7 +328,7 @@ export default function OAuthConsent() {
           disabled={submitting}
           onClick={() => respond("approve")}
         >
-          {submitting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
+          
           Approve
         </Button>
       </div>

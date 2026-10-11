@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle } from "@/components/brand/icons";
 
 export default function AIError({ message, onRetry }) {
   return (

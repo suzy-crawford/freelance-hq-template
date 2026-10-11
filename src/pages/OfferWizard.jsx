@@ -9,6 +9,7 @@ import BuildLoading from "@/components/offer/BuildLoading";
 import ScreenServices from "@/components/offer/ScreenServices";
 import ScreenNiche from "@/components/offer/ScreenNiche";
 import ScreenAbout from "@/components/offer/ScreenAbout";
+import { PageSkeleton } from "@/components/shared/Skeleton";
 
 export default function OfferWizard() {
   const { offerId } = useParams();
@@ -101,7 +102,7 @@ export default function OfferWizard() {
   if (loading || !offer) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-app-bg">
-        <div className="w-8 h-8 border-4 border-app-surface border-t-app-primary rounded-full animate-spin" />
+        <PageSkeleton />
       </div>
     );
   }

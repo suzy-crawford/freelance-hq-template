@@ -21,6 +21,11 @@ import OfferWizard from '@/pages/OfferWizard';
 import OfferResult from '@/pages/OfferResult';
 import Profile from '@/pages/Profile';
 import SetupCheck from '@/pages/SetupCheck';
+import GetClients from '@/pages/GetClients';
+import ProspectDetail from '@/pages/ProspectDetail';
+import AdsHome from '@/pages/AdsHome';
+import AdCampaign from '@/pages/AdCampaign';
+import { PageSkeleton } from "@/components/shared/Skeleton";
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -29,7 +34,7 @@ const AuthenticatedApp = () => {
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+        <PageSkeleton />
       </div>
     );
   }
@@ -62,6 +67,10 @@ const AuthenticatedApp = () => {
             <Route path="/offer/:offerId" element={<OfferResult />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/setup-check" element={<SetupCheck />} />
+            <Route path="/clients" element={<GetClients />} />
+            <Route path="/clients/:prospectId" element={<ProspectDetail />} />
+            <Route path="/ads" element={<AdsHome />} />
+            <Route path="/ads/:campaignId" element={<AdCampaign />} />
           </Route>
         </Route>
       </Route>

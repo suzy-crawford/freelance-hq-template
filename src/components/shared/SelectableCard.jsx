@@ -1,5 +1,5 @@
 import React from "react";
-import { Check } from "lucide-react";
+import { Check } from "@/components/brand/icons";
 import { cn } from "@/lib/utils";
 
 export default function SelectableCard({ title, description, selected, onSelect, disabled }) {

@@ -5,7 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import AIError from "@/components/offer/AIError";
 import { buildRefinePrompt, finalizeRefineResult } from "@/lib/offerPrompts";
 import { callAI } from "@/lib/callAI";
-import { Loader2 } from "lucide-react";
 
 const CHIPS = [
   "Make it sound more premium",
@@ -76,7 +75,7 @@ export default function RefineIt({ offer, profile, onOfferUpdate, onViewOfferDoc
             className="mt-3 rounded-full border-app-border text-app-text"
             onClick={onViewOfferDoc}
           >
-            View Offer Doc
+            View offer doc
           </Button>
         </div>
       )}
@@ -114,7 +113,6 @@ export default function RefineIt({ offer, profile, onOfferUpdate, onViewOfferDoc
       >
         {loading ? (
           <>
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
             Updating your offer...
           </>
         ) : (

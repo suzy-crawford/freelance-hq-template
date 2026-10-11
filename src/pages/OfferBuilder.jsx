@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PageHeader from "@/components/shared/PageHeader";
+import ToolHero from "@/components/shared/ToolHero";
 import { Button } from "@/components/ui/button";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";
 import OfferHomeCard from "@/components/offer/OfferHomeCard";
+import { PageSkeleton } from "@/components/shared/Skeleton";
 
 export default function OfferBuilder() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ export default function OfferBuilder() {
   if (offers === null) {
     return (
       <div className="flex items-center justify-center py-24">
-        <div className="w-8 h-8 border-4 border-app-surface border-t-app-primary rounded-full animate-spin" />
+        <PageSkeleton />
       </div>
     );
   }
@@ -52,9 +53,9 @@ export default function OfferBuilder() {
   if (offers.length === 0) {
     return (
       <div>
-        <PageHeader
-          title="Let's build your freelance offer."
-          subtitle="Three quick questions, then we build your offer, your price, and a one-page offer document you can share."
+        <ToolHero
+          title="Offer Builder"
+          subtitle="Answer three questions and get your offer, your price and a one-page offer doc you can share."
         />
         <Button
           onClick={startNew}
@@ -69,9 +70,9 @@ export default function OfferBuilder() {
 
   return (
     <div>
-      <PageHeader
-        title="Let's build your freelance offer."
-        subtitle="Three quick questions, then we build your offer, your price, and a one-page offer document you can share."
+      <ToolHero
+        title="Offer Builder"
+        subtitle="Answer three questions and get your offer, your price and a one-page offer doc you can share."
         actions={
           <Button
             onClick={startNew}

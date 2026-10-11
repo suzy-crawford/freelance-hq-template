@@ -1,0 +1,122 @@
+{
+  "name": "Prospect",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string",
+      "default": ""
+    },
+    "website_checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "website_not_working": {
+      "type": "boolean",
+      "default": false
+    },
+    "phone": {
+      "type": "string",
+      "default": ""
+    },
+    "email": {
+      "type": "string",
+      "default": ""
+    },
+    "email_source": {
+      "type": "string",
+      "default": ""
+    },
+    "email_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "address": {
+      "type": "string",
+      "default": ""
+    },
+    "instagram": {
+      "type": "string",
+      "default": ""
+    },
+    "facebook": {
+      "type": "string",
+      "default": ""
+    },
+    "source_url": {
+      "type": "string",
+      "default": ""
+    },
+    "business_type": {
+      "type": "string",
+      "default": ""
+    },
+    "location": {
+      "type": "string",
+      "default": ""
+    },
+    "is_chain": {
+      "type": "boolean",
+      "default": false
+    },
+    "dedupe_key": {
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new"
+      ],
+      "default": "new"
+    },
+    "notes": {
+      "type": "string",
+      "default": ""
+    },
+    "offer_id": {
+      "type": "string",
+      "default": ""
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "research_notes": {
+      "type": "string",
+      "default": ""
+    },
+    "analysis": {
+      "type": "object"
+    },
+    "analyzed_at": {
+      "type": "string",
+      "default": ""
+    },
+    "outreach": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

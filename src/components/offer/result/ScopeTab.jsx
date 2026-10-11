@@ -25,7 +25,7 @@ export default function ScopeTab({ offer, profile }) {
 
   return (
     <div className="mt-6">
-      <h2 className="text-xl font-semibold text-app-text">Scope of Work</h2>
+      <h2 className="text-xl font-semibold text-app-text">Scope of work</h2>
       <p className="text-app-muted text-sm mt-1 max-w-[620px]">
         Exactly what you will and won't do for a client. Send it with your offer when someone is ready to start.
       </p>

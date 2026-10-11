@@ -34,7 +34,7 @@ export default function OfferDocTab({ offer, profile, onOfferUpdate }) {
 
   return (
     <div className="mt-6">
-      <h2 className="text-xl font-semibold text-app-text">Your Offer Doc</h2>
+      <h2 className="text-xl font-semibold text-app-text">Your offer doc</h2>
       <p className="text-app-muted text-sm mt-1 max-w-[620px]">
         Your one-page offer. Share it, attach it to an email, or show it when someone asks what you offer.
       </p>

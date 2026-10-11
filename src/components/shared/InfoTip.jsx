@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Info } from "lucide-react";
+import { Info } from "@/components/brand/icons";
 
 export default function InfoTip({ text }) {
   const [open, setOpen] = useState(false);

@@ -67,7 +67,7 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
   return (
     <div className="mt-6 space-y-5 max-w-[760px]">
       {r.skills_note ? (
-        <div className="rounded-xl border-2 border-app-warning bg-app-surface p-5">
+        <div className="rounded-lg bg-app-lavender-soft p-5 md:p-6">
           <div className="text-sm font-semibold text-app-text">Before you sell this</div>
           <p className="text-app-muted text-sm mt-1">{r.skills_note}</p>
         </div>
@@ -105,21 +105,21 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
       <SectionCard number="02" title="What you're selling" copyText={sellingCopy(selling)}>
         {selling.plain_explanation && <p className="text-app-text">{selling.plain_explanation}</p>}
         {(selling.layers || []).length > 0 && (
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <dl className="mt-5 border-t border-app-border">
             {selling.layers.map((l, i) => (
-              <div key={i} className="rounded-xl bg-app-surface p-4">
-                <div className="text-xs font-bold uppercase tracking-wide text-app-muted">{l.name}</div>
-                <p className="text-app-text text-sm mt-2">{l.text}</p>
+              <div key={i} className="py-4 border-b border-app-border md:grid md:grid-cols-[180px_1fr] md:gap-6">
+                <dt className="sf-eyebrow pt-0.5">{l.name}</dt>
+                <dd className="text-app-text mt-1 md:mt-0">{l.text}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         )}
         {(selling.i_help || []).length > 0 && (
           <div className="mt-4">
-            <div className="text-sm font-medium text-app-muted">Ways to say it:</div>
-            <ul className="mt-2 space-y-2">
+            <div className="sf-eyebrow">Ways to say it</div>
+            <ul className="mt-2 border-t border-app-border">
               {selling.i_help.map((t, i) => (
-                <li key={i} className="flex items-start justify-between gap-3">
+                <li key={i} className="flex items-start justify-between gap-3 py-3 border-b border-app-border">
                   <span className="text-app-text">{t}</span>
                   <CopyButton text={t} label="" className="flex-shrink-0" />
                 </li>
@@ -132,22 +132,29 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
       <SectionCard number="03" title="Your offer" copyText={offerCopy(offer, offerRec, pkg)}>
         {(offerRec.name_options || []).length > 0 && (
           <>
-            <div className="text-sm font-medium text-app-muted">Pick your offer name:</div>
-            <div className="mt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="sf-eyebrow">Pick your offer name</div>
+            <div className="mt-2 border-t border-app-border" role="radiogroup" aria-label="Offer name">
               {offerRec.name_options.map((o, i) => (
                 <button
                   key={i}
                   type="button"
+                  role="radio"
+                  aria-checked={offer.selected_name === o.name}
                   onClick={() => selectName(o.name)}
-                  className={cn(
-                    "text-left rounded-xl border-2 p-4 transition-colors",
-                    offer.selected_name === o.name
-                      ? "border-app-primary bg-app-surface"
-                      : "border-app-border bg-app-bg hover:border-app-text"
-                  )}
+                  className="w-full text-left grid grid-cols-[24px_1fr] gap-3 py-4 border-b border-app-border"
                 >
-                  <div className="font-semibold text-app-text">{o.name}</div>
-                  <p className="text-app-muted text-sm mt-1">{o.why}</p>
+                  <span
+                    className={cn(
+                      "mt-0.5 w-5 h-5 rounded-sm border-[1.5px] flex items-center justify-center",
+                      offer.selected_name === o.name ? "bg-app-primary border-app-primary" : "border-app-border-strong"
+                    )}
+                  >
+                    {offer.selected_name === o.name && <span className="w-2 h-2 bg-app-on-primary rounded-xs" />}
+                  </span>
+                  <span>
+                    <span className="block font-display text-xl leading-tight text-app-text">{o.name}</span>
+                    <span className="block text-app-muted text-sm mt-1">{o.why}</span>
+                  </span>
                 </button>
               ))}
             </div>
@@ -158,12 +165,12 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
 
         {(pkg.categories || []).length > 0 && (
           <div className="mt-5">
-            <div className="text-sm font-medium text-app-muted">What's included:</div>
-            <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="sf-eyebrow">What's included</div>
+            <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 border-t border-app-border">
               {pkg.categories.map((c, i) => (
-                <div key={i} className="rounded-xl bg-app-surface p-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-app-muted">{c.name}</div>
-                  <ul className="mt-2 list-disc pl-4 space-y-1 text-app-text text-sm">
+                <div key={i} className="py-4 border-b border-app-border">
+                  <div className="font-semibold text-app-text">{c.name}</div>
+                  <ul className="mt-2 list-disc pl-4 space-y-1 text-app-text">
                     {(c.items || []).map((it, j) => (
                       <li key={j}>{it}</li>
                     ))}
@@ -173,7 +180,7 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
             </div>
             {(pkg.not_included || []).length > 0 && (
               <div className="mt-3">
-                <div className="text-xs font-medium text-app-muted">Not included:</div>
+                <div className="text-sm font-semibold text-app-muted">Not included</div>
                 <ul className="mt-1 list-disc pl-4 space-y-0.5 text-app-muted text-sm">
                   {pkg.not_included.map((it, j) => (
                     <li key={j}>{it}</li>
@@ -186,13 +193,12 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
 
         {(offerRec.method?.steps || []).length > 0 && (
           <div className="mt-5">
-            <div className="font-medium text-app-text">How it works: {offerRec.method.name}</div>
-            <ol className="mt-3 space-y-2">
+            <div className="sf-eyebrow">How it works</div>
+            <div className="font-display text-xl text-app-text mt-1">{offerRec.method.name}</div>
+            <ol className="mt-3 border-t border-app-border">
               {offerRec.method.steps.map((s, i) => (
-                <li key={i} className="flex gap-3">
-                  <span className="w-6 h-6 rounded-full bg-app-primary text-app-on-primary text-xs font-semibold flex items-center justify-center flex-shrink-0">
-                    {i + 1}
-                  </span>
+                <li key={i} className="flex gap-4 py-3 border-b border-app-border">
+                  <span className="font-display text-xl leading-none text-app-muted w-5 flex-shrink-0 pt-0.5">{i + 1}</span>
                   <div>
                     <span className="font-medium text-app-text">{s.name}: </span>
                     <span className="text-app-text">{s.text}</span>
@@ -208,11 +214,11 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
 
       <SectionCard number="04" title="How to talk about your offer">
         <p className="text-sm text-app-muted mb-4">Messages to specific businesses come later, in Get Clients.</p>
-        <div className="space-y-4">
+        <div className="border-t border-app-border">
           {talkBlocks.map((b) => (
-            <div key={b.label} className="rounded-xl bg-app-surface p-4">
+            <div key={b.label} className="py-5 border-b border-app-border">
               <div className="flex items-center justify-between gap-3">
-                <div className="text-sm font-medium text-app-muted">{b.label}</div>
+                <div className="sf-eyebrow">{b.label}</div>
                 <CopyButton text={b.text} />
               </div>
               <p className="text-app-text mt-2">{b.text}</p>
@@ -222,8 +228,8 @@ export default function YourOfferTab({ offer, profile, onOfferUpdate, onViewOffe
       </SectionCard>
 
       {(r.terms || []).length > 0 && (
-        <div className="rounded-xl border border-app-border bg-app-bg p-5">
-          <div className="text-sm font-semibold text-app-text mb-2">Words to know</div>
+        <div className="rounded-lg bg-app-lavender-soft p-5 md:p-6">
+          <div className="sf-eyebrow mb-3">Words to know</div>
           <ul className="space-y-2">
             {r.terms.map((t, i) => (
               <li key={i} className="text-sm text-app-text">

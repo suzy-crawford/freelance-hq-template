@@ -41,6 +41,10 @@
     "onboarding_step": {
       "type": "number",
       "default": 1
+    },
+    "last_search_location": {
+      "type": "string",
+      "default": ""
     }
   },
   "required": [

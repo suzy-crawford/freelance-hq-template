@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PageHeader from "@/components/shared/PageHeader";
 import { runLibraryChecks } from "@/lib/offerChecks";
-import { Check, X } from "lucide-react";
+import { Check, X } from "@/components/brand/icons";
 import { cn } from "@/lib/utils";
+import { PageSkeleton } from "@/components/shared/Skeleton";
 
 export default function SetupCheck() {
   const [result, setResult] = useState(null);
@@ -14,7 +15,7 @@ export default function SetupCheck() {
   if (!result) {
     return (
       <div className="flex items-center justify-center py-24">
-        <div className="w-8 h-8 border-4 border-app-surface border-t-app-primary rounded-full animate-spin" />
+        <PageSkeleton />
       </div>
     );
   }

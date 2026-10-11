@@ -75,7 +75,7 @@ export default function ScreenServices({ offer, onDone }) {
           />
         ))}
         <SelectableCard
-          title="Help Me Decide"
+          title="Help me decide"
           description="Not sure yet? Answer 4 quick questions."
           selected={helpMe}
           onSelect={selectHelpMe}

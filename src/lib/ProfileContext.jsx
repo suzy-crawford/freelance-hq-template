@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
+import { PageSkeleton } from "@/components/shared/Skeleton";
 
 const ProfileContext = createContext(null);
 
@@ -64,7 +65,7 @@ export default function ProfileGate() {
   if (loading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-app-bg">
-        <div className="w-8 h-8 border-4 border-app-surface border-t-app-primary rounded-full animate-spin"></div>
+        <PageSkeleton />
       </div>
     );
   }
