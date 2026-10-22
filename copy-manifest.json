@@ -8,27 +8,27 @@
     },
     "base44/entities/AdCampaign.jsonc": {
       "part": 1,
-      "hash": "e1006057917bbf03"
+      "hash": "bf2cbea2d5111559"
     },
     "base44/entities/ContentPlan.jsonc": {
       "part": 1,
-      "hash": "658ae0e7d1ebacfa"
+      "hash": "58c4d8f3fb936dbf"
     },
     "base44/entities/FreelancerProfile.jsonc": {
       "part": 1,
-      "hash": "c81e10755ae5b88e"
+      "hash": "5e6443eb3602d156"
     },
     "base44/entities/Offer.jsonc": {
       "part": 1,
-      "hash": "ed8740c0271cce7e"
+      "hash": "be76e6ae8a81c6de"
     },
     "base44/entities/Prospect.jsonc": {
       "part": 1,
-      "hash": "ad91d840996aa1a3"
+      "hash": "2fe97fe2cdd5d0d8"
     },
     "base44/entities/User.jsonc": {
       "part": 1,
-      "hash": "9f828d080d6407c1"
+      "hash": "eca48bb30862a459"
     },
     "base44/functions/findBusinesses/entry.ts": {
       "part": 1,
@@ -196,11 +196,11 @@
     },
     "src/lib/contentRev.js": {
       "part": 4,
-      "hash": "660774b94587559b"
+      "hash": "c0627c5c2eeea48f"
     },
     "src/lib/copyCheck.js": {
       "part": 4,
-      "hash": "156dbe801c61d832"
+      "hash": "7ae0b788e8731b3a"
     },
     "src/lib/copyVoice.js": {
       "part": 4,

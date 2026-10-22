@@ -9,7 +9,19 @@ import { dirname, join, relative } from "node:path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 // The same rule as src/lib/copyCheck.js: ignore all whitespace, so harmless reformatting still matches.
-export const fingerprint = (text) => createHash("sha256").update(text.replace(/\s+/g, "")).digest("hex").slice(0, 16);
+// Data entities are compared as data (Base44 reformats them when it saves), with keys in a fixed order.
+const sortKeys = (v) => (Array.isArray(v) ? v.map(sortKeys) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sortKeys(v[k])])) : v);
+const normalize = (text, path) => {
+  if (path.endsWith(".jsonc")) {
+    try {
+      return JSON.stringify(sortKeys(JSON.parse(text)));
+    } catch {
+      /* fall back to text */
+    }
+  }
+  return text.replace(/\s+/g, "");
+};
+export const fingerprint = (text, path = "") => createHash("sha256").update(normalize(text, path)).digest("hex").slice(0, 16);
 
 function walk(dir, exts, out = []) {
   for (const name of readdirSync(dir)) {
@@ -44,7 +56,7 @@ for (const f of files) {
     size = 0;
   }
   size += text.length;
-  entries[f] = { part, hash: fingerprint(text) };
+  entries[f] = { part, hash: fingerprint(text, f) };
 }
 
 const { version } = JSON.parse(readFileSync(join(root, "version.json"), "utf8"));
@@ -68,6 +80,7 @@ const lines = [
   "- Only do the part the user asks for, then stop and say which files you created.",
   "- The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.",
   "- Images load from the internet by themselves. Don't create or download image files.",
+  "- Spacing, line breaks and a missing final newline don't matter (the check ignores them), and Base44 reformatting entity files is fine. Don't spend time on those.",
   "",
   `There are ${part} parts. After the last part, the user opens My Profile, then Check my setup. Its Copy check compares every file with this list and names any file that isn't an exact copy.`,
   "",

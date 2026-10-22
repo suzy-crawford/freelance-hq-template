@@ -11,6 +11,7 @@ This repository is a finished, tested app. Your job is to copy it into this Base
 - Only do the part the user asks for, then stop and say which files you created.
 - The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.
 - Images load from the internet by themselves. Don't create or download image files.
+- Spacing, line breaks and a missing final newline don't matter (the check ignores them), and Base44 reformatting entity files is fine. Don't spend time on those.
 
 There are 8 parts. After the last part, the user opens My Profile, then Check my setup. Its Copy check compares every file with this list and names any file that isn't an exact copy.
 

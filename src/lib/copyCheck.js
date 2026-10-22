@@ -13,8 +13,21 @@ const SOURCES = import.meta.glob(
   { query: "?raw", import: "default" }
 );
 
-async function fingerprint(text) {
-  const bytes = new TextEncoder().encode(String(text).replace(/\s+/g, ""));
+// Same rule as tools/build-manifest.mjs: whitespace ignored; data entities compared as data.
+const sortKeys = (v) => (Array.isArray(v) ? v.map(sortKeys) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sortKeys(v[k])])) : v);
+function normalize(text, path) {
+  if (path.endsWith(".jsonc")) {
+    try {
+      return JSON.stringify(sortKeys(JSON.parse(text)));
+    } catch {
+      /* fall back to text */
+    }
+  }
+  return String(text).replace(/\s+/g, "");
+}
+
+async function fingerprint(text, path = "") {
+  const bytes = new TextEncoder().encode(normalize(text, path));
   const digest = await crypto.subtle.digest("SHA-256", bytes);
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
 }
@@ -38,7 +51,7 @@ export async function runCopyCheck() {
   await Promise.all(
     Object.entries(SOURCES).map(async ([path, load]) => {
       try {
-        have[path.replace(/^\//, "")] = await fingerprint(await load());
+        have[path.replace(/^\//, "")] = await fingerprint(await load(), path);
       } catch {
         /* unreadable files count as missing */
       }
