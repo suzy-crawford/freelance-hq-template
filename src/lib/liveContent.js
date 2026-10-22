@@ -13,6 +13,9 @@ import { CREATIVE_TYPES, CREATIVE_FOR_CATEGORY, NICHE_CREATIVE } from "./adsCrea
 import { RULEBOOK, DIAGNOSIS, GENERAL_AD_RULES, HEALTH_AD_RULES } from "./adsData";
 import { PROMPT_TEXT } from "./adsPrompts";
 import { VOICE, SPEAKERS } from "./copyVoice";
+import { SAMPLE_OFFERS } from "./sampleOffers";
+import { MASTER_PROMPTS } from "./adsMasterPrompts";
+import { CLAUDE_PROMPTS } from "./clientsClaudePrompt";
 import { BUNDLED_CONTENT_REV } from "./contentRev";
 
 export const CONTENT_SCHEMA = 1;
@@ -60,6 +63,17 @@ const SECTIONS = {
     set: (v) => Object.assign(PROMPT_TEXT, v),
   },
   copyVoice: { get: () => VOICE.text, ok: isText, set: (v) => (VOICE.text = v) },
+  adsMasterPrompts: {
+    get: () => MASTER_PROMPTS,
+    ok: (v) => isObj(v) && Object.values(v).every(isText),
+    set: (v) => Object.assign(MASTER_PROMPTS, v),
+  },
+  sampleOffers: { get: () => SAMPLE_OFFERS, ok: isArr, set: (v) => replaceArray(SAMPLE_OFFERS, v) },
+  claudePrompts: {
+    get: () => CLAUDE_PROMPTS,
+    ok: (v) => isObj(v) && Object.values(v).every(isText),
+    set: (v) => Object.assign(CLAUDE_PROMPTS, v),
+  },
   speakers: {
     get: () => SPEAKERS,
     ok: (v) => isObj(v) && Object.values(v).every(isText),

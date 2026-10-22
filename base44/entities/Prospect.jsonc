@@ -2,6 +2,12 @@
   "name": "Prospect",
   "type": "object",
   "properties": {
+    "preview_source": { "type": "string", "default": "" },
+    "preview_url": { "type": "string", "default": "" },
+    "builds": { "type": "object" },
+    "price_notes": { "type": "string", "default": "" },
+    "build_industry": { "type": "string", "default": "" },
+    "reward_notes": { "type": "string", "default": "" },
     "name": {
       "type": "string"
     },
@@ -90,6 +96,21 @@
     "research_notes": {
       "type": "string",
       "default": ""
+    },
+    "contacted_at": {
+      "type": "string",
+      "default": ""
+    },
+    "pitch_custom": {
+      "type": "string",
+      "default": ""
+    },
+    "asset_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
     },
     "analysis": {
       "type": "object"

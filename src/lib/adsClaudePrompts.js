@@ -36,9 +36,9 @@ function targetText(campaign) {
 }
 
 function header(campaign, job) {
-  return `I'm a freelance marketer running Meta ads for my client, ${displayName(campaign.business_name)}${campaign.location ? ` in ${campaign.location}` : ""}. Use the Meta Ads connector to ${job}.
+  return `I'm a freelance marketer running Meta ads for my client, ${displayName(campaign.business_name)}${campaign.location ? ` in ${campaign.location}` : ""}. If you have the Meta Ads connector, use it to ${job}.
 
-If the Meta Ads connector isn't connected, stop and tell me: "In Claude, go to Settings, then Connectors, find Meta Ads, click Connect and log in with Facebook."`;
+If you don't have the Meta Ads connector (or you're ChatGPT), don't build anything yourself. Instead, walk me through doing it in Meta Ads Manager (adsmanager.facebook.com) one step at a time, using the plan below. Give me one step, wait for me to say "done", then give me the next. Use the exact button and field names I'll see on screen.`;
 }
 
 // 1. Set it up in Meta
@@ -49,9 +49,11 @@ export function buildSetupPrompt(campaign) {
   const ads = getAds(campaign);
   const isForm = s.destination === "instant_form";
   const month = new Date().toLocaleDateString("en-US", { month: "short", year: "numeric" });
-  const radius = niche.radius
-    ? `${niche.radius[0]} to ${niche.radius[1]} miles around the business address (the smaller number in a big city, the bigger one in a smaller town; ask me for the address if you don't have it)`
-    : `the whole country (${campaign.location || "ask me which country"})`;
+  const radius = campaign.radius_miles
+    ? `${campaign.radius_miles} miles around the business address in ${campaign.location || "their city"} (ask me for the exact address if you don't have it)`
+    : niche.radius
+      ? `${niche.radius[0]} to ${niche.radius[1]} miles around the business address (the smaller number in a big city, the bigger one in a smaller town; ask me for the address if you don't have it)`
+      : `the whole country (${campaign.location || "ask me which country"})`;
   const blanks = ads.reduce((n, ad) => n + countBlanks(ad), 0);
 
   const adBlocks = ads
@@ -85,7 +87,7 @@ List the Facebook Pages for that ad account and ask me which one belongs to ${di
   }
 Also check whether the business has an Instagram account linked, so the ads can show on Instagram too.
 
-STEP 3. GET THE IMAGES
+STEP 3. GET THE IMAGES AND VIDEOS
 I need ${ads.length} image${ads.length > 1 ? "s" : ""}, one for each ad. Ask me to upload them from my computer with the upload tool (or give you a public image link). Name each one after its ad. Ask me whether any image was made with AI, and set the AI disclosure the way I answer.
 
 STEP 4. CONFIRM THE PLAN WITH ME

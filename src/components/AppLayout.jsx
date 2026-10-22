@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, NavLink, useLocation } from "react-router-dom";
-import { Home, Offer, MapPin, Progress, Calendar, Lessons, Community, Settings, Menu, Close } from "@/components/brand/icons";
+import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
+import { Home, Offer, MapPin, Progress, Calendar, Lessons, Community, Settings, Menu, Close, Globe, Target, Cart } from "@/components/brand/icons";
 import { useProfile } from "@/lib/ProfileContext";
 import { LEARNING_LINKS } from "@/lib/constants";
 import { base44 } from "@/api/base44Client";
@@ -8,17 +8,23 @@ import { base44 } from "@/api/base44Client";
 // Brand kit v3 shell: midnight sidebar, off-white page, content left aligned.
 // NavLink sets aria-current="page" on the active item, which app.css styles.
 
+// The AI Build Lab's three sections, each its own link (the page reads ?section=).
+const LAB_LINKS = [
+  { id: "get", label: "Builds to get clients", icon: Globe },
+  { id: "magnets", label: "Lead magnets", icon: Target },
+  { id: "sell", label: "Builds to sell", icon: Cart },
+];
+
 function Sidebar({ leadCount, onNavigate }) {
   const { profile } = useProfile();
+  const location = useLocation();
+  const labSection = location.pathname === "/build-lab" ? new URLSearchParams(location.search).get("section") || "get" : null;
   const firstName = profile?.first_name;
   return (
     <>
-      <div className="ws">
-        <img src="/brand/logo-monogram-lavender.svg" width="32" height="32" alt="" />
-        <div>
-          <b>{firstName ? `${firstName}'s Freelance HQ` : "Freelance HQ"}</b>
-          <span>SheFreelances AI</span>
-        </div>
+      <div className="ws ws-2">
+        <img src="/brand/logo-wordmark-night-ai.svg" className="ws-mark" alt="SheFreelances AI" />
+        <span>{firstName ? `${firstName}'s Freelance HQ` : "Your Freelance HQ"}</span>
       </div>
       <NavLink to="/" end className="nav-item" onClick={onNavigate}>
         <Home />
@@ -36,16 +42,29 @@ function Sidebar({ leadCount, onNavigate }) {
       </NavLink>
       <NavLink to="/ads" className="nav-item" onClick={onNavigate}>
         <Progress />
-        Ads Manager
+        Meta Ads Builder
       </NavLink>
-      <span className="nav-item opacity-60" aria-disabled="true">
+      <NavLink to="/content" className="nav-item" onClick={onNavigate}>
         <Calendar />
         Content Creator
-      </span>
-      <div className="nav-label">Learn</div>
+      </NavLink>
+      <div className="nav-label">AI Build Lab</div>
+      {LAB_LINKS.map((l) => (
+        <Link
+          key={l.id}
+          to={`/build-lab?section=${l.id}`}
+          className="nav-item"
+          onClick={onNavigate}
+          aria-current={labSection === l.id ? "page" : undefined}
+        >
+          <l.icon />
+          {l.label}
+        </Link>
+      ))}
+      <div className="nav-label">Skool</div>
       <a className="nav-item" href={LEARNING_LINKS.course} target="_blank" rel="noreferrer">
         <Lessons />
-        The course
+        Course
       </a>
       <a className="nav-item" href={LEARNING_LINKS.community} target="_blank" rel="noreferrer">
         <Community />
@@ -99,7 +118,7 @@ export default function AppLayout() {
 
       <div className="min-w-0">
         <div className="mobile-bar">
-          <img src="/brand/logo-monogram-lavender.svg" width="28" height="28" alt="SheFreelances AI" />
+          <img src="/brand/logo-wordmark-night-ai.svg" className="ws-mark-sm" alt="SheFreelances AI" />
           <button type="button" onClick={() => setDrawerOpen(true)} aria-label="Open menu">
             <Menu />
           </button>

@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import WizardShell from "@/components/shared/WizardShell";
+
+const OFFER_STEPS = ["What you offer", "Who you help", "About you"];
 import { Textarea } from "@/components/ui/textarea";
 import AIError from "@/components/offer/AIError";
 
@@ -30,6 +32,9 @@ export default function ScreenAbout({ aboutMe, setAboutMe, onBack, onBuild, erro
 
   return (
     <WizardShell
+      steps={OFFER_STEPS}
+      headTitle="Offer Builder"
+      headSub="Let's build your freelance offer."
       step={3}
       totalSteps={3}
       title="Tell us a little about yourself"

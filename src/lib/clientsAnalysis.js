@@ -44,9 +44,11 @@ export function observationLabels(ids, offer) {
   return (ids || []).map((id) => options.find((o) => o.id === id)?.label).filter(Boolean);
 }
 
-// Meta Ad Library, already searched for this business.
+// Meta Ad Library, already searched for this business. Exact-phrase search on the name, so other
+// advertisers whose ads just share a word (like "fitness" or "spa") don't show up.
 export function adLibraryUrl(name) {
-  return `https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&media_type=all&search_type=keyword_unordered&q=${encodeURIComponent(name || "")}`;
+  const q = `"${String(name || "").replace(/"/g, "").trim()}"`;
+  return `https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&media_type=all&search_type=keyword_exact_phrase&q=${encodeURIComponent(q)}`;
 }
 
 export function facebookSearchUrl(name, location) {

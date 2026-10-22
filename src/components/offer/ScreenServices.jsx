@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import WizardShell from "@/components/shared/WizardShell";
+
+const OFFER_STEPS = ["What you offer", "Who you help", "About you"];
 import SelectableCard from "@/components/shared/SelectableCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -57,6 +59,9 @@ export default function ScreenServices({ offer, onDone }) {
 
   return (
     <WizardShell
+      steps={OFFER_STEPS}
+      headTitle="Offer Builder"
+      headSub="Let's build your freelance offer."
       step={1}
       totalSteps={3}
       title="What would you like to offer?"

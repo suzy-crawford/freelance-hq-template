@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import WizardShell from "@/components/shared/WizardShell";
+
+const OFFER_STEPS = ["What you offer", "Who you help", "About you"];
 import SelectableCard from "@/components/shared/SelectableCard";
 import { Input } from "@/components/ui/input";
 import { NICHES, NICHE_GROUPS, NICHE_SCREEN_COPY } from "@/lib/offerData";
@@ -46,6 +48,9 @@ export default function ScreenNiche({ offer, onBack, onDone }) {
 
   return (
     <WizardShell
+      steps={OFFER_STEPS}
+      headTitle="Offer Builder"
+      headSub="Let's build your freelance offer."
       step={2}
       totalSteps={3}
       title={NICHE_SCREEN_COPY.title}

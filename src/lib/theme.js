@@ -1,4 +1,4 @@
-// Day / Night / Auto (brand kit v3). Auto follows the device setting.
+// Day / Night / Auto (APP-UI: respect the OS setting, offer a toggle). Auto follows the device setting.
 const KEY = "sf-theme";
 
 export function getThemeChoice() {

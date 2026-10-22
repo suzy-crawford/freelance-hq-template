@@ -25,6 +25,9 @@ import GetClients from '@/pages/GetClients';
 import ProspectDetail from '@/pages/ProspectDetail';
 import AdsHome from '@/pages/AdsHome';
 import AdCampaign from '@/pages/AdCampaign';
+import ContentHome from '@/pages/ContentHome';
+import ContentPlan from '@/pages/ContentPlan';
+import BuildLab from '@/pages/BuildLab';
 import { PageSkeleton } from "@/components/shared/Skeleton";
 
 const AuthenticatedApp = () => {
@@ -60,10 +63,10 @@ const AuthenticatedApp = () => {
       <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
         <Route element={<ProfileGate />}>
           <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/offer-builder/:offerId" element={<OfferWizard />} />
           <Route element={<AppLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/offer-builder" element={<OfferBuilder />} />
+            <Route path="/offer-builder/:offerId" element={<OfferWizard />} />
             <Route path="/offer/:offerId" element={<OfferResult />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/setup-check" element={<SetupCheck />} />
@@ -71,6 +74,9 @@ const AuthenticatedApp = () => {
             <Route path="/clients/:prospectId" element={<ProspectDetail />} />
             <Route path="/ads" element={<AdsHome />} />
             <Route path="/ads/:campaignId" element={<AdCampaign />} />
+            <Route path="/content" element={<ContentHome />} />
+            <Route path="/content/:planId" element={<ContentPlan />} />
+            <Route path="/build-lab" element={<BuildLab />} />
           </Route>
         </Route>
       </Route>

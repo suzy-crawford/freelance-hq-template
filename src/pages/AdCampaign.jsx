@@ -1,20 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { ArrowLeft } from "@/components/brand/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { callAI } from "@/lib/callAI";
-import ToolHero from "@/components/shared/ToolHero";
+import { Link } from "react-router-dom";
 import { PageSkeleton } from "@/components/shared/Skeleton";
-import InputsPanel from "@/components/ads/InputsPanel";
-import OutputPanel from "@/components/ads/OutputPanel";
-import { getCampaignSetup } from "@/lib/adsData";
-import {
-  buildAdStrategyPrompt,
-  buildAdRefinePrompt,
-  buildAngleRewritePrompt,
-  finalizeAdRecord,
-  finalizeAngleResult,
-  parseRefineRequest,
-} from "@/lib/adsPrompts";
+import { StageTrack, CampaignStrip, PlanStep, AdsStep, FunnelStep, LaunchStep } from "@/components/ads/MetaAdsBuilder";
+import { buildAdsCall, finalizeConcepts, buildFunnelCall, finalizeFunnel } from "@/lib/adsEngine";
+import { guessBusinessType } from "@/lib/adsBuilder";
+import { getCampaignSetup, BUSINESS_TYPES } from "@/lib/adsData";
 import { getNiche } from "@/lib/adsNiches";
 import { displayName } from "@/lib/adsCards";
 
@@ -38,7 +32,25 @@ const INPUT_FIELDS = [
   "target_cpl",
   "voice_samples",
   "no_emojis",
+  "daily_budget",
+  "radius_miles",
+  "target_customer",
+  "services",
+  "brand_colors",
+  "brand_style",
+  "proof_text",
+  "credentials_text",
+  "differentiators",
+  "assets_text",
+  "logo_available",
 ];
+
+// "Med spas and beauty · Austin, TX · Meta Ads Builder"
+function headerLine(c) {
+  const niche = getNiche(c);
+  const type = niche && niche.id !== "general" ? niche.label : BUSINESS_TYPES.find((t) => t.id === c.business_type)?.label;
+  return [type, c.location, "Meta Ads Builder", c.business_source === "practice" ? "Practice business" : ""].filter(Boolean).join(" · ");
+}
 
 function normalizeUrl(url) {
   const u = String(url || "").trim();
@@ -51,27 +63,7 @@ export default function AdCampaign() {
   const navigate = useNavigate();
   const [campaign, setCampaign] = useState(null);
   const [building, setBuilding] = useState(false);
-  const [refining, setRefining] = useState(false);
   const [error, setError] = useState(null);
-  const [refineMessage, setRefineMessage] = useState("");
-  const [busyIndex, setBusyIndex] = useState(null);
-  const [inputsOpen, setInputsOpen] = useState(() => {
-    try {
-      return localStorage.getItem("sf-ads-inputs") !== "hidden";
-    } catch {
-      return true;
-    }
-  });
-  const toggleInputs = () => {
-    setInputsOpen((open) => {
-      try {
-        localStorage.setItem("sf-ads-inputs", open ? "hidden" : "open");
-      } catch {
-        /* storage unavailable */
-      }
-      return !open;
-    });
-  };
   const saveTimer = useRef(null);
   const pending = useRef({});
 
@@ -105,16 +97,16 @@ export default function AdCampaign() {
     flush();
   }, [flush]);
 
-  const canBuild = !!(campaign?.business_name && campaign?.business_type && campaign?.product && campaign?.goal);
+  const canBuild = !!(campaign?.business_name && campaign?.product && campaign?.goal);
 
   const build = async () => {
     clearTimeout(saveTimer.current);
     await flush();
     setBuilding(true);
     setError(null);
-    setRefineMessage("");
+    setCampaign((prev) => ({ ...prev, stage: "ads" }));
     try {
-      const inputs = Object.fromEntries(INPUT_FIELDS.map((k) => [k, campaign[k]]));
+      const inputs = { ...Object.fromEntries(INPUT_FIELDS.map((k) => [k, campaign[k]])), business_type: guessBusinessType(campaign) };
       const setup = getCampaignSetup(inputs);
       let site = { ok: false };
       const website = normalizeUrl(campaign.website);
@@ -122,8 +114,9 @@ export default function AdCampaign() {
         const res = await base44.functions.invoke("readWebsite", { url: website }).catch(() => null);
         site = res?.data ?? res ?? { ok: false };
       }
-      const result = await callAI(buildAdStrategyPrompt({ campaign: inputs, setup, site, niche: getNiche(inputs) }));
-      const record = finalizeAdRecord(result, setup, getNiche(inputs));
+      const result = await callAI(buildAdsCall({ ...campaign, ...inputs, setup }));
+      const record = { version: 3, cta: "", concepts: finalizeConcepts(result) };
+      if (!record.concepts.length) throw new Error("The ads came back empty. Try again.");
       const updated = await base44.entities.AdCampaign.update(campaign.id, {
         ...inputs,
         website,
@@ -131,8 +124,14 @@ export default function AdCampaign() {
         record,
         site_read: !!site?.ok,
         status: "complete",
+        stage: "ads",
         checklist_done: [],
         ad_choices: {},
+        blank_values: campaign.blank_values || {},
+        ads_off: [],
+        launched_at: "",
+        funnel: null,
+        funnel_ad: 0,
       });
       setCampaign(updated);
     } catch (e) {
@@ -140,30 +139,6 @@ export default function AdCampaign() {
       setError(e?.response?.data?.error || e.message || String(e));
     } finally {
       setBuilding(false);
-    }
-  };
-
-  const refine = async (request) => {
-    setRefining(true);
-    setError(null);
-    setRefineMessage("");
-    try {
-      const changes = parseRefineRequest(request);
-      const inputs = { ...Object.fromEntries(INPUT_FIELDS.map((k) => [k, campaign[k]])), ...changes };
-      const setup = getCampaignSetup(inputs);
-      const result = await callAI(buildAdRefinePrompt({ campaign: { ...campaign, ...inputs }, setup, request }));
-      const record = finalizeAdRecord(result, setup, getNiche(inputs));
-      const history = [...(campaign.refine_history || []), { request, date: new Date().toISOString() }];
-      const updated = await base44.entities.AdCampaign.update(campaign.id, { ...changes, setup, record, refine_history: history, ad_choices: {} });
-      setCampaign(updated);
-      setRefineMessage("Updated. Every tab now reflects your change.");
-      return true;
-    } catch (e) {
-      console.error("[Ads] refine", e);
-      setError(e?.response?.data?.error || e.message || String(e));
-      return false;
-    } finally {
-      setRefining(false);
     }
   };
 
@@ -188,78 +163,94 @@ export default function AdCampaign() {
     await base44.entities.AdCampaign.update(campaign.id, { blank_values: all });
   };
 
-  // Rewrite one ad, or swap its angle for another from the niche library (one small AI call).
-  const rewriteAngle = async (index, swapTo) => {
-    setBusyIndex(index);
-    setError(null);
+  // Funnel: write the Instant Form or the landing page copy from the chosen ad (one AI call).
+  const [writingFunnel, setWritingFunnel] = useState(false);
+  const [funnelError, setFunnelError] = useState(null);
+  const writeFunnel = async (type, adIndex) => {
+    clearTimeout(saveTimer.current);
+    await flush();
+    setWritingFunnel(true);
+    setFunnelError(null);
     try {
-      const angle = campaign.record.angles[index];
-      const result = await callAI(
-        buildAngleRewritePrompt({
-          campaign,
-          setup: campaign.setup,
-          angle,
-          newAngle: swapTo,
-          niche: getNiche(campaign),
-        })
-      );
-      const angles = [...campaign.record.angles];
-      angles[index] = finalizeAngleResult(result);
-      const record = { ...campaign.record, angles };
-      const all = { ...(campaign.ad_choices || {}) };
-      delete all[index];
-      const updated = await base44.entities.AdCampaign.update(campaign.id, { record, ad_choices: all });
+      const result = await callAI(buildFunnelCall(campaign, adIndex, type));
+      const key = type === "instant_form" ? "instant_form" : "landing_page";
+      const funnel = { ...(campaign.funnel || {}), [key]: finalizeFunnel(type, result), ad_index: adIndex };
+      const updated = await base44.entities.AdCampaign.update(campaign.id, { funnel, funnel_type: type, funnel_ad: adIndex });
       setCampaign(updated);
     } catch (e) {
-      console.error("[Ads] rewrite", e);
-      setError(e?.response?.data?.error || e.message || String(e));
+      console.error("[Ads] funnel", e);
+      setFunnelError(e?.response?.data?.error || e.message || String(e));
     } finally {
-      setBusyIndex(null);
+      setWritingFunnel(false);
     }
   };
 
-  const toggleCheck = async (id) => {
-    const done = new Set(campaign.checklist_done || []);
-    done.has(id) ? done.delete(id) : done.add(id);
-    const list = [...done];
-    setCampaign((prev) => ({ ...prev, checklist_done: list }));
-    await base44.entities.AdCampaign.update(campaign.id, { checklist_done: list });
+  // Wizard navigation: one track, saved on the campaign. Older campaigns saved "creative": that's Funnel now.
+  const savedStage = campaign?.stage === "creative" ? "funnel" : campaign?.stage;
+  const stage = savedStage && (savedStage === "plan" || campaign.record) ? savedStage : "plan";
+  const go = (next) => {
+    change({ stage: next });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const canGo = (id) => id === "plan" || !!campaign?.record;
+
+  const toggleAd = (index) => {
+    const off = new Set(campaign.ads_off || []);
+    off.has(index) ? off.delete(index) : off.add(index);
+    change({ ads_off: [...off] });
+  };
+  const fillBlank = (blank, value) => saveBlanks({ [blank.toLowerCase()]: value });
+  const done = () => {
+    change({ launched_at: new Date().toISOString() });
   };
 
   if (!campaign) return <PageSkeleton />;
 
   return (
-    <div className="flex flex-col gap-10">
-      <ToolHero
-        label="Ads Manager"
-        title={displayName(campaign.business_name) || "New campaign"}
-        tag={campaign.business_source === "practice" ? <span className="tag tag-practice">Practice</span> : null}
-        subtitle="Plan a Meta ad campaign step by step. You review everything before anything goes live."
-        right={
-          !inputsOpen && (
-            <button type="button" className="btn btn-quiet" onClick={toggleInputs} aria-expanded={false}>
-              Show questions
-            </button>
-          )
-        }
-      />
-      <div className={inputsOpen ? "guided" : "guided inputs-hidden"}>
-        <InputsPanel campaign={campaign} onChange={change} onBuild={build} building={building} canBuild={canBuild} onHide={toggleInputs} />
-        <OutputPanel
-          campaign={campaign}
-          building={building}
-          error={error}
-          onToggleCheck={toggleCheck}
-          onRefine={refine}
-          refining={refining}
-          refineMessage={refineMessage}
-          busyIndex={busyIndex}
-          onChoice={choose}
-          onRewrite={(i) => rewriteAngle(i)}
-          onSwap={(i, a) => rewriteAngle(i, a)}
-          onBlanks={saveBlanks}
-          onChange={change}
-        />
+    <div className="lp ab">
+      <Link to="/ads" className="lp-back">
+        <ArrowLeft /> All campaigns
+      </Link>
+      <header className="lp-head">
+        <span className="lp-avatar">{(displayName(campaign.business_name) || "?").charAt(0).toUpperCase()}</span>
+        <div className="min-w-0 flex-1">
+          <h1 className="lp-title">{displayName(campaign.business_name) || "New campaign"}</h1>
+          <div className="lp-sub">{headerLine(campaign)}</div>
+        </div>
+        <StageTrack stage={stage} canGo={canGo} onGo={go} />
+      </header>
+      {stage !== "plan" && <CampaignStrip campaign={campaign} onEdit={() => go("plan")} />}
+
+      <div className={stage === "plan" ? "ab-solo" : "mb-wide"}>
+        <div className="lp-main">
+          {stage === "plan" && <PlanStep campaign={campaign} onChange={change} onBuild={build} building={building} canBuild={canBuild} />}
+          {stage === "ads" && (
+            <AdsStep
+              campaign={campaign}
+              onRebuild={build}
+              building={building}
+              error={error}
+              onToggle={toggleAd}
+              onChoice={choose}
+              onFill={fillBlank}
+              onBack={() => go("plan")}
+              onNext={() => go("funnel")}
+            />
+          )}
+          {stage === "funnel" && (
+            <FunnelStep
+              campaign={campaign}
+              onChange={change}
+              onWrite={writeFunnel}
+              writing={writingFunnel}
+              error={funnelError}
+              onBack={() => go("ads")}
+              onNext={() => go("launch")}
+            />
+          )}
+          {stage === "launch" && <LaunchStep campaign={campaign} onChange={change} onBack={() => go("funnel")} onDone={done} />}
+          {stage === "plan" && error && <p className="lp-error">That didn't work. Try again. ({error})</p>}
+        </div>
       </div>
     </div>
   );

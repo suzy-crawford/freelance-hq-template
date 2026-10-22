@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
+import { ArrowLeft } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { offerToText } from "@/lib/offerLogic";
 import { Button } from "@/components/ui/button";
@@ -54,23 +55,24 @@ export default function OfferResult() {
   }
 
   return (
-    <div className="max-w-[860px]">
-      <p className="text-xs font-semibold uppercase tracking-widest text-app-muted">Your freelance offer</p>
-      <h1 className="page-title mt-2">{offer.selected_name}</h1>
-      <p className="text-app-muted mt-3 max-w-[620px]">
-        This is a recommended starting offer. Review it, edit anything, and make it yours.
-      </p>
-
-      <div className="flex flex-wrap gap-2 mt-5">
-        <CopyButton text={offerToText(offer)} label="Copy everything" />
-        <Button
-          variant="outline"
-          className="rounded-full border-app-border text-app-text"
-          onClick={() => navigate("/offer-builder")}
-        >
-          Start over
-        </Button>
-      </div>
+    <div className="lp ab max-w-[960px]">
+      <Link to="/offer-builder" className="lp-back">
+        <ArrowLeft /> All offers
+      </Link>
+      <header className="lp-head">
+        <span className="lp-avatar">{(offer.selected_name || "O").charAt(0).toUpperCase()}</span>
+        <div className="min-w-0 flex-1">
+          <h1 className="lp-title">{offer.selected_name}</h1>
+          <div className="lp-sub">Your freelance offer · Offer Builder</div>
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <CopyButton text={offerToText(offer)} label="Copy everything" />
+          <button type="button" className="lp-link" onClick={() => navigate("/offer-builder")}>
+            Start over
+          </button>
+        </div>
+      </header>
+      <p className="mb-intro mt-5">This is a recommended starting offer. Review it, edit anything, and make it yours.</p>
 
       <Tabs tabs={TABS} active={tab} onChange={setTab} className="mt-8" />
 

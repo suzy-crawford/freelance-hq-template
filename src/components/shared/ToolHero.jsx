@@ -2,10 +2,15 @@ import React from "react";
 
 // Tool page header (brand kit v3): small "AI tool" label, the tool name in Gloock,
 // the one-sentence description, optional action on the right, optional underline tabs below.
-export default function ToolHero({ title, subtitle, right, tabs, activeTab, onTabChange, label = "AI tool", tag }) {
+export default function ToolHero({ title, subtitle, right, tabs, activeTab, onTabChange, label = "AI tool", tag, icon: Icon }) {
   return (
     <header>
       <div className="tool-head">
+        {Icon && (
+          <span className="tool-head-icon" aria-hidden="true">
+            <Icon />
+          </span>
+        )}
         <div className="min-w-0 flex-1">
           <div className="tool-label">{label}</div>
           {tag ? (

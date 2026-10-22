@@ -153,8 +153,9 @@ ${emojiStyle(campaign)}
 ${PROMPT_TEXT.honesty}`;
 }
 
-function angleCount(setup) {
-  return Math.min(4, Math.max(2, setup.budget.ads_per_ad_set || 3));
+// The Meta Ads Builder shows three ad concepts.
+function angleCount() {
+  return 3;
 }
 
 PROMPT_TEXT.angleGuide = `EACH ANGLE BECOMES ONE FINISHED AD. Fill these parts:

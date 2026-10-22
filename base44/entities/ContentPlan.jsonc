@@ -1,0 +1,32 @@
+{
+  "name": "ContentPlan",
+  "type": "object",
+  "properties": {
+    "stage": { "type": "string", "enum": ["about", "strategy", "content"], "default": "about" },
+    "business_source": { "type": "string", "enum": ["lead", "new", "practice"], "default": "new" },
+    "prospect_id": { "type": "string", "default": "" },
+    "business_name": { "type": "string", "default": "" },
+    "website": { "type": "string", "default": "" },
+    "business_description": { "type": "string", "default": "" },
+    "location": { "type": "string", "default": "" },
+    "services": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "offer_text": { "type": "string", "default": "" },
+    "audience": { "type": "string", "default": "" },
+    "cta_type": { "type": "string", "enum": ["keyword", "dm", "book", "link", "follow"], "default": "keyword" },
+    "cta_detail": { "type": "string", "default": "" },
+    "length": { "type": "number", "default": 5 },
+    "formats": { "type": "array", "items": { "type": "string" }, "default": ["talking_head", "broll", "carousel"] },
+    "voice_samples": { "type": "string", "default": "" },
+    "brand_colors": { "type": "string", "default": "" },
+    "brand_style": { "type": "string", "default": "" },
+    "strategy": { "type": "object" },
+    "posts": { "type": "array", "items": { "type": "object" }, "default": [] }
+  },
+  "required": [],
+  "rls": {
+    "create": { "created_by_id": "{{user.id}}" },
+    "read": { "created_by_id": "{{user.id}}" },
+    "update": { "created_by_id": "{{user.id}}" },
+    "delete": { "created_by_id": "{{user.id}}" }
+  }
+}

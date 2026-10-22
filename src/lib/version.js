@@ -4,7 +4,7 @@
 // banner with a prompt the member pastes into Base44.
 // Keep APP_VERSION and version.json in sync when publishing an update.
 
-export const APP_VERSION = "1.1.0";
+export const APP_VERSION = "2.0.0";
 
 export const TEMPLATE_REPO = "https://github.com/suzy-crawford/freelance-hq-template";
 const VERSION_URL = "https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/main/version.json";

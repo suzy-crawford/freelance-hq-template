@@ -1,6 +1,8 @@
 // SheFreelances OS - Get Clients: Write your message (clientsOutreach.js)
 // Curriculum formula: reason -> what I noticed -> a useful thought -> an easy next step.
 
+import { buildLinks } from "./clientsBuilds";
+import { getSample } from "./sampleOffers";
 import { getServiceName, nicheInSentence, getFreelancerName } from "./offerData";
 import { cleanText } from "./offerPrompts";
 import { voiceFor } from "./copyVoice";
@@ -44,19 +46,36 @@ THE BUSINESS
 - Name: ${prospect.name}
 - Type and location: ${prospect.business_type}, ${prospect.location}
 
-WHAT SHE FOUND (only use these as facts)
+${a.source === "claude"
+    ? `WHAT SHE FOUND (her Claude review of their screenshots; only use these as facts)
+- Something they do well: ${String(a.positive || "not set").replace(/==/g, "")}
+- The opportunity: ${String(a.opportunity || "not set").replace(/==/g, "")}
+- The idea she can offer to send: ${a.idea || "a few ideas"}
+- The sample she has ALREADY made for them: ${
+        (a.chosen_samples || []).map(getSample).filter(Boolean).length
+          ? (a.chosen_samples || []).map(getSample).filter(Boolean).map((x) => `${/^[aeiou]/i.test(x.name) ? "an" : "a"} ${x.name.toLowerCase()} (${a.chosen_text || x.receive})`).join(" plus ")
+          : a.offer_to_send || a.idea || "a few ideas"
+      }
+- What she's pitching: ${a.pitch || "her freelance marketing service"}
+- Where she saw it: ${a.evidence || "not set"}
+`
+    : `WHAT SHE FOUND (only use these as facts)
 - Real observations: ${realObservations.join("; ") || "none"}
 - What she noticed herself: ${noticed.join("; ") || "nothing extra"}
 - Her own research notes: ${String(prospect.research_notes || "").slice(0, 2000) || "none"}
 - The result to hint at: ${a.pitch?.what || "not set"}
 - Her way in: ${a.pitch?.angle || "not set"}
 - A sample she can offer to make: ${a.pitch?.show_them || "a few ideas"}
+`}
+${buildLinks(prospect).length ? `WHAT SHE ALREADY BUILT FOR THEM (free, made just for them)
+${buildLinks(prospect).map((b) => `- ${b.title}: ${b.url}`).join("\n")}
+- Mention it naturally as something she already made for them and include the link in the DM and the email. Make clear it's a sample made for them, not something live, and that there's no catch. If there's more than one, lead with the one that fits the opportunity best.
 
-THE FORMULA FOR EVERY FIRST MESSAGE
+` : ""}THE FORMULA FOR EVERY FIRST MESSAGE
 1. Why she's reaching out (shows it isn't random).
 2. One specific thing she noticed about THIS business. Compliment something real first.
 3. One useful thought about the opportunity.
-4. An easy next step: offer to send the sample (for example "Want me to send over a couple of ideas?"). End with a simple question.
+4. Say she already put the sample together for them (for example "I put together a sample carousel built around that"), then an easy next step: offer to send it over ("Want me to send it over?"). Never offer to make it; it is already made. End with a simple question.
 
 WRITE
 - dm: Instagram or Facebook DM. 60 words or fewer. Starts with "Hey" and the business name or "team". Sounds like a real person.

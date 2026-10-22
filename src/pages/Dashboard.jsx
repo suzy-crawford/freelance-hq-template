@@ -3,7 +3,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/lib/ProfileContext";
 import { base44 } from "@/api/base44Client";
-import { Offer, MapPin, Mail, Search, Progress, Calendar, ChevronRight } from "@/components/brand/icons";
+import { Offer, MapPin, Mail, Search, ChevronRight } from "@/components/brand/icons";
+import { leadStage, leadFit } from "@/lib/clientsLogic";
+import { GradOffer, GradClientFinder, GradAds, GradContent } from "@/components/brand/gradientIcons";
 import { SkeletonLine } from "@/components/shared/Skeleton";
 import { formatMoney } from "@/lib/offerData";
 
@@ -43,60 +45,6 @@ function titleCase(location) {
     .join(", ");
 }
 
-function statusFor(p) {
-  if (p.outreach) return { label: "Draft ready", className: "tag tag-high" };
-  if (p.analysis) return { label: "Analyzed", className: "tag tag-lav" };
-  return { label: "Not analyzed", className: "tag tag-line" };
-}
-
-function NextStep({ offer, prospects }) {
-  const withOutreach = prospects.filter((p) => p.outreach).length;
-  const steps = [
-    { name: "Build your offer", meta: offer ? offer.selected_name : "Not started", done: !!offer },
-    {
-      name: "Build your lead list",
-      meta: prospects.length ? `${prospects.length} ${prospects.length === 1 ? "business" : "businesses"} saved` : "None saved yet",
-      done: prospects.length > 0,
-    },
-    {
-      name: "Write outreach",
-      meta: prospects.length ? `${withOutreach} of ${prospects.length} have a draft` : "After you save clients",
-      done: prospects.length > 0 && withOutreach === prospects.length,
-    },
-  ];
-  const current = steps.findIndex((s) => !s.done);
-
-  const best = [...prospects]
-    .filter((p) => !p.outreach)
-    .sort((a, b) => (FIT_ORDER[a.analysis?.opportunity_level] ?? 3) - (FIT_ORDER[b.analysis?.opportunity_level] ?? 3))[0];
-  const action =
-    current === 0
-      ? { label: "Build your offer", to: "/offer-builder", icon: Offer }
-      : current === 1
-        ? { label: "Find businesses to pitch", to: "/clients", icon: MapPin }
-        : current === 2 && best
-          ? { label: `Write outreach for ${best.name}`, to: `/clients/${best.id}`, icon: Mail }
-          : { label: "Find more businesses", to: "/clients", icon: MapPin };
-
-  const step = steps[current] || steps[steps.length - 1];
-  return (
-    <section className="next" aria-label="Your next step">
-      <span className="eyebrow-app">Next step</span>
-      <span className="progress-dots" aria-hidden="true">
-        {steps.map((s, i) => (
-          <i key={s.name} className={s.done ? "done" : i === current ? "now" : ""} />
-        ))}
-      </span>
-      <span className="next-title">{step.name}</span>
-      <span className="muted">{step.meta}</span>
-      <Link to={action.to} className="btn btn-primary">
-        <action.icon />
-        {action.label}
-      </Link>
-    </section>
-  );
-}
-
 function ToolCard({ to, icon: Icon, name, desc, meta, disabled }) {
   const body = (
     <>
@@ -126,7 +74,7 @@ function ToolCard({ to, icon: Icon, name, desc, meta, disabled }) {
   );
 }
 
-function Tools({ offers, prospects, campaigns }) {
+function Tools({ offers, prospects, campaigns, plans = [] }) {
   const lastOffer = offers[0];
   const lastCampaign = campaigns[0];
   return (
@@ -137,31 +85,31 @@ function Tools({ offers, prospects, campaigns }) {
       <div className="tools">
         <ToolCard
           to="/offer-builder"
-          icon={Offer}
+          icon={GradOffer}
           name="Offer Builder"
           desc="Answer three questions and get your offer, your price and a one-page offer doc you can share."
           meta={lastOffer ? `Last used ${timeAgo(lastOffer.updated_date).toLowerCase()}` : "Not used yet"}
         />
         <ToolCard
           to="/clients"
-          icon={MapPin}
+          icon={GradClientFinder}
           name="Client Finder"
           desc="Find real businesses near you, see where you could help, and get a message ready to send."
           meta={prospects.length ? `${prospects.length} on your lead list` : "Not used yet"}
         />
         <ToolCard
           to="/ads"
-          icon={Progress}
-          name="Ads Manager"
-          desc="Plan a Meta ad campaign step by step."
+          icon={GradAds}
+          name="Meta Ads Builder"
+          desc="Build a complete Meta campaign, from offer to ads to launch."
           meta={lastCampaign ? `Last used ${timeAgo(lastCampaign.updated_date).toLowerCase()}` : "Not used yet"}
         />
         <ToolCard
-          icon={Calendar}
+          icon={GradContent}
+          to="/content"
           name="Content Creator"
-          desc="Plan a month of posts for a client."
-          meta="Coming next"
-          disabled
+          desc="Plan a client's content and get the posts written."
+          meta={plans[0] ? `Last used ${timeAgo(plans[0].updated_date).toLowerCase()}` : "Not used yet"}
         />
       </div>
     </section>
@@ -174,7 +122,7 @@ function ClientsPanel({ prospects }) {
     .sort((a, b) => new Date(b.updated_date || 0) - new Date(a.updated_date || 0))
     .slice(0, 6);
   return (
-    <section className="panel">
+    <section className="panel panel-leads">
       <div className="panel-head">
         <h2>Your lead list</h2>
         <span className="count">{prospects.length} saved</span>
@@ -199,15 +147,14 @@ function ClientsPanel({ prospects }) {
                 <th>Business</th>
                 <th>Type</th>
                 <th>Location</th>
+                <th>Stage</th>
                 <th>Fit</th>
-                <th>Status</th>
                 <th>Updated</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((p) => {
-                const status = statusFor(p);
-                const fit = p.analysis?.opportunity_level;
+                const fit = leadFit(p);
                 return (
                   <tr
                     key={p.id}
@@ -219,10 +166,10 @@ function ClientsPanel({ prospects }) {
                     <td className="strong">{p.name}</td>
                     <td className="muted">{p.business_type}</td>
                     <td className="muted">{titleCase(p.location)}</td>
-                    <td>{fit ? fit.charAt(0).toUpperCase() + fit.slice(1) : <span className="muted">Not yet</span>}</td>
                     <td>
-                      <span className={status.className}>{status.label}</span>
+                      <span className="stage">{leadStage(p)}</span>
                     </td>
+                    <td>{fit ? <span className="fit-word">{fit}</span> : <span className="muted">—</span>}</td>
                     <td className="muted">{timeAgo(p.updated_date)}</td>
                   </tr>
                 );
@@ -237,7 +184,7 @@ function ClientsPanel({ prospects }) {
 
 function OfferPanel({ offer }) {
   return (
-    <section className="panel">
+    <section className="panel panel-offer">
       <div className="panel-head">
         <h2>Your offer</h2>
         {offer && (
@@ -247,14 +194,14 @@ function OfferPanel({ offer }) {
         )}
       </div>
       {offer ? (
-        <div className="panel-body flex flex-col gap-2">
+        <div className="panel-body flex flex-col gap-2 flex-1">
           <div className="h-sub">{offer.selected_name}</div>
           {offer.record?.talk?.one_sentence && <p className="muted">{offer.record.talk.one_sentence}</p>}
           <p className="figure">
             {formatMoney(offer.price)} <span className="muted text-sm font-sans">per month</span>
           </p>
-          <div>
-            <Link to={`/offer/${offer.id}?tab=doc`} className="btn btn-quiet mt-3">
+          <div className="mt-auto pt-3">
+            <Link to={`/offer/${offer.id}?tab=doc`} className="btn btn-quiet">
               Open offer doc
             </Link>
           </div>
@@ -286,7 +233,7 @@ function RecentWork({ offers, prospects }) {
   }, [offers, prospects]);
 
   return (
-    <section className="panel">
+    <section className="panel panel-recent">
       <div className="panel-head">
         <h2>Recent AI work</h2>
       </div>
@@ -315,14 +262,17 @@ export default function Dashboard() {
   const [offers, setOffers] = useState(null);
   const [prospects, setProspects] = useState(null);
   const [campaigns, setCampaigns] = useState([]);
+  const [plans, setPlans] = useState([]);
 
   useEffect(() => {
     Promise.all([
       base44.entities.Offer.filter({}, { sort: "-updated_date", limit: 50 }),
       base44.entities.Prospect.filter({}, { sort: "-updated_date", limit: 500 }),
       base44.entities.AdCampaign.filter({}, { sort: "-updated_date", limit: 50 }).catch(() => ({ items: [] })),
+      base44.entities.ContentPlan.filter({}, { sort: "-updated_date", limit: 20 }).catch(() => ({ items: [] })),
     ])
-      .then(([o, p, c]) => {
+      .then(([o, p, c, cp]) => {
+        setPlans(cp.items || []);
         setOffers(o.items || []);
         setProspects(p.items || []);
         setCampaigns(c.items || []);
@@ -355,7 +305,6 @@ export default function Dashboard() {
           {greeting()}, <span className="name">{firstName}</span>.
         </h1>
         <p className="lede">{sub || "\u00a0"}</p>
-        {!loading && <NextStep offer={activeOffer} prospects={prospects} />}
       </header>
 
       <UpdateBanner />
@@ -367,13 +316,11 @@ export default function Dashboard() {
         </div>
       ) : (
         <>
-          <Tools offers={(offers || []).filter((o) => o.status === "complete")} prospects={prospects} campaigns={campaigns || []} />
-          <div className="two-col panels">
+          <Tools offers={(offers || []).filter((o) => o.status === "complete")} prospects={prospects} campaigns={campaigns || []} plans={plans} />
+          <div className="home-panels">
             <ClientsPanel prospects={prospects} />
-            <div className="stack">
-              <OfferPanel offer={activeOffer} />
-              <RecentWork offers={offers} prospects={prospects} />
-            </div>
+            <OfferPanel offer={activeOffer} />
+            <RecentWork offers={offers} prospects={prospects} />
           </div>
         </>
       )}

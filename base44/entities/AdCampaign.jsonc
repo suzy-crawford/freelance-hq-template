@@ -101,6 +101,103 @@
       "type": "object",
       "default": {}
     },
+    "stage": {
+      "type": "string",
+      "enum": ["plan", "ads", "funnel", "creative", "launch"],
+      "default": "plan"
+    },
+    "target_customer": {
+      "type": "string",
+      "default": ""
+    },
+    "brand_colors": {
+      "type": "string",
+      "default": ""
+    },
+    "brand_style": {
+      "type": "string",
+      "default": ""
+    },
+    "proof_text": {
+      "type": "string",
+      "default": ""
+    },
+    "reviews_text": {
+      "type": "string",
+      "default": ""
+    },
+    "credentials_text": {
+      "type": "string",
+      "default": ""
+    },
+    "differentiators": {
+      "type": "string",
+      "default": ""
+    },
+    "assets_text": {
+      "type": "string",
+      "default": ""
+    },
+    "price_text": {
+      "type": "string",
+      "default": ""
+    },
+    "cta_url": {
+      "type": "string",
+      "default": ""
+    },
+    "launch_message": {
+      "type": "string",
+      "default": ""
+    },
+    "launch_message_manual": {
+      "type": "string",
+      "default": ""
+    },
+    "launch_mode": {
+      "type": "string",
+      "enum": ["connector", "manual"],
+      "default": "connector"
+    },
+    "funnel_type": {
+      "type": "string",
+      "default": ""
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "logo_available": {
+      "type": "boolean",
+      "default": false
+    },
+    "funnel_ad": {
+      "type": "number",
+      "default": 0
+    },
+    "funnel": {
+      "type": "object"
+    },
+    "daily_budget": {
+      "type": "number"
+    },
+    "radius_miles": {
+      "type": "number"
+    },
+    "ads_off": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": []
+    },
+    "launched_at": {
+      "type": "string",
+      "default": ""
+    },
     "setup": {
       "type": "object"
     },

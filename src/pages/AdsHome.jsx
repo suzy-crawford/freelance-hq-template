@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Megaphone } from "@/components/brand/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import ToolHero from "@/components/shared/ToolHero";
@@ -20,7 +21,7 @@ export default function AdsHome() {
   const startNew = async () => {
     setCreating(true);
     try {
-      const c = await base44.entities.AdCampaign.create({ status: "draft", step: 1, business_source: "new" });
+      const c = await base44.entities.AdCampaign.create({ status: "draft", step: 1, stage: "plan", business_source: "new", daily_budget: 20, monthly_budget: 608, radius_miles: 10 });
       navigate(`/ads/${c.id}`);
     } finally {
       setCreating(false);
@@ -30,8 +31,9 @@ export default function AdsHome() {
   return (
     <div className="flex flex-col gap-10">
       <ToolHero
-        title="Ads Manager"
-        subtitle="Plan a Meta ad campaign step by step."
+        icon={Megaphone}
+        title="Meta Ads Builder"
+        subtitle="Build a complete Meta campaign, from offer to ads to launch."
         right={
           <button type="button" className="btn btn-primary" onClick={startNew} disabled={creating}>
             {creating ? "Starting..." : "New campaign"}
@@ -66,12 +68,10 @@ export default function AdsHome() {
                   <div className="min-w-0 flex-1">
                     <div className="font-semibold text-app-text truncate">{c.business_name || "Untitled campaign"}</div>
                     <div className="hint truncate">
-                      {[BUSINESS_TYPES.find((t) => t.id === c.business_type)?.label, c.product, c.setup?.objective].filter(Boolean).join(" · ") || "Draft"}
+                      {[c.product, c.offer_text, c.daily_budget ? `$${c.daily_budget}/day` : ""].filter(Boolean).join(" · ") || "Draft"}
                     </div>
                   </div>
-                  <span className={c.status === "complete" ? "tag tag-lav" : "tag tag-line"}>
-                    {c.status === "complete" ? "Plan ready" : "Draft"}
-                  </span>
+                  <span className="stage">{c.launched_at ? "Launched" : c.record ? "Ads ready" : "Planning"}</span>
                   <ChevronRight className="w-5 h-5 text-app-muted" />
                 </Link>
               </li>

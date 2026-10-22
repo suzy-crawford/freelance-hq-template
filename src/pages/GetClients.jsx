@@ -17,23 +17,56 @@ import {
   isAlreadySaved,
   chainsHiddenText,
   SEARCH_MESSAGES,
+  leadStage,
+  leadFit,
 } from "@/lib/clientsLogic";
 
-function ResultRow({ business, onSave, saving, saved }) {
+// One labeled column in a lead card. Shows the value, or a muted line when nothing was found.
+function Fact({ label, children, empty }) {
   return (
-    <div className="result items-start">
+    <div className="lead-fact">
+      <div className="lead-fact-label">{label}</div>
+      {children || <div className="lead-fact-none">{empty}</div>}
+    </div>
+  );
+}
+
+function ResultRow({ business, onSave, saving, saved }) {
+  const hasSocial = business.instagram || business.facebook;
+  return (
+    <article className="lead-card">
+      <div className="lead-head">
         <span className="initial" aria-hidden="true">
           {business.name.charAt(0).toUpperCase()}
         </span>
-        <div className="min-w-0 space-y-1.5">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="min-w-0">
+          <div className="title-row">
             <span className="result-name">{business.name}</span>
-            {business.is_chain && (
-              <span className="tag tag-line">Chain</span>
-            )}
+            {business.is_chain && <span className="tag tag-line">Chain</span>}
           </div>
-          {business.website ? (
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          {business.address && (
+            <div className="lead-sub">
+              <ContactRow icon={MapPin} value={business.address} copyLabel="Copy address" />
+            </div>
+          )}
+        </div>
+        <div className="lead-act">
+          {saved ? (
+            <span className="saved">
+              <CheckCircle2 /> Saved
+            </span>
+          ) : (
+            <button type="button" className="btn btn-primary btn-sm" onClick={onSave} disabled={saving}>
+              {saving ? "Saving..." : "Save to lead list"}
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="lead-facts">
+        <Fact label="Website" empty="No website found">
+          {business.website && (
+            <>
               <ContactRow
                 icon={Globe}
                 value={business.website}
@@ -42,57 +75,50 @@ function ResultRow({ business, onSave, saving, saved }) {
                 visitUrl={business.website}
               />
               {business.website_checked ? (
-                <span className="inline-flex items-center gap-1 text-xs text-app-success">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Website checked
-                </span>
+                <div className="lead-note lead-note-ok">
+                  <CheckCircle2 /> Website checked
+                </div>
               ) : (
-                <span className="inline-flex items-center gap-1 text-xs text-app-warning">
-                  <AlertCircle className="w-3.5 h-3.5" /> Website isn't loading. Could be the wrong address, or their site is down (an opportunity).
-                </span>
+                <div className="lead-note lead-note-warn">
+                  <AlertCircle /> Website isn't loading. Could be the wrong address, or their site is down (an opportunity).
+                </div>
               )}
-            </div>
-          ) : (
-            <div className="text-xs text-app-muted">No website found</div>
+            </>
           )}
-          {business.email ? (
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        </Fact>
+        <Fact label="Email" empty="No email on their website. Save it, then use Find contact info to search the web.">
+          {business.email && (
+            <>
               <ContactRow icon={Mail} value={business.email} copyLabel="Copy email" />
-              <span className="text-xs text-app-muted">Found on their website</span>
-            </div>
-          ) : (
-            <div className="text-xs text-app-muted">
-              No email on their website. Save it, then use Find contact info to search the web.
-            </div>
+              <div className="lead-note">Found on their website</div>
+            </>
           )}
-          <ContactRow icon={Phone} value={business.phone} copyLabel="Copy phone" />
-          <ContactRow icon={MapPin} value={business.address} copyLabel="Copy address" />
-          <ContactRow
-            icon={Instagram}
-            value={business.instagram}
-            display={displayInstagram(business.instagram)}
-            copyLabel="Copy Instagram"
-            visitUrl={business.instagram}
-          />
-          <ContactRow
-            icon={Facebook}
-            value={business.facebook}
-            display={displayFacebook(business.facebook)}
-            copyLabel="Copy Facebook Page"
-            visitUrl={business.facebook}
-          />
-        </div>
-        <div className="result-act">
-          {saved ? (
-            <span className="saved">
-              <CheckCircle2 /> Saved
-            </span>
-          ) : (
-            <button type="button" className="btn btn-quiet btn-sm" onClick={onSave} disabled={saving}>
-              {saving ? "Saving..." : "Save to lead list"}
-            </button>
+        </Fact>
+        <Fact label="Phone" empty="No phone found">
+          {business.phone && <ContactRow icon={Phone} value={business.phone} copyLabel="Copy phone" />}
+        </Fact>
+        <Fact label="Social" empty="None found">
+          {hasSocial && (
+            <>
+              <ContactRow
+                icon={Instagram}
+                value={business.instagram}
+                display={displayInstagram(business.instagram)}
+                copyLabel="Copy Instagram"
+                visitUrl={business.instagram}
+              />
+              <ContactRow
+                icon={Facebook}
+                value={business.facebook}
+                display={displayFacebook(business.facebook)}
+                copyLabel="Copy Facebook Page"
+                visitUrl={business.facebook}
+              />
+            </>
           )}
-        </div>
-    </div>
+        </Fact>
+      </div>
+    </article>
   );
 }
 
@@ -258,7 +284,7 @@ function FindTab({ offer, prospects, onSaved }) {
               text="Try a bigger area (a city instead of a neighborhood) or a more common type of business."
             />
           ) : (
-            <div>
+            <div className="lead-cards">
               {visible.map((b) => (
                 <ResultRow
                   key={b.dedupe_key}
@@ -287,7 +313,7 @@ function ListTab({ prospects, loading }) {
       />
     );
   return (
-    <div>
+    <div className="lead-cards">
       {prospects.map((p) => (
         <div
           key={p.id}
@@ -295,32 +321,44 @@ function ListTab({ prospects, loading }) {
           tabIndex={0}
           onClick={() => navigate(`/clients/${p.id}`)}
           onKeyDown={(e) => e.key === "Enter" && navigate(`/clients/${p.id}`)}
-          className="result cursor-pointer"
+          className="lead-card lead-card-link"
         >
-          <span className="initial" aria-hidden="true">
-            {p.name.charAt(0).toUpperCase()}
-          </span>
-          <div className="min-w-0">
-            <div className="result-name">{p.name}</div>
-            <div className="result-meta">
-              {p.business_type} · {p.location}
-            </div>
-            <div className="result-why">
-              {p.analysis ? (
-                <span className={p.analysis.opportunity_level === "high" ? "tag tag-high" : "tag tag-good"}>
-                  {p.analysis.opportunity_level.charAt(0).toUpperCase() + p.analysis.opportunity_level.slice(1)} opportunity
-                </span>
-              ) : (
-                <span className="tag tag-line">Not analyzed</span>
+          <div className="lead-head">
+            <span className="initial" aria-hidden="true">
+              {p.name.charAt(0).toUpperCase()}
+            </span>
+            <div className="min-w-0">
+              <div className="title-row">
+                <span className="result-name">{p.name}</span>
+
+              </div>
+              <div className="lead-sub muted">
+                {p.business_type} · {p.location}
+              </div>
+              <div className="lead-stagefit">
+                <span className="stage">{leadStage(p)}</span>
+                {leadFit(p) ? <span className="fit-word">{leadFit(p)}</span> : <span className="muted">Fit: —</span>}
+              </div>
+              {(p.email || p.phone) && (
+                <div className="lead-contact">
+                  {p.email && (
+                    <span>
+                      <Mail /> {p.email}
+                    </span>
+                  )}
+                  {p.phone && (
+                    <span>
+                      <Phone /> {p.phone}
+                    </span>
+                  )}
+                </div>
               )}
-              {p.email && <span className="muted">{p.email}</span>}
-              {p.phone && <span className="muted">{p.phone}</span>}
             </div>
+            <span className="lead-act lead-open">
+              Details
+              <ChevronRight />
+            </span>
           </div>
-          <span className="result-act">
-            <span className="link text-[13px]">Details</span>
-            <ChevronRight className="w-4 h-4 muted" />
-          </span>
         </div>
       ))}
     </div>
@@ -360,6 +398,7 @@ export default function GetClients() {
   return (
     <div className="flex flex-col gap-10">
       <ToolHero
+        icon={Search}
         title="Client Finder"
         subtitle="Find real businesses near you, see where you could help, and get a message ready to send."
         tabs={[

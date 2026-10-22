@@ -54,6 +54,9 @@ export function displayDomain(url) {
 export function displayFacebook(url) {
   const id = String(url || "").match(/profile\.php\?id=(\d+)/);
   if (id) return "Facebook Page";
+  // Newer page links look like facebook.com/p/Alira-Med-Spa-100063...: show the name part.
+  const sub = String(url || "").match(/facebook\.com\/(?:p|pages|pg)\/([^/?#]+)/i);
+  if (sub) return `facebook.com/${sub[1].replace(/-\d{6,}$/, "")}`;
   const match = String(url || "").match(/facebook\.com\/([^/?#]+)/i);
   return match ? `facebook.com/${match[1]}` : url || "";
 }
@@ -115,4 +118,21 @@ export function chainsHiddenText(count, term) {
   return count === 1
     ? `1 ${type} chain or franchise hidden. They rarely hire beginners.`
     : `${count} ${type} chains or franchises hidden. They rarely hire beginners.`;
+}
+
+// Where a lead is: Saved > Analyzed > Message ready > Contacted (Brand 2.0 stage, shown as text, never a pill).
+export function leadStage(p) {
+  if (p?.contacted_at) return "Contacted";
+  if (p?.outreach) return "Message ready";
+  if (p?.analysis) return "Analyzed";
+  return "Saved";
+}
+
+// Fit in words ("Strong fit"), or "" before analysis. Older analyses used high/medium/low.
+export function leadFit(p) {
+  const a = p?.analysis;
+  if (!a) return "";
+  if (a.fit) return `${a.fit} fit`;
+  const legacy = { high: "Strong fit", medium: "Good fit", low: "Weak fit" }[a.opportunity_level];
+  return legacy || "";
 }

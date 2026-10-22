@@ -76,6 +76,11 @@ export const Phone = makeIcon("Phone", "M6.5 4.5h3l1.5 4-2 1.5a10 10 0 0 0 5 5l1
 export const MapPin = makeIcon("MapPin", "M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z");
 export const Globe = makeIcon("Globe", "M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM3.5 12h17M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5s1.2-6.1 3.5-8.5z");
 export const Instagram = makeIcon("Instagram", "M7.5 3.5h9a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4zM12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM17 7h.01");
+export const ImagePic = makeIcon("ImagePic", "M5.5 4.5h13a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1zM4.5 15.5l4.5-4.5 4 4 2.5-2.5 4 4M14.5 9h.01");
+export const ListLines = makeIcon("ListLines", "M9 7h11M9 12h11M9 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01");
+export const LinkChain = makeIcon("LinkChain", "M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1");
+export const Megaphone = makeIcon("Megaphone", "M3.5 9.5h3l7-4.5v14l-7-4.5h-3zM17 9.5a3.5 3.5 0 0 1 0 5");
+export const Beaker = makeIcon("Beaker", "M9 3.5h6M10 3.5v6L4.8 18.2A1.5 1.5 0 0 0 6.1 20.5h11.8a1.5 1.5 0 0 0 1.3-2.3L14 9.5v-6M7.2 14.5h9.6");
 export const Facebook = makeIcon("Facebook", "M14.5 20.5v-7h2.5l.5-3h-3V8.5c0-1 .5-1.5 1.5-1.5h1.5V4.5h-2.5c-2.2 0-3.5 1.4-3.5 3.6v2.4H9v3h2.5v7");
 export const Send = makeIcon("Send", "M20.5 3.5L10 14M20.5 3.5l-6.5 17-4-6.5-6.5-4z");
 export const Plus = makeIcon("Plus", "M12 5v14M5 12h14");
@@ -109,3 +114,18 @@ export {
   Home as Business,
   Dot as Circle,
 };
+
+// Meta Ads Builder (Oct 2026)
+export const Store = makeIcon("Store", "M4 9.5l1.5-5h13L20 9.5M4 9.5h16M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M5.5 12v7.5h13V12M10 19.5v-4.5h4v4.5");
+export const Tag = makeIcon("Tag", "M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-6.1 6.1a1.5 1.5 0 0 1-2.1 0zM8 8h.01");
+export const Target = makeIcon("Target", "M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01");
+export const FormDoc = makeIcon("FormDoc", "M7 3.5h10a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5zM9 8h6M9 12h6M9 16h3");
+export const Cart = makeIcon("Cart", "M3.5 4.5h2l2 10h10l2-7H7M9.5 19.5h.01M16.5 19.5h.01");
+export const Question = makeIcon("Question", "M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM9.6 9.5a2.5 2.5 0 0 1 4.8.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01");
+export const Wand = makeIcon("Wand", "M4.5 19.5l11-11M13.5 6.5l2 2M18 3.5v3M16.5 5h3M19.5 10v2M18.5 11h2M8 3.5v2M7 4.5h2");
+export const Camera = makeIcon("Camera", "M4 8h3l1.5-2.5h7L17 8h3v11H4zM12 16.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z");
+export const Video = makeIcon("Video", "M4 6.5h11v11H4zM15 10.5l5-3v9l-5-3");
+export const ThumbUp = makeIcon("ThumbUp", "M7.5 10.5v9h-3v-9zM7.5 10.5l3.5-6.5a2 2 0 0 1 2 2.5l-.6 3h5.4a1.7 1.7 0 0 1 1.7 2l-1.2 6.3a2 2 0 0 1-2 1.7H7.5");
+export const Comment = makeIcon("Comment", "M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z");
+export const Share = makeIcon("Share", "M13.5 5l6 6-6 6v-3.5c-4.5 0-7 1.2-9 4 .7-4.6 3-8.2 9-9z");
+export const Star = makeIcon("Star", "M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z");

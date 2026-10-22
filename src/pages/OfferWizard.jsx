@@ -111,11 +111,6 @@ export default function OfferWizard() {
 
   return (
     <div>
-      <div className="max-w-2xl mx-auto px-5 pt-6">
-        <p className="text-xs font-semibold uppercase tracking-wide text-app-muted">
-          Let's build your freelance offer.
-        </p>
-      </div>
 
       {screen === 1 && <ScreenServices offer={offer} onDone={(u, s) => goTo(s, u)} />}
       {screen === 2 && <ScreenNiche offer={offer} onBack={() => goTo(1)} onDone={(u, s) => goTo(s, u)} />}

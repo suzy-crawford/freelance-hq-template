@@ -81,6 +81,10 @@ export default function Onboarding() {
 
   return (
     <WizardShell
+      standalone
+      headTitle="Welcome"
+      headSub="Three quick questions to set up your account."
+      steps={["About you", "Where you are", "Your goal"]}
       step={step}
       totalSteps={3}
       title={titles[step - 1]}

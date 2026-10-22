@@ -55,7 +55,7 @@ export default async function (req) {
     const user = await base44.auth.me();
     if (!user) return Response.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { url } = await req.json();
+    const { url, follow } = await req.json();
     if (!url) return Response.json({ ok: false, error: 'No website on file.' });
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 10000);
@@ -83,9 +83,55 @@ export default async function (req) {
     const social = socialLinks(html);
     const social_links = [social.instagram, social.facebook].filter(Boolean);
     const uses_meta_pixel = /fbq\(|connect\.facebook\.net\/[^"']*fbevents/i.test(html);
-    const text = htmlToText(html).slice(0, 9000);
+    let text = htmlToText(html).slice(0, 9000);
 
-    return Response.json({ ok: true, url: finalUrl, title, meta_description: meta, cta_links, social_links, uses_meta_pixel, text });
+    // Meta Ads Builder "Fill it in for me": also read up to 2 services or pricing pages on the same site.
+    if (follow) {
+      const base = new URL(finalUrl);
+      const PAGE_WORDS = /(service|treatment|menu|pricing|prices|price list|specials|offers|packages|what we do|procedures)/i;
+      const seen = new Set([base.pathname]);
+      const pages = [];
+      for (const l of links) {
+        if (pages.length >= 2) break;
+        if (!PAGE_WORDS.test(`${l.text} ${l.href}`)) continue;
+        let u;
+        try {
+          u = new URL(l.href, base);
+        } catch {
+          continue;
+        }
+        if (u.host !== base.host || seen.has(u.pathname) || /\.(pdf|jpg|png|zip)$/i.test(u.pathname)) continue;
+        seen.add(u.pathname);
+        pages.push(u.toString());
+      }
+      for (const page of pages) {
+        const c2 = new AbortController();
+        const t2 = setTimeout(() => c2.abort(), 6000);
+        try {
+          const r2 = await fetch(page, { redirect: 'follow', signal: c2.signal, headers: { 'User-Agent': UA } });
+          if (r2.ok) text += `\n\n[PAGE: ${page}]\n` + htmlToText(await r2.text()).slice(0, 5000);
+        } catch {
+          /* skip a page that won't load */
+        } finally {
+          clearTimeout(t2);
+        }
+      }
+    }
+
+    // Brand colors: the theme color plus the most-used non-neutral hex colors in the page's styles.
+    const theme = html.match(/<meta[^>]+name=["']theme-color["'][^>]*content=["'](#[0-9a-f]{3,6})["']/i)?.[1] || '';
+    const counts: Record<string, number> = {};
+    for (const m of html.matchAll(/#([0-9a-f]{6}|[0-9a-f]{3})\b/gi)) {
+      let h = m[1].toLowerCase();
+      if (h.length === 3) h = h.split('').map((x) => x + x).join('');
+      const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+      const spread = Math.max(r, g, b) - Math.min(r, g, b);
+      if (spread < 24) continue; // skip black, white and grays
+      counts['#' + h] = (counts['#' + h] || 0) + 1;
+    }
+    const colors = [...new Set([theme.toLowerCase(), ...Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([h]) => h)].filter(Boolean))].slice(0, 4);
+
+    return Response.json({ ok: true, url: finalUrl, title, meta_description: meta, cta_links, social_links, uses_meta_pixel, colors, text });
   } catch (error) {
     return Response.json({ ok: false, error: error.message }, { status: 500 });
   }

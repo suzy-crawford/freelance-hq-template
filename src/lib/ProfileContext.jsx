@@ -6,7 +6,7 @@ import { PageSkeleton } from "@/components/shared/Skeleton";
 const ProfileContext = createContext(null);
 
 export function useProfile() {
-  return useContext(ProfileContext);
+  return useContext(ProfileContext) || {};
 }
 
 export default function ProfileGate() {

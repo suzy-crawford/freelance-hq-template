@@ -10,7 +10,7 @@
   --panel: #ffffff; /* App only: the few surfaces (AI tool cards, search bar, an AI tool's document). */
   --surface: #fdfbf8; /* Page background: soft white with a hint of warmth. Dark theme is deep navy, never purple-black. */
   --surface-raised: #fefdfb; /* Inputs, menus, the lesson player frame. */
-  --surface-sunk: #f4f1ec; /* Alternating page sections and skeleton loaders. */
+  --surface-sunk: #f8f6f3; /* Alternating page sections and skeleton loaders. */
   --line: #ebe6de; /* Hairline dividers between list rows and sections. Decorative only. */
   --line-strong: #878c99; /* Input and checkbox borders, on surface and surface-raised (3:1 in both themes). */
   --ink: #1a2236; /* Primary text and text links, on surface, surface-raised, surface-sunk and lavender-soft. */
