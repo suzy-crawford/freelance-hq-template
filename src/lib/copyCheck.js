@@ -1,5 +1,5 @@
 // SheFreelances OS - copy check (copyCheck.js)
-// Proves a member's app is an exact copy of the template. Every source file is read as text,
+// Proves a member's app is an exact copy of the template. Every app source file is read as text,
 // fingerprinted (whitespace ignored, so reformatting is fine) and compared with copy-manifest.json
 // published in the template for this version. Loaded only on the Setup check page.
 
@@ -9,7 +9,7 @@ import selfSource from "./copyCheck.js?raw";
 const TEMPLATE_RAW = "https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template";
 
 const SOURCES = import.meta.glob(
-  ["/src/**/*.{js,jsx,css}", "/base44/**/*.{jsonc,ts,js}", "/tailwind.config.js", "!/src/__preview/**", "!/base44/config.jsonc"],
+  ["/src/**/*.{js,jsx,css}", "/tailwind.config.js", "!/src/__preview/**"],
   { query: "?raw", import: "default" }
 );
 
@@ -62,12 +62,14 @@ export async function runCopyCheck() {
   const changed = [];
   const missing = [];
   let matched = 0;
-  Object.entries(manifest.files).forEach(([file, { part, hash }]) => {
+  // Backend files (data entities and server functions) can't be read from the browser, so only the app's own files are checked.
+  const checked = Object.entries(manifest.files).filter(([file]) => !file.startsWith("base44/"));
+  checked.forEach(([file, { part, hash }]) => {
     if (!(file in have)) missing.push({ file, part });
     else if (have[file] !== hash) changed.push({ file, part });
     else matched += 1;
   });
   const extra = Object.keys(have).filter((f) => !(f in manifest.files) && !f.startsWith("src/__"));
   const parts = [...new Set([...changed, ...missing].map((f) => f.part))].sort((a, b) => a - b);
-  return { version: manifest.version, total: Object.keys(manifest.files).length, matched, changed, missing, extra, parts };
+  return { version: manifest.version, total: checked.length, matched, changed, missing, extra, parts };
 }
