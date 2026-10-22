@@ -10,17 +10,22 @@ The Freelance HQ app for SheFreelances AI members. It includes:
 
 ## Install it in your own Base44 account
 
-You do **not** need a GitHub account.
+You do **not** need a GitHub account. It takes a few short messages, because Base44 copies the app in parts.
 
 1. In Base44, create a new app.
-2. Set the chat mode to **Discuss** (on the Home screen it's called **Plan**). Do not use Build.
-3. Paste this and send it:
+2. Paste this and send it:
 
 ```
-Build my app from this GitHub repo:
-https://github.com/suzy-crawford/freelance-hq-template
+Copy the app in this GitHub repo exactly, following its COPY.md: https://github.com/suzy-crawford/freelance-hq-template
+Do Part 1 now, then stop.
 ```
 
-4. When it finishes, open the app, complete setup, then go to **My Profile → Check my setup**. Every check should pass.
+3. When Base44 says a part is done, send the next one, changing the number each time:
+
+```
+Do part 2 of COPY.md exactly, then stop.
+```
+
+4. After the last part, open the app, complete setup, then go to **My Profile → Check my setup**. The Copy check must say every file matches. If it names a part, send "Redo part N of COPY.md exactly, then stop." and check again.
 
 Your copy is yours. It lives only in your Base44 account, uses your own AI credits, and never connects to anyone else's app or data.

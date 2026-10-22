@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { asset } from "@/lib/assets";
 import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
 import { Home, Offer, MapPin, Progress, Calendar, Lessons, Community, Settings, Menu, Close, Globe, Target, Cart } from "@/components/brand/icons";
 import { useProfile } from "@/lib/ProfileContext";
@@ -23,7 +24,7 @@ function Sidebar({ leadCount, onNavigate }) {
   return (
     <>
       <div className="ws ws-2">
-        <img src="/brand/logo-wordmark-night-ai.svg" className="ws-mark" alt="SheFreelances AI" />
+        <img src={asset("/brand/logo-wordmark-night-ai.svg")} className="ws-mark" alt="SheFreelances AI" />
         <span>{firstName ? `${firstName}'s Freelance HQ` : "Your Freelance HQ"}</span>
       </div>
       <NavLink to="/" end className="nav-item" onClick={onNavigate}>
@@ -118,7 +119,7 @@ export default function AppLayout() {
 
       <div className="min-w-0">
         <div className="mobile-bar">
-          <img src="/brand/logo-wordmark-night-ai.svg" className="ws-mark-sm" alt="SheFreelances AI" />
+          <img src={asset("/brand/logo-wordmark-night-ai.svg")} className="ws-mark-sm" alt="SheFreelances AI" />
           <button type="button" onClick={() => setDrawerOpen(true)} aria-label="Open menu">
             <Menu />
           </button>

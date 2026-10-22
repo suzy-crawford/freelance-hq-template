@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { asset } from "@/lib/assets";
 import {
   Check,
   Copy,
@@ -1456,9 +1457,9 @@ export function FunnelStep({ campaign, onChange, onWrite, writing, error, onBack
 
 // ---------- 4. Launch ----------
 const CONNECT_STEPS = [
-  { title: "Open Claude Settings", text: "Click your name (bottom left), then Settings.", img: "/meta-connect/step1-settings.png", alt: "Claude's account menu with Settings at the top" },
-  { title: "Open Connectors", text: "In the Settings menu, click Connectors.", img: "/meta-connect/step2-connectors.png", alt: "Claude Settings sidebar with Connectors selected" },
-  { title: "Add Meta Ads", text: "Search for Meta Ads and click Connect.", img: "/meta-connect/step3-connect.png", alt: "Connectors search for Meta Ads with the Connect button" },
+  { title: "Open Claude Settings", text: "Click your name (bottom left), then Settings.", img: asset("/meta-connect/step1-settings.png"), alt: "Claude's account menu with Settings at the top" },
+  { title: "Open Connectors", text: "In the Settings menu, click Connectors.", img: asset("/meta-connect/step2-connectors.png"), alt: "Claude Settings sidebar with Connectors selected" },
+  { title: "Add Meta Ads", text: "Search for Meta Ads and click Connect.", img: asset("/meta-connect/step3-connect.png"), alt: "Connectors search for Meta Ads with the Connect button" },
   { title: "Approve your account", text: "Log in with the Facebook account that has the client's ad account.", rows: ["Meta Ads"], ok: true },
 ];
 

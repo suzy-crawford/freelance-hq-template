@@ -5,6 +5,58 @@ import { Check, X } from "@/components/brand/icons";
 import { cn } from "@/lib/utils";
 import { PageSkeleton } from "@/components/shared/Skeleton";
 
+// Is this an exact copy of the template? Loaded on demand (it reads every source file).
+function CopyCheck() {
+  const [copy, setCopy] = useState(null);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    import("@/lib/copyCheck")
+      .then((m) => m.runCopyCheck())
+      .then(setCopy)
+      .catch((e) => setError(e.message || String(e)));
+  }, []);
+  if (error) {
+    return (
+      <div className="rounded-xl border-2 border-app-danger p-5 mb-6">
+        <div className="text-lg font-semibold text-app-danger">Copy check couldn't run</div>
+        <p className="text-app-text text-sm mt-1">{error}</p>
+      </div>
+    );
+  }
+  if (!copy) {
+    return (
+      <div className="rounded-xl border-2 border-app-border p-5 mb-6">
+        <div className="text-lg font-semibold text-app-text">Checking your copy...</div>
+        <p className="text-app-muted text-sm mt-1">Comparing every file in your app with the template.</p>
+      </div>
+    );
+  }
+  const exact = copy.matched === copy.total;
+  const off = [...copy.changed.map((f) => ({ ...f, how: "changed" })), ...copy.missing.map((f) => ({ ...f, how: "missing" }))];
+  return (
+    <div className={cn("rounded-xl border-2 p-5 mb-6", exact ? "border-app-success" : "border-app-danger")}>
+      <div className={cn("text-lg font-semibold", exact ? "text-app-success" : "text-app-danger")}>
+        Copy check: {copy.matched} of {copy.total} files match version {copy.version}
+      </div>
+      <p className="text-app-text text-sm mt-1">
+        {exact
+          ? "Your app is an exact copy of Freelance HQ. Every tool is the real one."
+          : `Some files aren't exact copies. In Base44, send this: "Redo part ${copy.parts.join(" and part ")} of the copy instructions in AGENTS.md exactly, then stop." Then run this check again.`}
+      </p>
+      {!exact && (
+        <ul className="mt-3 space-y-1">
+          {off.slice(0, 40).map((f) => (
+            <li key={f.file} className="text-xs text-app-muted break-words">
+              Part {f.part}: {f.file} ({f.how})
+            </li>
+          ))}
+          {off.length > 40 && <li className="text-xs text-app-muted">and {off.length - 40} more</li>}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 export default function SetupCheck() {
   const [result, setResult] = useState(null);
 
@@ -24,7 +76,9 @@ export default function SetupCheck() {
 
   return (
     <div>
-      <PageHeader title="Setup check" subtitle="Verifies your Offer Builder files are set up correctly." />
+      <PageHeader title="Setup check" subtitle="Verifies your copy of Freelance HQ is complete and exact." />
+
+      <CopyCheck />
 
       <div className={cn("rounded-xl border-2 p-5", allPassed ? "border-app-success" : "border-app-danger")}>
         <div className={cn("text-lg font-semibold", allPassed ? "text-app-success" : "text-app-danger")}>

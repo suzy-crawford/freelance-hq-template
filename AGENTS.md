@@ -1,34 +1,13 @@
-# AGENTS.md
+# Instructions for Base44 (read this first)
 
-## Project Context
+This repository is a finished, tested app called Freelance HQ by SheFreelances AI. It is not an idea, a brief or a starting point.
 
-This is a Base44 app repository. Treat it as user-owned application code, keep changes focused on the user's request, and preserve existing project conventions.
+If you're asked to build, create, copy or install an app from this repository:
 
-Start with `README.md` for local setup, environment variables, and publish workflow.
+1. Do not plan, design or write your own version of anything.
+2. Follow COPY.md exactly. It lists every file, split into numbered parts, each with a link to its exact content.
+3. Do one part per message: the part the user asks for. If they don't name a part, do Part 1.
+4. Create each file at exactly its path with exactly its content, character for character. Never summarize, shorten, merge, split, rename or improve a file, and never skip one.
+5. When the part is done, stop and tell the user: "Part N is done. Send: Do part N+1 of COPY.md exactly." After the last part, tell them to open My Profile, then Check my setup.
 
-## Base44 References
-
-- CLI overview: https://docs.base44.com/developers/references/cli/get-started/overview.md
-- Agent skills: https://docs.base44.com/developers/backend/overview/skills.md
-
-If your agent supports Agent Skills, install or update Base44 skills before Base44-specific work:
-
-```bash
-npx skills add base44/skills
-```
-
-## Key Files
-
-- `src/`: frontend application source.
-- `src/api/base44Client.js`: frontend Base44 SDK client.
-- `vite.config.js`: Vite config and Base44 Vite plugin setup.
-- `.env.local`: local-only environment values; never commit secrets.
-
-## Working Notes
-
-- Use `base44 dev` as the default local development command when you need the local Base44 backend. It can run the backend and frontend together.
-- When docs or code mention the frontend being started automatically, that usually means the Base44 project config includes `site.serveCommand`, for example `"serveCommand": "npm run dev"` in `base44/config.jsonc`.
-- Use `npm run dev` only for frontend-only work against the hosted Base44 backend.
-- Prefer the existing Base44 CLI workflow over adding new npm scripts for Base44-specific tasks.
-- Reuse the existing SDK client and Vite plugin patterns before adding new Base44 integration paths.
-- Run the relevant checks from `package.json` before finishing code changes.
+The app's Check my setup page fingerprints every file and compares it with copy-manifest.json, so any file that isn't an exact copy will be found.

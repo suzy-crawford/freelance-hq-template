@@ -1,6 +1,9 @@
 @import "./brand/tokens.css";
 @import "./brand/app.css";
-@import "./brand/brand2.css";
+@import "./brand/brand2-1.css";
+@import "./brand/brand2-2.css";
+@import "./brand/brand2-3.css";
+@import "./brand/brand2-4.css";
 
 @tailwind base;
 @tailwind components;

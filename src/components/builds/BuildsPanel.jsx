@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { asset } from "@/lib/assets";
 import { Check, Copy, ExternalLink, ArrowRight } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";
@@ -135,7 +136,7 @@ export default function BuildsPanel({ prospect, offer, builds, onUpdated, canSav
                 Open their Google listing <ExternalLink />
               </a>
             )}
-            <HelpGif src="/help/google-listing.gif" alt="How to copy a Google business listing">
+            <HelpGif src={asset("/help/google-listing.gif")} alt="How to copy a Google business listing">
               Google the business, highlight everything in the profile on the right (name, rating, address, hours, reviews), copy it and paste it here.
             </HelpGif>
             <p>Their business profile on Google: rating, hours, services, reviews and description.</p>
