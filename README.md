@@ -1,10 +1,16 @@
 # Freelance HQ by SheFreelances AI
 
-The Freelance HQ app for SheFreelances AI members. It includes the Offer Builder: three quick questions, then a finished freelance offer, a designed one-page offer doc, and a scope of work.
+The Freelance HQ app for SheFreelances AI members. It includes:
+
+- **Offer Builder**: three quick questions, then a finished freelance offer, a designed one-page offer doc and a scope of work.
+- **Client Finder**: find real local businesses, analyze their marketing and write your outreach.
+- **Meta Ads Builder**: plan a campaign, write the ads, build the funnel and launch it.
+- **Content Creator**: a content strategy and ready-to-post content, plus client-ready docs.
+- **AI Build Lab**: 23 builds (websites, audits, lead magnets, booking, referrals and more), each with a ready-to-paste Base44 prompt.
 
 ## Install it in your own Base44 account
 
-You need a Base44 account on the **Builder plan or higher**. You do **not** need a GitHub account.
+You do **not** need a GitHub account.
 
 1. In Base44, create a new app.
 2. Set the chat mode to **Discuss** (on the Home screen it's called **Plan**). Do not use Build.
