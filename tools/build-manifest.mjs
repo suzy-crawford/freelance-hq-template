@@ -81,6 +81,7 @@ const lines = [
   "- The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.",
   "- Images load from the internet by themselves. Don't create or download image files.",
   "- Spacing, line breaks and a missing final newline don't matter (the check ignores them), and Base44 reformatting entity files is fine. Don't spend time on those.",
+  "- Don't compare or re-check files after writing them, and don't test the app between parts. The app's Copy check does all of that at the end, so extra checking only uses up credits.",
   "",
   `There are ${part} parts. After the last part, the user opens My Profile, then Check my setup. Its Copy check compares every file with this list and names any file that isn't an exact copy.`,
   "",

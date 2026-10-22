@@ -12,7 +12,7 @@ The Freelance HQ app for SheFreelances AI members. It includes:
 
 You do **not** need a GitHub account. It takes a few short messages, because Base44 copies the app in parts.
 
-1. In Base44, create a new app.
+1. In Base44, create a new app. Leave the chat in **Build** mode (don't switch to Plan, which designs its own version instead of copying).
 2. Paste this and send it:
 
 ```
