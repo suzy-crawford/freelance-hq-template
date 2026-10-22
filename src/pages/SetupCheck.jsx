@@ -41,7 +41,7 @@ function CopyCheck() {
       <p className="text-app-text text-sm mt-1">
         {exact
           ? "Your app is an exact copy of Freelance HQ. Every tool is the real one."
-          : `Some files aren't exact copies. In Base44, send this: "Redo part ${copy.parts.join(" and part ")} of the copy instructions in AGENTS.md exactly, then stop." Then run this check again.`}
+          : `Some files aren't exact copies. In Base44, send this: "Redo part ${copy.parts.join(" and part ")} of COPY.md exactly, then stop." Then run this check again.`}
       </p>
       {!exact && (
         <ul className="mt-3 space-y-1">

@@ -63,7 +63,8 @@ export async function runCopyCheck() {
   const missing = [];
   let matched = 0;
   // Backend files (data entities and server functions) can't be read from the browser, so only the app's own files are checked.
-  const checked = Object.entries(manifest.files).filter(([file]) => !file.startsWith("base44/"));
+  // contentRev.js is a counter that goes up with every live content update, so it's expected to differ.
+  const checked = Object.entries(manifest.files).filter(([file]) => !file.startsWith("base44/") && file !== "src/lib/contentRev.js");
   checked.forEach(([file, { part, hash }]) => {
     if (!(file in have)) missing.push({ file, part });
     else if (have[file] !== hash) changed.push({ file, part });
