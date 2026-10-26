@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "parts": 8,
   "files": {
     "tailwind.config.js": {
@@ -30,21 +30,29 @@
       "part": 1,
       "hash": "eca48bb30862a459"
     },
-    "base44/functions/findBusinesses/entry.ts": {
+    "src/components/ui/use-toast.jsx": {
       "part": 1,
-      "hash": "22bb79fdf61390dd"
+      "hash": "5ec073232579fa1a"
     },
-    "base44/functions/findEmail/entry.ts": {
+    "src/components/brand/icons.jsx": {
       "part": 1,
-      "hash": "e9b9e648423afac6"
+      "hash": "d004f748ee820886"
     },
-    "base44/functions/generateWithAI/entry.ts": {
+    "src/lib/utils.js": {
       "part": 1,
-      "hash": "a80385a3e00844b6"
+      "hash": "6358196bcee81422"
     },
-    "base44/functions/readWebsite/entry.ts": {
+    "src/components/ui/toast.jsx": {
       "part": 1,
-      "hash": "e810f6b59075b4e6"
+      "hash": "ca247c5fb4816c7c"
+    },
+    "src/components/ui/toaster.jsx": {
+      "part": 1,
+      "hash": "9f767080fd2c2f47"
+    },
+    "src/lib/query-client.js": {
+      "part": 1,
+      "hash": "1ca25a151e78de0e"
     },
     "src/lib/app-params.js": {
       "part": 1,
@@ -54,37 +62,133 @@
       "part": 1,
       "hash": "18bcdb33c42ffb15"
     },
-    "src/brand/app.css": {
+    "src/lib/PageNotFound.jsx": {
       "part": 1,
-      "hash": "be0f8580e8757e36"
+      "hash": "437cbdd79b8b5d17"
     },
-    "src/brand/brand2-1.css": {
+    "src/lib/AuthContext.jsx": {
       "part": 1,
-      "hash": "4f32281a800f5579"
+      "hash": "9f1fb0241bbc2256"
     },
-    "src/brand/brand2-2.css": {
+    "src/components/UserNotRegisteredError.jsx": {
       "part": 1,
-      "hash": "f2c9c7f2b9977962"
+      "hash": "639dcbc97ffc776a"
     },
-    "src/brand/brand2-3.css": {
-      "part": 2,
-      "hash": "d9082a953cb431d5"
+    "src/components/ScrollToTop.jsx": {
+      "part": 1,
+      "hash": "1992dd4ea742a40d"
     },
-    "src/brand/brand2-4.css": {
-      "part": 2,
-      "hash": "f92f1c33b4ab61dc"
+    "src/components/shared/Skeleton.jsx": {
+      "part": 1,
+      "hash": "87380cd35236863d"
     },
-    "src/brand/kit2/components.css": {
-      "part": 2,
-      "hash": "65543ce6893c5bf6"
+    "src/components/ProtectedRoute.jsx": {
+      "part": 1,
+      "hash": "1482922355b6751f"
     },
-    "src/brand/kit2/tokens.css": {
-      "part": 2,
-      "hash": "8dd3618e9e087269"
+    "src/lib/ProfileContext.jsx": {
+      "part": 1,
+      "hash": "7df9a45f461ab750"
     },
-    "src/brand/tokens.css": {
+    "src/lib/version.js": {
+      "part": 1,
+      "hash": "925229e7d679a84e"
+    },
+    "src/lib/assets.js": {
+      "part": 1,
+      "hash": "13ac985f77088aa7"
+    },
+    "src/lib/constants.js": {
+      "part": 1,
+      "hash": "d0c72c8db62237a4"
+    },
+    "src/components/AppLayout.jsx": {
+      "part": 1,
+      "hash": "852fb0c08a6dfafe"
+    },
+    "src/App.jsx": {
+      "part": 1,
+      "hash": "62a1c47d8e24f7fb"
+    },
+    "src/lib/brandStyles.js": {
+      "part": 1,
+      "hash": "d4337e77a5047389"
+    },
+    "src/index.css": {
+      "part": 1,
+      "hash": "6e32adf03f245c93"
+    },
+    "src/lib/theme.js": {
+      "part": 1,
+      "hash": "fa58bc61dbb4acfc"
+    },
+    "src/main.jsx": {
+      "part": 1,
+      "hash": "0919341b8e7cc40a"
+    },
+    "src/components/shared/WizardShell.jsx": {
+      "part": 1,
+      "hash": "5168fffc5a3fa867"
+    },
+    "src/components/shared/SelectableCard.jsx": {
+      "part": 1,
+      "hash": "caf0266c525b3006"
+    },
+    "src/components/ui/input.jsx": {
+      "part": 1,
+      "hash": "c49ab45b9995d831"
+    },
+    "src/components/shared/IncomeGoalInput.jsx": {
+      "part": 1,
+      "hash": "521a03c11aecbf20"
+    },
+    "src/components/ui/label.jsx": {
+      "part": 1,
+      "hash": "42d9500ad59b504b"
+    },
+    "src/pages/Onboarding.jsx": {
+      "part": 1,
+      "hash": "bbc4c868f27a3bf3"
+    },
+    "src/components/shared/CopyButton.jsx": {
+      "part": 1,
+      "hash": "664abc780b50668c"
+    },
+    "src/components/shared/UpdateBanner.jsx": {
+      "part": 1,
+      "hash": "ef5dac899f12104f"
+    },
+    "src/lib/offerData.js": {
+      "part": 1,
+      "hash": "51b6b63e4c94f366"
+    },
+    "src/lib/clientsLogic.js": {
+      "part": 1,
+      "hash": "0295396a9c15dffa"
+    },
+    "src/components/brand/gradientIcons.jsx": {
+      "part": 1,
+      "hash": "baf2236cef7d20a7"
+    },
+    "src/pages/Dashboard.jsx": {
+      "part": 1,
+      "hash": "7ae4b30b40804799"
+    },
+    "base44/functions/findBusinesses/entry.ts": {
       "part": 2,
-      "hash": "c2dbe56ae1f64445"
+      "hash": "22bb79fdf61390dd"
+    },
+    "base44/functions/findEmail/entry.ts": {
+      "part": 2,
+      "hash": "e9b9e648423afac6"
+    },
+    "base44/functions/generateWithAI/entry.ts": {
+      "part": 2,
+      "hash": "a80385a3e00844b6"
+    },
+    "base44/functions/readWebsite/entry.ts": {
+      "part": 2,
+      "hash": "e810f6b59075b4e6"
     },
     "src/hooks/use-mobile.jsx": {
       "part": 2,
@@ -115,23 +219,19 @@
       "hash": "9be95873973b7df9"
     },
     "src/lib/copyVoice.js": {
-      "part": 3,
+      "part": 2,
       "hash": "aaa90a5c1dea50de"
     },
-    "src/lib/offerData.js": {
-      "part": 3,
-      "hash": "51b6b63e4c94f366"
-    },
     "src/lib/offerPrompts.js": {
-      "part": 3,
+      "part": 2,
       "hash": "e3acebc7a29f9960"
     },
     "src/lib/adsCreative.js": {
-      "part": 3,
+      "part": 2,
       "hash": "9f67933a5232a4f4"
     },
     "src/lib/adsHeadlines.js": {
-      "part": 3,
+      "part": 2,
       "hash": "f3b768ed48ea8c01"
     },
     "src/lib/adsPrompts.js": {
@@ -151,48 +251,32 @@
       "hash": "85f8a559e58750f5"
     },
     "src/lib/adsLaunch.js": {
-      "part": 4,
+      "part": 3,
       "hash": "fbee2d7a9037d5d3"
     },
-    "src/lib/version.js": {
-      "part": 4,
-      "hash": "1b9c51a6f4b41379"
-    },
-    "src/lib/assets.js": {
-      "part": 4,
-      "hash": "13ac985f77088aa7"
-    },
-    "src/lib/AuthContext.jsx": {
-      "part": 4,
-      "hash": "9f1fb0241bbc2256"
-    },
     "src/lib/authReturnTo.js": {
-      "part": 4,
+      "part": 3,
       "hash": "4e1307074ee9de1b"
     },
     "src/lib/buildsExtras.js": {
-      "part": 4,
+      "part": 3,
       "hash": "af5bb8490fa6eae0"
     },
     "src/lib/callAI.js": {
-      "part": 4,
+      "part": 3,
       "hash": "7b19c28657f3f4ea"
     },
     "src/lib/clientsAnalysis.js": {
-      "part": 4,
+      "part": 3,
       "hash": "8ab9ceafd557af43"
     },
     "src/lib/clientsPreviewSite.js": {
-      "part": 4,
+      "part": 3,
       "hash": "593cabe54a8ab822"
     },
     "src/lib/clientsBuilds.js": {
       "part": 4,
       "hash": "574540299c7a81d8"
-    },
-    "src/lib/clientsLogic.js": {
-      "part": 4,
-      "hash": "0295396a9c15dffa"
     },
     "src/lib/sampleOffers.js": {
       "part": 4,
@@ -206,92 +290,52 @@
       "part": 4,
       "hash": "c3a6c25985ce22b4"
     },
-    "src/lib/constants.js": {
-      "part": 4,
-      "hash": "d0c72c8db62237a4"
-    },
     "src/lib/contentEngine.js": {
-      "part": 5,
+      "part": 4,
       "hash": "c31cd7000db25642"
     },
     "src/lib/contentRev.js": {
-      "part": 5,
-      "hash": "71efdf36e721f20d"
+      "part": 4,
+      "hash": "6e1ce1af810f224b"
     },
     "src/lib/copyCheck.js": {
-      "part": 5,
+      "part": 4,
       "hash": "5f8a40de87d9db5a"
     },
     "src/lib/liveContent.js": {
-      "part": 5,
+      "part": 4,
       "hash": "32dbfd8e372647df"
     },
     "src/lib/offerLogic.js": {
-      "part": 5,
+      "part": 4,
       "hash": "8d08889d06965306"
     },
     "src/lib/offerChecks.js": {
-      "part": 5,
+      "part": 4,
       "hash": "49cfb3651e1359f5"
-    },
-    "src/lib/PageNotFound.jsx": {
-      "part": 5,
-      "hash": "437cbdd79b8b5d17"
-    },
-    "src/lib/utils.js": {
-      "part": 5,
-      "hash": "6358196bcee81422"
-    },
-    "src/components/shared/Skeleton.jsx": {
-      "part": 5,
-      "hash": "87380cd35236863d"
-    },
-    "src/lib/ProfileContext.jsx": {
-      "part": 5,
-      "hash": "7df9a45f461ab750"
-    },
-    "src/lib/query-client.js": {
-      "part": 5,
-      "hash": "1ca25a151e78de0e"
-    },
-    "src/lib/theme.js": {
-      "part": 5,
-      "hash": "fa58bc61dbb4acfc"
-    },
-    "src/components/brand/icons.jsx": {
-      "part": 5,
-      "hash": "d004f748ee820886"
     },
     "src/components/ads/MetaAdsBuilder.jsx": {
       "part": 5,
       "hash": "a5fa96649231f4d2"
     },
-    "src/components/AppLayout.jsx": {
-      "part": 5,
-      "hash": "852fb0c08a6dfafe"
-    },
     "src/components/AuthLayout.jsx": {
       "part": 5,
       "hash": "476fec3e81024f43"
     },
-    "src/components/brand/gradientIcons.jsx": {
-      "part": 5,
-      "hash": "baf2236cef7d20a7"
-    },
     "src/components/builds/BuildsPanel.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "16b436443573e78c"
     },
     "src/components/shared/CopyIcon.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "5bfcefe3a160d47a"
     },
     "src/components/clients/ContactRow.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "45b2a4672f7cd87c"
     },
     "src/components/clients/LeadWorkspace.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "0b1fb257a74a9710"
     },
     "src/components/content/ContentCreator.jsx": {
@@ -318,10 +362,6 @@
       "part": 6,
       "hash": "b5525bb44b295082"
     },
-    "src/components/shared/CopyButton.jsx": {
-      "part": 6,
-      "hash": "664abc780b50668c"
-    },
     "src/components/shared/InfoTip.jsx": {
       "part": 6,
       "hash": "d0e057dbb5d53e5f"
@@ -329,10 +369,6 @@
     "src/components/offer/result/OfferDocTab.jsx": {
       "part": 6,
       "hash": "dc3f91a9e80cfbce"
-    },
-    "src/components/ui/input.jsx": {
-      "part": 6,
-      "hash": "c49ab45b9995d831"
     },
     "src/components/offer/result/PriceCard.jsx": {
       "part": 6,
@@ -358,17 +394,9 @@
       "part": 6,
       "hash": "eb73a7d2f5af91ca"
     },
-    "src/components/shared/WizardShell.jsx": {
-      "part": 6,
-      "hash": "5168fffc5a3fa867"
-    },
     "src/components/offer/ScreenAbout.jsx": {
       "part": 6,
       "hash": "ed00640151c9fc47"
-    },
-    "src/components/shared/SelectableCard.jsx": {
-      "part": 6,
-      "hash": "caf0266c525b3006"
     },
     "src/components/offer/ScreenNiche.jsx": {
       "part": 6,
@@ -378,25 +406,9 @@
       "part": 6,
       "hash": "58c320d407df884c"
     },
-    "src/components/UserNotRegisteredError.jsx": {
-      "part": 6,
-      "hash": "639dcbc97ffc776a"
-    },
-    "src/components/ProtectedRoute.jsx": {
-      "part": 6,
-      "hash": "1482922355b6751f"
-    },
-    "src/components/ScrollToTop.jsx": {
-      "part": 6,
-      "hash": "1992dd4ea742a40d"
-    },
     "src/components/shared/EmptyState.jsx": {
       "part": 6,
       "hash": "ac6e6257e3fdb66a"
-    },
-    "src/components/shared/IncomeGoalInput.jsx": {
-      "part": 6,
-      "hash": "521a03c11aecbf20"
     },
     "src/components/shared/PageHeader.jsx": {
       "part": 6,
@@ -409,10 +421,6 @@
     "src/components/shared/ToolHero.jsx": {
       "part": 6,
       "hash": "7568afffc57e3f95"
-    },
-    "src/components/shared/UpdateBanner.jsx": {
-      "part": 6,
-      "hash": "ef5dac899f12104f"
     },
     "src/components/ui/accordion.jsx": {
       "part": 6,
@@ -455,63 +463,59 @@
       "hash": "b73c8f1f9e899841"
     },
     "src/components/ui/chart.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "bbacca1cead8cea8"
     },
     "src/components/ui/checkbox.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "4ff0d2e9ec7bbb0d"
     },
     "src/components/ui/collapsible.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "fa1e4c6c22866f67"
     },
     "src/components/ui/dialog.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "1c496c85f30f71ef"
     },
     "src/components/ui/command.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "b7fa6046888d04d9"
     },
     "src/components/ui/context-menu.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "f5c1117849469501"
     },
     "src/components/ui/drawer.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "c05be34534fc8227"
     },
     "src/components/ui/dropdown-menu.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "5456c1b874d43eef"
     },
-    "src/components/ui/label.jsx": {
-      "part": 7,
-      "hash": "42d9500ad59b504b"
-    },
     "src/components/ui/form.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "f75032cd11b90ad1"
     },
     "src/components/ui/hover-card.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "e1879b8f8de0f64f"
     },
     "src/components/ui/image-helpers.js": {
-      "part": 7,
+      "part": 6,
       "hash": "b3ee296e65c6620c"
     },
     "src/components/ui/use-responsive-image.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "e20d991dc6b08147"
     },
     "src/components/ui/responsive-image.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "2539f90ff87a8f63"
     },
     "src/components/ui/image.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "a279753eb052c0a3"
     },
     "src/components/ui/input-otp.jsx": {
@@ -594,18 +598,6 @@
       "part": 7,
       "hash": "4dc3fe08ccf805b1"
     },
-    "src/components/ui/toast.jsx": {
-      "part": 7,
-      "hash": "ca247c5fb4816c7c"
-    },
-    "src/components/ui/use-toast.jsx": {
-      "part": 7,
-      "hash": "5ec073232579fa1a"
-    },
-    "src/components/ui/toaster.jsx": {
-      "part": 7,
-      "hash": "9f767080fd2c2f47"
-    },
     "src/components/ui/toggle.jsx": {
       "part": 7,
       "hash": "bb2f08a5d4fdcf56"
@@ -634,44 +626,36 @@
       "part": 7,
       "hash": "d9c86bc6d61c2b1f"
     },
-    "src/pages/Dashboard.jsx": {
-      "part": 7,
-      "hash": "7ae4b30b40804799"
-    },
     "src/pages/ForgotPassword.jsx": {
       "part": 7,
       "hash": "5da08a55818e4f30"
     },
     "src/pages/GetClients.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "f7fae3314870a227"
     },
     "src/pages/Login.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "f2598aa547f74cba"
     },
     "src/pages/OAuthConsent.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "42b3f17c14f388e8"
     },
     "src/pages/OfferBuilder.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "8014630a53db33fa"
     },
     "src/pages/OfferResult.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "448640fe586c37b6"
     },
     "src/pages/OfferWizard.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "94dc5993a46093f0"
     },
-    "src/pages/Onboarding.jsx": {
-      "part": 8,
-      "hash": "bbc4c868f27a3bf3"
-    },
     "src/pages/Profile.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "5ccbef6b26ac7c58"
     },
     "src/pages/ProspectDetail.jsx": {
@@ -690,17 +674,37 @@
       "part": 8,
       "hash": "c6d6e75898b93cbb"
     },
-    "src/App.jsx": {
+    "src/brand/app.css": {
       "part": 8,
-      "hash": "90009d729b2fa6ab"
+      "hash": "be0f8580e8757e36"
     },
-    "src/index.css": {
+    "src/brand/brand2-1.css": {
       "part": 8,
-      "hash": "2f4313dbd941b6c9"
+      "hash": "4f32281a800f5579"
     },
-    "src/main.jsx": {
+    "src/brand/brand2-2.css": {
       "part": 8,
-      "hash": "ecf81ef4ec9e8942"
+      "hash": "f2c9c7f2b9977962"
+    },
+    "src/brand/brand2-3.css": {
+      "part": 8,
+      "hash": "d9082a953cb431d5"
+    },
+    "src/brand/brand2-4.css": {
+      "part": 8,
+      "hash": "f92f1c33b4ab61dc"
+    },
+    "src/brand/kit2/components.css": {
+      "part": 8,
+      "hash": "65543ce6893c5bf6"
+    },
+    "src/brand/kit2/tokens.css": {
+      "part": 8,
+      "hash": "8dd3618e9e087269"
+    },
+    "src/brand/tokens.css": {
+      "part": 8,
+      "hash": "c2dbe56ae1f64445"
     }
   }
 }

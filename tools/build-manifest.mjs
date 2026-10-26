@@ -68,23 +68,40 @@ const visit = (f, stack = new Set()) => {
   placed.add(f);
   ordered.push(f);
 };
+// Part 1 is the working app shell: everything the sign-in, the three setup questions and the home screen need.
+// (Pages, brand stylesheets and live content load only when present, so the app runs after Part 1.)
+const SHELL = [
+  "src/main.jsx", "src/App.jsx", "src/index.css", "src/lib/brandStyles.js",
+  "src/pages/Onboarding.jsx", "src/pages/Dashboard.jsx",
+  "src/components/AppLayout.jsx", "src/lib/ProfileContext.jsx", "src/components/ProtectedRoute.jsx",
+  "src/lib/AuthContext.jsx", "src/lib/PageNotFound.jsx", "src/components/UserNotRegisteredError.jsx",
+  "src/components/ScrollToTop.jsx", "src/components/ui/toaster.jsx", "src/lib/query-client.js",
+  "src/components/shared/Skeleton.jsx", "src/lib/theme.js",
+];
+["tailwind.config.js", ...files.filter((f) => f.startsWith("base44/entities/")), ...SHELL].forEach((f) => visit(f));
+const shellCount = ordered.length;
+// Then everything else, dependencies first, with the brand stylesheets last (the app loads them from the template until then).
+files.filter((f) => !f.startsWith("src/brand/") || !f.endsWith(".css")).forEach((f) => visit(f));
 files.forEach((f) => visit(f));
 files.splice(0, files.length, ...ordered);
 
-// Parts of about 165 KB each (8 parts, matching the 8 install messages), so each Base44 message stays a manageable size.
-const LIMIT = 165_000;
+// Part 1 is the shell; the rest is split into 7 even parts (8 install messages in all).
+const PARTS = 8;
+const rest = files.slice(shellCount);
+const restSize = rest.reduce((n, f) => n + readFileSync(join(root, f), "utf8").length, 0);
+const LIMIT = Math.ceil(restSize / (PARTS - 1));
 let part = 1;
 let size = 0;
 const entries = {};
-for (const f of files) {
+files.forEach((f, i) => {
   const text = readFileSync(join(root, f), "utf8");
-  if (size && size + text.length > LIMIT) {
+  if (i === shellCount || (i > shellCount && size + text.length > LIMIT && part < PARTS)) {
     part += 1;
     size = 0;
   }
   size += text.length;
   entries[f] = { part, hash: fingerprint(text, f) };
-}
+});
 
 const { version } = JSON.parse(readFileSync(join(root, "version.json"), "utf8"));
 writeFileSync(join(root, "copy-manifest.json"), JSON.stringify({ version, parts: part, files: entries }, null, 2) + "\n");

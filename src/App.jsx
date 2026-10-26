@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
@@ -10,25 +11,36 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ProfileGate from '@/lib/ProfileContext';
 import AppLayout from '@/components/AppLayout';
-import Login from '@/pages/Login';
-import Register from '@/pages/Register';
-import ForgotPassword from '@/pages/ForgotPassword';
-import ResetPassword from '@/pages/ResetPassword';
-import Onboarding from '@/pages/Onboarding';
-import Dashboard from '@/pages/Dashboard';
-import OfferBuilder from '@/pages/OfferBuilder';
-import OfferWizard from '@/pages/OfferWizard';
-import OfferResult from '@/pages/OfferResult';
-import Profile from '@/pages/Profile';
-import SetupCheck from '@/pages/SetupCheck';
-import GetClients from '@/pages/GetClients';
-import ProspectDetail from '@/pages/ProspectDetail';
-import AdsHome from '@/pages/AdsHome';
-import AdCampaign from '@/pages/AdCampaign';
-import ContentHome from '@/pages/ContentHome';
-import ContentPlan from '@/pages/ContentPlan';
-import BuildLab from '@/pages/BuildLab';
 import { PageSkeleton } from "@/components/shared/Skeleton";
+
+// Pages load on demand. During a member's install, a page whose part hasn't been copied yet shows a short
+// "still installing" note instead of breaking the app, so the home screen works after the first message.
+const PAGES = import.meta.glob('./pages/*.jsx');
+const StillInstalling = () => (
+  <div className="max-w-xl mx-auto py-24 px-6 text-center">
+    <h1 className="text-2xl font-semibold">This tool is still installing</h1>
+    <p className="mt-3 text-app-muted">Send the next install message in Base44. It appears here when its part is done.</p>
+  </div>
+);
+const page = (name) => (PAGES[`./pages/${name}.jsx`] ? lazy(PAGES[`./pages/${name}.jsx`]) : StillInstalling);
+const Login = page('Login');
+const Register = page('Register');
+const ForgotPassword = page('ForgotPassword');
+const ResetPassword = page('ResetPassword');
+const Onboarding = page('Onboarding');
+const Dashboard = page('Dashboard');
+const OfferBuilder = page('OfferBuilder');
+const OfferWizard = page('OfferWizard');
+const OfferResult = page('OfferResult');
+const Profile = page('Profile');
+const SetupCheck = page('SetupCheck');
+const GetClients = page('GetClients');
+const ProspectDetail = page('ProspectDetail');
+const AdsHome = page('AdsHome');
+const AdCampaign = page('AdCampaign');
+const ContentHome = page('ContentHome');
+const ContentPlan = page('ContentPlan');
+const BuildLab = page('BuildLab');
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -55,6 +67,7 @@ const AuthenticatedApp = () => {
 
   // Render the main app
   return (
+    <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center"><PageSkeleton /></div>}>
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
@@ -82,6 +95,7 @@ const AuthenticatedApp = () => {
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
+    </Suspense>
   );
 };
 
