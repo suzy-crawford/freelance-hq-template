@@ -91,10 +91,10 @@ Then create these files:
 - src/lib/offerPrompts.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/offerPrompts.js
 - src/lib/adsCreative.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsCreative.js
 - src/lib/adsHeadlines.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsHeadlines.js
+- src/lib/adsPrompts.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsPrompts.js
 
 ## Part 3
 
-- src/lib/adsPrompts.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsPrompts.js
 - src/lib/adsClaudePrompts.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsClaudePrompts.js
 - src/lib/adsMasterPrompts.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsMasterPrompts.js
 - src/lib/adsEngine.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/adsEngine.js
@@ -104,10 +104,10 @@ Then create these files:
 - src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/callAI.js
 - src/lib/clientsAnalysis.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsAnalysis.js
 - src/lib/clientsPreviewSite.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsPreviewSite.js
+- src/lib/clientsBuilds.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsBuilds.js
 
 ## Part 4
 
-- src/lib/clientsBuilds.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsBuilds.js
 - src/lib/sampleOffers.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/sampleOffers.js
 - src/lib/clientsClaudePrompt.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsClaudePrompt.js
 - src/lib/clientsOutreach.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsOutreach.js
@@ -117,18 +117,15 @@ Then create these files:
 - src/lib/liveContent.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/liveContent.js
 - src/lib/offerLogic.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/offerLogic.js
 - src/lib/offerChecks.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/offerChecks.js
+- src/components/ads/MetaAdsBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ads/MetaAdsBuilder.jsx
 
 ## Part 5
 
-- src/components/ads/MetaAdsBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ads/MetaAdsBuilder.jsx
 - src/components/AuthLayout.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/AuthLayout.jsx
 - src/components/builds/BuildsPanel.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/builds/BuildsPanel.jsx
 - src/components/shared/CopyIcon.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/shared/CopyIcon.jsx
 - src/components/clients/ContactRow.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/clients/ContactRow.jsx
 - src/components/clients/LeadWorkspace.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/clients/LeadWorkspace.jsx
-
-## Part 6
-
 - src/components/content/ContentCreator.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/content/ContentCreator.jsx
 - src/components/GoogleIcon.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/GoogleIcon.jsx
 - src/components/ui/button.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/button.jsx
@@ -164,6 +161,9 @@ Then create these files:
 - src/components/ui/checkbox.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/checkbox.jsx
 - src/components/ui/collapsible.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/collapsible.jsx
 - src/components/ui/dialog.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/dialog.jsx
+
+## Part 6
+
 - src/components/ui/command.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/command.jsx
 - src/components/ui/context-menu.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/context-menu.jsx
 - src/components/ui/drawer.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/drawer.jsx
@@ -174,9 +174,6 @@ Then create these files:
 - src/components/ui/use-responsive-image.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/use-responsive-image.jsx
 - src/components/ui/responsive-image.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/responsive-image.jsx
 - src/components/ui/image.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/image.jsx
-
-## Part 7
-
 - src/components/ui/input-otp.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/input-otp.jsx
 - src/components/ui/menubar.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/menubar.jsx
 - src/components/ui/navigation-menu.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/ui/navigation-menu.jsx
@@ -209,12 +206,12 @@ Then create these files:
 - src/pages/Login.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/Login.jsx
 - src/pages/OAuthConsent.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/OAuthConsent.jsx
 - src/pages/OfferBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/OfferBuilder.jsx
+
+## Part 7
+
 - src/pages/OfferResult.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/OfferResult.jsx
 - src/pages/OfferWizard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/OfferWizard.jsx
 - src/pages/Profile.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/Profile.jsx
-
-## Part 8
-
 - src/pages/ProspectDetail.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/ProspectDetail.jsx
 - src/pages/Register.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/Register.jsx
 - src/pages/ResetPassword.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/ResetPassword.jsx
@@ -222,6 +219,9 @@ Then create these files:
 - src/brand/app.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/brand/app.css
 - src/brand/brand2-1.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/brand/brand2-1.css
 - src/brand/brand2-2.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/brand/brand2-2.css
+
+## Part 8
+
 - src/brand/brand2-3.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/brand/brand2-3.css
 - src/brand/brand2-4.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/brand/brand2-4.css
 - src/brand/kit2/components.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/brand/kit2/components.css

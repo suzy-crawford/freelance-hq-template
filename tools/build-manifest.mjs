@@ -89,7 +89,11 @@ files.splice(0, files.length, ...ordered);
 const PARTS = 8;
 const rest = files.slice(shellCount);
 const restSize = rest.reduce((n, f) => n + readFileSync(join(root, f), "utf8").length, 0);
-const LIMIT = Math.ceil(restSize / (PARTS - 1));
+// The smallest part size that fits the rest into 7 parts, so no part (especially the last) runs long.
+const sizes = rest.map((f) => readFileSync(join(root, f), "utf8").length);
+const partsFor = (limit) => { let n = 1, s = 0; for (const x of sizes) { if (s && s + x > limit) { n += 1; s = 0; } s += x; } return n; };
+let LIMIT = Math.ceil(restSize / (PARTS - 1));
+while (partsFor(LIMIT) > PARTS - 1) LIMIT += 1000;
 let part = 1;
 let size = 0;
 const entries = {};

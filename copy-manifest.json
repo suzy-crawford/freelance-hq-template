@@ -235,7 +235,7 @@
       "hash": "f3b768ed48ea8c01"
     },
     "src/lib/adsPrompts.js": {
-      "part": 3,
+      "part": 2,
       "hash": "a485c0d96fdde375"
     },
     "src/lib/adsClaudePrompts.js": {
@@ -275,7 +275,7 @@
       "hash": "593cabe54a8ab822"
     },
     "src/lib/clientsBuilds.js": {
-      "part": 4,
+      "part": 3,
       "hash": "574540299c7a81d8"
     },
     "src/lib/sampleOffers.js": {
@@ -296,7 +296,7 @@
     },
     "src/lib/contentRev.js": {
       "part": 4,
-      "hash": "6e1ce1af810f224b"
+      "hash": "ed8e569029a3f227"
     },
     "src/lib/copyCheck.js": {
       "part": 4,
@@ -315,7 +315,7 @@
       "hash": "49cfb3651e1359f5"
     },
     "src/components/ads/MetaAdsBuilder.jsx": {
-      "part": 5,
+      "part": 4,
       "hash": "a5fa96649231f4d2"
     },
     "src/components/AuthLayout.jsx": {
@@ -339,143 +339,143 @@
       "hash": "0b1fb257a74a9710"
     },
     "src/components/content/ContentCreator.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "9da77fe90432522e"
     },
     "src/components/GoogleIcon.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "084beefa50de1eae"
     },
     "src/components/ui/button.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "83d3237df356b974"
     },
     "src/components/offer/AIError.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "cfb5868efbb73265"
     },
     "src/components/offer/BuildLoading.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "fbc2a3875a7f9eb0"
     },
     "src/components/offer/result/EditableText.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "b5525bb44b295082"
     },
     "src/components/shared/InfoTip.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "d0e057dbb5d53e5f"
     },
     "src/components/offer/result/OfferDocTab.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "dc3f91a9e80cfbce"
     },
     "src/components/offer/result/PriceCard.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "af5ffb764d6acfb7"
     },
     "src/components/ui/textarea.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "788fc91434e95270"
     },
     "src/components/offer/result/RefineIt.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "a037f87b5a3793bd"
     },
     "src/components/offer/result/ScopeTab.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "666c8f7a80f0dd0b"
     },
     "src/components/offer/result/SectionCard.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "378485d4d118a313"
     },
     "src/components/offer/result/YourOfferTab.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "eb73a7d2f5af91ca"
     },
     "src/components/offer/ScreenAbout.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "ed00640151c9fc47"
     },
     "src/components/offer/ScreenNiche.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "d3ad6d81d8cb274b"
     },
     "src/components/offer/ScreenServices.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "58c320d407df884c"
     },
     "src/components/shared/EmptyState.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "ac6e6257e3fdb66a"
     },
     "src/components/shared/PageHeader.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "43d69ec9bef04979"
     },
     "src/components/shared/Tabs.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "cd6462c62e568d8a"
     },
     "src/components/shared/ToolHero.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "7568afffc57e3f95"
     },
     "src/components/ui/accordion.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "c7c5baa40685c560"
     },
     "src/components/ui/alert-dialog.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "f69895907d83c1bd"
     },
     "src/components/ui/alert.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "44b0ed62f672416e"
     },
     "src/components/ui/aspect-ratio.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "3924b1955e2027f4"
     },
     "src/components/ui/avatar.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "c17a9ffdf5452358"
     },
     "src/components/ui/badge.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "b4490a7bd1276485"
     },
     "src/components/ui/breadcrumb.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "1816ba8dbab5912a"
     },
     "src/components/ui/calendar.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "24573c5330b4dc1c"
     },
     "src/components/ui/card.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "1229bc98b6248a8b"
     },
     "src/components/ui/carousel.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "b73c8f1f9e899841"
     },
     "src/components/ui/chart.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "bbacca1cead8cea8"
     },
     "src/components/ui/checkbox.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "4ff0d2e9ec7bbb0d"
     },
     "src/components/ui/collapsible.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "fa1e4c6c22866f67"
     },
     "src/components/ui/dialog.jsx": {
-      "part": 6,
+      "part": 5,
       "hash": "1c496c85f30f71ef"
     },
     "src/components/ui/command.jsx": {
@@ -519,131 +519,131 @@
       "hash": "a279753eb052c0a3"
     },
     "src/components/ui/input-otp.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "075ca7379be612b8"
     },
     "src/components/ui/menubar.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "64f291fa7096afba"
     },
     "src/components/ui/navigation-menu.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "bfd1c48a5545e0b4"
     },
     "src/components/ui/pagination.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "eac8f5ae1adbd5a5"
     },
     "src/components/ui/popover.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "eead9959ff876f16"
     },
     "src/components/ui/progress.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "10a1b9c1224b4183"
     },
     "src/components/ui/radio-group.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "77810bb6dc450c91"
     },
     "src/components/ui/resizable.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "c953841d79f9e796"
     },
     "src/components/ui/scroll-area.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "709bd2eac3df04e1"
     },
     "src/components/ui/select.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "799dc8f43db88253"
     },
     "src/components/ui/separator.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "d2e6f78ef23046ae"
     },
     "src/components/ui/sheet.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "fa69f9ef977b7aa0"
     },
     "src/components/ui/skeleton.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "8f99161ca9446cf2"
     },
     "src/components/ui/tooltip.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "dba80f5dd76c5d52"
     },
     "src/components/ui/sidebar.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "2cbe2ccccb974a61"
     },
     "src/components/ui/slider.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "5d5ccf693c8d0e09"
     },
     "src/components/ui/sonner.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "43cb36b2a9e2a09e"
     },
     "src/components/ui/switch.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "89a551a8ce0b6734"
     },
     "src/components/ui/table.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "d5ae7a7db2d96c38"
     },
     "src/components/ui/tabs.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "4dc3fe08ccf805b1"
     },
     "src/components/ui/toggle.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "bb2f08a5d4fdcf56"
     },
     "src/components/ui/toggle-group.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "5fa8f4be9a85fe53"
     },
     "src/pages/AdCampaign.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "b5ff0e8af0430f47"
     },
     "src/pages/AdsHome.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "f5b3e568a62f8d1f"
     },
     "src/pages/BuildLab.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "b0842b734ceba892"
     },
     "src/pages/ContentHome.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "13881f0e2ba5ff2e"
     },
     "src/pages/ContentPlan.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "d9c86bc6d61c2b1f"
     },
     "src/pages/ForgotPassword.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "5da08a55818e4f30"
     },
     "src/pages/GetClients.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "f7fae3314870a227"
     },
     "src/pages/Login.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "f2598aa547f74cba"
     },
     "src/pages/OAuthConsent.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "42b3f17c14f388e8"
     },
     "src/pages/OfferBuilder.jsx": {
-      "part": 7,
+      "part": 6,
       "hash": "8014630a53db33fa"
     },
     "src/pages/OfferResult.jsx": {
@@ -659,31 +659,31 @@
       "hash": "5ccbef6b26ac7c58"
     },
     "src/pages/ProspectDetail.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "bc994f720d19a0c2"
     },
     "src/pages/Register.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "10486da07bec52b0"
     },
     "src/pages/ResetPassword.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "4fe42928604519a2"
     },
     "src/pages/SetupCheck.jsx": {
-      "part": 8,
+      "part": 7,
       "hash": "c6d6e75898b93cbb"
     },
     "src/brand/app.css": {
-      "part": 8,
+      "part": 7,
       "hash": "be0f8580e8757e36"
     },
     "src/brand/brand2-1.css": {
-      "part": 8,
+      "part": 7,
       "hash": "4f32281a800f5579"
     },
     "src/brand/brand2-2.css": {
-      "part": 8,
+      "part": 7,
       "hash": "f2c9c7f2b9977962"
     },
     "src/brand/brand2-3.css": {
