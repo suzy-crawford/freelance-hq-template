@@ -47,6 +47,7 @@ import {
   moreVersionsPrompt,
   funnelType,
   buildFunnelPrompt,
+  imagePromptFor,
   instantFormText,
   buildCampaignInstructions,
 } from "@/lib/adsEngine";
@@ -1101,15 +1102,20 @@ function AdDetail({ campaign, k, n, onChoice, onFill }) {
             ) : (
               <li>
                 <strong>Create the ad image</strong>
-                <p>Paste into Claude, ChatGPT or another design tool. Upload their logo or a screenshot of their website first so it matches their brand.</p>
-                <CopyBtn cream text={fb(k.design_prompt)} label="Copy design prompt" />
+                <p>Paste it into ChatGPT, which makes the finished image. Upload their logo or a screenshot of their website first so it matches their brand. Text-only design? Claude works too.</p>
+                <div className="mb-action-row">
+                  <CopyBtn cream text={fb(imagePromptFor(k))} label="Copy image prompt" />
+                  <a className="lp-link" href="https://chatgpt.com/" target="_blank" rel="noreferrer">
+                    Open ChatGPT <ExternalLink />
+                  </a>
+                </div>
                 <div className="mb-action-links">
-                  {k.image_prompt && <CopyLink text={k.image_prompt} label="No photo? Copy an image prompt" />}
+                  {k.image_prompt && <CopyLink text={k.image_prompt} label="Just want the photo? Copy a photo prompt" />}
                   <button type="button" className="lp-link mb-dim" onClick={() => setShowPrompt((v) => !v)} aria-expanded={showPrompt}>
                     {showPrompt ? "Hide the prompt" : "See the prompt"}
                   </button>
                 </div>
-                {showPrompt && <pre className="mb-pre">{fb(k.design_prompt)}</pre>}
+                {showPrompt && <pre className="mb-pre">{fb(imagePromptFor(k))}</pre>}
               </li>
             )}
           </ol>
@@ -1401,11 +1407,11 @@ export function FunnelStep({ campaign, onChange, onWrite, writing, error, onBack
             <div className="mb-action mb-mt-lg">
               <div className="mb-action-label">Build it</div>
               <h4 className="mb-action-title">Build this landing page</h4>
-              <p>Paste it into Claude or ChatGPT. It builds the whole page as one file you can publish. Upload their logo and photos with it.</p>
+              <p>Create a new app in Base44, paste this and send. Attach their logo and photos if you have them. When it's built, click Publish at the top right and paste the link below. The form saves every lead to a private page.</p>
               <div className="mb-action-row">
                 <CopyBtn cream text={buildFunnelPrompt(campaign, adIndex)} label="Copy landing page prompt" />
-                <a className="lp-link" href="https://claude.ai/new" target="_blank" rel="noreferrer">
-                  Open Claude <ExternalLink />
+                <a className="lp-link" href="https://app.base44.com" target="_blank" rel="noreferrer">
+                  Open Base44 <ExternalLink />
                 </a>
               </div>
               <label className="mb-action-field">

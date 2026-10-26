@@ -146,6 +146,13 @@ export function buildAdsCall(c) {
   };
 }
 
+// Older campaigns were written for Claude layouts; this line makes any design prompt ask for one finished image.
+const AS_IMAGE = "Create this as one finished ad image, ready to upload to Meta, with all the text on it spelled exactly as written.";
+export const imagePromptFor = (k) => {
+  const d = String(k?.design_prompt || "").trim();
+  return d && !d.includes(AS_IMAGE) ? `${d}\n\n${AS_IMAGE}` : d;
+};
+
 const MUST_DESIGN = [
   "If I uploaded a logo, website screenshot, brand kit, or reference image, use it to understand the brand style. Do not copy another company's creative exactly.",
   "Do not invent ratings, review counts, results, prices, urgency, guarantees, or credentials.",
@@ -496,9 +503,25 @@ FAQs: ${(page.faqs || []).map((f) => `${f.q} ${f.a}`).join(" / ")}
 Form fields: ${(page.form_fields || []).join(", ")}
 CTA: ${page.cta}`
     : "";
-  return `${fill(MASTER_PROMPTS.funnel, funnelValues(c, k))}${outline}
+  // The master prompt ends with a standalone-HTML output; members build in Base44 instead, so it becomes a published app.
+  const master = fill(MASTER_PROMPTS.funnel, funnelValues(c, k));
+  const cut = master.indexOf("OUTPUT 2: COMPLETE HTML");
+  const end = master.indexOf("FINAL FUNNEL QUALITY CHECK");
+  const body = (cut > -1 && end > cut ? master.slice(0, cut) + master.slice(end) : master).replace(/ — /g, ": ").replace("Before HTML, internally define", "Before building, internally define");
+  return `Build this landing page as a one-page app here in Base44, for a Meta ad campaign I'm running for this business.
 
-If I uploaded their logo, a website screenshot or brand images, use them for the design.`;
+${body}${outline}
+
+BUILD IT IN BASE44
+- One public page, open to anyone with the link, no login needed. I'll press Publish myself.
+- Every button scrolls to the form${c.cta_url ? ` or goes to ${c.cta_url}` : ""}. The form asks only for what's needed to follow up (name, phone, email, plus the requested fields).
+- Save every submission with the date and the ad it came from (keep any utm_ or fbclid values from the page link).
+- After someone submits, show a clear thank-you screen that says exactly what happens next.
+- A private admin page (login required) listing leads newest first, with a status (New, Contacted, Booked) and an export to CSV.
+- Leave a clearly marked spot in the page's head where I can add the Meta Pixel later.
+- Use tasteful generated images of the place, the work or textures. Never show fake customers, patients or staff, and use clearly labeled placeholders where a real photo belongs.
+- Don't stretch the facts: never claim how visits work, what's included, or anything about competitors unless it's written above. No em dashes.
+- If I uploaded their logo, a website screenshot or brand images, use them for the design.`;
 }
 
 export function instantFormText(c) {

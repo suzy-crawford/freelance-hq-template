@@ -17,6 +17,7 @@
     "length": { "type": "number", "default": 5 },
     "formats": { "type": "array", "items": { "type": "string" }, "default": ["talking_head", "broll", "carousel"] },
     "voice_samples": { "type": "string", "default": "" },
+    "audit_notes": { "type": "string", "default": "" },
     "brand_colors": { "type": "string", "default": "" },
     "brand_style": { "type": "string", "default": "" },
     "strategy": { "type": "object" },

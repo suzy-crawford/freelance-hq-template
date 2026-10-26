@@ -28,6 +28,8 @@ import {
   strategyDocText,
   strategyDocPage,
   contentDocPage,
+  auditNotesFrom,
+  shotList,
 } from "@/lib/contentEngine";
 import { useProfile } from "@/lib/ProfileContext";
 
@@ -77,7 +79,7 @@ export function AboutStep({ plan, onChange, onBuild, building, error }) {
       .catch(() => {});
   }, []);
 
-  const BLANK = { business_source: "new", prospect_id: "", business_name: "", website: "", location: "", business_description: "", services: [], offer_text: "", audience: "", voice_samples: "" };
+  const BLANK = { business_source: "new", prospect_id: "", business_name: "", website: "", location: "", business_description: "", services: [], offer_text: "", audience: "", voice_samples: "", audit_notes: "" };
   // Picking a business replaces the answers; picking nothing clears them.
   const pickBusiness = (key) => {
     setSiteNote("");
@@ -85,7 +87,7 @@ export function AboutStep({ plan, onChange, onBuild, building, error }) {
     const [kind, id] = key.split(":");
     if (kind === "lead") {
       const p = prospects.find((x) => x.id === id);
-      if (p) set({ ...BLANK, business_source: "lead", prospect_id: key, business_name: p.name, website: p.website || "", location: p.location || "", business_description: p.business_type || "" });
+      if (p) set({ ...BLANK, business_source: "lead", prospect_id: key, business_name: p.name, website: p.website || "", location: p.location || "", business_description: p.business_type || "", audit_notes: auditNotesFrom(p.analysis) });
     } else {
       const c = campaigns.find((x) => x.id === id);
       if (c)
@@ -266,6 +268,9 @@ export function AboutStep({ plan, onChange, onBuild, building, error }) {
           </Q>
         </Group>
 
+        <Q label="What did you find in their audit?" optional hint={plan.audit_notes && plan.business_source === "lead" ? "From your Lead Analyzer. Add anything else you noticed on their feed." : "What's working on their feed, what's missing, and the biggest opportunity. The plan builds on it."}>
+          <textarea className="textarea" rows={5} value={plan.audit_notes || ""} onChange={(e) => set({ audit_notes: e.target.value })} placeholder="e.g. Posts once a month, no reels. Before-and-after photos get the most likes. No call to action in captions." aria-label="What you found in their audit" />
+        </Q>
         <Q label="Paste 2 or 3 of the client's captions" optional hint="So the posts sound like them, not like AI.">
           <textarea className="textarea" rows={4} value={plan.voice_samples || ""} onChange={(e) => set({ voice_samples: e.target.value })} />
         </Q>
@@ -539,6 +544,16 @@ function PostDetail({ plan, post, item, onSave }) {
             post.slides.map((sl, i) => <CopyField key={i} {...field(`Slide ${i + 1}`, sl.text, (v) => setSlide(i, v), true)} note={sl.visual ? `Visual: ${sl.visual}` : ""} />)}
           <CopyField {...field("Caption", post.caption, (t) => save({ caption: t }), true)} />
         </div>
+        {post.format === "broll" && (
+          <div className="mb-action">
+            <div className="mb-action-label">Make it</div>
+            <h4 className="mb-action-title">Film the clips</h4>
+            <p>Send the client this shot list, or film it yourself on a phone at the business. Use clips they already have when they fit. Skip AI video: real moments at a real business work better and don't look fake.</p>
+            <div className="mb-action-row">
+              <CopyBtn cream text={shotList(plan, post)} label="Copy shot list" />
+            </div>
+          </div>
+        )}
         {post.format === "carousel" && post.slides.length > 0 && (
           <div className="mb-action">
             <div className="mb-action-label">Make it</div>

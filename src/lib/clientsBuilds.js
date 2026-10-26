@@ -5,6 +5,7 @@
 
 import { previewSitePrompt } from "./clientsPreviewSite";
 import { getIndustry, guessIndustry } from "./buildsExtras";
+import { getNiche, cplText, cplSourceText, radiusText, startingAngles } from "./adsNiches";
 
 const nf = (v) => String(v || "").trim();
 
@@ -57,13 +58,19 @@ function rules(audience = "owner") {
 - Only state facts that are in the details above. Never invent prices, awards, years in business, credentials, follower counts, results or numbers.
 - Never invent or reword reviews.
 ${forOwner ? `- If something would be worth checking but isn't in my notes, write it as a question to ask them ("Worth a look: are new patients able to book online?"), never as a fact.` : `- This is for their customers. If something isn't in the details above, leave it out or use a clearly labeled placeholder the owner can fill in. No notes or questions for the owner on the page.`}
-- Never show fake customers, patients or staff. Use tasteful images of the place, the work, products or textures, or a clearly labeled placeholder ("Their photo here").
+- Use real-looking photos with people in them (AI-generated models are fine) so it feels alive and human: customers enjoying the service, the team at work, the place. Never present them as real named customers, real reviews or real results: no fake names on people, no invented testimonials, and no before-and-after shown as a real client's result.
 - Don't stretch the facts. Never claim who does which treatment or job, how visits or appointments work, what's included, or what competitors or the local market are doing, unless it's written above.
 - Write like a friendly expert${forOwner ? " talking to the owner" : ""}. Plain words, no hype. No em dashes anywhere, not even as placeholders for missing numbers.
 - Make the public pages open to anyone with the link, no login needed. I'll press Publish myself.`;
 }
 const TRUTH = rules("owner");
 const TRUTH_CUSTOMERS = rules("customers");
+
+const ADS_DECK_DESIGN = `DESIGN (make it look like it came from a top performance-marketing agency, not a generic template)
+- Bold and editorial: a dark, high-contrast cover with huge type, then slides that mix light and dark sections. Big confident headlines, one accent color pulled from their brand, generous space.
+- It should scream "ads expert": real-looking phone mockups of the ads in the Instagram feed, Stories and Reels; a funnel diagram (Ad, then lead form or landing page, then a text within 5 minutes, then booked); a simple campaign structure diagram (1 campaign, the audience, 3 ads); big number cards for the budget, ad area and cost per lead; a 30-day timeline; and a mockup of the weekly report they'd get, tagged "Sample report", with the benchmark ranges instead of made-up results.
+- Lifestyle photos with people throughout (AI-generated models are fine), plus the place and the work. No fake names, reviews or results on them.
+- Smooth slide transitions, one slide per screen, arrow keys and swipe, slide numbers, and it reads well on a phone.`;
 
 const DECK_DESIGN = `DESIGN
 - A beautiful, premium presentation that works as a shareable web page: one slide per screen, arrow keys and swipe to move, slide numbers, and it reads well on a phone.
@@ -89,6 +96,51 @@ ${TRUTH}
 - Add a small line on the last slide: "Prepared for ${nf(p.name) || "this business"}. Based on public information."`;
 }
 
+// The Meta ads pitch: niche benchmarks from the Ads Builder playbook, so every number has a source.
+function adPlanPrompt(p, me) {
+  const niche = getNiche({ business_name: p.name, business_description: `${nf(p.business_type)} ${nf(p.preview_source).slice(0, 600)}` });
+  const a = p.analysis?.source === "claude" ? p.analysis : null;
+  const idea = nf(a?.idea_detail) || nf(a?.idea);
+  const angles = startingAngles(niche, 3);
+  const bench = niche.budget
+    ? `INDUSTRY BENCHMARKS FOR ${niche.label.toUpperCase()} (use these numbers exactly, and label them as typical for the industry, never as a promise)
+- Suggested starting budget: $${niche.budget[0]} to $${niche.budget[1]} a day, paid by the business straight to Meta (about $${(niche.budget[0] * 30).toLocaleString("en-US")} to $${(niche.budget[1] * 30).toLocaleString("en-US")} a month)
+- Ad area: ${radiusText(niche)} around the business
+- Typical cost per lead: ${cplText(niche) || "not available, so leave cost per lead out"}${cplSourceText(niche) ? ` (source: ${cplSourceText(niche)})` : ""}${niche.cta ? `\n- Button that usually works: ${niche.cta}` : ""}${niche.formats ? `\n- Formats that work: ${niche.formats}` : ""}${niche.form_fields ? `\n- Lead form fields: ${niche.form_fields}` : ""}`
+    : `BUDGET
+I don't have industry benchmarks for this kind of business. Suggest starting with $20 a day as a two-week test, paid by the business straight to Meta, and leave cost per lead out.`;
+  const angleList = angles.length
+    ? `THE THREE AD ANGLES TO SHOW (in this order). The example lines show the style only: never use their prices or claims, write new lines from the details above. Where an angle needs the client's own photos or video (like before-and-afters), show a polished sample tagged \"Sample creative, use the client's real photos\".\n${angles.map((x, i) => `${i + 1}. ${x.name}: ${x.concept} Creative: ${x.creative} Example line: "${x.example}" Why it works: ${x.why}${x.caution ? ` Careful: ${x.caution}` : ""}`).join("\n")}`
+    : `THE THREE AD ANGLES
+Pick three different angles that fit this business: a first-visit or first-job offer, social proof from their real reviews, and showing the work or the place.`;
+  return `Create a beautiful, client-ready Meta ads proposal presentation for this business. I'm a freelance marketer and I'll send it to the owner to show them the Facebook and Instagram ad plan I'd run for them.
+
+${businessBlock(p)}${findingsBlock(p)}${fromBlock(me)}
+
+${bench}
+
+${angleList}
+
+THE SLIDES (11 to 13)
+1. Cover: "${nf(p.name)}: Facebook and Instagram ads plan", prepared by ${me.name || "me"}, with today's date.
+2. Where they are today: what they do, where, and their real rating and review count if the listing shows them. Only say whether they run ads now if my notes say so; otherwise ask it as a question.
+3. The goal: one clear goal for the ads (for example more booked consultations or more quote requests), in one sentence.
+4. The offer to lead with: ${idea ? `build it around this idea from my review: ${idea}.` : "a simple first-visit or first-job offer built on their most popular service."} Show it as a suggestion to confirm together. Use their real price if it's in the details above; otherwise show a realistic example price for this kind of business with a small "Example price" tag.
+5. Who we'd reach: their city and the ad area above, and the kind of customer, in plain words.
+6 to 8. Three sample ads, one per slide, using the three angles above. Show each one as a realistic Facebook or Instagram ad mockup: page name and "Sponsored", primary text, a scroll-stopping image or video frame with people in it (AI-generated models are fine), headline and button. Show them inside real-looking phone screens (Instagram feed, Stories and Reels placements). For a results angle, show a polished sample "after" photo tagged "Sample creative, use the client's real photos". Next to it: the angle name and why it works for this business. Tag each "Sample ad".
+9. Where the clicks go: a short lead form inside Facebook and Instagram (with the fields above), or a landing page built for this offer. Recommend one and say why.
+10. Budget and what to expect: the starting budget and ad area above, and the typical cost per lead with its source, written as "typical for ${niche.label ? niche.label.toLowerCase() : "this kind of business"}, not a promise". Say clearly the ad budget is paid to Meta by the business.
+11. The first 30 days: week 1 set up tracking, the lead form and the ads, all reviewed and approved before anything goes live; week 2 launch and learn; week 3 keep what works and cut what doesn't; week 4 a simple report and the plan for month 2.
+12. How leads get followed up: reply to every new lead within 5 minutes, with a simple text and call routine.
+13. Next step: "Want to get this running?" with a button that ${contactMe(me)}.
+${findingsBlock(p) ? "" : "\nI haven't added my own review notes, so keep anything about their current marketing as a question to explore, not a finding.\n"}
+${ADS_DECK_DESIGN}
+
+${TRUTH}
+- Never promise results, leads, sales or a return. Only use the benchmark numbers above, labeled as typical for the industry.${niche.compliance ? `\n- Ad rules for this industry: ${niche.compliance}` : ""}
+- Add a small line on the last slide: "Prepared for ${nf(p.name) || "this business"}. Based on public information and industry benchmarks."`;
+}
+
 function instagramPrompt(p, me) {
   return `Create a visual Instagram makeover presentation for this business, to show the owner what their Instagram could look like if I managed it. I'm a freelance marketer and managing their Instagram is something I'd offer.
 
@@ -100,7 +152,7 @@ THE SLIDES (8 to 10)
 3. The new bio: shown inside a realistic Instagram profile mockup. Under 150 characters, with what they do, who it's for, one proof point that's in the details (like the real Google rating) and one clear call to action. Show the character count.
 4. Highlights: 5 story highlight covers with short labels (for example Book, Reviews, Services, Team, Visit).
 5. Content pillars: 3 or 4 topics they should post about and why each brings in customers.
-6. The first 9 posts: a 3 by 3 grid of designed post tiles. Each tile is a clean designed graphic with a short headline on it (carousel covers, tips, quotes from real reviews, behind the scenes), labeled with its format (Reel, Carousel or Post). No fake people.
+6. The first 9 posts: a 3 by 3 grid of designed post tiles. Each tile is a polished designed post with a short headline on it (carousel covers, tips, quotes from real reviews, behind the scenes, people enjoying the service), labeled with its format (Reel, Carousel or Post). People are welcome; just no fake names or fake results.
 7. Three sample captions, written in full, for three of those posts. Only promise what the details above say.
 8. A simple weekly rhythm (how many posts, which days, which formats).
 9. Next step: "Want me to take this on?" with a button that ${contactMe(me)}.
@@ -185,12 +237,13 @@ const LEADS = `SAVING LEADS
 const TOOL_DESIGN = `DESIGN
 - Premium, modern and branded for ${"${name}"}, using their colors if their website has clear ones. Elegant serif headings, clean sans text, lots of space.
 - One question per screen with a progress bar, big tap targets, and it must feel great on a phone (most people will open it from Instagram or an ad).
-- Never show fake customers. Use tasteful images of the place, the work or textures.`;
+- Use real-looking photos with people (AI-generated models are fine) along with the place and the work, so it feels human. Never put fake names, quotes or results next to them.`;
 
 // The industry the member picked (or our best guess) decides which questions fit.
 const industryOf = (p) => getIndustry(p.build_industry || guessIndustry(p));
 const forWhom = (p) => industryOf(p).noun || typeInSentence(p) || "business like this";
-const customersOf = (p) => (industryOf(p).noun || typeInSentence(p) ? `a ${forWhom(p)}'s customers` : "this business's customers");
+const aForWhom = (p) => `${/^[aeiou]/i.test(forWhom(p)) ? "an" : "a"} ${forWhom(p)}`;
+const customersOf = (p) => (industryOf(p).noun || typeInSentence(p) ? `${aForWhom(p)}'s customers` : "this business's customers");
 
 const toolDesign = (p) => TOOL_DESIGN.replace("${name}", nf(p.name) || "the business");
 
@@ -201,7 +254,7 @@ ${businessBlock(p)}${pricesBlock(p)}
 
 THE EXPERIENCE
 1. A short landing screen: a clear headline about finding out what their project or treatment could cost, what they'll get, and a Start button. Show the real rating if the listing has it.
-2. 5 to 7 simple questions that drive the price for a ${forWhom(p)}. Ask about ${industryOf(p).price}. Use picture cards where it helps.
+2. 5 to 7 simple questions that drive the price for ${aForWhom(p)}. Ask about ${industryOf(p).price}. Use picture cards where it helps.
 3. The result: an estimated price range with a short breakdown and what affects the final price. Make the math correct and test it.
 4. Save the lead (below), then a clear next step: "Request your exact quote" or "Book a consultation".
 
@@ -258,7 +311,7 @@ ${businessBlock(p)}${pricesBlock(p)}
 
 THE EXPERIENCE
 1. Pick the service.
-2. Answer the questions that set the price for that service (for a ${forWhom(p)}: ${industryOf(p).price}), with picture cards where it helps.
+2. Answer the questions that set the price for that service (for ${aForWhom(p)}: ${industryOf(p).price}), with picture cards where it helps.
 3. Choose add-ons, each with its price.
 4. See the quote update live: base price, add-ons, total, and what's included. Make the math correct and test it.
 5. "Lock in this quote": name, email, phone, preferred date, then a clear confirmation that the business will confirm the details.
@@ -384,7 +437,7 @@ ${businessBlock(p)}${numbersBlock(p, "typical costs, rates and how much their se
 
 THE EXPERIENCE
 1. A short landing screen: a clear headline about finding out what they could save, what they'll get, and a Start button. Show the real rating if the listing has it.
-2. 4 to 6 simple questions that drive the savings for a ${forWhom(p)} (for example what they pay each month, home or space size, age of what they have now, and their zip code or area). Sliders and picture cards where it helps.
+2. 4 to 6 simple questions that drive the savings for ${aForWhom(p)} (for example what they pay each month, home or space size, age of what they have now, and their zip code or area). Sliders and picture cards where it helps.
 3. The result: estimated savings per month, per year and over 10 years, a simple bar chart of today vs with the service, and a short "How this is worked out" note showing the assumptions. Make the math correct and test it.
 4. Save the lead (below), then a clear next step: "Get your exact savings" or "Book a free assessment".
 
@@ -404,7 +457,7 @@ ${businessBlock(p)}${numbersBlock(p, "their typical costs and how budgets usuall
 
 THE EXPERIENCE
 1. A short landing screen: a clear headline about planning their budget, what they'll get, and a Start button. Show the real rating if the listing has it.
-2. 3 to 5 questions that shape the plan for a ${forWhom(p)} (total budget, size or scope, priorities, timing).
+2. 3 to 5 questions that shape the plan for ${aForWhom(p)} (total budget, size or scope, priorities, timing).
 3. The plan: the budget split into 5 to 8 categories with amounts and percentages, a simple chart, and sliders to move money between categories. The total always stays equal to their budget and the remaining amount updates live. Make the math correct and test it.
 4. Mark which categories this business can help with (only services in the details above).
 5. Save the lead (below) with their plan, then a clear next step: "Talk through your plan" or "Book a consultation".
@@ -443,7 +496,7 @@ function checklistPrompt(p, me) {
 ${businessBlock(p)}
 
 THE CHECKLIST
-- Pick the checklist that fits a ${forWhom(p)}'s customers best (for example a business expense checklist for an accountant, a move-out checklist for a cleaner, a planning checklist for a wedding planner, a pre-listing checklist for a realtor). Use the title as the headline.
+- Pick the checklist that fits ${aForWhom(p)}'s customers best (for example a business expense checklist for an accountant, a move-out checklist for a cleaner, a planning checklist for a wedding planner, a pre-listing checklist for a realtor). Use the title as the headline.
 - 15 to 25 practical items in 3 to 5 groups, each with a one-line tip. Only general, widely true advice.
 
 THE EXPERIENCE
@@ -466,7 +519,7 @@ function planPrompt(p, me) {
 ${businessBlock(p)}
 
 THE PLAN
-- Pick the plan that fits a ${forWhom(p)}'s customers best (for example a 4-week workout plan for a gym or trainer, a morning and evening routine for a skin care business, a 12-month lawn care calendar for a landscaper, a weekly cleaning schedule for a cleaner). Use it as the headline.
+- Pick the plan that fits ${aForWhom(p)}'s customers best (for example a 4-week workout plan for a gym or trainer, a morning and evening routine for a skin care business, a 12-month lawn care calendar for a landscaper, a weekly cleaning schedule for a cleaner). Use it as the headline.
 - Build the plan from fixed rules in the app (no AI calls), so it costs nothing each time someone uses it. Write the building blocks yourself, matched to each combination of answers.
 
 THE EXPERIENCE
@@ -627,7 +680,7 @@ const GET = [
     what: "A redesigned one-page website built from their real details.",
     when: "Best when their website is outdated, slow or missing.",
     prompt: (p) => previewSitePrompt(p),
-    checks: ["The name, phone, address and hours are right", "Every review is real and word for word", "No made-up prices, awards or numbers", "No fake people in the photos", "It looks good on your phone"],
+    checks: ["The name, phone, address and hours are right", "Every review is real and word for word", "No made-up prices, awards or numbers", "No fake names or reviews next to the people in photos", "It looks good on your phone"],
   },
   {
     id: "audit",
@@ -640,13 +693,22 @@ const GET = [
     needsAnalysis: true,
   },
   {
+    id: "adplan",
+    label: "Ad strategy proposal",
+    title: "Meta ads proposal deck",
+    what: "A polished Facebook and Instagram ads plan: the offer, three sample ads, budget, industry benchmarks and the first 30 days.",
+    when: "Best when you pitch ad management, especially to businesses that aren't running ads or are boosting posts.",
+    prompt: adPlanPrompt,
+    checks: ["Every number is an industry benchmark with its source, not a promise", "The offer is marked as a suggestion to confirm", "Before-and-afters use the client's real photos before it goes to them", "It says the ad budget is paid to Meta", "Your name and contact are on the last slide"],
+  },
+  {
     id: "instagram",
     label: "Instagram makeover",
     title: "Instagram makeover deck",
     what: "A new bio in a profile mockup, content pillars, a 9-post grid and sample captions.",
     when: "Best for salons, med spas, studios and anyone posting rarely or inconsistently.",
     prompt: instagramPrompt,
-    checks: ["The bio is under 150 characters", "No made-up follower counts or results", "The posts are designed tiles, not fake people", "Sample content is labeled as sample", "The captions sound like the business"],
+    checks: ["The bio is under 150 characters", "No made-up follower counts or results", "No fake names, reviews or results on the posts", "Sample content is labeled as sample", "The captions sound like the business"],
   },
   {
     id: "landing",

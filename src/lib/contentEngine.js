@@ -54,12 +54,31 @@ function brief(p) {
 - What they sell or the offer to push: ${p.offer_text || nf}
 - Who it's for: ${p.audience || nf}
 - What followers should do: ${ctaLine(p)}
-${p.voice_samples ? `- How the client writes (match this voice):\n${p.voice_samples}` : ""}`;
+${p.voice_samples ? `- How the client writes (match this voice):\n${p.voice_samples}` : ""}
+${p.audit_notes ? `\nWHAT THE FREELANCER FOUND WHEN THEY AUDITED THIS CLIENT'S SOCIAL MEDIA (real observations; build the plan on these)\n${p.audit_notes}\n` : ""}`;
+}
+
+// The Client Finder's lead analysis, as plain notes the content plan can build on.
+const plain = (t) => String(t || "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim();
+export function auditNotesFrom(a) {
+  if (!a) return "";
+  const caught = Array.isArray(a.caught) ? a.caught : [];
+  return [
+    a.snapshot && `What they do now: ${plain(a.snapshot)}`,
+    ...caught.map((c) => `- ${plain(c)}`),
+    (a.opp_detail || a.opportunity) && `The biggest opportunity: ${plain(a.opp_detail || a.opportunity)}`,
+    a.noticed && `What I noticed: ${plain(a.noticed)}`,
+    a.why && `Why it matters: ${plain(a.why)}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 const RULES = `RULES
 - Plain words their customers actually use. Specific to this business, never generic.
 - Only use facts given above. Never invent results, numbers, reviews, credentials, prices or stories. If a real detail would help, write it as a short [placeholder in square brackets] for the freelancer to fill in.
+- Don't invent details about the place either (a wall, a room, an event, a staff member, a ranking like "best in town"). Only mention what the facts above say is there.
+- No health or medical claims about what a treatment, product or service does to the body (like "reduces inflammation", "detoxes", "burns fat") unless the facts above say it. Talk about how it feels, what it's for and why people choose it.
 - No hype words, no clickbait the post can't pay off.
 - No em dashes.`;
 
@@ -78,7 +97,7 @@ ${note || p.strategy ? `
 THIS IS A REDO. The freelancer didn't like the last plan.${note ? ` What they want changed: ${note}` : ""}${p.strategy?.pillars?.length ? `
 Last pillars (make these clearly different unless told otherwise): ${p.strategy.pillars.map((x) => x.name).join(", ")}` : ""}
 ` : ""}
-RETURN
+${p.audit_notes ? "USE THE AUDIT: keep what's already working, fix the gaps it found, and make the biggest opportunity the heart of the plan. Don't repeat the audit back; turn it into posts.\n\n" : ""}RETURN
 - positioning: one sentence. Who they help, the outcome, and what makes them different, using only the facts above.
 - pillars: exactly 3 content pillars. name (2 to 4 words), about (one line: what the posts cover), leads_to_offer (one line: how this pillar leads people to the offer).
 - hooks: 21 hooks, 7 per pillar. pillar (the pillar name) and line (the first sentence spoken or shown, under 15 words, in the customer's language). Mix types: curiosity, mistake, myth, how-to, result, relatable, question. Plain everyday words ("med spa", not "medical spa"). Don't start with "Ever wonder", "Did you know" or "Are you tired of". No slogans.
@@ -396,6 +415,19 @@ Return JSON: { "text": the new positioning only }.`,
 // "Design this carousel": a prompt to paste into Claude
 // ---------------------------------------------------------------------------
 
+// B-roll: a plain shot list to send the client or film on a phone.
+export function shotList(p, post) {
+  const name = displayName(p.business_name) || "the business";
+  const lines = (post.on_screen || []).map((t, i) => `${i + 1}. Text on screen: "${t}"`);
+  return `Shot list for ${name}: "${post.hook}"
+
+What to film: ${post.visual}
+
+Film on a phone, vertical (9:16), in good light. 3 to 5 seconds per clip, steady hands, real moments at the business (no stock footage, no AI video). Film a few extra clips so there's choice.
+
+${lines.join("\n")}`;
+}
+
 export function carouselDesignPrompt(p, post, item) {
   const name = displayName(p.business_name) || "the business";
   return `Design an Instagram carousel for ${name}${p.location ? ` in ${p.location}` : ""}.
@@ -416,7 +448,7 @@ DESIGN RULES
 - Slide 1 has to stop the scroll: big, bold text, very few words, high contrast.
 - One idea per slide. Text large enough to read on a phone without zooming.
 - The same fonts, colors and layout on every slide so it looks like one set. Small slide numbers (1/${post.slides.length}) and the handle or business name in a corner.
-- Where a slide calls for a photo, leave a clearly marked photo area with a note saying what photo goes there. Don't draw fake people or fake results.
+- Where a slide calls for a photo, leave a clearly marked photo area with a note saying what photo goes there. People are welcome in the design; just no fake names, reviews or results.
 - Keep the text exactly as written. Don't add claims, prices, reviews or numbers.
 - No em dashes.${item?.pillar ? `\n\nThis post is part of the "${item.pillar}" content pillar.` : ""}`;
 }

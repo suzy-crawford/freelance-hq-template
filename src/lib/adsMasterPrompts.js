@@ -182,7 +182,7 @@ STATIC CREATIVE DIRECTION
 Include: recommended size, composition, visual hierarchy, main image subject, headline placement, overlay text, CTA treatment, logo placement, brand colors, amount of text, what visual asset to use, what NOT to include
 Then generate:
 DESIGN PROMPT
-Create a complete prompt the member can paste into: Claude, ChatGPT, or another design-capable AI tool
+Create a complete prompt the member can paste into ChatGPT to generate the finished ad image in one go (the photo or visual plus the overlay text, ready to upload to Meta). Write it as an image request, not as code or a layout to build.
 The prompt should include: exact canvas size, business name, niche, offer, headline, supporting text if needed, CTA, brand colors, design direction, image direction, typography direction, layout, logo guidance, any verified proof to display
 Add: If I uploaded a logo, website screenshot, brand kit, or reference image, use it to understand the brand style. Do not copy another company's creative exactly.
 Add: Do not invent ratings, review counts, results, prices, urgency, guarantees, or credentials.

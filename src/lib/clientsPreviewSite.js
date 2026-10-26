@@ -36,7 +36,7 @@ WHAT THE PAGE NEEDS (in this order)
 DESIGN
 - Premium and modern for this kind of business, with lots of space and an elegant serif for headings paired with a clean sans for text.
 - Pick a calm color palette that suits the business. If their current website has clear brand colors, use those.
-- Use tasteful images of the place, the work or textures. Never show fake customers, patients or staff, and never write fake names on people. If a real photo would be better, put a clearly labeled placeholder ("Your photo of the office here").
+- Use real-looking photos with people in them (AI-generated models are fine): customers enjoying the service, the team at work, plus the place and the work. Never write fake names on people or put invented quotes or results next to them.
 - Fully responsive. It has to look great on a phone first.
 
 RULES
@@ -52,6 +52,6 @@ export const PREVIEW_CHECKS = [
   "The name, phone, address and hours are right",
   "Every review is real and word for word",
   "No made-up prices, awards or numbers",
-  "No fake people in the photos",
+  "No fake names or reviews next to the people in photos",
   "It looks good on your phone",
 ];

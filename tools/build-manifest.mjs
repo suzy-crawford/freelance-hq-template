@@ -44,8 +44,35 @@ const files = [
   return rank(a) - rank(b) || a.localeCompare(b);
 });
 
-// Parts of about 180 KB each, so each Base44 message stays a manageable size.
-const LIMIT = 180_000;
+// Dependencies first: a file is only copied after every file it imports, so the app builds after each
+// part and Base44 never "fixes" a missing import by rewriting a file (which breaks the Copy check).
+const known = new Set(files);
+const resolveImport = (from, spec) => {
+  const base = spec.startsWith("@/") ? `src/${spec.slice(2)}` : spec.startsWith(".") ? join(dirname(from), spec) : null;
+  if (!base) return null;
+  return ["", ".js", ".jsx", ".ts", ".css", "/index.js", "/index.jsx"].map((ext) => base + ext).find((p) => known.has(p)) || null;
+};
+const ordered = [];
+const placed = new Set();
+const visit = (f, stack = new Set()) => {
+  if (placed.has(f) || stack.has(f)) return;
+  stack.add(f);
+  if (/\.(jsx?|ts)$/.test(f)) {
+    const text = readFileSync(join(root, f), "utf8");
+    for (const [, spec] of text.matchAll(/(?:import|from)\s*\(?\s*["']([^"'?]+)["']/g)) {
+      const dep = resolveImport(f, spec);
+      if (dep) visit(dep, stack);
+    }
+  }
+  stack.delete(f);
+  placed.add(f);
+  ordered.push(f);
+};
+files.forEach((f) => visit(f));
+files.splice(0, files.length, ...ordered);
+
+// Parts of about 165 KB each (8 parts, matching the 8 install messages), so each Base44 message stays a manageable size.
+const LIMIT = 165_000;
 let part = 1;
 let size = 0;
 const entries = {};
@@ -78,6 +105,7 @@ const lines = [
   "- Never write your own version of a file, never summarize a file, and never leave a file out. If a file is long, keep going until it's complete.",
   "- Don't create files that aren't listed, and don't change files from other parts.",
   "- Only do the part the user asks for, then stop and say which files you created.",
+  "- Don't fix build errors between parts. If the app shows an error before the last part, leave it: it means a file from a later part isn't there yet. Never edit, rename or add an export to any file to make an error go away.",
   "- The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.",
   "- Images load from the internet by themselves. Don't create or download image files.",
   "- Spacing, line breaks and a missing final newline don't matter (the check ignores them), and Base44 reformatting entity files is fine. Don't spend time on those.",
