@@ -76,6 +76,7 @@ Then create these files:
 - src/components/brand/gradientIcons.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/brand/gradientIcons.jsx
 - src/pages/Dashboard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/Dashboard.jsx
 
+Data entities: after creating the six base44/entities files, make sure each entity's stored schema in this app matches its file exactly (re-register it from the file if it's older or different). If an entity's stored schema is out of date, saves silently drop fields and the tools stop moving forward.
 Last step of Part 1: the app must open in the preview and show the Welcome screen.
 These files were built for Base44's browser-only app setup. If this app uses Base44's newer app setup and the preview can't load them, add the small bridge this app's setup needs so the template's src/main.jsx and src/App.jsx run in the preview. Only change this app's own setup files that aren't listed in this COPY.md (for example package.json, vite.config.js or the app's own entry file). Never change a file listed in this COPY.md.
 
