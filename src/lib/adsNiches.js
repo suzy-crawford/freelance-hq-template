@@ -289,7 +289,7 @@ export const NICHES = [
     priority: ["First-Order Discount", "UGC Try-On", "Hero Product"],
     angles: [
       a("Hero Product", "ANG-10", "Showcase the best-selling product.", "Styled on a real person in a lifestyle setting, not a flat lay.", "This is the piece we're known for.", "A recognizable hero product."),
-      a("First-Order Discount", "ANG-01", "An incentive for new customers.", "Best-sellers with the discount.", "20% off your first order. Code WELCOME20.", "An immediate reason to buy."),
+      a("First-Order Discount", "ANG-01", "An incentive for new customers.", "Best-sellers with the discount.", "20% off your first order, taken off at checkout.", "An immediate reason to buy."),
       a("UGC Try-On", "ANG-05", "A customer or creator demonstrating the product.", "Raw footage of someone wearing it and talking to camera.", "Let's try on three pieces from the new collection.", "Feels more real than a studio shoot."),
       a("Founder Story", "ANG-06", "The story behind the brand.", "30 to 60 seconds of the owner explaining why they started.", "I started this brand because I couldn't find...", "An emotional reason to connect."),
       a("Restock / Sold Out", "ANG-08", "Real scarcity around popular items.", "Product footage and the restock announcement.", "Back in stock. Our last drop sold out in 48 hours.", "Gets interested people to act."),
