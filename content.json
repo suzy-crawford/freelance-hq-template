@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "version": "2.1.0",
-  "rev": 19,
-  "published": "2026-10-27T20:49:13.547Z",
+  "rev": 20,
+  "published": "2026-10-27T20:49:57.987Z",
   "angleCategories": [
     {
       "id": "ANG-01",
@@ -1026,7 +1026,7 @@
           "category": "ANG-10",
           "concept": "A specialist for enthusiasts and premium cars.",
           "creative": "Close-ups of premium cars and careful technique.",
-          "example": "A premium car deserves more than a basic car wash.",
+          "example": "A premium car deserves more than a quick rinse.",
           "why": "Sets a higher-value service apart.",
           "idea": "A specialist for enthusiasts and premium cars."
         },

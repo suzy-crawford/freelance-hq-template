@@ -245,7 +245,7 @@ export const NICHES = [
       a("The Protection Angle", "ANG-04", "Explain protective services like ceramic coating.", "Close-up of water beading on a treated surface.", "What does ceramic coating actually do for your paint?", "Makes a premium service easy to understand."),
       a("The Package Offer", "ANG-01", "A clear, simple detailing package.", "Service checklist with real detailing footage.", "Interior and exterior detail packages starting at $X.", "No confusion about price or what's included."),
       a("The Satisfying Process", "ANG-05", "Focus on the visual experience of detailing.", "Foam cannon, extraction, polishing, microfiber wipe-downs.", "30 seconds of the most satisfying detail you'll see today.", "Naturally engaging."),
-      a("Premium Care", "ANG-10", "A specialist for enthusiasts and premium cars.", "Close-ups of premium cars and careful technique.", "A premium car deserves more than a basic car wash.", "Sets a higher-value service apart."),
+      a("Premium Care", "ANG-10", "A specialist for enthusiasts and premium cars.", "Close-ups of premium cars and careful technique.", "A premium car deserves more than a quick rinse.", "Sets a higher-value service apart."),
       a("Mobile Convenience", "ANG-09", "They don't need to go anywhere.", "Van arriving at a home, then the service.", "Professional car detailing, right in your driveway.", "Removes the hassle of dropping the car off."),
     ],
   },
