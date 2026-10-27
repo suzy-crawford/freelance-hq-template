@@ -14,13 +14,13 @@ This repository is a finished, tested app. Your job is to copy it into this Base
 - The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.
 - Images load from the internet by themselves. Don't create or download image files.
 - Spacing, line breaks and a missing final newline don't matter (the check ignores them), and Base44 reformatting entity files is fine. Don't spend time on those.
-- Don't compare or re-check files after writing them, and don't test the app between parts. The app's Copy check does all of that at the end, so extra checking only uses up credits.
+- Write each file once and move on. Don't open copy-manifest.json, don't compute hashes or fingerprints, don't compare or re-check files after writing them, and don't test the app between parts (except the preview check at the end of Part 1). The app's Copy check does all of that at the end, so extra checking only uses up credits.
 
 There are 8 parts. After the last part, the user opens Settings, then Check my setup. Its Copy check compares every file with this list and names any file that isn't an exact copy.
 
 ## Part 1
 
-First make sure these setup files match (install every package listed in package.json):
+First install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). For reference, the template's setup files are:
 
 - package.json: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/package.json
 - vite.config.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/vite.config.js
@@ -73,6 +73,9 @@ Then create these files:
 - src/lib/clientsLogic.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/lib/clientsLogic.js
 - src/components/brand/gradientIcons.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/components/brand/gradientIcons.jsx
 - src/pages/Dashboard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/src/pages/Dashboard.jsx
+
+Last step of Part 1: the app must open in the preview and show the Welcome screen.
+These files were built for Base44's browser-only app setup. If this app uses Base44's newer app setup and the preview can't load them, add the small bridge this app's setup needs so the template's src/main.jsx and src/App.jsx run in the preview. Only change this app's own setup files that aren't listed in this COPY.md (for example package.json, vite.config.js or the app's own entry file). Never change a file listed in this COPY.md.
 
 ## Part 2
 
