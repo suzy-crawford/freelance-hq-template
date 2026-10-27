@@ -141,6 +141,7 @@ for (let n = 1; n <= part; n++) {
   if (n === 1) {
     lines.push("First install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). For reference, the template's setup files are:", "");
     SETUP.forEach((f) => lines.push(`- ${f}: ${RAW}/${f}`));
+    lines.push("", `If this app has no index.html in its root folder, create it exactly from ${RAW}/index.html (the app can't build without it).`);
     lines.push("", "Then create these files:", "");
   }
   Object.entries(entries)

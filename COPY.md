@@ -28,6 +28,8 @@ First install every package listed in the template's package.json. Keep this app
 - postcss.config.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/postcss.config.js
 - components.json: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/components.json
 
+If this app has no index.html in its root folder, create it exactly from https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/index.html (the app can't build without it).
+
 Then create these files:
 
 - tailwind.config.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v2.1.0/tailwind.config.js
