@@ -1,0 +1,1 @@
+import{n as e,t}from"./app-params-BKXHPzwQ.js";var{appId:n,token:r,functionsVersion:i,appBaseUrl:a}=t,o=e({appId:n,token:r,functionsVersion:i,serverUrl:``,appBaseUrl:a});export{o as t};
