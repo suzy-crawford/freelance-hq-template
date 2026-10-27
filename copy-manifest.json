@@ -2,10 +2,6 @@
   "version": "2.1.0",
   "parts": 8,
   "files": {
-    "tailwind.config.js": {
-      "part": 1,
-      "hash": "ae5a3deda544ab36"
-    },
     "base44/entities/AdCampaign.jsonc": {
       "part": 1,
       "hash": "bf2cbea2d5111559"
@@ -296,7 +292,7 @@
     },
     "src/lib/contentRev.js": {
       "part": 4,
-      "hash": "a2423783002239d4"
+      "hash": "1e008d86529358bb"
     },
     "src/lib/copyCheck.js": {
       "part": 4,

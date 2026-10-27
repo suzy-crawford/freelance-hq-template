@@ -108,7 +108,10 @@ files.forEach((f, i) => {
 });
 
 const { version } = JSON.parse(readFileSync(join(root, "version.json"), "utf8"));
-writeFileSync(join(root, "copy-manifest.json"), JSON.stringify({ version, parts: part, files: entries }, null, 2) + "\n");
+// tailwind.config.js is still copied in Part 1, but the Copy check skips it: Base44's newer app setup may need
+// to adjust it so the app displays, and that shouldn't turn a working install red.
+const checkedEntries = Object.fromEntries(Object.entries(entries).filter(([f]) => f !== "tailwind.config.js"));
+writeFileSync(join(root, "copy-manifest.json"), JSON.stringify({ version, parts: part, files: checkedEntries }, null, 2) + "\n");
 console.log(`copy-manifest.json written: ${files.length} files in ${part} parts`);
 
 // COPY.md: the copy instructions Base44 follows, one part per member message.
