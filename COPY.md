@@ -9,7 +9,7 @@ This repository is a finished, tested app. Your job is to copy it into this Base
 - Never write your own version of a file, never summarize a file, and never leave a file out. If a file is long, keep going until it's complete.
 - Don't create files that aren't listed, and don't change files from other parts.
 - Only do the part the user asks for, then stop and say which files you created.
-- A new Base44 app already has some of these files (for example src/lib/app-params.js and src/api/base44Client.js). Replace them with the repo's version anyway, even if yours looks almost the same. Only the repo's exact version passes the Copy check.
+- A new Base44 app already has some of these files (for example src/lib/app-params.js, src/api/base44Client.js, src/components/ui/use-toast.jsx and src/components/ui/toaster.jsx). Replace them with the repo's version anyway, even if yours looks almost the same. Only the repo's exact version passes the Copy check.
 - Don't fix build errors between parts. If the app shows an error before the last part, leave it: it means a file from a later part isn't there yet. Never edit, rename or add an export to any file to make an error go away.
 - The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.
 - Images load from the internet by themselves. Don't create or download image files.
