@@ -3,10 +3,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { callAI } from "@/lib/callAI";
-import { PageSkeleton } from "@/components/shared/Skeleton";
-import { displayName } from "@/lib/adsCards";
+import { PageSkeleton } from "@/components/shared/Page";
+import { displayName, buildStrategyCall, finalizeStrategy, buildPostsCall, finalizePosts, nextBatch } from "@/lib/libs";
 import { ContentTrack, AboutStep, StrategyStep, ContentStep } from "@/components/content/ContentCreator";
-import { buildStrategyCall, finalizeStrategy, buildPostsCall, finalizePosts, nextBatch } from "@/lib/contentEngine";
 
 const errText = (e) => e?.response?.data?.error || e?.message || String(e);
 

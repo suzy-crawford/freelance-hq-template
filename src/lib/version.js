@@ -4,9 +4,12 @@
 // banner with a prompt the member pastes into Base44.
 // Keep APP_VERSION and version.json in sync when publishing an update.
 
-export const APP_VERSION = "3.0.0";
+export const APP_VERSION = "3.0.1";
 
 export const TEMPLATE_REPO = "https://github.com/suzy-crawford/freelance-hq-template";
+// The template version this app's files come from. Images, brand stylesheets, the tools' libraries, the Build
+// messages and the Setup check all read the template at this tag, so they never change under a member.
+export const TEMPLATE_REF = "test-3.0.1";
 const VERSION_URL = "https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/main/version.json";
 
 export function isNewer(a, b) {

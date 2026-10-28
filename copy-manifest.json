@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.0.1",
   "files": {
     "base44/entities/AdCampaign.jsonc": {
       "groups": [
@@ -37,299 +37,119 @@
       ],
       "hash": "eca48bb30862a459"
     },
-    "src/components/ui/use-toast.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "5ec073232579fa1a"
-    },
     "src/components/brand/icons.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "d004f748ee820886"
-    },
-    "src/lib/utils.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "6358196bcee81422"
-    },
-    "src/components/ui/toast.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "ca247c5fb4816c7c"
-    },
-    "src/components/ui/toaster.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "9f767080fd2c2f47"
-    },
-    "src/lib/query-client.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "1ca25a151e78de0e"
-    },
-    "src/lib/app-params.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "bb26f6211d61013f"
-    },
-    "src/api/base44Client.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "18bcdb33c42ffb15"
-    },
-    "src/lib/PageNotFound.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "437cbdd79b8b5d17"
-    },
-    "src/lib/AuthContext.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "9f1fb0241bbc2256"
-    },
-    "src/components/UserNotRegisteredError.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "639dcbc97ffc776a"
-    },
-    "src/components/ScrollToTop.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "1992dd4ea742a40d"
-    },
-    "src/components/shared/Skeleton.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "87380cd35236863d"
-    },
-    "src/components/ProtectedRoute.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "1482922355b6751f"
-    },
-    "src/lib/ProfileContext.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "a14a8be66a53ea22"
+      "hash": "b5fbe74eafee5d63"
     },
     "src/lib/version.js": {
       "groups": [
         "shell"
       ],
-      "hash": "fd083b1f420df83b"
+      "hash": "041f12d36d718d8e"
     },
-    "src/lib/assets.js": {
+    "src/components/shared/Page.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "13ac985f77088aa7"
+      "hash": "6bd446ac417ccb9f"
     },
-    "src/lib/constants.js": {
+    "src/lib/ProfileContext.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "d0c72c8db62237a4"
-    },
-    "src/components/AppLayout.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "852fb0c08a6dfafe"
-    },
-    "src/components/shared/ToolHero.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "7568afffc57e3f95"
-    },
-    "src/components/shared/CopyButton.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "664abc780b50668c"
+      "hash": "81019d8124f1da34"
     },
     "src/components/BuildTool.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "ae3fbebeaf244dbc"
+      "hash": "1ae74935a128de73"
+    },
+    "src/lib/hq.js": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "988e2fad1070a2cb"
+    },
+    "src/components/AppLayout.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "543f0dbe84566755"
     },
     "src/lib/tools.js": {
       "groups": [
         "shell"
       ],
-      "hash": "db8acbe54449ab0f"
+      "hash": "b02f1c25905679ee"
     },
     "src/App.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "2344edaeaa977b92"
-    },
-    "src/lib/brandStyles.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "d4337e77a5047389"
-    },
-    "src/lib/theme.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "fa58bc61dbb4acfc"
+      "hash": "184fb3d15f13f242"
     },
     "src/main.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "0919341b8e7cc40a"
+      "hash": "ff2c967b7e154da1"
     },
     "src/index.css": {
       "groups": [
         "shell"
       ],
-      "hash": "6e32adf03f245c93"
+      "hash": "27c53ddef3556723"
     },
     "src/components/shared/Form.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "6e92e3c9ba047864"
+      "hash": "14daa10cb56ab343"
     },
-    "src/components/ui/input.jsx": {
+    "src/pages/Auth.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "c49ab45b9995d831"
-    },
-    "src/components/AuthLayout.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "476fec3e81024f43"
-    },
-    "src/components/GoogleIcon.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "084beefa50de1eae"
-    },
-    "src/lib/authReturnTo.js": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "4e1307074ee9de1b"
-    },
-    "src/pages/Login.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "7ac77eadd2ff36c4"
-    },
-    "src/pages/Register.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "701b0a3f3b2ae157"
-    },
-    "src/pages/ForgotPassword.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "55514442c9916d2b"
-    },
-    "src/pages/ResetPassword.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "82b5b21ccb6a8c43"
-    },
-    "src/components/shared/WizardShell.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "5168fffc5a3fa867"
-    },
-    "src/components/shared/SelectableCard.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "caf0266c525b3006"
-    },
-    "src/components/shared/IncomeGoalInput.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "521a03c11aecbf20"
+      "hash": "a07cf3c5e651f97c"
     },
     "src/pages/Onboarding.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "33454b5c831b87eb"
-    },
-    "src/components/shared/UpdateBanner.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "ef5dac899f12104f"
+      "hash": "2697553adacf79da"
     },
     "src/lib/leadStatus.js": {
       "groups": [
         "shell"
       ],
-      "hash": "5edfb6386dfe62df"
-    },
-    "src/components/brand/gradientIcons.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "baf2236cef7d20a7"
+      "hash": "de86224eeb57d716"
     },
     "src/pages/Dashboard.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "133ab14a4fe88108"
-    },
-    "src/components/shared/PageHeader.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "43d69ec9bef04979"
+      "hash": "7a95e2bfe8adf4f5"
     },
     "src/pages/Profile.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "9482bf5e2c326f36"
+      "hash": "20119f581da2ee1a"
     },
     "src/lib/copyCheck.js": {
       "groups": [
         "shell"
       ],
-      "hash": "b0095fe2c827f365"
+      "hash": "db089d2de1efe91c"
     },
     "src/pages/SetupCheck.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "c4b454a1340549dc"
+      "hash": "0fe0c7d1866543c7"
     },
     "base44/functions/generateWithAI/entry.ts": {
       "groups": [
@@ -338,36 +158,23 @@
         "ads",
         "content"
       ],
-      "hash": "a80385a3e00844b6"
+      "hash": "8cb47d31ec57e5b4"
     },
-    "src/lib/offerData.js": {
+    "src/lib/libs.js": {
       "groups": [
         "offer",
         "clients",
+        "ads",
+        "content",
         "buildlab"
       ],
-      "hash": "51b6b63e4c94f366"
+      "hash": "4e6356b5e55267c5"
     },
     "src/pages/OfferBuilder.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "8014630a53db33fa"
-    },
-    "src/lib/copyVoice.js": {
-      "groups": [
-        "offer",
-        "clients",
-        "content"
-      ],
-      "hash": "aaa90a5c1dea50de"
-    },
-    "src/lib/offerPrompts.js": {
-      "groups": [
-        "offer",
-        "clients"
-      ],
-      "hash": "e3acebc7a29f9960"
+      "hash": "70c2a9cc098c0e24"
     },
     "src/lib/callAI.js": {
       "groups": [
@@ -376,365 +183,244 @@
         "ads",
         "content"
       ],
-      "hash": "7b19c28657f3f4ea"
+      "hash": "bc14c7232ed13f7e"
     },
     "src/components/offer/BuildLoading.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "fbc2a3875a7f9eb0"
-    },
-    "src/components/ui/textarea.jsx": {
-      "groups": [
-        "offer"
-      ],
-      "hash": "788fc91434e95270"
+      "hash": "eb592d4d930c4756"
     },
     "src/components/offer/ScreenServices.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "6cfe5fbc65e315ff"
+      "hash": "f2f1e4d33d385872"
     },
     "src/components/offer/ScreenNiche.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "d3ad6d81d8cb274b"
+      "hash": "7b57c157d20a89d6"
     },
     "src/components/offer/AIError.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "f979066693c34656"
+      "hash": "e8549a7dbf109548"
     },
     "src/components/offer/ScreenAbout.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "ed00640151c9fc47"
+      "hash": "38e9aa7031001ade"
     },
     "src/pages/OfferWizard.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "94dc5993a46093f0"
-    },
-    "src/lib/offerLogic.js": {
-      "groups": [
-        "offer"
-      ],
-      "hash": "8d08889d06965306"
+      "hash": "6426d35bc39dcaab"
     },
     "src/components/offer/result/SectionCard.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "378485d4d118a313"
+      "hash": "c722787b89334cf3"
     },
     "src/components/offer/result/PriceCard.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "7df155d78f781d28"
+      "hash": "9931cafa62b5a9d1"
     },
     "src/components/offer/result/RefineIt.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "85b888f6badd460f"
+      "hash": "cd02ce36b2b1882b"
     },
     "src/components/offer/result/YourOfferTab.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "eb73a7d2f5af91ca"
+      "hash": "8a274a3c9255cdac"
     },
     "src/components/shared/InfoTip.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "d0e057dbb5d53e5f"
+      "hash": "f708623587822aee"
     },
     "src/components/offer/result/EditableText.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "b5525bb44b295082"
+      "hash": "2b352d462a0a8bcb"
     },
     "src/components/offer/result/OfferDocTab.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "a9ffd7f0c089f1a1"
+      "hash": "1427f589c918ca1f"
     },
     "src/components/offer/result/ScopeTab.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "0e9d8af636fcc3f5"
+      "hash": "07f042358330218f"
     },
     "src/components/shared/Tabs.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "cd6462c62e568d8a"
+      "hash": "abdbf950099a573b"
     },
     "src/pages/OfferResult.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "1cd5b0100b61c1e3"
+      "hash": "f9f7d3c6dbb14838"
     },
     "src/tools/offer.ready.js": {
       "groups": [
         "offer"
       ],
-      "hash": "f194452357bfd2fe"
+      "hash": "50880b4bc7cf9ac7"
     },
     "base44/functions/findBusinesses/entry.ts": {
       "groups": [
         "clients"
       ],
-      "hash": "22bb79fdf61390dd"
+      "hash": "127112099077dd5d"
     },
     "base44/functions/findEmail/entry.ts": {
       "groups": [
         "clients"
       ],
-      "hash": "e9b9e648423afac6"
+      "hash": "17bee3db28a82684"
     },
     "src/components/shared/EmptyState.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "4c8e22743bb5b592"
+      "hash": "d6bcc52162c16783"
     },
     "src/components/shared/CopyIcon.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "5bfcefe3a160d47a"
+      "hash": "f987c66164d21080"
     },
     "src/components/clients/ContactRow.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "45b2a4672f7cd87c"
-    },
-    "src/lib/clientsLogic.js": {
-      "groups": [
-        "clients"
-      ],
-      "hash": "43a95f73f116cf6a"
+      "hash": "f579a77337ed2d7b"
     },
     "src/pages/GetClients.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "f7fae3314870a227"
-    },
-    "src/lib/clientsAnalysis.js": {
-      "groups": [
-        "clients"
-      ],
-      "hash": "8ab9ceafd557af43"
-    },
-    "src/lib/sampleOffers.js": {
-      "groups": [
-        "clients"
-      ],
-      "hash": "44fb200cf339738a"
-    },
-    "src/lib/clientsClaudePrompt.js": {
-      "groups": [
-        "clients"
-      ],
-      "hash": "33206640a92651e4"
-    },
-    "src/lib/clientsPreviewSite.js": {
-      "groups": [
-        "clients",
-        "buildlab"
-      ],
-      "hash": "593cabe54a8ab822"
-    },
-    "src/lib/buildsExtras.js": {
-      "groups": [
-        "clients",
-        "buildlab"
-      ],
-      "hash": "af5bb8490fa6eae0"
-    },
-    "src/lib/adsNiches.js": {
-      "groups": [
-        "clients",
-        "ads",
-        "content",
-        "buildlab"
-      ],
-      "hash": "3f7d57553f678d69"
-    },
-    "src/lib/clientsBuilds.js": {
-      "groups": [
-        "clients",
-        "buildlab"
-      ],
-      "hash": "574540299c7a81d8"
+      "hash": "d7d6a7f258868060"
     },
     "src/components/builds/BuildsPanel.jsx": {
       "groups": [
         "clients",
         "buildlab"
       ],
-      "hash": "16b436443573e78c"
-    },
-    "src/lib/clientsOutreach.js": {
-      "groups": [
-        "clients"
-      ],
-      "hash": "c3a6c25985ce22b4"
+      "hash": "5989a23de3ab44a4"
     },
     "src/components/clients/LeadWorkspace.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "0b1fb257a74a9710"
+      "hash": "44254539569d19a0"
     },
     "src/pages/ProspectDetail.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "bc994f720d19a0c2"
+      "hash": "eeda5af83e32bc10"
     },
     "src/tools/clients.ready.js": {
       "groups": [
         "clients"
       ],
-      "hash": "d6911f024d4b1288"
+      "hash": "2c693a48564d3538"
     },
     "base44/functions/readWebsite/entry.ts": {
       "groups": [
         "ads",
         "content"
       ],
-      "hash": "e810f6b59075b4e6"
+      "hash": "a5ba4124c0c60518"
     },
     "src/pages/AdsHome.jsx": {
       "groups": [
         "ads"
       ],
-      "hash": "12178d1a01f54497"
+      "hash": "a3010335e7fca087"
     },
-    "src/lib/adsData.js": {
+    "src/components/ads/AdsParts.jsx": {
       "groups": [
         "ads",
         "content"
       ],
-      "hash": "655bb6f19ad30ab3"
-    },
-    "src/lib/adsCards.js": {
-      "groups": [
-        "ads",
-        "content"
-      ],
-      "hash": "7534a44869233650"
-    },
-    "src/lib/adsAngleLibrary.js": {
-      "groups": [
-        "ads",
-        "content"
-      ],
-      "hash": "58f22e044a6ada9c"
-    },
-    "src/lib/adsBuilder.js": {
-      "groups": [
-        "ads",
-        "content"
-      ],
-      "hash": "9be95873973b7df9"
-    },
-    "src/lib/adsMasterPrompts.js": {
-      "groups": [
-        "ads",
-        "content"
-      ],
-      "hash": "58cd61110eb0434c"
-    },
-    "src/lib/adsCreative.js": {
-      "groups": [
-        "ads",
-        "content"
-      ],
-      "hash": "9f67933a5232a4f4"
-    },
-    "src/lib/adsEngine.js": {
-      "groups": [
-        "ads",
-        "content"
-      ],
-      "hash": "85f8a559e58750f5"
+      "hash": "65791c93acb67967"
     },
     "src/components/ads/MetaAdsBuilder.jsx": {
       "groups": [
-        "ads",
-        "content"
+        "ads"
       ],
-      "hash": "a5fa96649231f4d2"
+      "hash": "f16c8ceaffa06c01"
     },
     "src/pages/AdCampaign.jsx": {
       "groups": [
         "ads"
       ],
-      "hash": "b5ff0e8af0430f47"
+      "hash": "6f6dd8610d3787a6"
     },
     "src/tools/ads.ready.js": {
       "groups": [
         "ads"
       ],
-      "hash": "9691d295c4ccd523"
+      "hash": "069dabd874e12a7d"
     },
     "src/pages/ContentHome.jsx": {
       "groups": [
         "content"
       ],
-      "hash": "13881f0e2ba5ff2e"
-    },
-    "src/lib/contentEngine.js": {
-      "groups": [
-        "content"
-      ],
-      "hash": "c31cd7000db25642"
+      "hash": "1d7bc6a73a9e5505"
     },
     "src/components/content/ContentCreator.jsx": {
       "groups": [
         "content"
       ],
-      "hash": "9da77fe90432522e"
+      "hash": "5711f1f93f521dbb"
     },
     "src/pages/ContentPlan.jsx": {
       "groups": [
         "content"
       ],
-      "hash": "d9c86bc6d61c2b1f"
+      "hash": "0d4a69a22d7a7393"
     },
     "src/tools/content.ready.js": {
       "groups": [
         "content"
       ],
-      "hash": "db1d45208e741571"
+      "hash": "8d37fbb16daed558"
     },
     "src/pages/BuildLab.jsx": {
       "groups": [
         "buildlab"
       ],
-      "hash": "b0842b734ceba892"
+      "hash": "3509f34ce6939d06"
     },
     "src/tools/buildlab.ready.js": {
       "groups": [
         "buildlab"
       ],
-      "hash": "0ad92279d9a3255a"
+      "hash": "74b9a6b91dd9c575"
     }
   }
 }

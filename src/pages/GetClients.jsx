@@ -2,10 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Globe, Phone, Mail, MapPin, Instagram, Facebook, CheckCircle2, AlertCircle, ChevronRight, Search } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
+import { invokeFunction } from "@/lib/callAI";
 import { useProfile } from "@/lib/ProfileContext";
 import EmptyState from "@/components/shared/EmptyState";
-import ToolHero from "@/components/shared/ToolHero";
-import { ListSkeleton } from "@/components/shared/Skeleton";
+import { ToolHero, ListSkeleton } from "@/components/shared/Page";
 import ContactRow from "@/components/clients/ContactRow";
 import {
   searchSuggestions,
@@ -19,7 +19,7 @@ import {
   SEARCH_MESSAGES,
   leadStage,
   leadFit,
-} from "@/lib/clientsLogic";
+} from "@/lib/libs";
 
 // One labeled column in a lead card. Shows the value, or a muted line when nothing was found.
 function Fact({ label, children, empty }) {
@@ -157,7 +157,7 @@ function FindTab({ offer, prospects, onSaved }) {
         .filter((p) => (p.location || "").toLowerCase() === location.trim().toLowerCase())
         .map((p) => p.name)
         .slice(0, 60);
-      const response = await base44.functions.invoke("findBusinesses", { businessType, location, exclude });
+      const response = await invokeFunction("findBusinesses", { businessType, location, exclude });
       const data = response?.data ?? response;
       if (data?.error) throw new Error(data.error);
       setResults(data.businesses || []);

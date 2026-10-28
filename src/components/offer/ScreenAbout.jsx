@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
-import WizardShell from "@/components/shared/WizardShell";
+import { WizardShell, Textarea } from "@/components/shared/Form";
 
 const OFFER_STEPS = ["What you offer", "Who you help", "About you"];
-import { Textarea } from "@/components/ui/textarea";
 import AIError from "@/components/offer/AIError";
 
 const CHIPS = [

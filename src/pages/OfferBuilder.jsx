@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Offer, ChevronRight } from "@/components/brand/icons";
 import { useNavigate } from "react-router-dom";
-import ToolHero from "@/components/shared/ToolHero";
+import { ToolHero, ListSkeleton } from "@/components/shared/Page";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";
-import { SERVICES, formatMoney } from "@/lib/offerData";
-import { ListSkeleton } from "@/components/shared/Skeleton";
+import { SERVICES, formatMoney } from "@/lib/libs";
 
 export default function OfferBuilder() {
   const navigate = useNavigate();

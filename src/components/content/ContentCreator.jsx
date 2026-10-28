@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Check, Copy, ExternalLink, FormDoc, Store, Target, Calendar, Video, Camera, ImagePic, Wand, Refresh } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { callAI } from "@/lib/callAI";
+import { callAI, invokeFunction } from "@/lib/callAI";
 import { cn } from "@/lib/utils";
-import { PRACTICE_BUSINESS } from "@/lib/adsData";
-import { Foot, Q, Group, CopyBtn, CopyField, useCopy } from "@/components/ads/MetaAdsBuilder";
 import {
+  PRACTICE_BUSINESS,
   CONTENT_STAGES,
   LENGTHS,
   FORMATS,
@@ -30,7 +29,8 @@ import {
   contentDocPage,
   auditNotesFrom,
   shotList,
-} from "@/lib/contentEngine";
+} from "@/lib/libs";
+import { Foot, Q, Group, CopyBtn, CopyField } from "@/components/ads/AdsParts";
 import { useProfile } from "@/lib/ProfileContext";
 
 // Content Creator screens: About the client > Strategy > Content. Same kit 2.0 look as the Meta Ads Builder.
@@ -114,13 +114,13 @@ export function AboutStep({ plan, onChange, onBuild, building, error }) {
     setSiteNote("");
     try {
       const url = /^https?:\/\//i.test(plan.website) ? plan.website : `https://${plan.website}`;
-      const res = await base44.functions.invoke("readWebsite", { url, follow: true });
+      const res = await invokeFunction("readWebsite", { url, follow: true });
       const site = res?.data ?? res;
       if (!site?.ok) {
         setSiteNote(`${site?.error || "We couldn't read that website."} Fill in the answers below yourself.`);
         return;
       }
-      const { buildSiteFillPrompt, finalizeSiteFill, SITE_FILL_SCHEMA } = await import("@/lib/adsBuilder");
+      const { buildSiteFillPrompt, finalizeSiteFill, SITE_FILL_SCHEMA } = await import("@/lib/libs");
       const r = finalizeSiteFill(await callAI({ prompt: buildSiteFillPrompt(site), response_json_schema: SITE_FILL_SCHEMA }), site);
       const u = {};
       if (r.business_name && !plan.business_name) u.business_name = r.business_name;

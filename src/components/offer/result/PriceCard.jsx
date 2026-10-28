@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { Button } from "@/components/shared/Form";
-import { Input } from "@/components/ui/input";
-import { formatMoney } from "@/lib/offerData";
+import { Button, Input } from "@/components/shared/Form";
+import { formatMoney } from "@/lib/libs";
 
 export default function PriceCard({ offer, onOfferUpdate }) {
   const [editing, setEditing] = useState(false);

@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import WizardShell from "@/components/shared/WizardShell";
-import SelectableCard from "@/components/shared/SelectableCard";
-import IncomeGoalInput from "@/components/shared/IncomeGoalInput";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/shared/Form";
+import { WizardShell, SelectableCard, IncomeGoalInput, Input, Label } from "@/components/shared/Form";
 import { useProfile } from "@/lib/ProfileContext";
-import { EXPERIENCE_OPTIONS, COUNTRIES } from "@/lib/constants";
+import { EXPERIENCE_OPTIONS, COUNTRIES } from "@/lib/hq";
 
 export default function Onboarding() {
   const { profile, updateProfile } = useProfile();

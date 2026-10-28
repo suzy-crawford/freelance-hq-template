@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { ArrowLeft } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { offerToText } from "@/lib/offerLogic";
+import { offerToText } from "@/lib/libs";
 import { Button } from "@/components/shared/Form";
-import CopyButton from "@/components/shared/CopyButton";
+import { CopyButton, PageSkeleton } from "@/components/shared/Page";
 import YourOfferTab from "@/components/offer/result/YourOfferTab";
 import OfferDocTab from "@/components/offer/result/OfferDocTab";
 import ScopeTab from "@/components/offer/result/ScopeTab";
 import { useProfile } from "@/lib/ProfileContext";
-import { PageSkeleton } from "@/components/shared/Skeleton";
 import Tabs from "@/components/shared/Tabs";
 
 const TABS = [

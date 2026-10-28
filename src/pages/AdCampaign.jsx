@@ -2,15 +2,11 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft } from "@/components/brand/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { callAI } from "@/lib/callAI";
+import { callAI, invokeFunction } from "@/lib/callAI";
 import { Link } from "react-router-dom";
-import { PageSkeleton } from "@/components/shared/Skeleton";
+import { PageSkeleton } from "@/components/shared/Page";
 import { StageTrack, CampaignStrip, PlanStep, AdsStep, FunnelStep, LaunchStep } from "@/components/ads/MetaAdsBuilder";
-import { buildAdsCall, finalizeConcepts, buildFunnelCall, finalizeFunnel } from "@/lib/adsEngine";
-import { guessBusinessType } from "@/lib/adsBuilder";
-import { getCampaignSetup, BUSINESS_TYPES } from "@/lib/adsData";
-import { getNiche } from "@/lib/adsNiches";
-import { displayName } from "@/lib/adsCards";
+import { buildAdsCall, finalizeConcepts, buildFunnelCall, finalizeFunnel, guessBusinessType, getCampaignSetup, BUSINESS_TYPES, getNiche, displayName } from "@/lib/libs";
 
 const INPUT_FIELDS = [
   "step",
@@ -111,7 +107,7 @@ export default function AdCampaign() {
       let site = { ok: false };
       const website = normalizeUrl(campaign.website);
       if (website) {
-        const res = await base44.functions.invoke("readWebsite", { url: website }).catch(() => null);
+        const res = await invokeFunction("readWebsite", { url: website }).catch(() => null);
         site = res?.data ?? res ?? { ok: false };
       }
       const result = await callAI(buildAdsCall({ ...campaign, ...inputs, setup }));

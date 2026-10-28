@@ -2,10 +2,9 @@ import React from "react";
 import { base44 } from "@/api/base44Client";
 import SectionCard from "@/components/offer/result/SectionCard";
 import PriceCard from "@/components/offer/result/PriceCard";
-import CopyButton from "@/components/shared/CopyButton";
+import { CopyButton } from "@/components/shared/Page";
 import RefineIt from "@/components/offer/result/RefineIt";
-import { formatMoney } from "@/lib/offerData";
-import { buildPriceExplanation } from "@/lib/offerLogic";
+import { formatMoney, buildPriceExplanation } from "@/lib/libs";
 import { cn } from "@/lib/utils";
 
 function joinLines(parts) {

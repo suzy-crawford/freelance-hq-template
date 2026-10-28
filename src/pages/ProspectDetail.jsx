@@ -3,7 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Trash2 } from "@/components/brand/icons";
 import LeadWorkspace, { LeadHeader, ContactCard } from "@/components/clients/LeadWorkspace";
 import { base44 } from "@/api/base44Client";
-import { displayDomain } from "@/lib/clientsLogic";
+import { invokeFunction } from "@/lib/callAI";
+import { displayDomain } from "@/lib/libs";
 
 export default function ProspectDetail() {
   const { prospectId } = useParams();
@@ -48,7 +49,7 @@ export default function ProspectDetail() {
   const findEmail = async () => {
     setEmailSearch({ running: true, message: "" });
     try {
-      const response = await base44.functions.invoke("findEmail", {
+      const response = await invokeFunction("findEmail", {
         website: prospect.website,
         name: prospect.name,
         location: prospect.location,

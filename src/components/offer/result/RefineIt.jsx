@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { Button } from "@/components/shared/Form";
-import { Textarea } from "@/components/ui/textarea";
+import { Button, Textarea } from "@/components/shared/Form";
 import AIError from "@/components/offer/AIError";
-import { buildRefinePrompt, finalizeRefineResult } from "@/lib/offerPrompts";
+import { buildRefinePrompt, finalizeRefineResult } from "@/lib/libs";
 import { callAI } from "@/lib/callAI";
 
 const CHIPS = [

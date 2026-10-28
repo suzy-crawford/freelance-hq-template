@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";
-import { getPriceRecommendation } from "@/lib/offerData";
-import { buildOfferPrompt, finalizeBuildResult } from "@/lib/offerPrompts";
+import { getPriceRecommendation, buildOfferPrompt, finalizeBuildResult } from "@/lib/libs";
 import { callAI } from "@/lib/callAI";
 import BuildLoading from "@/components/offer/BuildLoading";
 import ScreenServices from "@/components/offer/ScreenServices";
 import ScreenNiche from "@/components/offer/ScreenNiche";
 import ScreenAbout from "@/components/offer/ScreenAbout";
-import { PageSkeleton } from "@/components/shared/Skeleton";
+import { PageSkeleton } from "@/components/shared/Page";
 
 export default function OfferWizard() {
   const { offerId } = useParams();

@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import WizardShell from "@/components/shared/WizardShell";
+import { WizardShell, SelectableCard, Button, Input, Textarea } from "@/components/shared/Form";
 
 const OFFER_STEPS = ["What you offer", "Who you help", "About you"];
-import SelectableCard from "@/components/shared/SelectableCard";
-import { Button } from "@/components/shared/Form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { SERVICES, SERVICE_QUIZ, scoreServiceQuiz, getOfferService } from "@/lib/offerData";
+import { SERVICES, SERVICE_QUIZ, scoreServiceQuiz, getOfferService } from "@/lib/libs";
 
 const SERVICE_KEYS = ["meta_ads", "organic_social", "other"];
 

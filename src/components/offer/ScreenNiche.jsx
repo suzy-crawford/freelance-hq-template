@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import WizardShell from "@/components/shared/WizardShell";
+import { WizardShell, SelectableCard, Input } from "@/components/shared/Form";
 
 const OFFER_STEPS = ["What you offer", "Who you help", "About you"];
-import SelectableCard from "@/components/shared/SelectableCard";
-import { Input } from "@/components/ui/input";
-import { NICHES, NICHE_GROUPS, NICHE_SCREEN_COPY } from "@/lib/offerData";
+import { NICHES, NICHE_GROUPS, NICHE_SCREEN_COPY } from "@/lib/libs";
 
 // Screen 2: broad groups first (starting broad is fine), specific niches optional.
 export default function ScreenNiche({ offer, onBack, onDone }) {

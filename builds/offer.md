@@ -1,6 +1,6 @@
-# Freelance HQ 3.0.0: add the AI Offer Builder
+# Freelance HQ 3.0.1: add the AI Offer Builder
 
-This app already has the Freelance HQ. Add the AI Offer Builder by copying these 25 files exactly.
+This app already has the Freelance HQ. Add the AI Offer Builder by copying these 21 files exactly.
 
 ## Rules (follow every one)
 
@@ -18,31 +18,27 @@ This app already has the Freelance HQ. Add the AI Offer Builder by copying these
 
 ## Files
 
-- base44/functions/generateWithAI/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/base44/functions/generateWithAI/entry.ts
-- src/lib/offerData.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/offerData.js
-- src/pages/OfferBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/OfferBuilder.jsx
-- src/lib/copyVoice.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/copyVoice.js
-- src/lib/offerPrompts.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/offerPrompts.js
-- src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/callAI.js
-- src/components/offer/BuildLoading.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/BuildLoading.jsx
-- src/components/ui/textarea.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/ui/textarea.jsx
-- src/components/offer/ScreenServices.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/ScreenServices.jsx
-- src/components/offer/ScreenNiche.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/ScreenNiche.jsx
-- src/components/offer/AIError.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/AIError.jsx
-- src/components/offer/ScreenAbout.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/ScreenAbout.jsx
-- src/pages/OfferWizard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/OfferWizard.jsx
-- src/lib/offerLogic.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/offerLogic.js
-- src/components/offer/result/SectionCard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/SectionCard.jsx
-- src/components/offer/result/PriceCard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/PriceCard.jsx
-- src/components/offer/result/RefineIt.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/RefineIt.jsx
-- src/components/offer/result/YourOfferTab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/YourOfferTab.jsx
-- src/components/shared/InfoTip.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/shared/InfoTip.jsx
-- src/components/offer/result/EditableText.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/EditableText.jsx
-- src/components/offer/result/OfferDocTab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/OfferDocTab.jsx
-- src/components/offer/result/ScopeTab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/offer/result/ScopeTab.jsx
-- src/components/shared/Tabs.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/shared/Tabs.jsx
-- src/pages/OfferResult.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/OfferResult.jsx
-- src/tools/offer.ready.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/tools/offer.ready.js
+- base44/functions/generateWithAI/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/generateWithAI/entry.ts
+- src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/pages/OfferBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/OfferBuilder.jsx
+- src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/callAI.js
+- src/components/offer/BuildLoading.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/BuildLoading.jsx
+- src/components/offer/ScreenServices.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/ScreenServices.jsx
+- src/components/offer/ScreenNiche.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/ScreenNiche.jsx
+- src/components/offer/AIError.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/AIError.jsx
+- src/components/offer/ScreenAbout.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/ScreenAbout.jsx
+- src/pages/OfferWizard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/OfferWizard.jsx
+- src/components/offer/result/SectionCard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/SectionCard.jsx
+- src/components/offer/result/PriceCard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/PriceCard.jsx
+- src/components/offer/result/RefineIt.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/RefineIt.jsx
+- src/components/offer/result/YourOfferTab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/YourOfferTab.jsx
+- src/components/shared/InfoTip.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/InfoTip.jsx
+- src/components/offer/result/EditableText.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/EditableText.jsx
+- src/components/offer/result/OfferDocTab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/OfferDocTab.jsx
+- src/components/offer/result/ScopeTab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/result/ScopeTab.jsx
+- src/components/shared/Tabs.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/Tabs.jsx
+- src/pages/OfferResult.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/OfferResult.jsx
+- src/tools/offer.ready.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/tools/offer.ready.js
 
 ## Finish
 

@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PageHeader from "@/components/shared/PageHeader";
-import SelectableCard from "@/components/shared/SelectableCard";
-import IncomeGoalInput from "@/components/shared/IncomeGoalInput";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/shared/Form";
-import { Button } from "@/components/shared/Form";
+import { PageHeader, CopyButton } from "@/components/shared/Page";
+import { SelectableCard, IncomeGoalInput, Input, Label, Button } from "@/components/shared/Form";
 import { useToast } from "@/components/ui/use-toast";
 import { useProfile } from "@/lib/ProfileContext";
-import { EXPERIENCE_OPTIONS, COUNTRIES } from "@/lib/constants";
-import { getThemeChoice, setThemeChoice } from "@/lib/theme";
+import { EXPERIENCE_OPTIONS, COUNTRIES, getThemeChoice, setThemeChoice } from "@/lib/hq";
 import { APP_VERSION, isNewer, fetchLatest, updatePrompt } from "@/lib/version";
-import CopyButton from "@/components/shared/CopyButton";
 
 function VersionSetting() {
   const [state, setState] = React.useState({ status: "idle" });

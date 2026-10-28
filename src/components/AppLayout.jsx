@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { asset } from "@/lib/assets";
 import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { Home, Offer, MapPin, Progress, Calendar, Lessons, Community, Settings, Menu, Close, Globe, Target, Cart } from "@/components/brand/icons";
+import { PageSkeleton } from "@/components/shared/Page";
+import { AIOffNotice } from "@/components/BuildTool";
 import { useProfile } from "@/lib/ProfileContext";
-import { LEARNING_LINKS } from "@/lib/constants";
+import { useAuth } from "@/lib/AuthContext";
+import { asset, LEARNING_LINKS } from "@/lib/hq";
 import { base44 } from "@/api/base44Client";
 
 // Brand kit v3 shell: midnight sidebar, off-white page, content left aligned.
@@ -125,9 +128,132 @@ export default function AppLayout() {
           </button>
         </div>
         <main className="main">
+          <AIOffNotice />
           <Outlet />
         </main>
       </div>
     </div>
   );
+}
+
+// Sign-in guard and the screens for a user who isn't registered and a page that doesn't exist.
+const DefaultFallback = () => (
+  <div className="fixed inset-0 flex items-center justify-center">
+    <PageSkeleton />
+  </div>
+);
+
+export function ProtectedRoute({ fallback = <DefaultFallback />, unauthenticatedElement }) {
+  const { isAuthenticated, isLoadingAuth, authChecked, authError, checkUserAuth } = useAuth();
+
+  useEffect(() => {
+    if (!authChecked && !isLoadingAuth) {
+      checkUserAuth();
+    }
+  }, [authChecked, isLoadingAuth, checkUserAuth]);
+
+  if (isLoadingAuth || !authChecked) {
+    return fallback;
+  }
+
+  if (authError) {
+    if (authError.type === 'user_not_registered') {
+      return <UserNotRegisteredError />;
+    }
+    return unauthenticatedElement;
+  }
+
+  if (!isAuthenticated) {
+    return unauthenticatedElement;
+  }
+
+  return <Outlet />;
+}
+
+export const UserNotRegisteredError = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-app-bg">
+      <div className="max-w-md w-full p-8 bg-app-bg rounded-lg border border-app-border">
+        <div className="text-center">
+                    <h1 className="text-3xl font-normal text-app-text mb-4">Access restricted</h1>
+          <p className="text-app-muted mb-8">
+            You are not registered to use this application. Please contact the app administrator to request access.
+          </p>
+          <div className="p-4 bg-app-bg rounded-md text-sm text-app-muted">
+            <p>If you believe this is an error, you can:</p>
+            <ul className="list-disc list-inside mt-2 space-y-1">
+              <li>Verify you are logged in with the correct account</li>
+              <li>Contact the app administrator for access</li>
+              <li>Try logging out and back in again</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export function PageNotFound({}) {
+    const location = useLocation();
+    const pageName = location.pathname.substring(1);
+
+    const { data: authData, isFetched } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            try {
+                const user = await base44.auth.me();
+                return { user, isAuthenticated: true };
+            } catch (error) {
+                return { user: null, isAuthenticated: false };
+            }
+        }
+    });
+    
+    return (
+        <div className="min-h-screen flex items-center justify-center p-6 bg-app-bg">
+            <div className="max-w-md w-full">
+                <div className="text-center space-y-6">
+                    {/* 404 Error Code */}
+                    <div className="space-y-2">
+                        <h1 className="text-7xl font-light text-app-muted">404</h1>
+                        <div className="h-0.5 w-16 bg-app-surface mx-auto"></div>
+                    </div>
+                    
+                    {/* Main Message */}
+                    <div className="space-y-3">
+                        <h2 className="text-2xl font-medium text-app-text">
+                            Page Not Found
+                        </h2>
+                        <p className="text-app-muted leading-relaxed">
+                            The page <span className="font-medium text-app-text">"{pageName}"</span> could not be found in this application.
+                        </p>
+                    </div>
+                    
+                    {/* Admin Note */}
+                    {isFetched && authData.isAuthenticated && authData.user?.role === 'admin' && (
+                        <div className="mt-8 p-4 bg-app-surface rounded-lg border border-app-border">
+                            <div className="flex items-start space-x-3">
+                                <div className="text-left space-y-1">
+                                    <p className="text-sm font-medium text-app-text">Admin note</p>
+                                    <p className="text-sm text-app-muted leading-relaxed">
+                                        This could mean that the AI hasn't implemented this page yet. Ask it to implement it in the chat.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* Action Button */}
+                    <div className="pt-6">
+                        <button 
+                            onClick={() => window.location.href = '/'} 
+                            className="sf-press inline-flex items-center min-h-11 px-5 text-[0.9375rem] font-semibold text-app-on-primary bg-app-primary rounded-sm"
+                        >
+                            Go to My business
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }

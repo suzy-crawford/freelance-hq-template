@@ -1,10 +1,10 @@
 {
   "version": "2.1.0",
-  "hq": "3.0.0",
+  "hq": "3.0.1",
   "date": "2026-10-28",
   "notes": [
-    "Your HQ installs in one message",
-    "Each AI tool is built the first time you open it, with one Base44 message",
-    "Setup check runs per tool, only when you click Check, and tells Base44 exactly which files to fix"
+    "The Client Finder, Meta Ads Builder, Content Creator and AI Build Lab build in one Base44 message each",
+    "Smaller installs: the tools' libraries load by themselves instead of being copied",
+    "If an AI tool's backend function isn't switched on, the app shows the one message that fixes it"
   ]
 }

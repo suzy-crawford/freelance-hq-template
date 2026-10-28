@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/shared/Form";
-import CopyButton from "@/components/shared/CopyButton";
-import { buildScopeOfWork, scopeOfWorkToText } from "@/lib/offerLogic";
+import { CopyButton } from "@/components/shared/Page";
+import { buildScopeOfWork, scopeOfWorkToText } from "@/lib/libs";
 
 function Highlight({ text }) {
   const parts = String(text || "").split(/(\[[^\]]*\])/g);

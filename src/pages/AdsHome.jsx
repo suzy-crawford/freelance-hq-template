@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Megaphone } from "@/components/brand/icons";
+import { Megaphone, ChevronRight } from "@/components/brand/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import ToolHero from "@/components/shared/ToolHero";
-import { ListSkeleton } from "@/components/shared/Skeleton";
-import { ChevronRight } from "@/components/brand/icons";
+import { ToolHero, ListSkeleton } from "@/components/shared/Page";
 
 export default function AdsHome() {
   const navigate = useNavigate();

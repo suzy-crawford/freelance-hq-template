@@ -1,12 +1,10 @@
-import UpdateBanner from "@/components/shared/UpdateBanner";
+import { UpdateBanner, SkeletonLine } from "@/components/shared/Page";
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/lib/ProfileContext";
 import { base44 } from "@/api/base44Client";
-import { Offer, MapPin, Mail, Search, ChevronRight } from "@/components/brand/icons";
+import { Offer, MapPin, Mail, Search, ChevronRight, GradOffer, GradClientFinder, GradAds, GradContent } from "@/components/brand/icons";
 import { leadStage, leadFit } from "@/lib/leadStatus";
-import { GradOffer, GradClientFinder, GradAds, GradContent } from "@/components/brand/gradientIcons";
-import { SkeletonLine } from "@/components/shared/Skeleton";
 
 const formatMoney = (n) => "$" + Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 0 });
 

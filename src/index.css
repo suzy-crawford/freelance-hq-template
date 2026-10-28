@@ -1,4 +1,4 @@
-/* The brand stylesheets load from src/lib/brandStyles.js (main.jsx), before this file. */
+/* The brand stylesheets load from src/lib/hq.js (main.jsx), before this file. */
 
 @tailwind base;
 @tailwind components;

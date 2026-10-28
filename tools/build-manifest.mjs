@@ -6,10 +6,15 @@ import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "n
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join, relative } from "node:path";
+import { buildLibs } from "./build-libs.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-// The same rule as src/lib/copyCheck.js: ignore all whitespace, so harmless reformatting still matches.
+// The tools' libraries go in one bundle the apps load at runtime (runtime/libs.js), plus src/lib/libs.js.
+const libsKb = await buildLibs();
+
+// The same rule as src/lib/copyCheck.js: code is compared as its words and symbols, sorted, so spacing and
+// order (Base44 sometimes reorders a tag's attributes) don't count, but a missing or changed word does.
 // Data entities are compared as data (Base44 reformats them when it saves), with keys in a fixed order.
 const sortKeys = (v) => (Array.isArray(v) ? v.map(sortKeys) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sortKeys(v[k])])) : v);
 const normalize = (text, path) => {
@@ -20,7 +25,7 @@ const normalize = (text, path) => {
       /* fall back to text */
     }
   }
-  return text.replace(/\s+/g, "");
+  return (text.match(/[\w$]+|\S/gu) || []).sort().join(" ");
 };
 export const fingerprint = (text, path = "") => createHash("sha256").update(normalize(text, path)).digest("hex").slice(0, 16);
 
@@ -66,20 +71,40 @@ function closure(entries, skip = new Set()) {
 const { TOOLS } = await import(join(root, "src/lib/tools.js"));
 const versionInfo = JSON.parse(readFileSync(join(root, "version.json"), "utf8"));
 const version = versionInfo.hq || versionInfo.version;
+// The template ref the install files link to: the version tag. HQ_REF=<branch> writes them for a test branch.
+const REF = process.env.HQ_REF || `v${version}`;
 
 // The HQ shell: sign-in, the setup questions, home, settings, setup check and the Build screens. No AI.
 const SHELL_ENTRIES = [
   ...[...known].filter((f) => f.startsWith("base44/entities/")).sort(),
   "src/main.jsx", "src/App.jsx", "src/index.css",
-  ...["Login", "Register", "ForgotPassword", "ResetPassword", "Onboarding", "Dashboard", "Profile", "SetupCheck"].map((p) => `src/pages/${p}.jsx`),
+  ...["Auth", "Onboarding", "Dashboard", "Profile", "SetupCheck"].map((p) => `src/pages/${p}.jsx`),
 ];
-const shell = ["tailwind.config.js", ...closure(SHELL_ENTRIES)];
+// Files every new Base44 app already has, which the HQ uses exactly as Base44 writes them. They're not copied
+// (fewer files, so the install finishes in one reply); START.md links them only in case one is missing.
+const STOCK = new Set([
+  "src/api/base44Client.js", "src/lib/app-params.js", "src/lib/AuthContext.jsx", "src/lib/query-client.js", "src/lib/utils.js",
+  "src/lib/authReturnTo.js", "src/components/AuthLayout.jsx", "src/components/GoogleIcon.jsx", "src/components/ScrollToTop.jsx",
+  "src/components/ui/toaster.jsx", "src/components/ui/toast.jsx", "src/components/ui/use-toast.jsx",
+]);
+const shellAll = ["tailwind.config.js", ...closure(SHELL_ENTRIES)];
+const shell = shellAll.filter((f) => !STOCK.has(f));
+const stockUsed = shellAll.filter((f) => STOCK.has(f));
 const shellSet = new Set(shell);
 const groups = { shell };
 for (const tool of TOOLS) {
   const functions = tool.functions.map((fn) => `base44/functions/${fn}/entry.ts`);
   // The ready file goes last: the HQ switches the tool on only once it exists.
-  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), shellSet), `src/tools/${tool.id}.ready.js`];
+  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), new Set([...shellSet, ...STOCK])), `src/tools/${tool.id}.ready.js`];
+}
+
+// Guard: the libraries in src/lib/runtime.js load from the bundle. A screen that imports one directly would copy it
+// into the member's app as a second, separate copy (and make the build bigger), so screens use src/lib/libs.js.
+const bundled = new Set(closure(["src/lib/runtime.js"]));
+const direct = Object.entries(groups).flatMap(([id, list]) => list.filter((f) => bundled.has(f) && f !== "src/lib/leadStatus.js").map((f) => `${id}: ${f}`));
+if (direct.length) {
+  console.error(`Not published. These files belong in the runtime bundle; import them from @/lib/libs instead:\n  ${direct.join("\n  ")}`);
+  process.exit(1);
 }
 
 // Guard: a page that loads on demand must not use a package the app doesn't already load at startup.
@@ -110,7 +135,7 @@ for (const [id, list] of Object.entries(groups)) {
 const checkedEntries = Object.fromEntries(Object.entries(entries).filter(([f]) => f !== "tailwind.config.js"));
 writeFileSync(join(root, "copy-manifest.json"), JSON.stringify({ version, files: checkedEntries }, null, 2) + "\n");
 
-const RAW = `https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v${version}`;
+const RAW = `https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/${REF}`;
 const kb = (list) => Math.round(list.reduce((n, f) => n + readFileSync(join(root, f), "utf8").length, 0) / 1024);
 const RULES = [
   "## Rules (follow every one)",
@@ -150,7 +175,8 @@ const start = [
   "## Finish",
   "",
   "- Data entities: make sure each entity's stored schema in this app matches its base44/entities file exactly (re-register it from the file if it's older or different).",
-  "- A new Base44 app already has some of these files (for example src/lib/app-params.js, src/api/base44Client.js and the files in src/components/ui). Replace the listed ones with the repo's version anyway.",
+  "- A new Base44 app already has the files below. Keep them as they are. Only if one is missing, create it exactly from its link:",
+  ...stockUsed.map((f) => `  - ${f}: ${RAW}/${f}`),
   "- If this app uses Base44's newer app setup and the preview can't load these files, add the small bridge its setup needs so src/main.jsx and src/App.jsx run. Only change setup files that aren't listed above.",
   "- Last step: open the preview once and confirm it shows the Welcome screen. Don't run any other checks or tests. Then reply with exactly this and stop: \"Your Freelance HQ is ready. Answer the 3 setup questions in the preview, then open Offer Builder.\"",
   "",
@@ -180,5 +206,5 @@ for (const tool of TOOLS) {
   writeFileSync(join(root, "builds", `${tool.id}.md`), md.join("\n"));
 }
 
-console.log(`v${version}: HQ shell ${shell.length} files (${kb(shell)} KB)`);
+console.log(`v${version} (links to ${REF}): HQ shell ${shell.length} files (${kb(shell)} KB), runtime/libs.js ${libsKb} KB`);
 for (const tool of TOOLS) console.log(`  ${tool.id}: ${groups[tool.id].length} files (${kb(groups[tool.id])} KB)`);

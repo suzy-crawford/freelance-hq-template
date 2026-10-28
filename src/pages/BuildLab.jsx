@@ -2,10 +2,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Globe, Store, Target, Wand, Cart } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import ToolHero from "@/components/shared/ToolHero";
-import { ListSkeleton } from "@/components/shared/Skeleton";
+import { ToolHero, ListSkeleton } from "@/components/shared/Page";
 import { cn } from "@/lib/utils";
-import { SECTIONS } from "@/lib/clientsBuilds";
+import { SECTIONS } from "@/lib/libs";
 import BuildsPanel from "@/components/builds/BuildsPanel";
 
 // AI Build Lab: every Base44 build in one place, in three sections. Start from a lead on the list,

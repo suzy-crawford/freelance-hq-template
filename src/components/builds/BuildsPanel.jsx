@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { asset } from "@/lib/assets";
+import { asset } from "@/lib/hq";
 import { Check, Copy, ExternalLink, ArrowRight } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";
-import { getFreelancerName, getServiceName } from "@/lib/offerData";
-import { getBuild } from "@/lib/clientsBuilds";
-import { INDUSTRIES, GENERAL, IMPROVE, guessIndustry } from "@/lib/buildsExtras";
+import { getFreelancerName, getServiceName, getBuild, INDUSTRIES, GENERAL, IMPROVE, guessIndustry } from "@/lib/libs";
 
 // "What is this?": hover on desktop, tap on phones, shows a short GIF of how to do it.
 export function HelpGif({ label = "What is this?", src, alt, children }) {

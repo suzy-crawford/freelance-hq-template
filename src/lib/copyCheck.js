@@ -1,9 +1,9 @@
 // SheFreelances OS - copy check (copyCheck.js)
 // Proves a member's app is an exact copy of the template. Every app source file is read as text,
-// fingerprinted (whitespace ignored, so reformatting is fine) and compared with copy-manifest.json
+// fingerprinted (whitespace and word order ignored, so reformatting is fine) and compared with copy-manifest.json
 // published in the template for this version. Loaded only on the Setup check page, one piece at a time.
 
-import { APP_VERSION } from "./version";
+import { TEMPLATE_REF } from "./version";
 import selfSource from "./copyCheck.js?raw";
 
 const TEMPLATE_RAW = "https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template";
@@ -13,7 +13,9 @@ const SOURCES = import.meta.glob(
   { query: "?raw", import: "default" }
 );
 
-// Same rule as tools/build-manifest.mjs: whitespace ignored; data entities compared as data.
+// Same rule as tools/build-manifest.mjs: data entities are compared as data. Code is compared as its words and
+// symbols, sorted: spacing and order don't count (Base44 sometimes reorders a tag's attributes when it saves),
+// but a missing, extra or changed word does.
 const sortKeys = (v) => (Array.isArray(v) ? v.map(sortKeys) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sortKeys(v[k])])) : v);
 function normalize(text, path) {
   if (path.endsWith(".jsonc")) {
@@ -23,7 +25,7 @@ function normalize(text, path) {
       /* fall back to text */
     }
   }
-  return String(text).replace(/\s+/g, "");
+  return (String(text).match(/[\w$]+|\S/gu) || []).sort().join(" ");
 }
 
 async function fingerprint(text, path = "") {
@@ -33,7 +35,7 @@ async function fingerprint(text, path = "") {
 }
 
 async function loadManifest() {
-  for (const ref of [`v${APP_VERSION}`, "main"]) {
+  for (const ref of [TEMPLATE_REF, "main"]) {
     try {
       const res = await fetch(`${TEMPLATE_RAW}/${ref}/copy-manifest.json?t=${Date.now()}`, { cache: "no-store" });
       if (res.ok) return await res.json();
@@ -77,5 +79,5 @@ export async function runCopyCheck(group) {
     else if (have[file] !== hash) changed.push(file);
     else matched += 1;
   });
-  return { version: manifest.version, total: checked.length, matched, changed, missing, raw: `${TEMPLATE_RAW}/v${manifest.version}` };
+  return { version: manifest.version, total: checked.length, matched, changed, missing, raw: `${TEMPLATE_RAW}/${TEMPLATE_REF}` };
 }

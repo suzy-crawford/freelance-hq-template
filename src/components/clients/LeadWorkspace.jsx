@@ -24,14 +24,28 @@ import { callAI } from "@/lib/callAI";
 import { useProfile } from "@/lib/ProfileContext";
 import CopyIcon from "@/components/shared/CopyIcon";
 import { cn } from "@/lib/utils";
-import { adLibraryUrl, instagramSearchUrl } from "@/lib/clientsAnalysis";
-import { displayDomain, displayInstagram, displayFacebook } from "@/lib/clientsLogic";
-import { formatMoney } from "@/lib/offerData";
-import { fillFindOpportunityPrompt, parseAnalysis, analysisReady } from "@/lib/clientsClaudePrompt";
-import { getSample, fallbackSamples, sampleOptions, withArticle } from "@/lib/sampleOffers";
-import { SECTIONS } from "@/lib/clientsBuilds";
+import {
+  adLibraryUrl,
+  instagramSearchUrl,
+  displayDomain,
+  displayInstagram,
+  displayFacebook,
+  formatMoney,
+  fillFindOpportunityPrompt,
+  parseAnalysis,
+  analysisReady,
+  getSample,
+  fallbackSamples,
+  sampleOptions,
+  withArticle,
+  SECTIONS,
+  buildOutreachPrompt,
+  finalizeOutreach,
+  outreachChecks,
+  MESSAGE_FIELDS,
+  OUTREACH_TONES,
+} from "@/lib/libs";
 import BuildsPanel from "@/components/builds/BuildsPanel";
-import { buildOutreachPrompt, finalizeOutreach, outreachChecks, MESSAGE_FIELDS, OUTREACH_TONES } from "@/lib/clientsOutreach";
 
 // Lead page, Brand 2.0 (brand kit app/APP-2.0.md, screens lead-1 to lead-6).
 // Two tool cards: AI Lead Analyzer (Screenshots > Your offer > AI Analysis > Paste answer, then the saved

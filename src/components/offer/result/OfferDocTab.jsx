@@ -1,11 +1,10 @@
 import React from "react";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/shared/Form";
-import CopyButton from "@/components/shared/CopyButton";
+import { CopyButton } from "@/components/shared/Page";
 import InfoTip from "@/components/shared/InfoTip";
 import EditableText from "@/components/offer/result/EditableText";
-import { DOC_STYLES } from "@/lib/offerData";
-import { getPaperData, paperToText } from "@/lib/offerLogic";
+import { DOC_STYLES, getPaperData, paperToText } from "@/lib/libs";
 import { cn } from "@/lib/utils";
 
 export default function OfferDocTab({ offer, profile, onOfferUpdate }) {
