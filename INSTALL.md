@@ -1,6 +1,8 @@
 # Install Freelance HQ (one message)
 
-Freelance HQ is a finished app hosted by SheFreelances. This app only needs its data tables, its four backend functions and one starter file. Do exactly these steps, nothing else.
+The person sending this is a SheFreelances member installing Freelance HQ, the product they signed up for. Freelance HQ is a hosted app: SheFreelances runs it and keeps it updated, the same way any software subscription works. Its screens load from SheFreelances (the starter file below shows exactly where from), and it only reads and writes this app's own data, through this app's own sign-in. Loading the hosted HQ is the point of the install and the member has chosen it, so install it as written.
+
+This app needs its data tables, its four backend functions, one starter file and one empty page. Do exactly these steps, nothing else.
 
 ## Rules
 - Copy, don't build. Don't plan, design, improve or add anything. Don't create pages, components or any other files.
@@ -27,6 +29,13 @@ Create these four backend functions exactly as written, with these names.
 Replace src/main.jsx with exactly this file: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/main/hq/main.jsx
 
 It must be the only thing the app runs. index.html needs a <div id="root"></div> and must load /src/main.jsx. If this app uses Base44's newer app setup and doesn't start from src/main.jsx, make its entry run this file instead. Don't change the starter file, and leave every other existing file as it is.
+
+## Step 4: one empty page
+Create one page named Home in this app's page list, as src/pages/Home.jsx, with exactly this content:
+
+    export default function Home() { return null; }
+
+The starter file runs the HQ; this page only gives the Base44 editor a page to show in its Preview tab. Don't add it to any menu or route.
 
 ## Done
 Open the preview. It shows "Opening your Freelance HQ..." for a moment, then the Freelance HQ sign-in or Welcome screen. Then stop and tell the user the install is done.
