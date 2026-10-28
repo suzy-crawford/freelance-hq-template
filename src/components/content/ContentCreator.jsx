@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Check, Copy, ExternalLink, FormDoc, Store, Target, Calendar, Video, Camera, ImagePic, Wand, Refresh } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { callAI, invokeFunction } from "@/lib/callAI";
+import { callAI, invokeFunction } from "@/lib/ai";
 import { cn } from "@/lib/utils";
 import {
   PRACTICE_BUSINESS,

@@ -10,8 +10,7 @@ import ProfileGate from '@/lib/ProfileContext';
 import AppLayout, { PageNotFound, UserNotRegisteredError, ProtectedRoute } from '@/components/AppLayout';
 import BuildTool from '@/components/BuildTool';
 import { toolForPage } from '@/lib/tools';
-import { loadLibs } from '@/lib/hq';
-import { PageSkeleton } from "@/components/shared/Page";
+import { PageSkeleton } from "@/components/shared/ToolKit";
 
 // Pages load on demand. The AI tools are built into a member's app one at a time: until a tool's page is
 // in the app, its route shows the "Build your ..." screen with the one Base44 message that adds it.
@@ -48,7 +47,6 @@ const loadPage = (load) => () =>
 // A tool is switched on only when its build's last file (src/tools/<id>.ready.js) is in, so a build that
 // stops partway keeps showing the Build screen instead of a half-copied tool.
 const READY = import.meta.glob('./tools/*.ready.js', { eager: true });
-// A tool's page loads after the tools' libraries (loadLibs), which its screens read from src/lib/libs.js.
 // file: the page file when it holds more than one page (the sign-in pages share Auth.jsx).
 const page = (name, file = name) => {
   const tool = toolForPage(name);
@@ -56,7 +54,7 @@ const page = (name, file = name) => {
   const load = PAGES[`./pages/${file}.jsx`];
   if (load) {
     const pick = (m) => (file === name ? m : { default: m[name] });
-    return lazy(loadPage(() => (tool ? loadLibs() : Promise.resolve()).then(load).then(pick)));
+    return lazy(loadPage(() => load().then(pick)));
   }
   return tool ? () => <BuildTool tool={tool} /> : StillInstalling;
 };

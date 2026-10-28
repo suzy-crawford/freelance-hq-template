@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Calendar, ChevronRight } from "@/components/brand/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { ToolHero, ListSkeleton } from "@/components/shared/Page";
+import { ToolHero, ListSkeleton, withLibs } from "@/components/shared/ToolKit";
 
-export default function ContentHome() {
+function ContentHome() {
   const navigate = useNavigate();
   const [plans, setPlans] = useState(null);
   const [creating, setCreating] = useState(false);
@@ -81,3 +81,5 @@ export default function ContentHome() {
     </div>
   );
 }
+
+export default withLibs(ContentHome);

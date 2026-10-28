@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { PageSkeleton } from "@/components/shared/Page";
+import { PageSkeleton } from "@/components/shared/ToolKit";
 
 const ProfileContext = createContext(null);
 

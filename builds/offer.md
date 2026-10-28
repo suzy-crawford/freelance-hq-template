@@ -1,6 +1,6 @@
 # Freelance HQ 3.0.1: add the AI Offer Builder
 
-This app already has the Freelance HQ. Add the AI Offer Builder by copying these 21 files exactly.
+This app already has the Freelance HQ. Add the AI Offer Builder by copying these 22 files exactly.
 
 ## Rules (follow every one)
 
@@ -20,8 +20,9 @@ This app already has the Freelance HQ. Add the AI Offer Builder by copying these
 
 - base44/functions/generateWithAI/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/generateWithAI/entry.ts
 - src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/components/shared/ToolKit.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/ToolKit.jsx
 - src/pages/OfferBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/OfferBuilder.jsx
-- src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/callAI.js
+- src/lib/ai.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/ai.js
 - src/components/offer/BuildLoading.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/BuildLoading.jsx
 - src/components/offer/ScreenServices.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/ScreenServices.jsx
 - src/components/offer/ScreenNiche.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/offer/ScreenNiche.jsx

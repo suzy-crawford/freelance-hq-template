@@ -43,41 +43,57 @@
       ],
       "hash": "b5fbe74eafee5d63"
     },
+    "src/lib/libs.js": {
+      "groups": [
+        "shell",
+        "offer",
+        "clients",
+        "ads",
+        "content",
+        "buildlab"
+      ],
+      "hash": "6f79ffdaa041579e"
+    },
+    "src/components/shared/ToolKit.jsx": {
+      "groups": [
+        "shell",
+        "offer",
+        "clients",
+        "ads",
+        "content",
+        "buildlab"
+      ],
+      "hash": "91b7384a1c401da2"
+    },
+    "src/lib/ProfileContext.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "237695903b6cc576"
+    },
     "src/lib/version.js": {
       "groups": [
         "shell"
       ],
       "hash": "041f12d36d718d8e"
     },
-    "src/components/shared/Page.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "6bd446ac417ccb9f"
-    },
-    "src/lib/ProfileContext.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "81019d8124f1da34"
-    },
-    "src/components/BuildTool.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "1ae74935a128de73"
-    },
     "src/lib/hq.js": {
       "groups": [
         "shell"
       ],
-      "hash": "988e2fad1070a2cb"
+      "hash": "724181b00431c7e7"
     },
     "src/components/AppLayout.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "543f0dbe84566755"
+      "hash": "77e4da9fff028cdb"
+    },
+    "src/components/BuildTool.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "cae38d75aec24f5b"
     },
     "src/lib/tools.js": {
       "groups": [
@@ -89,7 +105,7 @@
       "groups": [
         "shell"
       ],
-      "hash": "184fb3d15f13f242"
+      "hash": "839ec983b29cbdfd"
     },
     "src/main.jsx": {
       "groups": [
@@ -121,6 +137,12 @@
       ],
       "hash": "2697553adacf79da"
     },
+    "src/components/shared/Page.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "87df33ec67548982"
+    },
     "src/lib/leadStatus.js": {
       "groups": [
         "shell"
@@ -131,13 +153,13 @@
       "groups": [
         "shell"
       ],
-      "hash": "7a95e2bfe8adf4f5"
+      "hash": "94a03720ee6d66e9"
     },
     "src/pages/Profile.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "20119f581da2ee1a"
+      "hash": "0bf3972dea14a86d"
     },
     "src/lib/copyCheck.js": {
       "groups": [
@@ -149,7 +171,7 @@
       "groups": [
         "shell"
       ],
-      "hash": "0fe0c7d1866543c7"
+      "hash": "6b30376587e6dc73"
     },
     "base44/functions/generateWithAI/entry.ts": {
       "groups": [
@@ -160,23 +182,13 @@
       ],
       "hash": "8cb47d31ec57e5b4"
     },
-    "src/lib/libs.js": {
-      "groups": [
-        "offer",
-        "clients",
-        "ads",
-        "content",
-        "buildlab"
-      ],
-      "hash": "4e6356b5e55267c5"
-    },
     "src/pages/OfferBuilder.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "70c2a9cc098c0e24"
+      "hash": "59267ea6fc2e1b4b"
     },
-    "src/lib/callAI.js": {
+    "src/lib/ai.js": {
       "groups": [
         "offer",
         "clients",
@@ -189,7 +201,7 @@
       "groups": [
         "offer"
       ],
-      "hash": "eb592d4d930c4756"
+      "hash": "db9336f90b582a50"
     },
     "src/components/offer/ScreenServices.jsx": {
       "groups": [
@@ -219,13 +231,13 @@
       "groups": [
         "offer"
       ],
-      "hash": "6426d35bc39dcaab"
+      "hash": "68bde1e84a7f2ca9"
     },
     "src/components/offer/result/SectionCard.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "c722787b89334cf3"
+      "hash": "b736602210190c36"
     },
     "src/components/offer/result/PriceCard.jsx": {
       "groups": [
@@ -237,13 +249,13 @@
       "groups": [
         "offer"
       ],
-      "hash": "cd02ce36b2b1882b"
+      "hash": "4271c565650b91e2"
     },
     "src/components/offer/result/YourOfferTab.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "8a274a3c9255cdac"
+      "hash": "46f3b1f24f515b26"
     },
     "src/components/shared/InfoTip.jsx": {
       "groups": [
@@ -261,13 +273,13 @@
       "groups": [
         "offer"
       ],
-      "hash": "1427f589c918ca1f"
+      "hash": "2cd34638d15d752c"
     },
     "src/components/offer/result/ScopeTab.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "07f042358330218f"
+      "hash": "612590e0562f8bba"
     },
     "src/components/shared/Tabs.jsx": {
       "groups": [
@@ -279,7 +291,7 @@
       "groups": [
         "offer"
       ],
-      "hash": "f9f7d3c6dbb14838"
+      "hash": "f59a3eb3640de3d9"
     },
     "src/tools/offer.ready.js": {
       "groups": [
@@ -321,26 +333,26 @@
       "groups": [
         "clients"
       ],
-      "hash": "d7d6a7f258868060"
+      "hash": "f76e9ba5ec4c7338"
     },
     "src/components/builds/BuildsPanel.jsx": {
       "groups": [
         "clients",
         "buildlab"
       ],
-      "hash": "5989a23de3ab44a4"
+      "hash": "97801757f4ac1c79"
     },
     "src/components/clients/LeadWorkspace.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "44254539569d19a0"
+      "hash": "6e886c02b45014a2"
     },
     "src/pages/ProspectDetail.jsx": {
       "groups": [
         "clients"
       ],
-      "hash": "eeda5af83e32bc10"
+      "hash": "3217f44e26f90f4a"
     },
     "src/tools/clients.ready.js": {
       "groups": [
@@ -359,7 +371,7 @@
       "groups": [
         "ads"
       ],
-      "hash": "a3010335e7fca087"
+      "hash": "140e60601587fcd4"
     },
     "src/components/ads/AdsParts.jsx": {
       "groups": [
@@ -372,13 +384,13 @@
       "groups": [
         "ads"
       ],
-      "hash": "f16c8ceaffa06c01"
+      "hash": "15b4b6b0b52b6dcc"
     },
     "src/pages/AdCampaign.jsx": {
       "groups": [
         "ads"
       ],
-      "hash": "6f6dd8610d3787a6"
+      "hash": "31a1b4561a6c3335"
     },
     "src/tools/ads.ready.js": {
       "groups": [
@@ -390,19 +402,19 @@
       "groups": [
         "content"
       ],
-      "hash": "1d7bc6a73a9e5505"
+      "hash": "3de5b618cf1ae11e"
     },
     "src/components/content/ContentCreator.jsx": {
       "groups": [
         "content"
       ],
-      "hash": "5711f1f93f521dbb"
+      "hash": "55988f1c277e492c"
     },
     "src/pages/ContentPlan.jsx": {
       "groups": [
         "content"
       ],
-      "hash": "0d4a69a22d7a7393"
+      "hash": "5d1f7f0d420113f3"
     },
     "src/tools/content.ready.js": {
       "groups": [
@@ -414,7 +426,7 @@
       "groups": [
         "buildlab"
       ],
-      "hash": "3509f34ce6939d06"
+      "hash": "be990e134718e33e"
     },
     "src/tools/buildlab.ready.js": {
       "groups": [

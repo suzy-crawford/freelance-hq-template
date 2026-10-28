@@ -18,7 +18,7 @@ This repository is a finished, tested app. Copy its HQ into this Base44 app exac
 
 ## Setup
 
-Install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). For reference:
+Install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). One exception: set zod and vite to at least the versions in the template's package.json (older ones have known security problems). For reference:
 
 - package.json: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/package.json
 - vite.config.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/vite.config.js
@@ -38,12 +38,13 @@ If this app has no index.html in its root folder, create it exactly from https:/
 - base44/entities/Prospect.jsonc: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/entities/Prospect.jsonc
 - base44/entities/User.jsonc: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/entities/User.jsonc
 - src/components/brand/icons.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/brand/icons.jsx
-- src/lib/version.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/version.js
-- src/components/shared/Page.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/Page.jsx
+- src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/components/shared/ToolKit.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/ToolKit.jsx
 - src/lib/ProfileContext.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/ProfileContext.jsx
-- src/components/BuildTool.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/BuildTool.jsx
+- src/lib/version.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/version.js
 - src/lib/hq.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/hq.js
 - src/components/AppLayout.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/AppLayout.jsx
+- src/components/BuildTool.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/BuildTool.jsx
 - src/lib/tools.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/tools.js
 - src/App.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/App.jsx
 - src/main.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/main.jsx
@@ -51,6 +52,7 @@ If this app has no index.html in its root folder, create it exactly from https:/
 - src/components/shared/Form.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/Form.jsx
 - src/pages/Auth.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/Auth.jsx
 - src/pages/Onboarding.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/Onboarding.jsx
+- src/components/shared/Page.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/Page.jsx
 - src/lib/leadStatus.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/leadStatus.js
 - src/pages/Dashboard.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/Dashboard.jsx
 - src/pages/Profile.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/Profile.jsx

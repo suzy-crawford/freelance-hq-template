@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { PageHeader, CopyButton } from "@/components/shared/Page";
+import { PageHeader } from "@/components/shared/Page";
+import { CopyButton } from "@/components/shared/ToolKit";
 import { SelectableCard, IncomeGoalInput, Input, Label, Button } from "@/components/shared/Form";
 import { useToast } from "@/components/ui/use-toast";
 import { useProfile } from "@/lib/ProfileContext";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { asset } from "@/lib/hq";
+import { asset } from "@/components/shared/ToolKit";
 import { Check, Copy, ExternalLink, ArrowRight } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";

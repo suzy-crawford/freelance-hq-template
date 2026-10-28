@@ -1,7 +1,7 @@
 import React from "react";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/shared/Form";
-import { CopyButton } from "@/components/shared/Page";
+import { CopyButton } from "@/components/shared/ToolKit";
 import InfoTip from "@/components/shared/InfoTip";
 import EditableText from "@/components/offer/result/EditableText";
 import { DOC_STYLES, getPaperData, paperToText } from "@/lib/libs";

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { ToolHero, CopyButton } from "@/components/shared/Page";
+import React from "react";
+import { ToolHero, CopyButton } from "@/components/shared/ToolKit";
 import { Check, Wand } from "@/components/brand/icons";
 import { TEMPLATE_REPO, TEMPLATE_REF } from "@/lib/version";
 
@@ -60,51 +60,5 @@ export default function BuildTool({ tool }) {
         </section>
       </div>
     </div>
-  );
-}
-
-// The message that deploys one backend function Base44 wrote but didn't switch on.
-export function deployMessage(name) {
-  const file = `base44/functions/${name}/entry.ts`;
-  return `Deploy my backend function ${name}. Its code is in ${file}. If that file isn't in my app, create it exactly from ${RAW}/${file} first. Don't change the code and don't call or test it. When ${name} appears in my app's list of backend functions, reply "${name} is deployed." and stop.`;
-}
-
-// Shown at the top of every page when an AI call hits a backend function that isn't deployed (callAI.js).
-export function AIOffNotice() {
-  const [name, setName] = useState(null);
-  useEffect(() => {
-    const show = (e) => setName(e.detail?.name || null);
-    window.addEventListener("sf-ai-off", show);
-    return () => window.removeEventListener("sf-ai-off", show);
-  }, []);
-  if (!name) return null;
-  const message = deployMessage(name);
-  return (
-    <section className="lp-card mb-6" role="alert">
-      <div className="lp-body">
-        <h2 className="ab-title">Your AI isn't switched on yet</h2>
-        <p className="ab-muted">
-          Base44 wrote this tool's AI function ({name}) but didn't switch it on. Send this message in Base44, wait until it replies "{name} is
-          deployed.", then try again.
-        </p>
-        <div className="lp-codebox">
-          <div className="lp-codebox-bar">
-            <span className="lp-codebox-dots" aria-hidden="true">
-              <i />
-              <i />
-              <i />
-            </span>
-            <span>Message for Base44</span>
-          </div>
-          <pre tabIndex={0} aria-label="Message for Base44">{message}</pre>
-        </div>
-        <div className="lp-actions">
-          <CopyButton text={message} label="Copy the message" />
-          <button type="button" className="lp-link" onClick={() => setName(null)}>
-            Close
-          </button>
-        </div>
-      </div>
-    </section>
   );
 }

@@ -1,6 +1,6 @@
 # Freelance HQ 3.0.1: add the AI Content Creator
 
-This app already has the Freelance HQ. Add the AI Content Creator by copying these 9 files exactly.
+This app already has the Freelance HQ. Add the AI Content Creator by copying these 10 files exactly.
 
 ## Rules (follow every one)
 
@@ -20,9 +20,10 @@ This app already has the Freelance HQ. Add the AI Content Creator by copying the
 
 - base44/functions/generateWithAI/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/generateWithAI/entry.ts
 - base44/functions/readWebsite/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/readWebsite/entry.ts
-- src/pages/ContentHome.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/ContentHome.jsx
-- src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/callAI.js
 - src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/components/shared/ToolKit.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/ToolKit.jsx
+- src/pages/ContentHome.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/ContentHome.jsx
+- src/lib/ai.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/ai.js
 - src/components/ads/AdsParts.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/ads/AdsParts.jsx
 - src/components/content/ContentCreator.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/content/ContentCreator.jsx
 - src/pages/ContentPlan.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/ContentPlan.jsx

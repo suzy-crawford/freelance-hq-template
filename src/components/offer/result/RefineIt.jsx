@@ -3,7 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { Button, Textarea } from "@/components/shared/Form";
 import AIError from "@/components/offer/AIError";
 import { buildRefinePrompt, finalizeRefineResult } from "@/lib/libs";
-import { callAI } from "@/lib/callAI";
+import { callAI } from "@/lib/ai";
 
 const CHIPS = [
   "Make it sound more premium",

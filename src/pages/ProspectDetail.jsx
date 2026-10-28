@@ -3,10 +3,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Trash2 } from "@/components/brand/icons";
 import LeadWorkspace, { LeadHeader, ContactCard } from "@/components/clients/LeadWorkspace";
 import { base44 } from "@/api/base44Client";
-import { invokeFunction } from "@/lib/callAI";
+import { invokeFunction } from "@/lib/ai";
 import { displayDomain } from "@/lib/libs";
+import { withLibs } from "@/components/shared/ToolKit";
 
-export default function ProspectDetail() {
+function ProspectDetail() {
   const { prospectId } = useParams();
   const navigate = useNavigate();
   const [prospect, setProspect] = useState(null);
@@ -167,3 +168,5 @@ export default function ProspectDetail() {
     </div>
   );
 }
+
+export default withLibs(ProspectDetail);

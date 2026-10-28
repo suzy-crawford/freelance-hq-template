@@ -2,10 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Globe, Phone, Mail, MapPin, Instagram, Facebook, CheckCircle2, AlertCircle, ChevronRight, Search } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { invokeFunction } from "@/lib/callAI";
+import { invokeFunction } from "@/lib/ai";
 import { useProfile } from "@/lib/ProfileContext";
 import EmptyState from "@/components/shared/EmptyState";
-import { ToolHero, ListSkeleton } from "@/components/shared/Page";
+import { ToolHero, ListSkeleton, withLibs } from "@/components/shared/ToolKit";
 import ContactRow from "@/components/clients/ContactRow";
 import {
   searchSuggestions,
@@ -365,7 +365,7 @@ function ListTab({ prospects, loading }) {
   );
 }
 
-export default function GetClients() {
+function GetClients() {
   const [searchParams, setSearchParams] = useSearchParams();
   const tab = searchParams.get("tab") === "list" ? "list" : "find";
   const setTab = (t) => setSearchParams(t === "list" ? { tab: "list" } : {});
@@ -416,3 +416,5 @@ export default function GetClients() {
     </div>
   );
 }
+
+export default withLibs(GetClients);

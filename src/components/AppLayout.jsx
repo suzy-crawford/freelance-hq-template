@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Home, Offer, MapPin, Progress, Calendar, Lessons, Community, Settings, Menu, Close, Globe, Target, Cart } from "@/components/brand/icons";
-import { PageSkeleton } from "@/components/shared/Page";
-import { AIOffNotice } from "@/components/BuildTool";
+import { PageSkeleton } from "@/components/shared/ToolKit";
 import { useProfile } from "@/lib/ProfileContext";
 import { useAuth } from "@/lib/AuthContext";
 import { asset, LEARNING_LINKS } from "@/lib/hq";
@@ -128,7 +127,6 @@ export default function AppLayout() {
           </button>
         </div>
         <main className="main">
-          <AIOffNotice />
           <Outlet />
         </main>
       </div>

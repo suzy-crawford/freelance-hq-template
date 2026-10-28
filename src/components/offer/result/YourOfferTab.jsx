@@ -2,7 +2,7 @@ import React from "react";
 import { base44 } from "@/api/base44Client";
 import SectionCard from "@/components/offer/result/SectionCard";
 import PriceCard from "@/components/offer/result/PriceCard";
-import { CopyButton } from "@/components/shared/Page";
+import { CopyButton } from "@/components/shared/ToolKit";
 import RefineIt from "@/components/offer/result/RefineIt";
 import { formatMoney, buildPriceExplanation } from "@/lib/libs";
 import { cn } from "@/lib/utils";

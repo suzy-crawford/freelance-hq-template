@@ -1,5 +1,5 @@
 // SheFreelances OS - HQ basics (hq.js)
-// Images, the brand stylesheets, the theme, the setup answers' options, and loading the AI tools' libraries.
+// Images, the brand stylesheets, the theme and the setup answers' options.
 import { TEMPLATE_REPO, TEMPLATE_REF } from "./version";
 
 const REPO = TEMPLATE_REPO.replace("https://github.com/", "");
@@ -60,45 +60,6 @@ export function setThemeChoice(choice) {
     /* storage unavailable */
   }
   applyTheme(choice);
-}
-
-// ---------- AI tools' libraries ----------
-// The libraries behind the AI tools (offers, leads, ads, content) are one bundle in the template, runtime/libs.js,
-// loaded when a tool page first opens. So a tool's build copies only its screens. An app that has the library
-// files themselves (src/lib/runtime.js, the master app) loads them from there instead. Screens read them through
-// src/lib/libs.js. Live content updates start once they're in.
-const LOCAL = import.meta.glob("./runtime.js");
-let libs = null;
-
-async function importBundle() {
-  try {
-    return await import(/* @vite-ignore */ `${CDN}/runtime/libs.js`);
-  } catch {
-    // The CDN is down or blocked: read the same file from GitHub and load it from memory.
-    const res = await fetch(`https://raw.githubusercontent.com/${REPO}/${TEMPLATE_REF}/runtime/libs.js`);
-    if (!res.ok) throw new Error(`Couldn't load the AI tools (${res.status}). Check your internet connection and refresh.`);
-    const url = URL.createObjectURL(new Blob([await res.text()], { type: "text/javascript" }));
-    try {
-      return await import(/* @vite-ignore */ url);
-    } finally {
-      URL.revokeObjectURL(url);
-    }
-  }
-}
-
-export function loadLibs() {
-  libs ??= (LOCAL["./runtime.js"] ? LOCAL["./runtime.js"]() : importBundle()).then(
-    (m) => {
-      globalThis.__sfLibs = m;
-      m.startLiveContent?.();
-      return m;
-    },
-    (e) => {
-      libs = null;
-      throw e;
-    }
-  );
-  return libs;
 }
 
 // ---------- Setup answers ----------

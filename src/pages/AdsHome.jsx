@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Megaphone, ChevronRight } from "@/components/brand/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { ToolHero, ListSkeleton } from "@/components/shared/Page";
+import { ToolHero, ListSkeleton, withLibs } from "@/components/shared/ToolKit";
 
-export default function AdsHome() {
+function AdsHome() {
   const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState(null);
   const [creating, setCreating] = useState(false);
@@ -79,3 +79,5 @@ export default function AdsHome() {
     </div>
   );
 }
+
+export default withLibs(AdsHome);

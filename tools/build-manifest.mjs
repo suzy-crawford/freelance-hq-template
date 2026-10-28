@@ -3,31 +3,13 @@
 // install) and builds/<tool>.md (what each tool's Build message tells Base44 to copy).
 // Run with: node tools/build-manifest.mjs   (sync_template.sh runs it for you)
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
-import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join, relative } from "node:path";
 import { buildLibs } from "./build-libs.mjs";
+import { fingerprint, fingerprint300 } from "./fingerprint.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-// The tools' libraries go in one bundle the apps load at runtime (runtime/libs.js), plus src/lib/libs.js.
-const libsKb = await buildLibs();
-
-// The same rule as src/lib/copyCheck.js: code is compared as its words and symbols, sorted, so spacing and
-// order (Base44 sometimes reorders a tag's attributes) don't count, but a missing or changed word does.
-// Data entities are compared as data (Base44 reformats them when it saves), with keys in a fixed order.
-const sortKeys = (v) => (Array.isArray(v) ? v.map(sortKeys) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sortKeys(v[k])])) : v);
-const normalize = (text, path) => {
-  if (path.endsWith(".jsonc")) {
-    try {
-      return JSON.stringify(sortKeys(JSON.parse(text)));
-    } catch {
-      /* fall back to text */
-    }
-  }
-  return (text.match(/[\w$]+|\S/gu) || []).sort().join(" ");
-};
-export const fingerprint = (text, path = "") => createHash("sha256").update(normalize(text, path)).digest("hex").slice(0, 16);
 
 function walk(dir, exts, out = []) {
   for (const name of readdirSync(dir)) {
@@ -74,6 +56,9 @@ const version = versionInfo.hq || versionInfo.version;
 // The template ref the install files link to: the version tag. HQ_REF=<branch> writes them for a test branch.
 const REF = process.env.HQ_REF || `v${version}`;
 
+// The tools' libraries go in one bundle the apps load at runtime (runtime/libs.js), plus src/lib/libs.js.
+const libsKb = await buildLibs(REF);
+
 // The HQ shell: sign-in, the setup questions, home, settings, setup check and the Build screens. No AI.
 const SHELL_ENTRIES = [
   ...[...known].filter((f) => f.startsWith("base44/entities/")).sort(),
@@ -91,11 +76,14 @@ const shellAll = ["tailwind.config.js", ...closure(SHELL_ENTRIES)];
 const shell = shellAll.filter((f) => !STOCK.has(f));
 const stockUsed = shellAll.filter((f) => STOCK.has(f));
 const shellSet = new Set(shell);
+// Files every tool build brings even though the HQ has them too, so a tool also builds into an older HQ.
+const TOOL_SHARED = ["src/lib/libs.js", "src/components/shared/ToolKit.jsx"];
+const toolSkip = new Set([...shellSet, ...STOCK].filter((f) => !TOOL_SHARED.includes(f)));
 const groups = { shell };
 for (const tool of TOOLS) {
   const functions = tool.functions.map((fn) => `base44/functions/${fn}/entry.ts`);
   // The ready file goes last: the HQ switches the tool on only once it exists.
-  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), new Set([...shellSet, ...STOCK])), `src/tools/${tool.id}.ready.js`];
+  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), toolSkip), `src/tools/${tool.id}.ready.js`];
 }
 
 // Guard: the libraries in src/lib/runtime.js load from the bundle. A screen that imports one directly would copy it
@@ -121,6 +109,33 @@ const pages = readdirSync(join(root, "src/pages")).filter((f) => f.endsWith(".js
 const late = pages.flatMap((p) => [...packagesOf(closure([`src/pages/${p}`]))].filter((pkg) => !atStartup.has(pkg)).map((pkg) => `${p} uses ${pkg}`));
 if (late.length) {
   console.error(`Not published. These pages use packages the app doesn't load at startup:\n  ${late.join("\n  ")}`);
+  process.exit(1);
+}
+
+// Guard: members on 3.0.0 build the newer tools into their 3.0.0 HQ (the v3.0.0 build files point at these).
+// So a tool build must not change any file a 3.0.0 app already has (its Setup check compares those with the v3.0.0
+// list), and may only lean on HQ files every 3.0.0 app has. tools/v3.0.0-manifest.json is that list.
+const v300 = JSON.parse(readFileSync(join(root, "tools/v3.0.0-manifest.json"), "utf8")).files;
+const v300Base = Object.entries(v300).filter(([, e]) => e.groups.some((g) => g === "shell" || g === "offer"));
+const v300Shell = new Set([...v300Base.filter(([, e]) => e.groups.includes("shell")).map(([f]) => f), ...STOCK]);
+const clashes = [];
+for (const [id, list] of Object.entries(groups)) {
+  if (id === "shell" || id === "offer") continue;
+  for (const f of list) {
+    const old = v300[f];
+    if (old && old.groups.some((g) => g === "shell" || g === "offer") && !f.startsWith("base44/") && fingerprint300(readFileSync(join(root, f), "utf8"), f) !== old.hash)
+      clashes.push(`${id} changes ${f}, which 3.0.0 apps already have`);
+  }
+  const own = new Set(list);
+  for (const f of list.filter((f) => /\.jsx?$/.test(f))) {
+    for (const [, spec] of readFileSync(join(root, f), "utf8").matchAll(/(?:import|from)\s*\(?\s*["']([^"'?]+)["']/g)) {
+      const dep = resolveImport(f, spec);
+      if (dep && !own.has(dep) && !v300Shell.has(dep)) clashes.push(`${id}: ${f} imports ${dep}, which 3.0.0 apps don't have`);
+    }
+  }
+}
+if (clashes.length) {
+  console.error(`Not published. A tool build wouldn't work in a 3.0.0 HQ:\n  ${[...new Set(clashes)].join("\n  ")}`);
   process.exit(1);
 }
 
@@ -162,7 +177,7 @@ const start = [
   ...RULES,
   "## Setup",
   "",
-  "Install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). For reference:",
+  "Install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). One exception: set zod and vite to at least the versions in the template's package.json (older ones have known security problems). For reference:",
   "",
   ...["package.json", "vite.config.js", "jsconfig.json", "postcss.config.js", "components.json"].map((f) => `- ${f}: ${RAW}/${f}`),
   "",

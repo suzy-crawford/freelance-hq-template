@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft } from "@/components/brand/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { callAI, invokeFunction } from "@/lib/callAI";
+import { callAI, invokeFunction } from "@/lib/ai";
 import { Link } from "react-router-dom";
-import { PageSkeleton } from "@/components/shared/Page";
+import { PageSkeleton, withLibs } from "@/components/shared/ToolKit";
 import { StageTrack, CampaignStrip, PlanStep, AdsStep, FunnelStep, LaunchStep } from "@/components/ads/MetaAdsBuilder";
 import { buildAdsCall, finalizeConcepts, buildFunnelCall, finalizeFunnel, guessBusinessType, getCampaignSetup, BUSINESS_TYPES, getNiche, displayName } from "@/lib/libs";
 
@@ -54,7 +54,7 @@ function normalizeUrl(url) {
   return /^https?:\/\//i.test(u) ? u : `https://${u}`;
 }
 
-export default function AdCampaign() {
+function AdCampaign() {
   const { campaignId } = useParams();
   const navigate = useNavigate();
   const [campaign, setCampaign] = useState(null);
@@ -251,3 +251,5 @@ export default function AdCampaign() {
     </div>
   );
 }
+
+export default withLibs(AdCampaign);

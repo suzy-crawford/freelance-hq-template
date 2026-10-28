@@ -3,14 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/lib/ProfileContext";
 import { getPriceRecommendation, buildOfferPrompt, finalizeBuildResult } from "@/lib/libs";
-import { callAI } from "@/lib/callAI";
+import { callAI } from "@/lib/ai";
 import BuildLoading from "@/components/offer/BuildLoading";
 import ScreenServices from "@/components/offer/ScreenServices";
 import ScreenNiche from "@/components/offer/ScreenNiche";
 import ScreenAbout from "@/components/offer/ScreenAbout";
-import { PageSkeleton } from "@/components/shared/Page";
+import { PageSkeleton, withLibs } from "@/components/shared/ToolKit";
 
-export default function OfferWizard() {
+function OfferWizard() {
   const { offerId } = useParams();
   const navigate = useNavigate();
   const { profile, updateProfile } = useProfile();
@@ -126,3 +126,5 @@ export default function OfferWizard() {
     </div>
   );
 }
+
+export default withLibs(OfferWizard);

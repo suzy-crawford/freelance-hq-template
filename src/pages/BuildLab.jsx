@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Globe, Store, Target, Wand, Cart } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { ToolHero, ListSkeleton } from "@/components/shared/Page";
+import { ToolHero, ListSkeleton, withLibs } from "@/components/shared/ToolKit";
 import { cn } from "@/lib/utils";
 import { SECTIONS } from "@/lib/libs";
 import BuildsPanel from "@/components/builds/BuildsPanel";
@@ -12,7 +12,7 @@ import BuildsPanel from "@/components/builds/BuildsPanel";
 const SECTION_ICON = { get: Globe, magnets: Target, sell: Cart };
 const EMPTY = { name: "", business_type: "", location: "", website: "", instagram: "", phone: "" };
 
-export default function BuildLab() {
+function BuildLab() {
   const [params, setParams] = useSearchParams();
   const [section, setSection] = useState(params.get("section") || "get");
   const [prospects, setProspects] = useState(null);
@@ -176,3 +176,5 @@ export default function BuildLab() {
     </div>
   );
 }
+
+export default withLibs(BuildLab);

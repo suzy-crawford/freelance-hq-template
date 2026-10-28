@@ -1,6 +1,6 @@
 # Freelance HQ 3.0.1: add the AI Client Finder
 
-This app already has the Freelance HQ. Add the AI Client Finder by copying these 13 files exactly.
+This app already has the Freelance HQ. Add the AI Client Finder by copying these 14 files exactly.
 
 ## Rules (follow every one)
 
@@ -21,11 +21,12 @@ This app already has the Freelance HQ. Add the AI Client Finder by copying these
 - base44/functions/findBusinesses/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/findBusinesses/entry.ts
 - base44/functions/findEmail/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/findEmail/entry.ts
 - base44/functions/generateWithAI/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/generateWithAI/entry.ts
-- src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/callAI.js
+- src/lib/ai.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/ai.js
 - src/components/shared/EmptyState.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/EmptyState.jsx
+- src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/components/shared/ToolKit.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/ToolKit.jsx
 - src/components/shared/CopyIcon.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/CopyIcon.jsx
 - src/components/clients/ContactRow.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/clients/ContactRow.jsx
-- src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
 - src/pages/GetClients.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/GetClients.jsx
 - src/components/builds/BuildsPanel.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/builds/BuildsPanel.jsx
 - src/components/clients/LeadWorkspace.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/clients/LeadWorkspace.jsx

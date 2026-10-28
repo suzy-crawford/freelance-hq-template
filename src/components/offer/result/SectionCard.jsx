@@ -1,5 +1,5 @@
 import React from "react";
-import { CopyButton } from "@/components/shared/Page";
+import { CopyButton } from "@/components/shared/ToolKit";
 
 // A result section as an app panel: numbered title in the panel head, content in the body.
 export default function SectionCard({ number, title, copyText, children }) {

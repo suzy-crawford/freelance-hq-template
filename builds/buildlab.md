@@ -1,6 +1,6 @@
 # Freelance HQ 3.0.1: add the AI Build Lab
 
-This app already has the Freelance HQ. Add the AI Build Lab by copying these 4 files exactly.
+This app already has the Freelance HQ. Add the AI Build Lab by copying these 5 files exactly.
 
 ## Rules (follow every one)
 
@@ -19,6 +19,7 @@ This app already has the Freelance HQ. Add the AI Build Lab by copying these 4 f
 ## Files
 
 - src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/components/shared/ToolKit.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/ToolKit.jsx
 - src/components/builds/BuildsPanel.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/builds/BuildsPanel.jsx
 - src/pages/BuildLab.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/BuildLab.jsx
 - src/tools/buildlab.ready.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/tools/buildlab.ready.js

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { PageHeader, CopyButton } from "@/components/shared/Page";
+import { PageHeader } from "@/components/shared/Page";
+import { CopyButton } from "@/components/shared/ToolKit";
 import { TOOLS } from "@/lib/tools";
 import { cn } from "@/lib/utils";
 

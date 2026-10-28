@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { asset } from "@/lib/hq";
+import { asset } from "@/components/shared/ToolKit";
 import {
   Check,
   Copy,
@@ -26,7 +26,7 @@ import {
   Pencil,
 } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { callAI, invokeFunction } from "@/lib/callAI";
+import { callAI, invokeFunction } from "@/lib/ai";
 import { cn } from "@/lib/utils";
 import {
   BUSINESS_TYPES,
@@ -230,7 +230,7 @@ export function PlanStep({ campaign, onChange, onBuild, building }) {
         setSiteNote(`${site?.error || "We couldn't read that website."} Fill in the answers below yourself.`);
         return;
       }
-      const { callAI } = await import("@/lib/callAI");
+      const { callAI } = await import("@/lib/ai");
       const { buildSiteFillPrompt, finalizeSiteFill, SITE_FILL_SCHEMA } = await import("@/lib/libs");
       const r = finalizeSiteFill(await callAI({ prompt: buildSiteFillPrompt(site), response_json_schema: SITE_FILL_SCHEMA }), site);
       const updates = {};

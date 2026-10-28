@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/shared/Form";
-import { CopyButton } from "@/components/shared/Page";
+import { CopyButton } from "@/components/shared/ToolKit";
 import { buildScopeOfWork, scopeOfWorkToText } from "@/lib/libs";
 
 function Highlight({ text }) {

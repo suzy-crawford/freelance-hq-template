@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SkeletonLine } from "@/components/shared/Page";
+import { SkeletonLine } from "@/components/shared/ToolKit";
 
 const MESSAGES = [
   "Looking at who you want to help...",

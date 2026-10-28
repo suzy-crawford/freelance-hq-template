@@ -1,4 +1,5 @@
-import { UpdateBanner, SkeletonLine } from "@/components/shared/Page";
+import { UpdateBanner } from "@/components/shared/Page";
+import { SkeletonLine } from "@/components/shared/ToolKit";
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/lib/ProfileContext";

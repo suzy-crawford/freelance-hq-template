@@ -4,7 +4,7 @@ import { ArrowLeft } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { offerToText } from "@/lib/libs";
 import { Button } from "@/components/shared/Form";
-import { CopyButton, PageSkeleton } from "@/components/shared/Page";
+import { CopyButton, PageSkeleton, withLibs } from "@/components/shared/ToolKit";
 import YourOfferTab from "@/components/offer/result/YourOfferTab";
 import OfferDocTab from "@/components/offer/result/OfferDocTab";
 import ScopeTab from "@/components/offer/result/ScopeTab";
@@ -17,7 +17,7 @@ const TABS = [
   { id: "scope", label: "Scope of work" },
 ];
 
-export default function OfferResult() {
+function OfferResult() {
   const { offerId } = useParams();
   const navigate = useNavigate();
   const [params, setParams] = useSearchParams();
@@ -97,3 +97,5 @@ export default function OfferResult() {
     </div>
   );
 }
+
+export default withLibs(OfferResult);

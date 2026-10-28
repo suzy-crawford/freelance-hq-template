@@ -1,6 +1,6 @@
 # Freelance HQ 3.0.1: add the Meta Ads Builder
 
-This app already has the Freelance HQ. Add the Meta Ads Builder by copying these 9 files exactly.
+This app already has the Freelance HQ. Add the Meta Ads Builder by copying these 10 files exactly.
 
 ## Rules (follow every one)
 
@@ -20,9 +20,10 @@ This app already has the Freelance HQ. Add the Meta Ads Builder by copying these
 
 - base44/functions/generateWithAI/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/generateWithAI/entry.ts
 - base44/functions/readWebsite/entry.ts: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/base44/functions/readWebsite/entry.ts
-- src/pages/AdsHome.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/AdsHome.jsx
-- src/lib/callAI.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/callAI.js
 - src/lib/libs.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/libs.js
+- src/components/shared/ToolKit.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/shared/ToolKit.jsx
+- src/pages/AdsHome.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/AdsHome.jsx
+- src/lib/ai.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/lib/ai.js
 - src/components/ads/AdsParts.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/ads/AdsParts.jsx
 - src/components/ads/MetaAdsBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/components/ads/MetaAdsBuilder.jsx
 - src/pages/AdCampaign.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/test-3.0.1/src/pages/AdCampaign.jsx

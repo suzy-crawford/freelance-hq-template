@@ -20,7 +20,7 @@ import {
   ArrowLeft,
 } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
-import { callAI } from "@/lib/callAI";
+import { callAI } from "@/lib/ai";
 import { useProfile } from "@/lib/ProfileContext";
 import CopyIcon from "@/components/shared/CopyIcon";
 import { cn } from "@/lib/utils";
