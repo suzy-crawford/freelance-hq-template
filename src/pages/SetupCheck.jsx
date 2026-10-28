@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 
 // Is each piece of the HQ an exact copy of the template? Each check runs only when its button is clicked
 // and reads only that piece's files, so this page never slows the app down.
-const PAGES = import.meta.glob("./*.jsx");
-const built = (tool) => !!PAGES[`./${tool.pages[0]}.jsx`];
+const READY = import.meta.glob("../tools/*.ready.js", { eager: true });
+const built = (tool) => !!READY[`../tools/${tool.id}.ready.js`];
 
 // The exact fix for Base44: only the files that are off, each with its link.
 function fixMessage(result) {

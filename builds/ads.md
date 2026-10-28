@@ -1,6 +1,6 @@
 # Freelance HQ 3.0.0: add the Meta Ads Builder
 
-This app already has the Freelance HQ. Add the Meta Ads Builder by copying these 14 files exactly.
+This app already has the Freelance HQ. Add the Meta Ads Builder by copying these 15 files exactly.
 
 ## Rules (follow every one)
 
@@ -9,7 +9,8 @@ This app already has the Freelance HQ. Add the Meta Ads Builder by copying these
 - Never write your own version of a file, never summarize one, and never leave one out. If a file is long, keep going until it's complete.
 - Don't create files that aren't listed, and don't change any other file in the app.
 - Write each file once and move on. Don't re-check files, compute hashes or test between files. The app's Setup check does that.
-- Read each link directly with your web reader, one file at a time. Don't download files with commands, scripts or bulk downloads.
+- Copy all the files in one go with your bulk copy or download step (asking me to approve it once is fine), not one by one.
+- This is one job. Keep going until every listed file is written. Don't stop partway to ask me to continue.
 - If a link doesn't load, stop and tell me which one. Never write your own version of a file instead.
 - Never create, change or delete any data records, and never run clean-ups or migrations on data. Only write the files listed here.
 - Don't ask me any questions and don't suggest extra features. Just do the steps below.
@@ -31,8 +32,10 @@ This app already has the Freelance HQ. Add the Meta Ads Builder by copying these
 - src/lib/adsEngine.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/adsEngine.js
 - src/components/ads/MetaAdsBuilder.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/ads/MetaAdsBuilder.jsx
 - src/pages/AdCampaign.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/AdCampaign.jsx
+- src/tools/ads.ready.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/tools/ads.ready.js
 
 ## Finish
 
+- Write src/tools/ads.ready.js last, after every other file is in.
 - The base44/functions files are backend functions. Create them exactly as written and deploy them. Don't call or test them.
 - When every file is written, open /ads in the preview once and confirm it shows the Meta Ads Builder page. Don't run any other checks or tests. Then reply with exactly this and stop: "Your Meta Ads Builder is ready. Refresh the preview to use it."

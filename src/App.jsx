@@ -40,9 +40,13 @@ const loadPage = (load) => () =>
     }
     throw e;
   });
+// A tool is switched on only when its build's last file (src/tools/<id>.ready.js) is in, so a build that
+// stops partway keeps showing the Build screen instead of a half-copied tool.
+const READY = import.meta.glob('./tools/*.ready.js', { eager: true });
 const page = (name) => {
-  if (PAGES[`./pages/${name}.jsx`]) return lazy(loadPage(PAGES[`./pages/${name}.jsx`]));
   const tool = toolForPage(name);
+  if (tool && !READY[`./tools/${tool.id}.ready.js`]) return () => <BuildTool tool={tool} />;
+  if (PAGES[`./pages/${name}.jsx`]) return lazy(loadPage(PAGES[`./pages/${name}.jsx`]));
   return tool ? () => <BuildTool tool={tool} /> : StillInstalling;
 };
 const Login = page('Login');

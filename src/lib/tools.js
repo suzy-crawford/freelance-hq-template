@@ -1,6 +1,6 @@
 // SheFreelances OS - the AI tools (tools.js)
 // The HQ shell installs first; each tool is built into the member's app the first time they open it.
-// A tool counts as built once its first page file is in the app. tools/build-manifest.mjs reads this
+// A tool counts as built once its build's last file, src/tools/<id>.ready.js, is in the app. tools/build-manifest.mjs reads this
 // list to write each tool's build file (builds/<id>.md), so keep it free of imports.
 
 export const TOOLS = [

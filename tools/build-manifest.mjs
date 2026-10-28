@@ -78,7 +78,8 @@ const shellSet = new Set(shell);
 const groups = { shell };
 for (const tool of TOOLS) {
   const functions = tool.functions.map((fn) => `base44/functions/${fn}/entry.ts`);
-  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), shellSet)];
+  // The ready file goes last: the HQ switches the tool on only once it exists.
+  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), shellSet), `src/tools/${tool.id}.ready.js`];
 }
 
 // Guard: a page that loads on demand must not use a package the app doesn't already load at startup.
@@ -119,7 +120,8 @@ const RULES = [
   "- Never write your own version of a file, never summarize one, and never leave one out. If a file is long, keep going until it's complete.",
   "- Don't create files that aren't listed, and don't change any other file in the app.",
   "- Write each file once and move on. Don't re-check files, compute hashes or test between files. The app's Setup check does that.",
-  "- Read each link directly with your web reader, one file at a time. Don't download files with commands, scripts or bulk downloads.",
+  "- Copy all the files in one go with your bulk copy or download step (asking me to approve it once is fine), not one by one.",
+  "- This is one job. Keep going until every listed file is written. Don't stop partway to ask me to continue.",
   "- If a link doesn't load, stop and tell me which one. Never write your own version of a file instead.",
   "- Never create, change or delete any data records, and never run clean-ups or migrations on data. Only write the files listed here.",
   "- Don't ask me any questions and don't suggest extra features. Just do the steps below.",
@@ -170,6 +172,7 @@ for (const tool of TOOLS) {
     "",
     "## Finish",
     "",
+    `- Write src/tools/${tool.id}.ready.js last, after every other file is in.`,
     tool.functions.length ? "- The base44/functions files are backend functions. Create them exactly as written and deploy them. Don't call or test them." : null,
     `- When every file is written, open ${tool.route} in the preview once and confirm it shows ${tool.check}. Don't run any other checks or tests. Then reply with exactly this and stop: "Your ${tool.name} is ready. Refresh the preview to use it."`,
     "",

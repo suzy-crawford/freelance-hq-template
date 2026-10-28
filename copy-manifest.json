@@ -173,13 +173,13 @@
       "groups": [
         "shell"
       ],
-      "hash": "061861d1512c7f52"
+      "hash": "db8acbe54449ab0f"
     },
     "src/App.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "c92eb3f5a214406d"
+      "hash": "2344edaeaa977b92"
     },
     "src/lib/brandStyles.js": {
       "groups": [
@@ -329,7 +329,7 @@
       "groups": [
         "shell"
       ],
-      "hash": "64a1f2699c11aff6"
+      "hash": "c4b454a1340549dc"
     },
     "base44/functions/generateWithAI/entry.ts": {
       "groups": [
@@ -486,6 +486,12 @@
       ],
       "hash": "1cd5b0100b61c1e3"
     },
+    "src/tools/offer.ready.js": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "f194452357bfd2fe"
+    },
     "base44/functions/findBusinesses/entry.ts": {
       "groups": [
         "clients"
@@ -601,6 +607,12 @@
       ],
       "hash": "bc994f720d19a0c2"
     },
+    "src/tools/clients.ready.js": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "d6911f024d4b1288"
+    },
     "base44/functions/readWebsite/entry.ts": {
       "groups": [
         "ads",
@@ -676,6 +688,12 @@
       ],
       "hash": "b5ff0e8af0430f47"
     },
+    "src/tools/ads.ready.js": {
+      "groups": [
+        "ads"
+      ],
+      "hash": "9691d295c4ccd523"
+    },
     "src/pages/ContentHome.jsx": {
       "groups": [
         "content"
@@ -700,11 +718,23 @@
       ],
       "hash": "d9c86bc6d61c2b1f"
     },
+    "src/tools/content.ready.js": {
+      "groups": [
+        "content"
+      ],
+      "hash": "db1d45208e741571"
+    },
     "src/pages/BuildLab.jsx": {
       "groups": [
         "buildlab"
       ],
       "hash": "b0842b734ceba892"
+    },
+    "src/tools/buildlab.ready.js": {
+      "groups": [
+        "buildlab"
+      ],
+      "hash": "0ad92279d9a3255a"
     }
   }
 }
