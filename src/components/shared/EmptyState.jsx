@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 
 export default function EmptyState({ title, text, buttonLabel, onClick }) {
   return (

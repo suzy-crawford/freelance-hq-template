@@ -24,8 +24,24 @@ const StillInstalling = () => (
     <p className="mt-3 text-app-muted">Let Base44 finish the install message. It appears here when it's done.</p>
   </div>
 );
+// After Base44 adds or rebuilds files, an open preview can still point at a page's old address and fail to
+// load it. Reload once to pick up the new build instead of showing an error (at most once a minute).
+const loadPage = (load) => () =>
+  load().catch((e) => {
+    try {
+      const last = Number(sessionStorage.getItem('sf-page-reload') || 0);
+      if (Date.now() - last > 60000) {
+        sessionStorage.setItem('sf-page-reload', String(Date.now()));
+        window.location.reload();
+        return new Promise(() => {});
+      }
+    } catch {
+      /* storage blocked: show the error instead of reloading in a loop */
+    }
+    throw e;
+  });
 const page = (name) => {
-  if (PAGES[`./pages/${name}.jsx`]) return lazy(PAGES[`./pages/${name}.jsx`]);
+  if (PAGES[`./pages/${name}.jsx`]) return lazy(loadPage(PAGES[`./pages/${name}.jsx`]));
   const tool = toolForPage(name);
   return tool ? () => <BuildTool tool={tool} /> : StillInstalling;
 };

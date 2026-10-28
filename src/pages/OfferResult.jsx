@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom"
 import { ArrowLeft } from "@/components/brand/icons";
 import { base44 } from "@/api/base44Client";
 import { offerToText } from "@/lib/offerLogic";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 import CopyButton from "@/components/shared/CopyButton";
 import YourOfferTab from "@/components/offer/result/YourOfferTab";
 import OfferDocTab from "@/components/offer/result/OfferDocTab";

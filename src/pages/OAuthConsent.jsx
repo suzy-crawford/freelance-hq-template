@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { appParams } from "@/lib/app-params";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 import { ShieldCheck } from "@/components/brand/icons";
 import AuthLayout from "@/components/AuthLayout";
 

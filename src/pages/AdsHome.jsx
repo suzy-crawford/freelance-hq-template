@@ -5,7 +5,6 @@ import { base44 } from "@/api/base44Client";
 import ToolHero from "@/components/shared/ToolHero";
 import { ListSkeleton } from "@/components/shared/Skeleton";
 import { ChevronRight } from "@/components/brand/icons";
-import { BUSINESS_TYPES } from "@/lib/adsData";
 
 export default function AdsHome() {
   const navigate = useNavigate();

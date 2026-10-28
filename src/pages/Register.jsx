@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Label } from "@/components/shared/Form";
 import { UserPlus, Mail, Lock } from "@/components/brand/icons";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import AuthLayout from "@/components/AuthLayout";
 import GoogleIcon from "@/components/GoogleIcon";
 import { toast } from "@/components/ui/use-toast";
@@ -84,22 +83,17 @@ export default function Register() {
           </div>
         )}
         <div className="flex justify-center mb-6">
-          <InputOTP
-            maxLength={6}
+          <Input
             value={otpCode}
-            onChange={setOtpCode}
+            onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+            inputMode="numeric"
+            maxLength={6}
             autoFocus
             autoComplete="one-time-code"
-          >
-            <InputOTPGroup>
-              <InputOTPSlot index={0} />
-              <InputOTPSlot index={1} />
-              <InputOTPSlot index={2} />
-              <InputOTPSlot index={3} />
-              <InputOTPSlot index={4} />
-              <InputOTPSlot index={5} />
-            </InputOTPGroup>
-          </InputOTP>
+            placeholder="6-digit code"
+            aria-label="6-digit code"
+            className="h-12 max-w-[12rem] text-center text-xl tracking-[0.4em]"
+          />
         </div>
         <Button
           className="w-full h-12 font-medium"

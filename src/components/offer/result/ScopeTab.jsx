@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 import CopyButton from "@/components/shared/CopyButton";
 import { buildScopeOfWork, scopeOfWorkToText } from "@/lib/offerLogic";
 

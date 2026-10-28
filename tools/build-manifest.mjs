@@ -81,6 +81,23 @@ for (const tool of TOOLS) {
   groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), shellSet)];
 }
 
+// Guard: a page that loads on demand must not use a package the app doesn't already load at startup.
+// Base44's preview prepares packages when the app starts; a package first needed later makes it rebuild them
+// mid-session, which can leave the page stuck on "Failed to fetch dynamically imported module".
+const packagesOf = (list) =>
+  new Set(
+    list
+      .filter((f) => /\.(jsx?|ts)$/.test(f) && f.startsWith("src/"))
+      .flatMap((f) => [...readFileSync(join(root, f), "utf8").matchAll(/(?:import|from)\s*\(?\s*["']([^"'./@][^"']*|@(?!\/)[^/"']+\/[^"']+)["']/g)].map((m) => m[1]))
+  );
+const atStartup = packagesOf(closure(["src/main.jsx"]));
+const pages = readdirSync(join(root, "src/pages")).filter((f) => f.endsWith(".jsx"));
+const late = pages.flatMap((p) => [...packagesOf(closure([`src/pages/${p}`]))].filter((pkg) => !atStartup.has(pkg)).map((pkg) => `${p} uses ${pkg}`));
+if (late.length) {
+  console.error(`Not published. These pages use packages the app doesn't load at startup:\n  ${late.join("\n  ")}`);
+  process.exit(1);
+}
+
 const entries = {};
 for (const [id, list] of Object.entries(groups)) {
   for (const f of list) {
@@ -102,6 +119,10 @@ const RULES = [
   "- Never write your own version of a file, never summarize one, and never leave one out. If a file is long, keep going until it's complete.",
   "- Don't create files that aren't listed, and don't change any other file in the app.",
   "- Write each file once and move on. Don't re-check files, compute hashes or test between files. The app's Setup check does that.",
+  "- Read each link directly with your web reader, one file at a time. Don't download files with commands, scripts or bulk downloads.",
+  "- If a link doesn't load, stop and tell me which one. Never write your own version of a file instead.",
+  "- Never create, change or delete any data records, and never run clean-ups or migrations on data. Only write the files listed here.",
+  "- Don't ask me any questions and don't suggest extra features. Just do the steps below.",
   "- Spacing and line breaks don't matter. Images load from the internet by themselves; don't create image files.",
   "",
 ];
@@ -129,7 +150,7 @@ const start = [
   "- Data entities: make sure each entity's stored schema in this app matches its base44/entities file exactly (re-register it from the file if it's older or different).",
   "- A new Base44 app already has some of these files (for example src/lib/app-params.js, src/api/base44Client.js and the files in src/components/ui). Replace the listed ones with the repo's version anyway.",
   "- If this app uses Base44's newer app setup and the preview can't load these files, add the small bridge its setup needs so src/main.jsx and src/App.jsx run. Only change setup files that aren't listed above.",
-  "- Last step: the app must open in the preview and show the Welcome screen. Then stop.",
+  "- Last step: open the preview once and confirm it shows the Welcome screen. Don't run any other checks or tests. Then reply with exactly this and stop: \"Your Freelance HQ is ready. Answer the 3 setup questions in the preview, then open Offer Builder.\"",
   "",
 ];
 writeFileSync(join(root, "START.md"), start.join("\n"));
@@ -149,8 +170,8 @@ for (const tool of TOOLS) {
     "",
     "## Finish",
     "",
-    tool.functions.length ? "- The base44/functions files are backend functions. Create them exactly as written and deploy them." : null,
-    `- When every file is written, open ${tool.route} in the preview. It should show ${tool.check}. Then stop.`,
+    tool.functions.length ? "- The base44/functions files are backend functions. Create them exactly as written and deploy them. Don't call or test them." : null,
+    `- When every file is written, open ${tool.route} in the preview once and confirm it shows ${tool.check}. Don't run any other checks or tests. Then reply with exactly this and stop: "Your ${tool.name} is ready. Refresh the preview to use it."`,
     "",
   ].filter((l) => l !== null);
   writeFileSync(join(root, "builds", `${tool.id}.md`), md.join("\n"));

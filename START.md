@@ -9,6 +9,10 @@ This repository is a finished, tested app. Copy its HQ into this Base44 app exac
 - Never write your own version of a file, never summarize one, and never leave one out. If a file is long, keep going until it's complete.
 - Don't create files that aren't listed, and don't change any other file in the app.
 - Write each file once and move on. Don't re-check files, compute hashes or test between files. The app's Setup check does that.
+- Read each link directly with your web reader, one file at a time. Don't download files with commands, scripts or bulk downloads.
+- If a link doesn't load, stop and tell me which one. Never write your own version of a file instead.
+- Never create, change or delete any data records, and never run clean-ups or migrations on data. Only write the files listed here.
+- Don't ask me any questions and don't suggest extra features. Just do the steps below.
 - Spacing and line breaks don't matter. Images load from the internet by themselves; don't create image files.
 
 ## Setup
@@ -60,14 +64,12 @@ If this app has no index.html in its root folder, create it exactly from https:/
 - src/lib/theme.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/theme.js
 - src/main.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/main.jsx
 - src/index.css: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/index.css
-- src/components/ui/button.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/ui/button.jsx
+- src/components/shared/Form.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/shared/Form.jsx
 - src/components/ui/input.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/ui/input.jsx
-- src/components/ui/label.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/ui/label.jsx
 - src/components/AuthLayout.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/AuthLayout.jsx
 - src/components/GoogleIcon.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/GoogleIcon.jsx
 - src/lib/authReturnTo.js: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/lib/authReturnTo.js
 - src/pages/Login.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/Login.jsx
-- src/components/ui/input-otp.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/components/ui/input-otp.jsx
 - src/pages/Register.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/Register.jsx
 - src/pages/ForgotPassword.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/ForgotPassword.jsx
 - src/pages/ResetPassword.jsx: https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v3.0.0/src/pages/ResetPassword.jsx
@@ -89,4 +91,4 @@ If this app has no index.html in its root folder, create it exactly from https:/
 - Data entities: make sure each entity's stored schema in this app matches its base44/entities file exactly (re-register it from the file if it's older or different).
 - A new Base44 app already has some of these files (for example src/lib/app-params.js, src/api/base44Client.js and the files in src/components/ui). Replace the listed ones with the repo's version anyway.
 - If this app uses Base44's newer app setup and the preview can't load these files, add the small bridge its setup needs so src/main.jsx and src/App.jsx run. Only change setup files that aren't listed above.
-- Last step: the app must open in the preview and show the Welcome screen. Then stop.
+- Last step: open the preview once and confirm it shows the Welcome screen. Don't run any other checks or tests. Then reply with exactly this and stop: "Your Freelance HQ is ready. Answer the 3 setup questions in the preview, then open Offer Builder."

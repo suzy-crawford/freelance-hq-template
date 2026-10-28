@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 import { Textarea } from "@/components/ui/textarea";
 import AIError from "@/components/offer/AIError";
 import { buildRefinePrompt, finalizeRefineResult } from "@/lib/offerPrompts";

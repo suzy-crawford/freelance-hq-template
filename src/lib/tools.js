@@ -12,7 +12,7 @@ export const TOOLS = [
     functions: ["generateWithAI"],
     minutes: "4 to 6",
     gets: ["Answer three questions about you", "Get your offer, your price and what's included", "A one-page offer doc you can share"],
-    check: "the Offer Builder page with a Build a new offer button",
+    check: "the Offer Builder page (with no offers yet, it shows a Build your first offer button)",
   },
   {
     id: "clients",

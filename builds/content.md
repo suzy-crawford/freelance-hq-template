@@ -9,6 +9,10 @@ This app already has the Freelance HQ. Add the AI Content Creator by copying the
 - Never write your own version of a file, never summarize one, and never leave one out. If a file is long, keep going until it's complete.
 - Don't create files that aren't listed, and don't change any other file in the app.
 - Write each file once and move on. Don't re-check files, compute hashes or test between files. The app's Setup check does that.
+- Read each link directly with your web reader, one file at a time. Don't download files with commands, scripts or bulk downloads.
+- If a link doesn't load, stop and tell me which one. Never write your own version of a file instead.
+- Never create, change or delete any data records, and never run clean-ups or migrations on data. Only write the files listed here.
+- Don't ask me any questions and don't suggest extra features. Just do the steps below.
 - Spacing and line breaks don't matter. Images load from the internet by themselves; don't create image files.
 
 ## Files
@@ -33,5 +37,5 @@ This app already has the Freelance HQ. Add the AI Content Creator by copying the
 
 ## Finish
 
-- The base44/functions files are backend functions. Create them exactly as written and deploy them.
-- When every file is written, open /content in the preview. It should show the Content Creator page. Then stop.
+- The base44/functions files are backend functions. Create them exactly as written and deploy them. Don't call or test them.
+- When every file is written, open /content in the preview once and confirm it shows the Content Creator page. Don't run any other checks or tests. Then reply with exactly this and stop: "Your AI Content Creator is ready. Refresh the preview to use it."

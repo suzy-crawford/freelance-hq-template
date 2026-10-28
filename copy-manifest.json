@@ -125,7 +125,7 @@
       "groups": [
         "shell"
       ],
-      "hash": "7df9a45f461ab750"
+      "hash": "a14a8be66a53ea22"
     },
     "src/lib/version.js": {
       "groups": [
@@ -167,19 +167,19 @@
       "groups": [
         "shell"
       ],
-      "hash": "70e762f19d5dd306"
+      "hash": "ae3fbebeaf244dbc"
     },
     "src/lib/tools.js": {
       "groups": [
         "shell"
       ],
-      "hash": "12eec81000dd673e"
+      "hash": "061861d1512c7f52"
     },
     "src/App.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "f8ace3783995b47e"
+      "hash": "c92eb3f5a214406d"
     },
     "src/lib/brandStyles.js": {
       "groups": [
@@ -205,23 +205,17 @@
       ],
       "hash": "6e32adf03f245c93"
     },
-    "src/components/ui/button.jsx": {
+    "src/components/shared/Form.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "83d3237df356b974"
+      "hash": "6e92e3c9ba047864"
     },
     "src/components/ui/input.jsx": {
       "groups": [
         "shell"
       ],
       "hash": "c49ab45b9995d831"
-    },
-    "src/components/ui/label.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "42d9500ad59b504b"
     },
     "src/components/AuthLayout.jsx": {
       "groups": [
@@ -245,31 +239,25 @@
       "groups": [
         "shell"
       ],
-      "hash": "f2598aa547f74cba"
-    },
-    "src/components/ui/input-otp.jsx": {
-      "groups": [
-        "shell"
-      ],
-      "hash": "075ca7379be612b8"
+      "hash": "7ac77eadd2ff36c4"
     },
     "src/pages/Register.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "10486da07bec52b0"
+      "hash": "701b0a3f3b2ae157"
     },
     "src/pages/ForgotPassword.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "5da08a55818e4f30"
+      "hash": "55514442c9916d2b"
     },
     "src/pages/ResetPassword.jsx": {
       "groups": [
         "shell"
       ],
-      "hash": "4fe42928604519a2"
+      "hash": "82b5b21ccb6a8c43"
     },
     "src/components/shared/WizardShell.jsx": {
       "groups": [
@@ -293,7 +281,7 @@
       "groups": [
         "shell"
       ],
-      "hash": "bbc4c868f27a3bf3"
+      "hash": "33454b5c831b87eb"
     },
     "src/components/shared/UpdateBanner.jsx": {
       "groups": [
@@ -329,7 +317,7 @@
       "groups": [
         "shell"
       ],
-      "hash": "5ccbef6b26ac7c58"
+      "hash": "9482bf5e2c326f36"
     },
     "src/lib/copyCheck.js": {
       "groups": [
@@ -406,7 +394,7 @@
       "groups": [
         "offer"
       ],
-      "hash": "58c320d407df884c"
+      "hash": "6cfe5fbc65e315ff"
     },
     "src/components/offer/ScreenNiche.jsx": {
       "groups": [
@@ -418,7 +406,7 @@
       "groups": [
         "offer"
       ],
-      "hash": "cfb5868efbb73265"
+      "hash": "f979066693c34656"
     },
     "src/components/offer/ScreenAbout.jsx": {
       "groups": [
@@ -448,13 +436,13 @@
       "groups": [
         "offer"
       ],
-      "hash": "af5ffb764d6acfb7"
+      "hash": "7df155d78f781d28"
     },
     "src/components/offer/result/RefineIt.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "a037f87b5a3793bd"
+      "hash": "85b888f6badd460f"
     },
     "src/components/offer/result/YourOfferTab.jsx": {
       "groups": [
@@ -478,13 +466,13 @@
       "groups": [
         "offer"
       ],
-      "hash": "dc3f91a9e80cfbce"
+      "hash": "a9ffd7f0c089f1a1"
     },
     "src/components/offer/result/ScopeTab.jsx": {
       "groups": [
         "offer"
       ],
-      "hash": "666c8f7a80f0dd0b"
+      "hash": "0e9d8af636fcc3f5"
     },
     "src/components/shared/Tabs.jsx": {
       "groups": [
@@ -496,7 +484,7 @@
       "groups": [
         "offer"
       ],
-      "hash": "448640fe586c37b6"
+      "hash": "1cd5b0100b61c1e3"
     },
     "base44/functions/findBusinesses/entry.ts": {
       "groups": [
@@ -514,7 +502,7 @@
       "groups": [
         "clients"
       ],
-      "hash": "ac6e6257e3fdb66a"
+      "hash": "4c8e22743bb5b592"
     },
     "src/components/shared/CopyIcon.jsx": {
       "groups": [
@@ -620,18 +608,18 @@
       ],
       "hash": "e810f6b59075b4e6"
     },
+    "src/pages/AdsHome.jsx": {
+      "groups": [
+        "ads"
+      ],
+      "hash": "12178d1a01f54497"
+    },
     "src/lib/adsData.js": {
       "groups": [
         "ads",
         "content"
       ],
       "hash": "655bb6f19ad30ab3"
-    },
-    "src/pages/AdsHome.jsx": {
-      "groups": [
-        "ads"
-      ],
-      "hash": "f5b3e568a62f8d1f"
     },
     "src/lib/adsCards.js": {
       "groups": [

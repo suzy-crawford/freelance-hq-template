@@ -1,6 +1,6 @@
 import React from "react";
 import { base44 } from "@/api/base44Client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/Form";
 import CopyButton from "@/components/shared/CopyButton";
 import InfoTip from "@/components/shared/InfoTip";
 import EditableText from "@/components/offer/result/EditableText";

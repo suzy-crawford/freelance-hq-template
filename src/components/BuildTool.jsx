@@ -37,7 +37,7 @@ export default function BuildTool({ tool }) {
             <ol className="bt-steps">
               <li>Copy this message.</li>
               <li>In Base44, paste it into the chat and send it.</li>
-              <li>Wait for Base44 to finish, without sending anything else. This page turns into your {tool.name}.</li>
+              <li>Wait until Base44 replies "Your {tool.name} is ready." Don't send anything else or accept Base44's suggestions while it works. Then refresh the preview.</li>
             </ol>
             <div className="lp-codebox">
               <div className="lp-codebox-bar">
