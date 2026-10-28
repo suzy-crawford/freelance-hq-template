@@ -40,5 +40,5 @@ This app already has the Freelance HQ. Add the AI Content Creator by copying the
 ## Finish
 
 - Write src/tools/content.ready.js last, after every other file is in.
-- The base44/functions files are backend functions. Create them exactly as written and deploy them. Don't call or test them.
+- The base44/functions files are backend functions. Create them exactly as written, then DEPLOY them: each one (generateWithAI, readWebsite) must appear in this app's list of backend functions. The tool fails with a 404 error if a function is only written and not deployed. Don't call or test them.
 - When every file is written, open /content in the preview once and confirm it shows the Content Creator page. Don't run any other checks or tests. Then reply with exactly this and stop: "Your AI Content Creator is ready. Refresh the preview to use it."

@@ -37,5 +37,5 @@ This app already has the Freelance HQ. Add the Meta Ads Builder by copying these
 ## Finish
 
 - Write src/tools/ads.ready.js last, after every other file is in.
-- The base44/functions files are backend functions. Create them exactly as written and deploy them. Don't call or test them.
+- The base44/functions files are backend functions. Create them exactly as written, then DEPLOY them: each one (generateWithAI, readWebsite) must appear in this app's list of backend functions. The tool fails with a 404 error if a function is only written and not deployed. Don't call or test them.
 - When every file is written, open /ads in the preview once and confirm it shows the Meta Ads Builder page. Don't run any other checks or tests. Then reply with exactly this and stop: "Your Meta Ads Builder is ready. Refresh the preview to use it."
