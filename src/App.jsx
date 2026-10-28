@@ -11,18 +11,24 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ProfileGate from '@/lib/ProfileContext';
 import AppLayout from '@/components/AppLayout';
+import BuildTool from '@/components/BuildTool';
+import { toolForPage } from '@/lib/tools';
 import { PageSkeleton } from "@/components/shared/Skeleton";
 
-// Pages load on demand. During a member's install, a page whose part hasn't been copied yet shows a short
-// "still installing" note instead of breaking the app, so the home screen works after the first message.
+// Pages load on demand. The AI tools are built into a member's app one at a time: until a tool's page is
+// in the app, its route shows the "Build your ..." screen with the one Base44 message that adds it.
 const PAGES = import.meta.glob('./pages/*.jsx');
 const StillInstalling = () => (
   <div className="max-w-xl mx-auto py-24 px-6 text-center">
-    <h1 className="text-2xl font-semibold">This tool is still installing</h1>
-    <p className="mt-3 text-app-muted">Send the next install message in Base44. It appears here when its part is done.</p>
+    <h1 className="text-2xl font-semibold">This page is still installing</h1>
+    <p className="mt-3 text-app-muted">Let Base44 finish the install message. It appears here when it's done.</p>
   </div>
 );
-const page = (name) => (PAGES[`./pages/${name}.jsx`] ? lazy(PAGES[`./pages/${name}.jsx`]) : StillInstalling);
+const page = (name) => {
+  if (PAGES[`./pages/${name}.jsx`]) return lazy(PAGES[`./pages/${name}.jsx`]);
+  const tool = toolForPage(name);
+  return tool ? () => <BuildTool tool={tool} /> : StillInstalling;
+};
 const Login = page('Login');
 const Register = page('Register');
 const ForgotPassword = page('ForgotPassword');

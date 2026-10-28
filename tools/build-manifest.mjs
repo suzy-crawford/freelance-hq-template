@@ -1,7 +1,8 @@
-// Publish step: fingerprint every source file and split them into copy parts for members.
-// Writes copy-manifest.json, which the in-app Copy check compares against.
+// Publish step: fingerprint every source file and group them into the HQ shell and one build per AI tool.
+// Writes copy-manifest.json (the in-app Setup check compares against it), START.md (the one-message HQ
+// install) and builds/<tool>.md (what each tool's Build message tells Base44 to copy).
 // Run with: node tools/build-manifest.mjs   (sync_template.sh runs it for you)
-import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join, relative } from "node:path";
@@ -33,132 +34,127 @@ function walk(dir, exts, out = []) {
   return out;
 }
 
-const files = [
-  "tailwind.config.js",
-  // base44/config.jsonc holds each app's own project name, so it's left out.
-  ...walk(join(root, "base44"), [".jsonc", ".ts", ".js"]).filter((f) => !f.endsWith("config.jsonc")),
-  ...walk(join(root, "src"), [".js", ".jsx", ".css"]),
-].sort((a, b) => {
-  // Order: setup files, the backend, shared libraries, components, then pages and the app shell.
-  const rank = (f) => (f.startsWith("base44/") ? 1 : f.startsWith("src/lib/") || f.startsWith("src/brand/") || f.startsWith("src/api/") || f.startsWith("src/utils/") || f.startsWith("src/hooks/") ? 2 : f.startsWith("src/components/") ? 3 : f.startsWith("src/pages/") ? 4 : f.startsWith("src/") ? 5 : 0);
-  return rank(a) - rank(b) || a.localeCompare(b);
-});
-
-// Dependencies first: a file is only copied after every file it imports, so the app builds after each
-// part and Base44 never "fixes" a missing import by rewriting a file (which breaks the Copy check).
-const known = new Set(files);
+const known = new Set([...walk(join(root, "src"), [".js", ".jsx", ".css"]), ...walk(join(root, "base44"), [".jsonc", ".ts"])]);
 const resolveImport = (from, spec) => {
   const base = spec.startsWith("@/") ? `src/${spec.slice(2)}` : spec.startsWith(".") ? join(dirname(from), spec) : null;
   if (!base) return null;
   return ["", ".js", ".jsx", ".ts", ".css", "/index.js", "/index.jsx"].map((ext) => base + ext).find((p) => known.has(p)) || null;
 };
-const ordered = [];
-const placed = new Set();
-const visit = (f, stack = new Set()) => {
-  if (placed.has(f) || stack.has(f)) return;
-  stack.add(f);
-  if (/\.(jsx?|ts)$/.test(f)) {
-    const text = readFileSync(join(root, f), "utf8");
-    for (const [, spec] of text.matchAll(/(?:import|from)\s*\(?\s*["']([^"'?]+)["']/g)) {
-      const dep = resolveImport(f, spec);
-      if (dep) visit(dep, stack);
+
+// Every file a set of entry files needs, dependencies first, so Base44 writes a file only after what it imports.
+// Pages, brand stylesheets and live content are loaded with import.meta.glob, which this doesn't follow on purpose:
+// the brand stylesheets load from the template, and each tool page arrives with its own build.
+function closure(entries, skip = new Set()) {
+  const out = [];
+  const seen = new Set();
+  const visit = (f) => {
+    if (seen.has(f) || skip.has(f)) return;
+    seen.add(f);
+    if (/\.(jsx?|ts)$/.test(f)) {
+      const text = readFileSync(join(root, f), "utf8");
+      for (const [, spec] of text.matchAll(/(?:import|from)\s*\(?\s*["']([^"'?]+)["']/g)) {
+        const dep = resolveImport(f, spec);
+        if (dep && !dep.endsWith(".css")) visit(dep);
+      }
     }
-  }
-  stack.delete(f);
-  placed.add(f);
-  ordered.push(f);
-};
-// Part 1 is the working app shell: everything the sign-in, the three setup questions and the home screen need.
-// (Pages, brand stylesheets and live content load only when present, so the app runs after Part 1.)
-const SHELL = [
-  "src/main.jsx", "src/App.jsx", "src/index.css", "src/lib/brandStyles.js",
-  "src/pages/Onboarding.jsx", "src/pages/Dashboard.jsx",
-  "src/components/AppLayout.jsx", "src/lib/ProfileContext.jsx", "src/components/ProtectedRoute.jsx",
-  "src/lib/AuthContext.jsx", "src/lib/PageNotFound.jsx", "src/components/UserNotRegisteredError.jsx",
-  "src/components/ScrollToTop.jsx", "src/components/ui/toaster.jsx", "src/lib/query-client.js",
-  "src/components/shared/Skeleton.jsx", "src/lib/theme.js",
+    out.push(f);
+  };
+  entries.forEach(visit);
+  return out;
+}
+
+const { TOOLS } = await import(join(root, "src/lib/tools.js"));
+const versionInfo = JSON.parse(readFileSync(join(root, "version.json"), "utf8"));
+const version = versionInfo.hq || versionInfo.version;
+
+// The HQ shell: sign-in, the setup questions, home, settings, setup check and the Build screens. No AI.
+const SHELL_ENTRIES = [
+  ...[...known].filter((f) => f.startsWith("base44/entities/")).sort(),
+  "src/main.jsx", "src/App.jsx", "src/index.css",
+  ...["Login", "Register", "ForgotPassword", "ResetPassword", "Onboarding", "Dashboard", "Profile", "SetupCheck"].map((p) => `src/pages/${p}.jsx`),
 ];
-["tailwind.config.js", ...files.filter((f) => f.startsWith("base44/entities/")), ...SHELL].forEach((f) => visit(f));
-const shellCount = ordered.length;
-// Then everything else, dependencies first, with the brand stylesheets last (the app loads them from the template until then).
-files.filter((f) => !f.startsWith("src/brand/") || !f.endsWith(".css")).forEach((f) => visit(f));
-files.forEach((f) => visit(f));
-files.splice(0, files.length, ...ordered);
+const shell = ["tailwind.config.js", ...closure(SHELL_ENTRIES)];
+const shellSet = new Set(shell);
+const groups = { shell };
+for (const tool of TOOLS) {
+  const functions = tool.functions.map((fn) => `base44/functions/${fn}/entry.ts`);
+  groups[tool.id] = [...functions, ...closure(tool.pages.map((p) => `src/pages/${p}.jsx`), shellSet)];
+}
 
-// Part 1 is the shell; the rest is split into 7 even parts (8 install messages in all).
-const PARTS = 8;
-const rest = files.slice(shellCount);
-const restSize = rest.reduce((n, f) => n + readFileSync(join(root, f), "utf8").length, 0);
-// The smallest part size that fits the rest into 7 parts, so no part (especially the last) runs long.
-const sizes = rest.map((f) => readFileSync(join(root, f), "utf8").length);
-const partsFor = (limit) => { let n = 1, s = 0; for (const x of sizes) { if (s && s + x > limit) { n += 1; s = 0; } s += x; } return n; };
-let LIMIT = Math.ceil(restSize / (PARTS - 1));
-while (partsFor(LIMIT) > PARTS - 1) LIMIT += 1000;
-let part = 1;
-let size = 0;
 const entries = {};
-files.forEach((f, i) => {
-  const text = readFileSync(join(root, f), "utf8");
-  if (i === shellCount || (i > shellCount && size + text.length > LIMIT && part < PARTS)) {
-    part += 1;
-    size = 0;
+for (const [id, list] of Object.entries(groups)) {
+  for (const f of list) {
+    entries[f] ??= { groups: [], hash: fingerprint(readFileSync(join(root, f), "utf8"), f) };
+    entries[f].groups.push(id);
   }
-  size += text.length;
-  entries[f] = { part, hash: fingerprint(text, f) };
-});
-
-const { version } = JSON.parse(readFileSync(join(root, "version.json"), "utf8"));
-// tailwind.config.js is still copied in Part 1, but the Copy check skips it: Base44's newer app setup may need
-// to adjust it so the app displays, and that shouldn't turn a working install red.
+}
+// tailwind.config.js is copied with the shell but not checked: Base44's newer app setup may need to adjust it.
 const checkedEntries = Object.fromEntries(Object.entries(entries).filter(([f]) => f !== "tailwind.config.js"));
-writeFileSync(join(root, "copy-manifest.json"), JSON.stringify({ version, parts: part, files: checkedEntries }, null, 2) + "\n");
-console.log(`copy-manifest.json written: ${files.length} files in ${part} parts`);
+writeFileSync(join(root, "copy-manifest.json"), JSON.stringify({ version, files: checkedEntries }, null, 2) + "\n");
 
-// COPY.md: the copy instructions Base44 follows, one part per member message.
 const RAW = `https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/v${version}`;
-const SETUP = ["package.json", "vite.config.js", "jsconfig.json", "postcss.config.js", "components.json"];
-const lines = [
-  `# Copy instructions for Freelance HQ ${version}`,
-  "",
-  "This repository is a finished, tested app. Your job is to copy it into this Base44 app exactly, one part at a time.",
-  "",
+const kb = (list) => Math.round(list.reduce((n, f) => n + readFileSync(join(root, f), "utf8").length, 0) / 1024);
+const RULES = [
   "## Rules (follow every one)",
   "",
-  "- Copy, don't build. Do not plan, design, redesign, improve, simplify, rename, merge or split anything.",
-  "- For every file in the part you're asked to do: open its link, and create the file at exactly that path with exactly that content, character for character.",
-  "- Never write your own version of a file, never summarize a file, and never leave a file out. If a file is long, keep going until it's complete.",
-  "- Don't create files that aren't listed, and don't change files from other parts.",
-  "- Only do the part the user asks for, then stop and say which files you created.",
-  "- A new Base44 app already has some of these files (for example src/lib/app-params.js, src/api/base44Client.js, src/components/ui/use-toast.jsx and src/components/ui/toaster.jsx). Replace them with the repo's version anyway, even if yours looks almost the same. Only the repo's exact version passes the Copy check.",
-  "- Don't fix build errors between parts. If the app shows an error before the last part, leave it: it means a file from a later part isn't there yet. Never edit, rename or add an export to any file to make an error go away.",
-  "- The data entities are in base44/entities and the backend functions are in base44/functions. Create them exactly as written.",
-  "- Images load from the internet by themselves. Don't create or download image files.",
-  "- Spacing, line breaks and a missing final newline don't matter (the check ignores them), and Base44 reformatting entity files is fine. Don't spend time on those.",
-  "- Write each file once and move on. Don't open copy-manifest.json, don't compute hashes or fingerprints, don't compare or re-check files after writing them, and don't test the app between parts (except the preview check at the end of Part 1). The app's Copy check does all of that at the end, so extra checking only uses up credits.",
-  "",
-  `There are ${part} parts. After the last part, the user opens Settings, then Check my setup. Its Copy check compares every file with this list and names any file that isn't an exact copy.`,
+  "- Copy, don't build. Don't plan, design, redesign, improve, simplify, rename, merge or split anything.",
+  "- For every file below: open its link and create the file at exactly that path with exactly that content, character for character. If the file already exists, replace it.",
+  "- Never write your own version of a file, never summarize one, and never leave one out. If a file is long, keep going until it's complete.",
+  "- Don't create files that aren't listed, and don't change any other file in the app.",
+  "- Write each file once and move on. Don't re-check files, compute hashes or test between files. The app's Setup check does that.",
+  "- Spacing and line breaks don't matter. Images load from the internet by themselves; don't create image files.",
   "",
 ];
-for (let n = 1; n <= part; n++) {
-  lines.push(`## Part ${n}`, "");
-  if (n === 1) {
-    lines.push("First install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). For reference, the template's setup files are:", "");
-    SETUP.forEach((f) => lines.push(`- ${f}: ${RAW}/${f}`));
-    lines.push("", `If this app has no index.html in its root folder, create it exactly from ${RAW}/index.html (the app can't build without it).`);
-    lines.push("", "Then create these files:", "");
-  }
-  Object.entries(entries)
-    .filter(([, e]) => e.part === n)
-    .forEach(([f]) => lines.push(`- ${f}: ${RAW}/${f}`));
-  if (n === 1) {
-    lines.push(
-      "",
-      "Data entities: after creating the six base44/entities files, make sure each entity's stored schema in this app matches its file exactly (re-register it from the file if it's older or different). If an entity's stored schema is out of date, saves silently drop fields and the tools stop moving forward.",
-      "Last step of Part 1: the app must open in the preview and show the Welcome screen.",
-      "These files were built for Base44's browser-only app setup. If this app uses Base44's newer app setup and the preview can't load them, add the small bridge this app's setup needs so the template's src/main.jsx and src/App.jsx run in the preview. Only change this app's own setup files that aren't listed in this COPY.md (for example package.json, vite.config.js or the app's own entry file). Never change a file listed in this COPY.md.",
-    );
-  }
-  lines.push("");
+
+const start = [
+  `# Freelance HQ ${version}: install the HQ`,
+  "",
+  "This repository is a finished, tested app. Copy its HQ into this Base44 app exactly, in one go. The AI tools are added later, one at a time, from inside the app.",
+  "",
+  ...RULES,
+  "## Setup",
+  "",
+  "Install every package listed in the template's package.json. Keep this app's own package.json, vite.config.js and other setup files (only add missing packages). For reference:",
+  "",
+  ...["package.json", "vite.config.js", "jsconfig.json", "postcss.config.js", "components.json"].map((f) => `- ${f}: ${RAW}/${f}`),
+  "",
+  `If this app has no index.html in its root folder, create it exactly from ${RAW}/index.html.`,
+  "",
+  "## Files",
+  "",
+  ...shell.map((f) => `- ${f}: ${RAW}/${f}`),
+  "",
+  "## Finish",
+  "",
+  "- Data entities: make sure each entity's stored schema in this app matches its base44/entities file exactly (re-register it from the file if it's older or different).",
+  "- A new Base44 app already has some of these files (for example src/lib/app-params.js, src/api/base44Client.js and the files in src/components/ui). Replace the listed ones with the repo's version anyway.",
+  "- If this app uses Base44's newer app setup and the preview can't load these files, add the small bridge its setup needs so src/main.jsx and src/App.jsx run. Only change setup files that aren't listed above.",
+  "- Last step: the app must open in the preview and show the Welcome screen. Then stop.",
+  "",
+];
+writeFileSync(join(root, "START.md"), start.join("\n"));
+
+mkdirSync(join(root, "builds"), { recursive: true });
+for (const tool of TOOLS) {
+  const list = groups[tool.id];
+  const md = [
+    `# Freelance HQ ${version}: add the ${tool.name}`,
+    "",
+    `This app already has the Freelance HQ. Add the ${tool.name} by copying these ${list.length} files exactly.`,
+    "",
+    ...RULES,
+    "## Files",
+    "",
+    ...list.map((f) => `- ${f}: ${RAW}/${f}`),
+    "",
+    "## Finish",
+    "",
+    tool.functions.length ? "- The base44/functions files are backend functions. Create them exactly as written and deploy them." : null,
+    `- When every file is written, open ${tool.route} in the preview. It should show ${tool.check}. Then stop.`,
+    "",
+  ].filter((l) => l !== null);
+  writeFileSync(join(root, "builds", `${tool.id}.md`), md.join("\n"));
 }
-writeFileSync(join(root, "COPY.md"), lines.join("\n"));
-console.log(`COPY.md written: ${part} parts`);
+
+console.log(`v${version}: HQ shell ${shell.length} files (${kb(shell)} KB)`);
+for (const tool of TOOLS) console.log(`  ${tool.id}: ${groups[tool.id].length} files (${kb(groups[tool.id])} KB)`);

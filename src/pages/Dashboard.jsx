@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/lib/ProfileContext";
 import { base44 } from "@/api/base44Client";
 import { Offer, MapPin, Mail, Search, ChevronRight } from "@/components/brand/icons";
-import { leadStage, leadFit } from "@/lib/clientsLogic";
+import { leadStage, leadFit } from "@/lib/leadStatus";
 import { GradOffer, GradClientFinder, GradAds, GradContent } from "@/components/brand/gradientIcons";
 import { SkeletonLine } from "@/components/shared/Skeleton";
-import { formatMoney } from "@/lib/offerData";
+
+const formatMoney = (n) => "$" + Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 0 });
 
 // Home: a cockpit, not a welcome page (brand-kit APP-UI.md). Every number is real data.
 

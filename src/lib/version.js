@@ -4,7 +4,7 @@
 // banner with a prompt the member pastes into Base44.
 // Keep APP_VERSION and version.json in sync when publishing an update.
 
-export const APP_VERSION = "2.1.0";
+export const APP_VERSION = "3.0.0";
 
 export const TEMPLATE_REPO = "https://github.com/suzy-crawford/freelance-hq-template";
 const VERSION_URL = "https://raw.githubusercontent.com/suzy-crawford/freelance-hq-template/main/version.json";
@@ -22,7 +22,10 @@ export function isNewer(a, b) {
 export async function fetchLatest() {
   const res = await fetch(`${VERSION_URL}?t=${Date.now()}`, { cache: "no-store" });
   if (!res.ok) throw new Error(`Couldn't check for updates (${res.status})`);
-  return res.json();
+  // "hq" is the build-as-you-go HQ (3.0 and up). "version" stays on 2.1.0 so apps installed the old way
+  // aren't asked to update to a different install.
+  const latest = await res.json();
+  return { ...latest, version: latest.hq || latest.version };
 }
 
 export function updatePrompt(latest) {

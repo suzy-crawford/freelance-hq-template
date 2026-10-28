@@ -1,706 +1,722 @@
 {
-  "version": "2.1.0",
-  "parts": 8,
+  "version": "3.0.0",
   "files": {
     "base44/entities/AdCampaign.jsonc": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "bf2cbea2d5111559"
     },
     "base44/entities/ContentPlan.jsonc": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "63e445f80c48f05f"
     },
     "base44/entities/FreelancerProfile.jsonc": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "5e6443eb3602d156"
     },
     "base44/entities/Offer.jsonc": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "be76e6ae8a81c6de"
     },
     "base44/entities/Prospect.jsonc": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "2fe97fe2cdd5d0d8"
     },
     "base44/entities/User.jsonc": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "eca48bb30862a459"
     },
     "src/components/ui/use-toast.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "5ec073232579fa1a"
     },
     "src/components/brand/icons.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "d004f748ee820886"
     },
     "src/lib/utils.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "6358196bcee81422"
     },
     "src/components/ui/toast.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "ca247c5fb4816c7c"
     },
     "src/components/ui/toaster.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "9f767080fd2c2f47"
     },
     "src/lib/query-client.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "1ca25a151e78de0e"
     },
     "src/lib/app-params.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "bb26f6211d61013f"
     },
     "src/api/base44Client.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "18bcdb33c42ffb15"
     },
     "src/lib/PageNotFound.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "437cbdd79b8b5d17"
     },
     "src/lib/AuthContext.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "9f1fb0241bbc2256"
     },
     "src/components/UserNotRegisteredError.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "639dcbc97ffc776a"
     },
     "src/components/ScrollToTop.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "1992dd4ea742a40d"
     },
     "src/components/shared/Skeleton.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "87380cd35236863d"
     },
     "src/components/ProtectedRoute.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "1482922355b6751f"
     },
     "src/lib/ProfileContext.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "7df9a45f461ab750"
     },
     "src/lib/version.js": {
-      "part": 1,
-      "hash": "925229e7d679a84e"
+      "groups": [
+        "shell"
+      ],
+      "hash": "fd083b1f420df83b"
     },
     "src/lib/assets.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "13ac985f77088aa7"
     },
     "src/lib/constants.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "d0c72c8db62237a4"
     },
     "src/components/AppLayout.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "852fb0c08a6dfafe"
     },
+    "src/components/shared/ToolHero.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "7568afffc57e3f95"
+    },
+    "src/components/shared/CopyButton.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "664abc780b50668c"
+    },
+    "src/components/BuildTool.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "70e762f19d5dd306"
+    },
+    "src/lib/tools.js": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "12eec81000dd673e"
+    },
     "src/App.jsx": {
-      "part": 1,
-      "hash": "62a1c47d8e24f7fb"
+      "groups": [
+        "shell"
+      ],
+      "hash": "f8ace3783995b47e"
     },
     "src/lib/brandStyles.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "d4337e77a5047389"
     },
-    "src/index.css": {
-      "part": 1,
-      "hash": "6e32adf03f245c93"
-    },
     "src/lib/theme.js": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "fa58bc61dbb4acfc"
     },
     "src/main.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "0919341b8e7cc40a"
     },
+    "src/index.css": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "6e32adf03f245c93"
+    },
+    "src/components/ui/button.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "83d3237df356b974"
+    },
+    "src/components/ui/input.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "c49ab45b9995d831"
+    },
+    "src/components/ui/label.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "42d9500ad59b504b"
+    },
+    "src/components/AuthLayout.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "476fec3e81024f43"
+    },
+    "src/components/GoogleIcon.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "084beefa50de1eae"
+    },
+    "src/lib/authReturnTo.js": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "4e1307074ee9de1b"
+    },
+    "src/pages/Login.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "f2598aa547f74cba"
+    },
+    "src/components/ui/input-otp.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "075ca7379be612b8"
+    },
+    "src/pages/Register.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "10486da07bec52b0"
+    },
+    "src/pages/ForgotPassword.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "5da08a55818e4f30"
+    },
+    "src/pages/ResetPassword.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "4fe42928604519a2"
+    },
     "src/components/shared/WizardShell.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "5168fffc5a3fa867"
     },
     "src/components/shared/SelectableCard.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "caf0266c525b3006"
     },
-    "src/components/ui/input.jsx": {
-      "part": 1,
-      "hash": "c49ab45b9995d831"
-    },
     "src/components/shared/IncomeGoalInput.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "521a03c11aecbf20"
     },
-    "src/components/ui/label.jsx": {
-      "part": 1,
-      "hash": "42d9500ad59b504b"
-    },
     "src/pages/Onboarding.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "bbc4c868f27a3bf3"
     },
-    "src/components/shared/CopyButton.jsx": {
-      "part": 1,
-      "hash": "664abc780b50668c"
-    },
     "src/components/shared/UpdateBanner.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "ef5dac899f12104f"
     },
-    "src/lib/offerData.js": {
-      "part": 1,
-      "hash": "51b6b63e4c94f366"
-    },
-    "src/lib/clientsLogic.js": {
-      "part": 1,
-      "hash": "0295396a9c15dffa"
+    "src/lib/leadStatus.js": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "5edfb6386dfe62df"
     },
     "src/components/brand/gradientIcons.jsx": {
-      "part": 1,
+      "groups": [
+        "shell"
+      ],
       "hash": "baf2236cef7d20a7"
     },
     "src/pages/Dashboard.jsx": {
-      "part": 1,
-      "hash": "7ae4b30b40804799"
+      "groups": [
+        "shell"
+      ],
+      "hash": "133ab14a4fe88108"
     },
-    "base44/functions/findBusinesses/entry.ts": {
-      "part": 2,
-      "hash": "22bb79fdf61390dd"
+    "src/components/shared/PageHeader.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "43d69ec9bef04979"
     },
-    "base44/functions/findEmail/entry.ts": {
-      "part": 2,
-      "hash": "e9b9e648423afac6"
+    "src/pages/Profile.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "5ccbef6b26ac7c58"
+    },
+    "src/lib/copyCheck.js": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "b0095fe2c827f365"
+    },
+    "src/pages/SetupCheck.jsx": {
+      "groups": [
+        "shell"
+      ],
+      "hash": "64a1f2699c11aff6"
     },
     "base44/functions/generateWithAI/entry.ts": {
-      "part": 2,
+      "groups": [
+        "offer",
+        "clients",
+        "ads",
+        "content"
+      ],
       "hash": "a80385a3e00844b6"
     },
-    "base44/functions/readWebsite/entry.ts": {
-      "part": 2,
-      "hash": "e810f6b59075b4e6"
+    "src/lib/offerData.js": {
+      "groups": [
+        "offer",
+        "clients",
+        "buildlab"
+      ],
+      "hash": "51b6b63e4c94f366"
     },
-    "src/hooks/use-mobile.jsx": {
-      "part": 2,
-      "hash": "9ec83a7d5a8de0f1"
-    },
-    "src/hooks/use-size.jsx": {
-      "part": 2,
-      "hash": "e99c790e3e21056c"
-    },
-    "src/lib/adsAngleLibrary.js": {
-      "part": 2,
-      "hash": "58f22e044a6ada9c"
-    },
-    "src/lib/adsCards.js": {
-      "part": 2,
-      "hash": "7534a44869233650"
-    },
-    "src/lib/adsData.js": {
-      "part": 2,
-      "hash": "655bb6f19ad30ab3"
-    },
-    "src/lib/adsNiches.js": {
-      "part": 2,
-      "hash": "3f7d57553f678d69"
-    },
-    "src/lib/adsBuilder.js": {
-      "part": 2,
-      "hash": "9be95873973b7df9"
+    "src/pages/OfferBuilder.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "8014630a53db33fa"
     },
     "src/lib/copyVoice.js": {
-      "part": 2,
+      "groups": [
+        "offer",
+        "clients",
+        "content"
+      ],
       "hash": "aaa90a5c1dea50de"
     },
     "src/lib/offerPrompts.js": {
-      "part": 2,
+      "groups": [
+        "offer",
+        "clients"
+      ],
       "hash": "e3acebc7a29f9960"
     },
-    "src/lib/adsCreative.js": {
-      "part": 2,
-      "hash": "9f67933a5232a4f4"
-    },
-    "src/lib/adsHeadlines.js": {
-      "part": 2,
-      "hash": "f3b768ed48ea8c01"
-    },
-    "src/lib/adsPrompts.js": {
-      "part": 2,
-      "hash": "a485c0d96fdde375"
-    },
-    "src/lib/adsClaudePrompts.js": {
-      "part": 3,
-      "hash": "0db29c947b12d9c1"
-    },
-    "src/lib/adsMasterPrompts.js": {
-      "part": 3,
-      "hash": "58cd61110eb0434c"
-    },
-    "src/lib/adsEngine.js": {
-      "part": 3,
-      "hash": "85f8a559e58750f5"
-    },
-    "src/lib/adsLaunch.js": {
-      "part": 3,
-      "hash": "fbee2d7a9037d5d3"
-    },
-    "src/lib/authReturnTo.js": {
-      "part": 3,
-      "hash": "4e1307074ee9de1b"
-    },
-    "src/lib/buildsExtras.js": {
-      "part": 3,
-      "hash": "af5bb8490fa6eae0"
-    },
     "src/lib/callAI.js": {
-      "part": 3,
+      "groups": [
+        "offer",
+        "clients",
+        "ads",
+        "content"
+      ],
       "hash": "7b19c28657f3f4ea"
     },
-    "src/lib/clientsAnalysis.js": {
-      "part": 3,
-      "hash": "8ab9ceafd557af43"
+    "src/components/offer/BuildLoading.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "fbc2a3875a7f9eb0"
     },
-    "src/lib/clientsPreviewSite.js": {
-      "part": 3,
-      "hash": "593cabe54a8ab822"
+    "src/components/ui/textarea.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "788fc91434e95270"
     },
-    "src/lib/clientsBuilds.js": {
-      "part": 3,
-      "hash": "574540299c7a81d8"
+    "src/components/offer/ScreenServices.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "58c320d407df884c"
     },
-    "src/lib/sampleOffers.js": {
-      "part": 4,
-      "hash": "44fb200cf339738a"
+    "src/components/offer/ScreenNiche.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "d3ad6d81d8cb274b"
     },
-    "src/lib/clientsClaudePrompt.js": {
-      "part": 4,
-      "hash": "33206640a92651e4"
+    "src/components/offer/AIError.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "cfb5868efbb73265"
     },
-    "src/lib/clientsOutreach.js": {
-      "part": 4,
-      "hash": "c3a6c25985ce22b4"
+    "src/components/offer/ScreenAbout.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "ed00640151c9fc47"
     },
-    "src/lib/contentEngine.js": {
-      "part": 4,
-      "hash": "c31cd7000db25642"
-    },
-    "src/lib/contentRev.js": {
-      "part": 4,
-      "hash": "71eefc44961f0366"
-    },
-    "src/lib/copyCheck.js": {
-      "part": 4,
-      "hash": "5f8a40de87d9db5a"
-    },
-    "src/lib/liveContent.js": {
-      "part": 4,
-      "hash": "32dbfd8e372647df"
+    "src/pages/OfferWizard.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "94dc5993a46093f0"
     },
     "src/lib/offerLogic.js": {
-      "part": 4,
+      "groups": [
+        "offer"
+      ],
       "hash": "8d08889d06965306"
     },
-    "src/lib/offerChecks.js": {
-      "part": 4,
-      "hash": "49cfb3651e1359f5"
+    "src/components/offer/result/SectionCard.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "378485d4d118a313"
     },
-    "src/components/ads/MetaAdsBuilder.jsx": {
-      "part": 4,
-      "hash": "a5fa96649231f4d2"
+    "src/components/offer/result/PriceCard.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "af5ffb764d6acfb7"
     },
-    "src/components/AuthLayout.jsx": {
-      "part": 5,
-      "hash": "476fec3e81024f43"
+    "src/components/offer/result/RefineIt.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "a037f87b5a3793bd"
     },
-    "src/components/builds/BuildsPanel.jsx": {
-      "part": 5,
-      "hash": "16b436443573e78c"
+    "src/components/offer/result/YourOfferTab.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "eb73a7d2f5af91ca"
+    },
+    "src/components/shared/InfoTip.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "d0e057dbb5d53e5f"
+    },
+    "src/components/offer/result/EditableText.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "b5525bb44b295082"
+    },
+    "src/components/offer/result/OfferDocTab.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "dc3f91a9e80cfbce"
+    },
+    "src/components/offer/result/ScopeTab.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "666c8f7a80f0dd0b"
+    },
+    "src/components/shared/Tabs.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "cd6462c62e568d8a"
+    },
+    "src/pages/OfferResult.jsx": {
+      "groups": [
+        "offer"
+      ],
+      "hash": "448640fe586c37b6"
+    },
+    "base44/functions/findBusinesses/entry.ts": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "22bb79fdf61390dd"
+    },
+    "base44/functions/findEmail/entry.ts": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "e9b9e648423afac6"
+    },
+    "src/components/shared/EmptyState.jsx": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "ac6e6257e3fdb66a"
     },
     "src/components/shared/CopyIcon.jsx": {
-      "part": 5,
+      "groups": [
+        "clients"
+      ],
       "hash": "5bfcefe3a160d47a"
     },
     "src/components/clients/ContactRow.jsx": {
-      "part": 5,
+      "groups": [
+        "clients"
+      ],
       "hash": "45b2a4672f7cd87c"
     },
-    "src/components/clients/LeadWorkspace.jsx": {
-      "part": 5,
-      "hash": "0b1fb257a74a9710"
-    },
-    "src/components/content/ContentCreator.jsx": {
-      "part": 5,
-      "hash": "9da77fe90432522e"
-    },
-    "src/components/GoogleIcon.jsx": {
-      "part": 5,
-      "hash": "084beefa50de1eae"
-    },
-    "src/components/ui/button.jsx": {
-      "part": 5,
-      "hash": "83d3237df356b974"
-    },
-    "src/components/offer/AIError.jsx": {
-      "part": 5,
-      "hash": "cfb5868efbb73265"
-    },
-    "src/components/offer/BuildLoading.jsx": {
-      "part": 5,
-      "hash": "fbc2a3875a7f9eb0"
-    },
-    "src/components/offer/result/EditableText.jsx": {
-      "part": 5,
-      "hash": "b5525bb44b295082"
-    },
-    "src/components/shared/InfoTip.jsx": {
-      "part": 5,
-      "hash": "d0e057dbb5d53e5f"
-    },
-    "src/components/offer/result/OfferDocTab.jsx": {
-      "part": 5,
-      "hash": "dc3f91a9e80cfbce"
-    },
-    "src/components/offer/result/PriceCard.jsx": {
-      "part": 5,
-      "hash": "af5ffb764d6acfb7"
-    },
-    "src/components/ui/textarea.jsx": {
-      "part": 5,
-      "hash": "788fc91434e95270"
-    },
-    "src/components/offer/result/RefineIt.jsx": {
-      "part": 5,
-      "hash": "a037f87b5a3793bd"
-    },
-    "src/components/offer/result/ScopeTab.jsx": {
-      "part": 5,
-      "hash": "666c8f7a80f0dd0b"
-    },
-    "src/components/offer/result/SectionCard.jsx": {
-      "part": 5,
-      "hash": "378485d4d118a313"
-    },
-    "src/components/offer/result/YourOfferTab.jsx": {
-      "part": 5,
-      "hash": "eb73a7d2f5af91ca"
-    },
-    "src/components/offer/ScreenAbout.jsx": {
-      "part": 5,
-      "hash": "ed00640151c9fc47"
-    },
-    "src/components/offer/ScreenNiche.jsx": {
-      "part": 5,
-      "hash": "d3ad6d81d8cb274b"
-    },
-    "src/components/offer/ScreenServices.jsx": {
-      "part": 5,
-      "hash": "58c320d407df884c"
-    },
-    "src/components/shared/EmptyState.jsx": {
-      "part": 5,
-      "hash": "ac6e6257e3fdb66a"
-    },
-    "src/components/shared/PageHeader.jsx": {
-      "part": 5,
-      "hash": "43d69ec9bef04979"
-    },
-    "src/components/shared/Tabs.jsx": {
-      "part": 5,
-      "hash": "cd6462c62e568d8a"
-    },
-    "src/components/shared/ToolHero.jsx": {
-      "part": 5,
-      "hash": "7568afffc57e3f95"
-    },
-    "src/components/ui/accordion.jsx": {
-      "part": 5,
-      "hash": "c7c5baa40685c560"
-    },
-    "src/components/ui/alert-dialog.jsx": {
-      "part": 5,
-      "hash": "f69895907d83c1bd"
-    },
-    "src/components/ui/alert.jsx": {
-      "part": 5,
-      "hash": "44b0ed62f672416e"
-    },
-    "src/components/ui/aspect-ratio.jsx": {
-      "part": 5,
-      "hash": "3924b1955e2027f4"
-    },
-    "src/components/ui/avatar.jsx": {
-      "part": 5,
-      "hash": "c17a9ffdf5452358"
-    },
-    "src/components/ui/badge.jsx": {
-      "part": 5,
-      "hash": "b4490a7bd1276485"
-    },
-    "src/components/ui/breadcrumb.jsx": {
-      "part": 5,
-      "hash": "1816ba8dbab5912a"
-    },
-    "src/components/ui/calendar.jsx": {
-      "part": 5,
-      "hash": "24573c5330b4dc1c"
-    },
-    "src/components/ui/card.jsx": {
-      "part": 5,
-      "hash": "1229bc98b6248a8b"
-    },
-    "src/components/ui/carousel.jsx": {
-      "part": 5,
-      "hash": "b73c8f1f9e899841"
-    },
-    "src/components/ui/chart.jsx": {
-      "part": 5,
-      "hash": "bbacca1cead8cea8"
-    },
-    "src/components/ui/checkbox.jsx": {
-      "part": 5,
-      "hash": "4ff0d2e9ec7bbb0d"
-    },
-    "src/components/ui/collapsible.jsx": {
-      "part": 5,
-      "hash": "fa1e4c6c22866f67"
-    },
-    "src/components/ui/dialog.jsx": {
-      "part": 5,
-      "hash": "1c496c85f30f71ef"
-    },
-    "src/components/ui/command.jsx": {
-      "part": 6,
-      "hash": "b7fa6046888d04d9"
-    },
-    "src/components/ui/context-menu.jsx": {
-      "part": 6,
-      "hash": "f5c1117849469501"
-    },
-    "src/components/ui/drawer.jsx": {
-      "part": 6,
-      "hash": "c05be34534fc8227"
-    },
-    "src/components/ui/dropdown-menu.jsx": {
-      "part": 6,
-      "hash": "5456c1b874d43eef"
-    },
-    "src/components/ui/form.jsx": {
-      "part": 6,
-      "hash": "f75032cd11b90ad1"
-    },
-    "src/components/ui/hover-card.jsx": {
-      "part": 6,
-      "hash": "e1879b8f8de0f64f"
-    },
-    "src/components/ui/image-helpers.js": {
-      "part": 6,
-      "hash": "b3ee296e65c6620c"
-    },
-    "src/components/ui/use-responsive-image.jsx": {
-      "part": 6,
-      "hash": "e20d991dc6b08147"
-    },
-    "src/components/ui/responsive-image.jsx": {
-      "part": 6,
-      "hash": "2539f90ff87a8f63"
-    },
-    "src/components/ui/image.jsx": {
-      "part": 6,
-      "hash": "a279753eb052c0a3"
-    },
-    "src/components/ui/input-otp.jsx": {
-      "part": 6,
-      "hash": "075ca7379be612b8"
-    },
-    "src/components/ui/menubar.jsx": {
-      "part": 6,
-      "hash": "64f291fa7096afba"
-    },
-    "src/components/ui/navigation-menu.jsx": {
-      "part": 6,
-      "hash": "bfd1c48a5545e0b4"
-    },
-    "src/components/ui/pagination.jsx": {
-      "part": 6,
-      "hash": "eac8f5ae1adbd5a5"
-    },
-    "src/components/ui/popover.jsx": {
-      "part": 6,
-      "hash": "eead9959ff876f16"
-    },
-    "src/components/ui/progress.jsx": {
-      "part": 6,
-      "hash": "10a1b9c1224b4183"
-    },
-    "src/components/ui/radio-group.jsx": {
-      "part": 6,
-      "hash": "77810bb6dc450c91"
-    },
-    "src/components/ui/resizable.jsx": {
-      "part": 6,
-      "hash": "c953841d79f9e796"
-    },
-    "src/components/ui/scroll-area.jsx": {
-      "part": 6,
-      "hash": "709bd2eac3df04e1"
-    },
-    "src/components/ui/select.jsx": {
-      "part": 6,
-      "hash": "799dc8f43db88253"
-    },
-    "src/components/ui/separator.jsx": {
-      "part": 6,
-      "hash": "d2e6f78ef23046ae"
-    },
-    "src/components/ui/sheet.jsx": {
-      "part": 6,
-      "hash": "fa69f9ef977b7aa0"
-    },
-    "src/components/ui/skeleton.jsx": {
-      "part": 6,
-      "hash": "8f99161ca9446cf2"
-    },
-    "src/components/ui/tooltip.jsx": {
-      "part": 6,
-      "hash": "dba80f5dd76c5d52"
-    },
-    "src/components/ui/sidebar.jsx": {
-      "part": 6,
-      "hash": "2cbe2ccccb974a61"
-    },
-    "src/components/ui/slider.jsx": {
-      "part": 6,
-      "hash": "5d5ccf693c8d0e09"
-    },
-    "src/components/ui/sonner.jsx": {
-      "part": 6,
-      "hash": "43cb36b2a9e2a09e"
-    },
-    "src/components/ui/switch.jsx": {
-      "part": 6,
-      "hash": "89a551a8ce0b6734"
-    },
-    "src/components/ui/table.jsx": {
-      "part": 6,
-      "hash": "d5ae7a7db2d96c38"
-    },
-    "src/components/ui/tabs.jsx": {
-      "part": 6,
-      "hash": "4dc3fe08ccf805b1"
-    },
-    "src/components/ui/toggle.jsx": {
-      "part": 6,
-      "hash": "bb2f08a5d4fdcf56"
-    },
-    "src/components/ui/toggle-group.jsx": {
-      "part": 6,
-      "hash": "5fa8f4be9a85fe53"
-    },
-    "src/pages/AdCampaign.jsx": {
-      "part": 6,
-      "hash": "b5ff0e8af0430f47"
-    },
-    "src/pages/AdsHome.jsx": {
-      "part": 6,
-      "hash": "f5b3e568a62f8d1f"
-    },
-    "src/pages/BuildLab.jsx": {
-      "part": 6,
-      "hash": "b0842b734ceba892"
-    },
-    "src/pages/ContentHome.jsx": {
-      "part": 6,
-      "hash": "13881f0e2ba5ff2e"
-    },
-    "src/pages/ContentPlan.jsx": {
-      "part": 6,
-      "hash": "d9c86bc6d61c2b1f"
-    },
-    "src/pages/ForgotPassword.jsx": {
-      "part": 6,
-      "hash": "5da08a55818e4f30"
+    "src/lib/clientsLogic.js": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "43a95f73f116cf6a"
     },
     "src/pages/GetClients.jsx": {
-      "part": 6,
+      "groups": [
+        "clients"
+      ],
       "hash": "f7fae3314870a227"
     },
-    "src/pages/Login.jsx": {
-      "part": 6,
-      "hash": "f2598aa547f74cba"
+    "src/lib/clientsAnalysis.js": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "8ab9ceafd557af43"
     },
-    "src/pages/OAuthConsent.jsx": {
-      "part": 6,
-      "hash": "42b3f17c14f388e8"
+    "src/lib/sampleOffers.js": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "44fb200cf339738a"
     },
-    "src/pages/OfferBuilder.jsx": {
-      "part": 6,
-      "hash": "8014630a53db33fa"
+    "src/lib/clientsClaudePrompt.js": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "33206640a92651e4"
     },
-    "src/pages/OfferResult.jsx": {
-      "part": 7,
-      "hash": "448640fe586c37b6"
+    "src/lib/clientsPreviewSite.js": {
+      "groups": [
+        "clients",
+        "buildlab"
+      ],
+      "hash": "593cabe54a8ab822"
     },
-    "src/pages/OfferWizard.jsx": {
-      "part": 7,
-      "hash": "94dc5993a46093f0"
+    "src/lib/buildsExtras.js": {
+      "groups": [
+        "clients",
+        "buildlab"
+      ],
+      "hash": "af5bb8490fa6eae0"
     },
-    "src/pages/Profile.jsx": {
-      "part": 7,
-      "hash": "5ccbef6b26ac7c58"
+    "src/lib/adsNiches.js": {
+      "groups": [
+        "clients",
+        "ads",
+        "content",
+        "buildlab"
+      ],
+      "hash": "3f7d57553f678d69"
+    },
+    "src/lib/clientsBuilds.js": {
+      "groups": [
+        "clients",
+        "buildlab"
+      ],
+      "hash": "574540299c7a81d8"
+    },
+    "src/components/builds/BuildsPanel.jsx": {
+      "groups": [
+        "clients",
+        "buildlab"
+      ],
+      "hash": "16b436443573e78c"
+    },
+    "src/lib/clientsOutreach.js": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "c3a6c25985ce22b4"
+    },
+    "src/components/clients/LeadWorkspace.jsx": {
+      "groups": [
+        "clients"
+      ],
+      "hash": "0b1fb257a74a9710"
     },
     "src/pages/ProspectDetail.jsx": {
-      "part": 7,
+      "groups": [
+        "clients"
+      ],
       "hash": "bc994f720d19a0c2"
     },
-    "src/pages/Register.jsx": {
-      "part": 7,
-      "hash": "10486da07bec52b0"
+    "base44/functions/readWebsite/entry.ts": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "e810f6b59075b4e6"
     },
-    "src/pages/ResetPassword.jsx": {
-      "part": 7,
-      "hash": "4fe42928604519a2"
+    "src/lib/adsData.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "655bb6f19ad30ab3"
     },
-    "src/pages/SetupCheck.jsx": {
-      "part": 7,
-      "hash": "c6d6e75898b93cbb"
+    "src/pages/AdsHome.jsx": {
+      "groups": [
+        "ads"
+      ],
+      "hash": "f5b3e568a62f8d1f"
     },
-    "src/brand/app.css": {
-      "part": 7,
-      "hash": "be0f8580e8757e36"
+    "src/lib/adsCards.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "7534a44869233650"
     },
-    "src/brand/brand2-1.css": {
-      "part": 7,
-      "hash": "4f32281a800f5579"
+    "src/lib/adsAngleLibrary.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "58f22e044a6ada9c"
     },
-    "src/brand/brand2-2.css": {
-      "part": 7,
-      "hash": "f2c9c7f2b9977962"
+    "src/lib/adsBuilder.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "9be95873973b7df9"
     },
-    "src/brand/brand2-3.css": {
-      "part": 8,
-      "hash": "d9082a953cb431d5"
+    "src/lib/adsMasterPrompts.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "58cd61110eb0434c"
     },
-    "src/brand/brand2-4.css": {
-      "part": 8,
-      "hash": "f92f1c33b4ab61dc"
+    "src/lib/adsCreative.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "9f67933a5232a4f4"
     },
-    "src/brand/kit2/components.css": {
-      "part": 8,
-      "hash": "65543ce6893c5bf6"
+    "src/lib/adsEngine.js": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "85f8a559e58750f5"
     },
-    "src/brand/kit2/tokens.css": {
-      "part": 8,
-      "hash": "8dd3618e9e087269"
+    "src/components/ads/MetaAdsBuilder.jsx": {
+      "groups": [
+        "ads",
+        "content"
+      ],
+      "hash": "a5fa96649231f4d2"
     },
-    "src/brand/tokens.css": {
-      "part": 8,
-      "hash": "c2dbe56ae1f64445"
+    "src/pages/AdCampaign.jsx": {
+      "groups": [
+        "ads"
+      ],
+      "hash": "b5ff0e8af0430f47"
+    },
+    "src/pages/ContentHome.jsx": {
+      "groups": [
+        "content"
+      ],
+      "hash": "13881f0e2ba5ff2e"
+    },
+    "src/lib/contentEngine.js": {
+      "groups": [
+        "content"
+      ],
+      "hash": "c31cd7000db25642"
+    },
+    "src/components/content/ContentCreator.jsx": {
+      "groups": [
+        "content"
+      ],
+      "hash": "9da77fe90432522e"
+    },
+    "src/pages/ContentPlan.jsx": {
+      "groups": [
+        "content"
+      ],
+      "hash": "d9c86bc6d61c2b1f"
+    },
+    "src/pages/BuildLab.jsx": {
+      "groups": [
+        "buildlab"
+      ],
+      "hash": "b0842b734ceba892"
     }
   }
 }

@@ -1,7 +1,7 @@
 // SheFreelances OS - copy check (copyCheck.js)
 // Proves a member's app is an exact copy of the template. Every app source file is read as text,
 // fingerprinted (whitespace ignored, so reformatting is fine) and compared with copy-manifest.json
-// published in the template for this version. Loaded only on the Setup check page.
+// published in the template for this version. Loaded only on the Setup check page, one piece at a time.
 
 import { APP_VERSION } from "./version";
 import selfSource from "./copyCheck.js?raw";
@@ -44,33 +44,38 @@ async function loadManifest() {
   throw new Error("Couldn't load the template's file list. Check your internet connection and try again.");
 }
 
-// { version, total, matched, changed: [{file, part}], missing: [{file, part}], extra: [file], parts: [n] }
-export async function runCopyCheck() {
+// Checks one piece of the app ("shell" or a tool id from tools.js), only when the member clicks Check.
+// { version, total, matched, changed: [file], missing: [file], raw }
+export async function runCopyCheck(group) {
   const manifest = await loadManifest();
+  // Backend files (data entities and server functions) can't be read from the browser, and contentRev.js is a
+  // counter that goes up with every live content update, so neither is compared.
+  const checked = Object.entries(manifest.files).filter(
+    ([file, e]) => (e.groups || []).includes(group) && !file.startsWith("base44/") && file !== "src/lib/contentRev.js"
+  );
   const have = {};
   await Promise.all(
-    Object.entries(SOURCES).map(async ([path, load]) => {
+    checked.map(async ([file]) => {
+      if (file === "src/lib/copyCheck.js") {
+        have[file] = await fingerprint(selfSource);
+        return;
+      }
+      const load = SOURCES[`/${file}`];
+      if (!load) return;
       try {
-        have[path.replace(/^\//, "")] = await fingerprint(await load(), path);
+        have[file] = await fingerprint(await load(), file);
       } catch {
         /* unreadable files count as missing */
       }
     })
   );
-  // A file's own list of files leaves the file out, so this one is added by hand.
-  have["src/lib/copyCheck.js"] = await fingerprint(selfSource);
   const changed = [];
   const missing = [];
   let matched = 0;
-  // Backend files (data entities and server functions) can't be read from the browser, so only the app's own files are checked.
-  // contentRev.js is a counter that goes up with every live content update, so it's expected to differ.
-  const checked = Object.entries(manifest.files).filter(([file]) => !file.startsWith("base44/") && file !== "src/lib/contentRev.js");
-  checked.forEach(([file, { part, hash }]) => {
-    if (!(file in have)) missing.push({ file, part });
-    else if (have[file] !== hash) changed.push({ file, part });
+  checked.forEach(([file, { hash }]) => {
+    if (!(file in have)) missing.push(file);
+    else if (have[file] !== hash) changed.push(file);
     else matched += 1;
   });
-  const extra = Object.keys(have).filter((f) => !(f in manifest.files) && !f.startsWith("src/__"));
-  const parts = [...new Set([...changed, ...missing].map((f) => f.part))].sort((a, b) => a - b);
-  return { version: manifest.version, total: checked.length, matched, changed, missing, extra, parts };
+  return { version: manifest.version, total: checked.length, matched, changed, missing, raw: `${TEMPLATE_RAW}/v${manifest.version}` };
 }
