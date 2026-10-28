@@ -33,7 +33,7 @@
     --radius: 4px;
     --font-heading: var(--font-display);
     --font-body: var(--font-sans);
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     /* App colors, mapped to the SheFreelances AI brand tokens (src/brand/tokens.css). */
     --color-bg: var(--a-bg);
     --color-surface: var(--a-sunk);
