@@ -303,13 +303,13 @@
       "groups": [
         "clients"
       ],
-      "hash": "127112099077dd5d"
+      "hash": "4e4059fe333be053"
     },
     "base44/functions/findEmail/entry.ts": {
       "groups": [
         "clients"
       ],
-      "hash": "17bee3db28a82684"
+      "hash": "d036026ea5940e12"
     },
     "src/components/shared/EmptyState.jsx": {
       "groups": [
@@ -365,7 +365,7 @@
         "ads",
         "content"
       ],
-      "hash": "a5ba4124c0c60518"
+      "hash": "fbe92a945d20cef3"
     },
     "src/pages/AdsHome.jsx": {
       "groups": [

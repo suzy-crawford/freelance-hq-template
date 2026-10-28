@@ -6,6 +6,57 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.52';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 
+// Member-supplied websites only: refuses addresses inside a private network or on the server itself (SSRF),
+// and checks every redirect the same way.
+const BLOCKED_HOST = /^(localhost|metadata\.google\.internal|.*\.(localhost|local|internal|lan|home|corp))$/i;
+function privateIp(ip: string): boolean {
+  const v4 = ip.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/);
+  if (v4) {
+    const a = Number(v4[1]);
+    const b = Number(v4[2]);
+    return a === 0 || a === 10 || a === 127 || a >= 224 || (a === 100 && b >= 64 && b <= 127) || (a === 169 && b === 254) ||
+      (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 198 && (b === 18 || b === 19));
+  }
+  const v6 = ip.toLowerCase();
+  if (!v6.includes(':')) return false;
+  const mapped = v6.match(/^::ffff:([0-9a-f]{1,4}):([0-9a-f]{1,4})$/);
+  if (mapped) {
+    const [hi, lo] = [parseInt(mapped[1], 16), parseInt(mapped[2], 16)];
+    return privateIp(`${hi >> 8}.${hi & 255}.${lo >> 8}.${lo & 255}`);
+  }
+  if (v6.startsWith('::ffff:')) return privateIp(v6.slice(7));
+  return v6 === '::' || v6 === '::1' || /^f[cd]/.test(v6) || /^fe[89ab]/.test(v6);
+}
+async function publicUrl(raw: string): Promise<boolean> {
+  let u: URL;
+  try {
+    u = new URL(raw);
+  } catch {
+    return false;
+  }
+  if ((u.protocol !== 'http:' && u.protocol !== 'https:') || u.username || u.password) return false;
+  const host = u.hostname.replace(/^\[|\]$/g, '');
+  if (BLOCKED_HOST.test(host) || privateIp(host)) return false;
+  if (/^[\d.]+$/.test(host) || host.includes(':')) return true;
+  try {
+    const ips = [...(await Deno.resolveDns(host, 'A').catch(() => [])), ...(await Deno.resolveDns(host, 'AAAA').catch(() => []))];
+    return !ips.some(privateIp);
+  } catch {
+    return true; // no DNS lookups here: the name checks above still apply
+  }
+}
+async function safeFetch(url: string, init: RequestInit): Promise<Response> {
+  let current = url;
+  for (let hop = 0; hop < 6; hop++) {
+    if (!(await publicUrl(current))) throw new Error('That address is not a public website.');
+    const res = await fetch(current, { ...init, redirect: 'manual' });
+    const next = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null;
+    if (!next) return res;
+    current = new URL(next, current).toString();
+  }
+  throw new Error('Too many redirects.');
+}
+
 const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
 const JUNK_EMAIL = /(example\.|sentry|wixpress|domain\.com|email\.com|yourname|@\d|\.(png|jpe?g|gif|webp|svg)$)/i;
 
@@ -52,7 +103,7 @@ async function fetchHtml(url: string, ms = 8000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ms);
   try {
-    const res = await fetch(url, { redirect: 'follow', signal: controller.signal, headers: { 'User-Agent': UA } });
+    const res = await safeFetch(url, { signal: controller.signal, headers: { 'User-Agent': UA } });
     const html = res.ok ? await res.text() : '';
     return { ok: res.ok && !looksParked(html), html, finalUrl: res.url || url };
   } catch {
